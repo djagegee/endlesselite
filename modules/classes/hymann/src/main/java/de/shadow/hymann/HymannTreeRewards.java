@@ -1,6 +1,6 @@
 /*
  * Decompiled with CFR 0.152.
- * 
+ *
  * Could not load the following classes:
  *  com.ziggfreed.mmoskilltree.data.SkillComponent
  */
@@ -77,4 +77,3 @@ final class HymannTreeRewards {
         return total;
     }
 }
-

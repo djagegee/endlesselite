@@ -1,6 +1,6 @@
 /*
  * Decompiled with CFR 0.152.
- * 
+ *
  * Could not load the following classes:
  *  com.hypixel.hytale.component.Component
  *  com.hypixel.hytale.component.Ref
@@ -174,4 +174,3 @@ implements AbilityEffect {
     private record Candidate(Ref<EntityStore> entity, Vector3d position, double distanceSquared) {
     }
 }
-

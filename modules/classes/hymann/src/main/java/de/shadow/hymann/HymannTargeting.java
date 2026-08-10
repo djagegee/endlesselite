@@ -1,6 +1,6 @@
 /*
  * Decompiled with CFR 0.152.
- * 
+ *
  * Could not load the following classes:
  *  com.hypixel.hytale.component.Ref
  *  com.hypixel.hytale.component.Store
@@ -50,4 +50,3 @@ final class HymannTargeting {
         return false;
     }
 }
-

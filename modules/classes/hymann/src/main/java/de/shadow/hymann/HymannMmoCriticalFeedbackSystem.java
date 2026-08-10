@@ -1,6 +1,6 @@
 /*
  * Decompiled with CFR 0.152.
- * 
+ *
  * Could not load the following classes:
  *  com.airijko.endlessleveling.systems.PlayerCombatSystem
  *  com.airijko.endlessleveling.systems.PveMeterCommitSystem
@@ -111,4 +111,3 @@ extends DamageEventSystem {
         return ref;
     }
 }
-

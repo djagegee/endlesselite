@@ -1,6 +1,6 @@
 /*
  * Decompiled with CFR 0.152.
- * 
+ *
  * Could not load the following classes:
  *  com.hypixel.hytale.component.ComponentRegistryProxy
  *  com.hypixel.hytale.logger.HytaleLogger$Api
@@ -162,4 +162,3 @@ extends JavaPlugin {
         HymannRegistrar.unregisterAll();
     }
 }
-

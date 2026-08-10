@@ -1,6 +1,6 @@
 /*
  * Decompiled with CFR 0.152.
- * 
+ *
  * Could not load the following classes:
  *  com.airijko.endlessleveling.bossframework.BossBarRegistry
  *  com.airijko.endlessleveling.bossframework.BossBarRegistry$ActiveBoss
@@ -155,4 +155,3 @@ extends EntityTickingSystem<EntityStore> {
         return HymannAccess.inspectInventory(entity, store).hasShield();
     }
 }
-

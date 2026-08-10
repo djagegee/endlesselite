@@ -1,6 +1,6 @@
 /*
  * Decompiled with CFR 0.152.
- * 
+ *
  * Could not load the following classes:
  *  com.airijko.endlessguilds.guild.claim.ClaimCell
  *  com.airijko.endlessguilds.guild.claim.ClaimService
@@ -535,4 +535,3 @@ extends InteractiveCustomUIPage<PersonalClaimsPage.ActionData> {
         private String action;
     }
 }
-

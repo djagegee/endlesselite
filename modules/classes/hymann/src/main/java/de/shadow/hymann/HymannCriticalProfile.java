@@ -23,4 +23,3 @@ final class HymannCriticalProfile {
     record Values(double chance, double bonusDamage) {
     }
 }
-

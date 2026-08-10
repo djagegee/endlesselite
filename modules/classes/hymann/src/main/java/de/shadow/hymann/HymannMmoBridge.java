@@ -1,6 +1,6 @@
 /*
  * Decompiled with CFR 0.152.
- * 
+ *
  * Could not load the following classes:
  *  com.airijko.endlessleveling.api.DamageEventListener
  *  com.airijko.endlessleveling.api.EndlessLevelingAPI
@@ -386,4 +386,3 @@ final class HymannMmoBridge {
     private record TreeTier(int choicesRequired, List<SkillReward> choices) {
     }
 }
-

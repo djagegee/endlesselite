@@ -1,6 +1,6 @@
 /*
  * Decompiled with CFR 0.152.
- * 
+ *
  * Could not load the following classes:
  *  com.hypixel.hytale.component.ArchetypeChunk
  *  com.hypixel.hytale.component.CommandBuffer
@@ -80,4 +80,3 @@ extends DamageEventSystem {
         damage.setAmount(damage.getAmount() * HymannBossBreakerSystem.bossDamageTakenMultiplier());
     }
 }
-

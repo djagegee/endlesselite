@@ -1,6 +1,6 @@
 /*
  * Decompiled with CFR 0.152.
- * 
+ *
  * Could not load the following classes:
  *  com.hypixel.hytale.component.ArchetypeChunk
  *  com.hypixel.hytale.component.CommandBuffer
@@ -133,4 +133,3 @@ extends EntityTickingSystem<EntityStore> {
     private record PendingImpact(Vector3d landing, double radius, float damage, long stunMs, long expiresAtMs) {
     }
 }
-

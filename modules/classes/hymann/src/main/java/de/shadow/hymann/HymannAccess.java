@@ -1,6 +1,6 @@
 /*
  * Decompiled with CFR 0.152.
- * 
+ *
  * Could not load the following classes:
  *  com.hypixel.hytale.component.ComponentType
  *  com.hypixel.hytale.component.Ref
@@ -65,4 +65,3 @@ final class HymannAccess {
         }
     }
 }
-

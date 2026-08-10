@@ -1,6 +1,6 @@
 /*
  * Decompiled with CFR 0.152.
- * 
+ *
  * Could not load the following classes:
  *  com.airijko.endlessleveling.api.EndlessLevelingAPI
  *  com.hypixel.hytale.component.ArchetypeChunk
@@ -115,4 +115,3 @@ extends DamageEventSystem {
         return ref;
     }
 }
-

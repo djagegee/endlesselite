@@ -1,6 +1,6 @@
 /*
  * Decompiled with CFR 0.152.
- * 
+ *
  * Could not load the following classes:
  *  com.airijko.endlessleveling.api.EndlessLevelingAPI
  *  com.airijko.endlessleveling.enums.SkillAttributeType
@@ -36,4 +36,3 @@ final class HymannDamageScaling {
         return (float)(((double)baseDamage + Math.max(0.0, sorcery)) * treeMultiplier);
     }
 }
-
