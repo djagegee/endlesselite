@@ -1,0 +1,5 @@
+/.gitattributes text eol=lf
+
+# Preserve audited source snapshots byte-for-byte on Windows and Unix.
+/modules/content/portal-spawn/src/main/snapshot/** -text
+/modules/content/mjolnir-safety-patch/src/main/snapshot/** -text

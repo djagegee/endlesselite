@@ -56,11 +56,11 @@ Buildverifizierte Artefakte:
 
 | Artefakt | Bytes | SHA-256 |
 |---|---:|---|
-| EndlessEliteCore.jar | 20.591 | `6b9b2baebaf3ca957cd0d67a42db2f73a8e7c82966f020417d972cdb566fc7de` |
-| EndlessBook.jar | 82.954 | `5249f9a804de9e506c9b8b502b595754771f2ffd1bd2b46cf0bb11d63fd2e314` |
-| Hymann.jar | 350.355 | `ab39d2b2632391fcb76bd9e36dbc4256ac9a47e842af16c59ae2804e9034ccdf` |
-| Nachtweber.jar | 165.175 | `f09d3535458d67c104a98d3a953c3b900f7b39c85a2ddaa223d9d273297d02fb` |
-| Seuchenweber.jar | 133.057 | `1feace74c11823467d8b89193a0b0eccb110b3a0fac5f905185aa447a0371645` |
+| EndlessEliteCore.jar | 20.628 | `adecbcf6573cd892256f37ab3a2c510f78bedcae66ba28a5cb5197a1d23e3f28` |
+| EndlessBook.jar | 82.959 | `f22806686ef1845c2db4838cdb63ece3579ea3891a836f68f38d25907dab184a` |
+| Hymann.jar | 350.362 | `cffa40c6f20d9b6e235a8406ad2c2828a2057662b6f2b0a3672a1ebd28b967e6` |
+| Nachtweber.jar | 165.179 | `3c21ab251c3e1734fe83fc611ba0d74530a147efafaaa49721c08d9d2268e3e5` |
+| Seuchenweber.jar | 133.062 | `227b8efb5a6afa67dbacaef856b25f10ca44200a441b1c3b2160a66f6828bdc7` |
 
 Das Distributionsmanifest setzt ausdrücklich:
 
@@ -80,4 +80,6 @@ Nicht durch diesen Lauf bewiesen:
 - Hymann-Persistenz bei Profilwechsel/Crash,
 - konfliktfreie globale MMOSkillTree-Writerreihenfolge,
 - Rift-Mage-Gameplay-/Visualabnahme,
+- Portal-Spawn-Manifestreparatur und Gameplay-/Visualabnahme,
+- Mjolnir-Safety-Patch-Abnahme mit Patchly und Starky's Mjolnir 1.6.1,
 - Live-Deployment.
