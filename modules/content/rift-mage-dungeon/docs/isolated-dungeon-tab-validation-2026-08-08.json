@@ -1,0 +1,70 @@
+{
+  "validation_id": "endlessleveling-dungeon-tab-instant-teleport-2026-08-08",
+  "status": "PASS",
+  "scope": "isolated_server_side_registry_and_routing",
+  "limitations": [
+    "No automated client joined the server.",
+    "The final visual click-through and gameplay acceptance remain manual release blockers."
+  ],
+  "environment": {
+    "endlessleveling_version": "11.6.1",
+    "bind": "127.0.0.1:5535",
+    "production_server_modified": false,
+    "contract_sha256": "66751920b380296852eb198b619b2916ab7a3a2b1b89499e6062435763d0d19b"
+  },
+  "red_evidence": {
+    "focused_test": "RiftMageImportContractTest#dungeonTabRegistersInstantTeleportWhileRewardsAndMatchmakingStayClosed",
+    "failure": "EL ENTER must start the instance immediately ==> expected true but was false",
+    "root_cause": "import.json dungeons_entry.allow_teleport was false"
+  },
+  "implementation": {
+    "show_in_import_menu": true,
+    "render_with_generic_tile": true,
+    "allow_teleport": true,
+    "routing_template": "EndlessElite_RiftMage",
+    "portal_block_id": "EndlessElite_RiftMage_Portal",
+    "xp_banking_enabled": false,
+    "matchmaking_enabled": false,
+    "rewards_enabled": false
+  },
+  "endlessleveling_contract": {
+    "registry_lookup": "ImportRegistry.get().getByDungeonId",
+    "card_lookup": "DungeonsUIPage.resolveCardInfo",
+    "installed_check": "DungeonsUIPage.isDungeonInstalled",
+    "teleport_gate": "DungeonsConfig.get().isTeleportAllowedForWorldPattern",
+    "instance_route": "EndlessLevelingAPI.get().getInstanceDungeon",
+    "ui_behavior": "External imports are appended by DungeonsUIPage.appendImportTiles and fall back to Pages/Dungeons/Cards/Imports/ImportedDungeonTile.ui when no custom tile resource exists.",
+    "teleport_behavior": "DungeonsUIPage.teleportToSelected gates on DungeonsConfig and starts the registered InstanceDungeonDefinition through EL's instance flow."
+  },
+  "runtime_result": {
+    "marker": "RIFT_EL_DUNGEON_TAB_PASS",
+    "server_booted": true,
+    "dungeon_id": "endless-elite-rift-mage",
+    "display_name": "Rift Mage: Shattered Technodistrict",
+    "source": "EXTERNAL",
+    "world_pattern": "instance-endless_elite_rift_mage-*",
+    "registry_present": true,
+    "card_info_present": true,
+    "installed": true,
+    "teleport_allowed": true,
+    "route_present": true,
+    "routing_template": "EndlessElite_RiftMage",
+    "portal_block_id": "EndlessElite_RiftMage_Portal",
+    "project_specific_errors": 0,
+    "ordered_shutdown_completed": true
+  },
+  "build_result": {
+    "command": "mvn -q clean verify",
+    "exit_code": 0,
+    "tests": 16,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "zip_files": 19
+  },
+  "release_gate": {
+    "release_ready": false,
+    "deployment_allowed": false,
+    "remaining_blocker": "manual/technodistrict-visual-gameplay-acceptance"
+  }
+}

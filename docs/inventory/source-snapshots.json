@@ -1,0 +1,85 @@
+{
+  "generatedAtUtc": "2026-08-10T06:42:47.375125+00:00",
+  "records": [
+    {
+      "module": "EndlessBook",
+      "sourceCategory": "original-project-safety-copy",
+      "destination": "modules/hub/endless-book",
+      "sourceTreeSha256": "3497d25f40abed4cca1d44a8526823ac7b18b7053cf1fa08adace35b1248a017",
+      "fileCount": 41,
+      "copyTreeSha256": "3497d25f40abed4cca1d44a8526823ac7b18b7053cf1fa08adace35b1248a017",
+      "originalModified": false,
+      "excludedDirectories": [
+        ".git",
+        ".hermes",
+        ".idea",
+        "decompiled",
+        "target"
+      ]
+    },
+    {
+      "module": "Hymann",
+      "sourceCategory": "original-project-safety-copy",
+      "destination": "modules/classes/hymann",
+      "sourceTreeSha256": "3d68c4f45d3be271e4f6bf0b6e0c7f763b4bd0e0986ef94084bb0471b3b6bb22",
+      "fileCount": 88,
+      "copyTreeSha256": "3d68c4f45d3be271e4f6bf0b6e0c7f763b4bd0e0986ef94084bb0471b3b6bb22",
+      "originalModified": false,
+      "excludedDirectories": [
+        ".git",
+        ".hermes",
+        ".idea",
+        "decompiled",
+        "target"
+      ]
+    },
+    {
+      "module": "Nachtweber",
+      "sourceCategory": "original-project-safety-copy",
+      "destination": "modules/classes/nachtweber",
+      "sourceTreeSha256": "d1ef70350ba5a69fc14b7106bbb8fdb3be021f304fc9502ddd20f7a9b654933b",
+      "fileCount": 94,
+      "copyTreeSha256": "d1ef70350ba5a69fc14b7106bbb8fdb3be021f304fc9502ddd20f7a9b654933b",
+      "originalModified": false,
+      "excludedDirectories": [
+        ".git",
+        ".hermes",
+        ".idea",
+        "decompiled",
+        "target"
+      ]
+    },
+    {
+      "module": "Seuchenweber",
+      "sourceCategory": "original-project-safety-copy",
+      "destination": "modules/classes/seuchenweber",
+      "sourceTreeSha256": "a749ff651c66630514430ff0b680320bc37cbb2f9430788ed335cf5ece22e2cf",
+      "fileCount": 110,
+      "copyTreeSha256": "a749ff651c66630514430ff0b680320bc37cbb2f9430788ed335cf5ece22e2cf",
+      "originalModified": false,
+      "excludedDirectories": [
+        ".git",
+        ".hermes",
+        ".idea",
+        "decompiled",
+        "target"
+      ]
+    },
+    {
+      "module": "RiftMageDungeon",
+      "sourceCategory": "original-project-safety-copy",
+      "destination": "modules/content/rift-mage-dungeon",
+      "sourceTreeSha256": "ac84b68ea32fdc07b5cc900fdf729f2f22f6656af7c45177534aae004ea4093c",
+      "fileCount": 33,
+      "copyTreeSha256": "ac84b68ea32fdc07b5cc900fdf729f2f22f6656af7c45177534aae004ea4093c",
+      "originalModified": false,
+      "excludedDirectories": [
+        ".git",
+        ".hermes",
+        ".idea",
+        "decompiled",
+        "target"
+      ]
+    }
+  ]
+}

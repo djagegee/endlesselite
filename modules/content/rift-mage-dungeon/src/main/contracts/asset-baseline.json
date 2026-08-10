@@ -1,0 +1,21 @@
+{
+  "source_archive": "C:/Users/agege/Desktop/LOKAL SERVER/Assets.zip",
+  "ownership_rule": "copy_or_extend_never_override_native_assets",
+  "world": {
+    "prototype_prefab_family": "Server/Prefabs/Dungeon/Magic_Ruins/",
+    "boss_room_reference": "Server/Prefabs/Dungeon/Magic_Ruins/Structured_Cave/Boss/Magic_Ruins_Structured_Cave_Boss_001.prefab.json",
+    "custom_template_target": "server/worldgen/EndlessElite_Technodistrict"
+  },
+  "boss": {
+    "behavior_reference": "Server/NPC/Roles/Intelligent/Aggressive/Outlander/Outlander_Sorcerer.json",
+    "visual_model_reference": "Server/Models/Void/Necromancer_Void.json",
+    "spellbook_animation_reference": "Server/Item/Animations/NPC/Void/Necromancer_Void/Necromancer_Void_Spellbook.json",
+    "custom_role_target": "Server/NPC/Roles/EndlessElite/EndlessElite_RiftMage.json",
+    "custom_mob_id": "EndlessElite_RiftMage"
+  },
+  "portal": {
+    "item_reference": "Server/Item/Items/Portal/Portal_Device.json",
+    "custom_item_target": "Server/Item/Items/Portal/EndlessElite_RiftMage_Portal.json",
+    "custom_item_id": "EndlessElite_RiftMage_Portal"
+  }
+}

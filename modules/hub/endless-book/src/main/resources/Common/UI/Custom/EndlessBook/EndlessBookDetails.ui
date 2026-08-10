@@ -1,0 +1,55 @@
+$C = "../Common.ui";
+@Panel = "../Common/Buttons/Tertiary_Active.png";
+
+$C.@PageOverlay {
+  Group {
+    LayoutMode: Middle;
+    Group {
+      Anchor: (Width: 1480, Height: 850);
+      LayoutMode: Top;
+      Background: PatchStyle(TexturePath: @Panel, Border: 16, Color: #0b1220(0.98));
+      Padding: (Full: 16);
+
+      Group {
+        Anchor: (Height: 54, Bottom: 10);
+        LayoutMode: Left;
+        Group { Anchor: (Width: 154, Right: 8); Background: #2b2312; LayoutMode: Left; Padding: (Horizontal: 12); Label { Text: "PRESTIGE"; Style: (FontSize: 9, TextColor: #8da4be, RenderBold: true, VerticalAlignment: Center); } Label #PrestigeValue { FlexWeight: 1; Text: "--"; Style: (FontSize: 17, TextColor: #ffd66b, RenderBold: true, HorizontalAlignment: End, VerticalAlignment: Center); } }
+        Group { Anchor: (Width: 120, Right: 8); Background: #121e33; LayoutMode: Left; Padding: (Horizontal: 12); Label { Text: "LEVEL"; Style: (FontSize: 9, TextColor: #8da4be, RenderBold: true, VerticalAlignment: Center); } Label #LevelValue { FlexWeight: 1; Text: "--"; Style: (FontSize: 17, TextColor: #ffffff, RenderBold: true, HorizontalAlignment: End, VerticalAlignment: Center); } }
+        Group { Anchor: (Width: 410, Right: 8); Background: #121e33; LayoutMode: Left; Padding: (Horizontal: 12); Label { Text: "CURRENT XP"; Style: (FontSize: 9, TextColor: #8da4be, RenderBold: true, VerticalAlignment: Center); } Label #XpValue { FlexWeight: 1; Text: "-- / --"; Style: (FontSize: 13, TextColor: #aac8ff, RenderBold: true, HorizontalAlignment: End, VerticalAlignment: Center); } }
+        Group { FlexWeight: 1; }
+        $C.@SecondaryTextButton #BackButton { Text: "[-] HIDE DETAILS"; Anchor: (Width: 220, Height: 40); }
+      }
+
+      Group #XpBar { Anchor: (Height: 16, Bottom: 12); Background: (TexturePath: "../Common/Buttons/Tertiary_Active.png", Border: 4, Color: #4a390f); Padding: (Full: 4); ProgressBar #XpProgress { FlexWeight: 1; BarTexturePath: "../Common/Buttons/Primary.png"; Value: 0; Direction: End; Alignment: Horizontal; } }
+
+      Group {
+        FlexWeight: 1;
+        LayoutMode: Left;
+
+        Group {
+          Anchor: (Width: 365, Right: 14);
+          LayoutMode: Top;
+          Background: PatchStyle(TexturePath: @Panel, Border: 16, Color: #101a2c(0.96));
+          Padding: (Full: 12);
+          Label #PlayerName { Text: "HERO"; Anchor: (Height: 34, Bottom: 8); Style: (FontSize: 22, TextColor: #ffd58a, RenderBold: true, HorizontalAlignment: Center, VerticalAlignment: Center); }
+          Group { FlexWeight: 1; Background: PatchStyle(TexturePath: @Panel, Border: 16, Color: #0a101b(0.65)); Padding: (Full: 8); CharacterPreviewComponent #CharacterPreview { Anchor: (Top: 0, Bottom: 0, Horizontal: 0); } }
+          Group { Anchor: (Height: 50, Top: 8); Background: #111c2d; LayoutMode: Top; Padding: (Horizontal: 10, Vertical: 4); Label { Text: "RACE"; Style: (FontSize: 9, TextColor: #6e8aae, RenderBold: true); } Label #RaceValue { Text: "--"; Style: (FontSize: 14, TextColor: #aac8ff, RenderBold: true); } }
+          Group { Anchor: (Height: 50, Top: 4); Background: #111c2d; LayoutMode: Top; Padding: (Horizontal: 10, Vertical: 4); Label { Text: "PRIMARY CLASS"; Style: (FontSize: 9, TextColor: #6e8aae, RenderBold: true); } Label #PrimaryClassValue { Text: "--"; Style: (FontSize: 14, TextColor: #aac8ff, RenderBold: true); } }
+          Group { Anchor: (Height: 50, Top: 4); Background: #111c2d; LayoutMode: Top; Padding: (Horizontal: 10, Vertical: 4); Label { Text: "SECONDARY"; Style: (FontSize: 9, TextColor: #6e8aae, RenderBold: true); } Label #SecondaryClassValue { Text: "--"; Style: (FontSize: 14, TextColor: #aac8ff, RenderBold: true); } }
+        }
+
+        Group {
+          FlexWeight: 1;
+          LayoutMode: TopScrolling;
+          ScrollbarStyle: $C.@DefaultScrollbarStyle;
+          Padding: (Right: 8);
+
+          Group #AttributesSection { LayoutMode: Top; Anchor: (Bottom: 12); Label { Text: "ATTRIBUTES"; Anchor: (Height: 28); Style: (FontSize: 12, TextColor: #f0dda0, RenderBold: true, LetterSpacing: 3); } Group #AttributeRows { LayoutMode: Top; } }
+          Group #AugmentsSection { LayoutMode: Top; Anchor: (Bottom: 12); Label { Text: "AUGMENTS · ALL EQUIPPED BONUSES"; Anchor: (Height: 28); Style: (FontSize: 12, TextColor: #f0dda0, RenderBold: true, LetterSpacing: 2); } Group #AugmentRows { LayoutMode: Top; } }
+          Group #FatesSection { LayoutMode: Top; Anchor: (Bottom: 12); Label { Text: "FATES · MAIN & SUBSTATS"; Anchor: (Height: 28); Style: (FontSize: 12, TextColor: #f0dda0, RenderBold: true, LetterSpacing: 2); } Group #FateRows { LayoutMode: Top; } }
+          Group #SetBonusesSection { LayoutMode: Top; Label { Text: "ACTIVE FATE SET BONUSES"; Anchor: (Height: 28); Style: (FontSize: 12, TextColor: #f0dda0, RenderBold: true, LetterSpacing: 2); } Group #SetBonusRows { LayoutMode: Top; } }
+        }
+      }
+    }
+  }
+}

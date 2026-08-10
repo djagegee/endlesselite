@@ -1,0 +1,16 @@
+$C = "../Common.ui";
+@Panel = "../Common/Buttons/Tertiary_Active.png";
+
+Group {
+  Anchor: (Height: 62, Bottom: 5);
+  LayoutMode: Top;
+  Background: PatchStyle(TexturePath: @Panel, Border: 16, Color: #11100d(0.98));
+  Padding: (Horizontal: 12, Vertical: 6);
+  Group {
+    Anchor: (Height: 22);
+    LayoutMode: Left;
+    Label #RowLabel { FlexWeight: 1; Text: "--"; Style: (FontSize: 12, TextColor: #c9d8ee, RenderBold: true, VerticalAlignment: Center, ShrinkTextToFit: true, MinShrinkTextToFitFontSize: 8); }
+    Label #RowValue { Anchor: (Width: 180); Text: ""; Style: (FontSize: 13, TextColor: #ffd66b, RenderBold: true, HorizontalAlignment: End, VerticalAlignment: Center, ShrinkTextToFit: true, MinShrinkTextToFitFontSize: 8); }
+  }
+  Label #RowDetails { Anchor: (Height: 26); Text: ""; Style: (FontSize: 10, TextColor: #86a4c8, VerticalAlignment: Center, ShrinkTextToFit: true, MinShrinkTextToFitFontSize: 7); }
+}

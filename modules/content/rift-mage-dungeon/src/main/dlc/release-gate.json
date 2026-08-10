@@ -1,0 +1,8 @@
+{
+  "release_ready": false,
+  "deployment_allowed": false,
+  "blockers": [
+    "manual/technodistrict-visual-gameplay-acceptance"
+  ],
+  "next_gate": "Validate waves, Rift Mage combat, death/fallback and visual quality before enabling deployment or rewards."
+}

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>de.shadow</groupId><artifactId>endless-book</artifactId><version>2.0.0-SNAPSHOT</version>
+  <properties><maven.compiler.release>25</maven.compiler.release><project.build.sourceEncoding>UTF-8</project.build.sourceEncoding></properties>
+  <dependencies>
+    <dependency><groupId>com.hypixel.hytale</groupId><artifactId>server</artifactId><version>local</version><scope>system</scope><systemPath>C:/Users/agege/Desktop/LOKAL SERVER/HytaleServer.jar</systemPath></dependency>
+    <dependency><groupId>com.ziggfreed</groupId><artifactId>mmoskilltree</artifactId><version>1.5.2</version><scope>system</scope><systemPath>C:/Users/agege/Desktop/LOKAL SERVER/mods/MMOSkillTree-1.5.2.jar</systemPath></dependency>
+    <dependency><groupId>com.airijko</groupId><artifactId>endless-guilds</artifactId><version>1.13.0</version><scope>system</scope><systemPath>C:/Users/agege/Desktop/LOKAL SERVER/mods/EndlessGuilds-1.13.0.jar</systemPath></dependency>
+    <dependency><groupId>com.google.code.gson</groupId><artifactId>gson</artifactId><version>2.13.1</version><scope>provided</scope></dependency>
+    <dependency><groupId>org.junit.jupiter</groupId><artifactId>junit-jupiter</artifactId><version>5.13.4</version><scope>test</scope></dependency>
+  </dependencies>
+  <build><finalName>EndlessBook</finalName><plugins>
+    <plugin><groupId>org.apache.maven.plugins</groupId><artifactId>maven-compiler-plugin</artifactId><version>3.14.0</version></plugin>
+    <plugin><groupId>org.apache.maven.plugins</groupId><artifactId>maven-surefire-plugin</artifactId><version>3.5.3</version></plugin>
+  </plugins></build>
+</project>

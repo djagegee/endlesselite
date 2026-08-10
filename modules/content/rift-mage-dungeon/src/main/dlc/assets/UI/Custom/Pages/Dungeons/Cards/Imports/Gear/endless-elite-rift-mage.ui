@@ -1,0 +1,5 @@
+// Recommended-gear strip for the Rift Mage imported dungeon.
+// Uses EndlessLeveling's supported imported-dungeon gear-card contract.
+$Shared = "../../DungeonCardShared.ui";
+
+$Shared.@PrismaGearStrip { }

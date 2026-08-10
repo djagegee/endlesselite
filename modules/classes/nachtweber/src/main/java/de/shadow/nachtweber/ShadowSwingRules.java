@@ -1,0 +1,2 @@
+package de.shadow.nachtweber;
+record ShadowSwingRules(double rangeBlocks,double minimumAnchorDistanceBlocks,double horizontalImpulse,double verticalImpulse,long cooldownMs){ShadowSwingRules{if(!Double.isFinite(rangeBlocks)||!Double.isFinite(minimumAnchorDistanceBlocks)||!Double.isFinite(horizontalImpulse)||!Double.isFinite(verticalImpulse)||rangeBlocks<=0||minimumAnchorDistanceBlocks<=0||minimumAnchorDistanceBlocks>=rangeBlocks||horizontalImpulse<=0||verticalImpulse<0||cooldownMs<1)throw new IllegalArgumentException("invalid shadow swing rules");}}

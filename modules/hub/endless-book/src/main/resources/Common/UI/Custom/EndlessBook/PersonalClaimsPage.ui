@@ -1,0 +1,168 @@
+$C = "../Common.ui";
+
+// Personal territory view styled after Endless Guilds' Guild Land page.
+@CardPatch = "../Common/Buttons/Tertiary_Active.png";
+@Tile = "../Common/Buttons/Tertiary_Active.png";
+
+@BtnBlue = TextButtonStyle(
+    Default:  (Background: PatchStyle(TexturePath: @CardPatch, Border: 16, Color: #3a5b9c), LabelStyle: $C.@DefaultButtonLabelStyle),
+    Hovered:  (Background: PatchStyle(TexturePath: @CardPatch, Border: 16, Color: #5a82c8), LabelStyle: $C.@DefaultButtonLabelStyle),
+    Pressed:  (Background: PatchStyle(TexturePath: @CardPatch, Border: 16, Color: #243d70), LabelStyle: $C.@DefaultButtonLabelStyle),
+    Disabled: (Background: PatchStyle(TexturePath: @CardPatch, Border: 16, Color: #2a3550), LabelStyle: $C.@DefaultButtonDisabledLabelStyle),
+    Sounds: $C.@ButtonSounds,
+);
+
+@BtnDanger = TextButtonStyle(
+    Default:  (Background: PatchStyle(TexturePath: @CardPatch, Border: 16, Color: #6e2b2b), LabelStyle: $C.@DefaultButtonLabelStyle),
+    Hovered:  (Background: PatchStyle(TexturePath: @CardPatch, Border: 16, Color: #a23b3b), LabelStyle: $C.@DefaultButtonLabelStyle),
+    Pressed:  (Background: PatchStyle(TexturePath: @CardPatch, Border: 16, Color: #4a1d1d), LabelStyle: $C.@DefaultButtonLabelStyle),
+    Disabled: (Background: PatchStyle(TexturePath: @CardPatch, Border: 16, Color: #4a1d1d), LabelStyle: $C.@DefaultButtonDisabledLabelStyle),
+    Sounds: $C.@ButtonSounds,
+);
+
+@TitleLine = LabelStyle(FontSize: 16, RenderBold: true, TextColor: #f0e0a0, HorizontalAlignment: Center, VerticalAlignment: Center);
+@HintLine = LabelStyle(FontSize: 12, TextColor: #9fb2cc, HorizontalAlignment: Center, VerticalAlignment: Center, Wrap: true);
+@SectionLabel = LabelStyle(FontSize: 11, RenderBold: true, RenderUppercase: true, LetterSpacing: 3, FontName: "Secondary", HorizontalAlignment: Start, VerticalAlignment: Center, TextColor: #ffd58a);
+@NameLine = LabelStyle(FontSize: 19, RenderBold: true, HorizontalAlignment: Center, VerticalAlignment: Center, ShrinkTextToFit: true, MinShrinkTextToFitFontSize: 13, TextColor: #ffffff);
+@SubLine = LabelStyle(FontSize: 12, HorizontalAlignment: Center, VerticalAlignment: Center, TextColor: #b8c7da);
+@ChipLabel = LabelStyle(FontSize: 10, RenderBold: true, RenderUppercase: true, LetterSpacing: 2, HorizontalAlignment: Center, VerticalAlignment: Center, TextColor: #8aa2c0);
+@ChipValue = LabelStyle(FontSize: 15, RenderBold: true, HorizontalAlignment: Center, VerticalAlignment: Center, TextColor: #ffffff);
+@Body = LabelStyle(FontSize: 12, TextColor: #cddcf0, HorizontalAlignment: Start, VerticalAlignment: Center, Wrap: true);
+@Legend = LabelStyle(FontSize: 11, TextColor: #c2cfe4, VerticalAlignment: Center);
+
+$C.@PageOverlay {
+  Group {
+    Anchor: (Top: 0, Bottom: 0, Horizontal: 0);
+    LayoutMode: Middle;
+
+    Group {
+      Anchor: (Width: 1600, Height: 880);
+      $C.@DecoratedContainer {
+        #Title {
+          $C.@Title { @Text = "PERSONAL LAND"; }
+        }
+
+        #Content {
+          LayoutMode: Top;
+          Padding: (Horizontal: 16, Vertical: 12);
+
+          Group {
+            Anchor: (Height: 60, Bottom: 12);
+            LayoutMode: Left;
+            Padding: (Horizontal: 16, Vertical: 8);
+            Background: (TexturePath: @CardPatch, Border: 16, Color: #15203a);
+            Group { Anchor: (Width: 5, Height: 38, Right: 14); Background: #ffd58a; }
+            Group {
+              FlexWeight: 1; LayoutMode: Top;
+              Label #PageTitle { Text: "PERSONAL LAND"; Anchor: (Height: 27); Style: (FontSize: 20, RenderBold: true, LetterSpacing: 2, TextColor: #f0e0a0, VerticalAlignment: Center); }
+              Label #PageSubtitle { Text: "ENDLESS GUILDS"; Anchor: (Height: 18); Style: (FontSize: 11, RenderBold: true, LetterSpacing: 1, TextColor: #8da4be, VerticalAlignment: Center); }
+            }
+          }
+
+          Group {
+            FlexWeight: 1;
+            LayoutMode: Left;
+
+            // Left profile panel mirrors the guild information panel.
+            Group #InfoPanel {
+              Anchor: (Width: 300, Right: 12);
+              LayoutMode: Top;
+              Padding: (Horizontal: 14, Vertical: 12);
+              Background: (TexturePath: @CardPatch, Border: 16, Color: #15203a);
+
+              Group {
+                Anchor: (Height: 104, Bottom: 10); LayoutMode: Middle;
+                Group {
+                  Anchor: (Width: 94, Height: 94);
+                  Background: (TexturePath: @CardPatch, Border: 16, Color: #2a3a5c);
+                  Label { Text: "P"; Anchor: (Full: 0); Style: (FontSize: 40, RenderBold: true, TextColor: #ffe98a, HorizontalAlignment: Center, VerticalAlignment: Center); }
+                }
+              }
+              Label #OwnerName { Text: "-"; Anchor: (Height: 27, Bottom: 4); Style: @NameLine; }
+              Label #OwnerRole { Text: "SOLO ADVENTURER"; Anchor: (Height: 18, Bottom: 12); Style: @SubLine; }
+
+              Group { Anchor: (Height: 68, Bottom: 12); LayoutMode: Left;
+                Group { FlexWeight: 1; Anchor: (Height: 68); LayoutMode: Top; Background: (TexturePath: @CardPatch, Border: 16, Color: #1a2a44); Padding: (Vertical: 9);
+                  Label #InfoLandLabel { Text: "LAND"; Anchor: (Height: 13); Style: @ChipLabel; }
+                  Label #InfoLandValue { Text: "0 / 9"; Anchor: (Height: 22, Top: 4); Style: @ChipValue; }
+                }
+                Group { Anchor: (Width: 8); }
+                Group { FlexWeight: 1; Anchor: (Height: 68); LayoutMode: Top; Background: (TexturePath: @CardPatch, Border: 16, Color: #1a2a44); Padding: (Vertical: 9);
+                  Label #InfoLimitLabel { Text: "LIMIT"; Anchor: (Height: 13); Style: @ChipLabel; }
+                  Label #InfoLimitValue { Text: "9"; Anchor: (Height: 22, Top: 4); Style: @ChipValue; }
+                }
+              }
+
+              Label #InfoWorldLabel { Text: "WORLD"; Anchor: (Height: 14, Bottom: 5); Style: @SectionLabel; }
+              Group { Anchor: (Height: 40, Bottom: 12); Padding: (Horizontal: 10); Background: (TexturePath: @CardPatch, Border: 12, Color: #0e1a30);
+                Label #InfoWorldValue { Text: "default"; Anchor: (Full: 0); Style: @Body; }
+              }
+              Group { Anchor: (Height: 1, Bottom: 14); Background: #ffd58a(0.25); }
+              Label #InfoHint { Text: "Your land stays fully protected by Endless Guilds."; FlexWeight: 1; Style: @Body; }
+            }
+
+            // Middle 9x9 grid and navigation, intentionally matching Guild Land layout.
+            Group { FlexWeight: 1; LayoutMode: Top;
+              Label #ClaimsTitleLine { Text: "YOUR TERRITORY MAP"; Anchor: (Height: 24, Bottom: 4); Style: @TitleLine; }
+              Label #ClaimsHintLine { Text: "Select a chunk."; Anchor: (Height: 36, Bottom: 8); Style: @HintLine; }
+              Group { Anchor: (Height: 540, Bottom: 8); LayoutMode: Middle;
+                Group { Anchor: (Width: 540, Height: 540); LayoutMode: Top;
+                  Group #GridRow0 { Anchor: (Height: 60); LayoutMode: Left; }
+                  Group #GridRow1 { Anchor: (Height: 60); LayoutMode: Left; }
+                  Group #GridRow2 { Anchor: (Height: 60); LayoutMode: Left; }
+                  Group #GridRow3 { Anchor: (Height: 60); LayoutMode: Left; }
+                  Group #GridRow4 { Anchor: (Height: 60); LayoutMode: Left; }
+                  Group #GridRow5 { Anchor: (Height: 60); LayoutMode: Left; }
+                  Group #GridRow6 { Anchor: (Height: 60); LayoutMode: Left; }
+                  Group #GridRow7 { Anchor: (Height: 60); LayoutMode: Left; }
+                  Group #GridRow8 { Anchor: (Height: 60); LayoutMode: Left; }
+                }
+              }
+              Group { Anchor: (Height: 44, Bottom: 8); LayoutMode: Middle;
+                Group { Anchor: (Width: 462, Height: 40); LayoutMode: Left;
+                  $C.@TextButton #PanWestButton { Text: "< W"; Anchor: (Width: 80, Height: 40, Right: 8); Style: @BtnBlue; }
+                  $C.@TextButton #PanNorthButton { Text: "^ N"; Anchor: (Width: 80, Height: 40, Right: 8); Style: @BtnBlue; }
+                  $C.@TextButton #RecenterButton { Text: "Center"; Anchor: (Width: 110, Height: 40, Right: 8); Style: @BtnBlue; }
+                  $C.@TextButton #PanSouthButton { Text: "v S"; Anchor: (Width: 80, Height: 40, Right: 8); Style: @BtnBlue; }
+                  $C.@TextButton #PanEastButton { Text: "E >"; Anchor: (Width: 80, Height: 40); Style: @BtnBlue; }
+                }
+              }
+              Group { Anchor: (Height: 22, Bottom: 8); LayoutMode: Middle;
+                Group { Anchor: (Width: 500, Height: 22); LayoutMode: Left;
+                  Group { Anchor: (Width: 16, Height: 16); Background: (TexturePath: @Tile, Border: 8, Color: #4f86ff(0.95)); } Group { Anchor: (Width: 6); } Label #LegendOwn { Text: "Your land"; Anchor: (Width: 85); Style: @Legend; }
+                  Group { Anchor: (Width: 16, Height: 16); Background: (TexturePath: @Tile, Border: 8, Color: #46d164(0.88)); } Group { Anchor: (Width: 6); } Label #LegendAvailable { Text: "Claimable"; Anchor: (Width: 100); Style: @Legend; }
+                  Group { Anchor: (Width: 16, Height: 16); Background: (TexturePath: @Tile, Border: 8, Color: #e34634(0.95)); } Group { Anchor: (Width: 6); } Label #LegendOther { Text: "Claimed"; Anchor: (Width: 75); Style: @Legend; }
+                  Group { Anchor: (Width: 16, Height: 16); Background: (TexturePath: @Tile, Border: 8, Color: #ffb01f(0.95)); } Group { Anchor: (Width: 6); } Label #LegendSelected { Text: "Selected"; Anchor: (Width: 80); Style: @Legend; }
+                }
+              }
+              Group { FlexWeight: 1; }
+              Group { Anchor: (Height: 44); LayoutMode: Middle; $C.@TextButton #CloseButton { Text: "Close"; Anchor: (Width: 160, Height: 40); Style: @BtnBlue; } }
+            }
+
+            // Right selection panel replaces guild-only zone settings with solo actions.
+            Group { Anchor: (Width: 12); }
+            Group #SelectionPanel {
+              Anchor: (Width: 360); LayoutMode: Top; Padding: (Horizontal: 14, Vertical: 12);
+              Background: (TexturePath: @CardPatch, Border: 16, Color: #15203a);
+              Label #SelectionTitle { Text: "SELECTED CHUNK"; Anchor: (Height: 18, Bottom: 8); Style: @SectionLabel; }
+              Group { Anchor: (Height: 74, Bottom: 12); LayoutMode: Top; Padding: (Horizontal: 12, Vertical: 8); Background: (TexturePath: @CardPatch, Border: 12, Color: #0e1a30);
+                Label #SelectionChunk { Text: "default (0, 0)"; Anchor: (Height: 26); Style: (FontSize: 14, RenderBold: true, TextColor: #ffffff, VerticalAlignment: Center, ShrinkTextToFit: true, MinShrinkTextToFitFontSize: 10); }
+                Label #SelectionState { Text: "Select to claim"; Anchor: (Height: 22, Top: 5); Style: (FontSize: 12, TextColor: #9fb2cc, VerticalAlignment: Center); }
+              }
+              Group { Anchor: (Height: 1, Bottom: 14); Background: #ffd58a(0.25); }
+              Label { Text: "ACTIONS"; Anchor: (Height: 14, Bottom: 6); Style: @SectionLabel; }
+              $C.@TextButton #ClaimButton { Text: "Claim chunk"; Anchor: (Height: 44, Bottom: 8); Style: @BtnBlue; }
+              $C.@TextButton #ReleaseButton { Text: "Release chunk"; Anchor: (Height: 42, Bottom: 12); Style: @BtnDanger; }
+              Group { Anchor: (Height: 1, Bottom: 14); Background: #ffd58a(0.25); }
+              Label { Text: "STATUS"; Anchor: (Height: 14, Bottom: 6); Style: @SectionLabel; }
+              Group { Anchor: (Height: 100); Padding: (Horizontal: 12, Vertical: 10); Background: (TexturePath: @CardPatch, Border: 12, Color: #0e1a30);
+                Label #StatusLine { Text: "Select a chunk on the map."; Anchor: (Full: 0); Style: @Body; }
+              }
+              Group { FlexWeight: 1; }
+            }
+          }
+        }
+      }
+    }
+  }
+}

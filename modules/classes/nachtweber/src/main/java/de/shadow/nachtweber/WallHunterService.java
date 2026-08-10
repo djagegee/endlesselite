@@ -1,0 +1,3 @@
+package de.shadow.nachtweber;
+import java.util.Objects;
+final class WallHunterService{private final WallHunterRules rules;WallHunterService(WallHunterRules rules){this.rules=Objects.requireNonNull(rules);}WallHunterOutcome plan(WallHunterRequest r){if(r==null||r.owner()==null)return WallHunterOutcome.of(WallHunterStatus.INVALID_REQUEST);if(!r.serverVerified())return WallHunterOutcome.of(WallHunterStatus.NOT_AUTHORIZED);if(!r.unlocked())return WallHunterOutcome.of(WallHunterStatus.NOT_UNLOCKED);if(!r.horizontalWallContact()||!r.upwardInput())return WallHunterOutcome.of(WallHunterStatus.INACTIVE);return new WallHunterOutcome(WallHunterStatus.CLIMBING,rules.climbSpeed());}}

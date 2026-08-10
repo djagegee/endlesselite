@@ -1,0 +1,2 @@
+package de.shadow.nachtweber;
+record DangerSenseOutcome(DangerSenseStatus status,int target,double distanceBlocks,long nextReadyAtMs){static DangerSenseOutcome of(DangerSenseStatus s){return new DangerSenseOutcome(s,-1,0,0);}}

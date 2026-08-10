@@ -1,0 +1,82 @@
+$C = "../Common.ui";
+@Panel = "../Common/Buttons/Tertiary_Active.png";
+
+// Permanent MMO character sheet. Gaps stay open to the world; all readable surfaces are opaque.
+$C.@PageOverlay {
+  Group {
+    LayoutMode: Middle;
+    Group {
+      Anchor: (Width: 1480, Height: 850);
+      LayoutMode: Top;
+
+      Group {
+        Anchor: (Height: 62, Bottom: 10);
+        LayoutMode: Left;
+        Padding: (Horizontal: 14, Vertical: 8);
+        Background: PatchStyle(TexturePath: @Panel, Border: 16, Color: #0b0d11(0.98));
+        Group { Anchor: (Width: 4, Height: 42, Right: 12); Background: #d6a642; }
+        Group { Anchor: (Width: 220, Right: 10); LayoutMode: Top;
+          Label #BookTitle { Text: "ENDLESS BOOK"; Anchor: (Height: 28); Style: (FontSize: 22, TextColor: #f5d889, RenderBold: true, LetterSpacing: 2, VerticalAlignment: Center); }
+          Label #BookSubtitle { Text: "YOUR ENDLESS CHARACTER SHEET"; Anchor: (Height: 16); Style: (FontSize: 10, TextColor: #a59d8b, RenderBold: true, LetterSpacing: 1, VerticalAlignment: Center); }
+        }
+        Group { Anchor: (Width: 118, Right: 7); Background: PatchStyle(TexturePath: @Panel, Border: 12, Color: #2b2312(0.98)); LayoutMode: Left; Padding: (Horizontal: 10);
+          Label { Text: "PRESTIGE"; FlexWeight: 1; Style: (FontSize: 8, TextColor: #c6b07b, RenderBold: true, VerticalAlignment: Center); }
+          Label #PrestigeValue { Text: "--"; Anchor: (Width: 30); Style: (FontSize: 17, TextColor: #ffd66b, RenderBold: true, HorizontalAlignment: End, VerticalAlignment: Center); }
+        }
+        Group { Anchor: (Width: 102, Right: 7); Background: PatchStyle(TexturePath: @Panel, Border: 12, Color: #101a2c(0.98)); LayoutMode: Left; Padding: (Horizontal: 10);
+          Label { Text: "LEVEL"; FlexWeight: 1; Style: (FontSize: 8, TextColor: #9da9bc, RenderBold: true, VerticalAlignment: Center); }
+          Label #LevelValue { Text: "--"; Anchor: (Width: 26); Style: (FontSize: 17, TextColor: #f2efe8, RenderBold: true, HorizontalAlignment: End, VerticalAlignment: Center); }
+        }
+        Group { Anchor: (Width: 270, Right: 7); Background: PatchStyle(TexturePath: @Panel, Border: 12, Color: #101a2c(0.98)); LayoutMode: Left; Padding: (Horizontal: 10);
+          Label { Text: "CURRENT XP"; FlexWeight: 1; Style: (FontSize: 8, TextColor: #9da9bc, RenderBold: true, VerticalAlignment: Center); }
+          Label #XpValue { Text: "-- / --"; Anchor: (Width: 126); Style: (FontSize: 12, TextColor: #d7e4f7, RenderBold: true, HorizontalAlignment: End, VerticalAlignment: Center, ShrinkTextToFit: true, MinShrinkTextToFitFontSize: 8); }
+        }
+        Group { FlexWeight: 1; }
+        Label #PlayerName { Text: "HERO"; Anchor: (Width: 185); Style: (FontSize: 17, TextColor: #f5efe0, RenderBold: true, HorizontalAlignment: End, VerticalAlignment: Center, ShrinkTextToFit: true, MinShrinkTextToFitFontSize: 11); }
+      }
+
+      Group #XpBar { Anchor: (Height: 14, Bottom: 12); Background: PatchStyle(TexturePath: @Panel, Border: 5, Color: #2b2312(0.98)); Padding: (Full: 3); ProgressBar #XpProgress { FlexWeight: 1; BarTexturePath: "../Common/Buttons/Primary.png"; Value: 0; Direction: End; Alignment: Horizontal; } }
+
+      Group {
+        FlexWeight: 1;
+        LayoutMode: Left;
+
+        // Left: identity and live character preview.
+        Group #CharacterSheet { Anchor: (Width: 342, Right: 12); LayoutMode: Top; Padding: (Full: 12); Background: PatchStyle(TexturePath: @Panel, Border: 16, Color: #101a2c(0.96));
+          Label { Text: "CHARACTER"; Anchor: (Height: 23, Bottom: 6); Style: (FontSize: 11, TextColor: #f0d48b, RenderBold: true, LetterSpacing: 3, HorizontalAlignment: Center, VerticalAlignment: Center); }
+          Group { FlexWeight: 1; Background: PatchStyle(TexturePath: @Panel, Border: 14, Color: #080b10(0.94)); Padding: (Full: 8); CharacterPreviewComponent #CharacterPreview { Anchor: (Top: 0, Bottom: 0, Horizontal: 0); } }
+          Group { Anchor: (Height: 48, Top: 8); Background: PatchStyle(TexturePath: @Panel, Border: 10, Color: #11100d(0.98)); LayoutMode: Top; Padding: (Horizontal: 10, Vertical: 4); Label { Text: "RACE"; Style: (FontSize: 8, TextColor: #b5a77f, RenderBold: true, LetterSpacing: 1); } Label #RaceValue { Text: "--"; Style: (FontSize: 13, TextColor: #d8e3f2, RenderBold: true, ShrinkTextToFit: true, MinShrinkTextToFitFontSize: 9); } }
+          Group { Anchor: (Height: 48, Top: 5); Background: PatchStyle(TexturePath: @Panel, Border: 10, Color: #11100d(0.98)); LayoutMode: Top; Padding: (Horizontal: 10, Vertical: 4); Label { Text: "PRIMARY CLASS"; Style: (FontSize: 8, TextColor: #b5a77f, RenderBold: true, LetterSpacing: 1); } Label #PrimaryClassValue { Text: "--"; Style: (FontSize: 13, TextColor: #d8e3f2, RenderBold: true, ShrinkTextToFit: true, MinShrinkTextToFitFontSize: 9); } }
+          Group { Anchor: (Height: 48, Top: 5); Background: PatchStyle(TexturePath: @Panel, Border: 10, Color: #11100d(0.98)); LayoutMode: Top; Padding: (Horizontal: 10, Vertical: 4); Label { Text: "SECONDARY"; Style: (FontSize: 8, TextColor: #b5a77f, RenderBold: true, LetterSpacing: 1); } Label #SecondaryClassValue { Text: "--"; Style: (FontSize: 13, TextColor: #d8e3f2, RenderBold: true, ShrinkTextToFit: true, MinShrinkTextToFitFontSize: 9); } }
+        }
+
+        // Center: permanently visible, scrollable inspected stats.
+        Group #DataPanel { FlexWeight: 1; LayoutMode: TopScrolling; ScrollbarStyle: $C.@DefaultScrollbarStyle; Padding: (Horizontal: 12, Vertical: 10); Background: PatchStyle(TexturePath: @Panel, Border: 16, Color: #101a2c(0.96));
+          Group #AttributesSection { LayoutMode: Top; Anchor: (Bottom: 12); Label { Text: "ATTRIBUTES"; Anchor: (Height: 26); Style: (FontSize: 12, TextColor: #f0d48b, RenderBold: true, LetterSpacing: 3, VerticalAlignment: Center); } Group #AttributeRows { LayoutMode: Top; } }
+          Group #AugmentsSection { LayoutMode: Top; Anchor: (Bottom: 12); Label { Text: "AUGMENTS · EQUIPPED BONUSES"; Anchor: (Height: 26); Style: (FontSize: 12, TextColor: #f0d48b, RenderBold: true, LetterSpacing: 2, VerticalAlignment: Center); } Group #AugmentRows { LayoutMode: Top; } }
+          Group #FatesSection { LayoutMode: Top; Anchor: (Bottom: 12); Label { Text: "FATES · MAIN & SUBSTATS"; Anchor: (Height: 26); Style: (FontSize: 12, TextColor: #f0d48b, RenderBold: true, LetterSpacing: 2, VerticalAlignment: Center); } Group #FateRows { LayoutMode: Top; } }
+          Group #SetBonusesSection { LayoutMode: Top; Label { Text: "ACTIVE FATE SET BONUSES"; Anchor: (Height: 26); Style: (FontSize: 12, TextColor: #f0d48b, RenderBold: true, LetterSpacing: 2, VerticalAlignment: Center); } Group #SetBonusRows { LayoutMode: Top; } }
+        }
+
+        // Right: compact command rail, intentionally subordinate to character data.
+        Group #QuickAccessRail { Anchor: (Width: 210, Left: 12); LayoutMode: Top; Padding: (Full: 10); Background: PatchStyle(TexturePath: @Panel, Border: 16, Color: #101a2c(0.96));
+          Label #QuickAccessTitle { Text: "QUICK ACCESS"; Anchor: (Height: 28, Bottom: 8); Style: (FontSize: 10, TextColor: #f0d48b, RenderBold: true, LetterSpacing: 2, HorizontalAlignment: Center, VerticalAlignment: Center); }
+          $C.@SecondaryTextButton #LinkButton1 { Anchor: (Height: 43, Bottom: 5); Text: "YOUR PATH"; }
+          $C.@SecondaryTextButton #LinkButton2 { Anchor: (Height: 43, Bottom: 5); Text: "AUGMENTS"; }
+          $C.@SecondaryTextButton #LinkButton3 { Anchor: (Height: 43, Bottom: 5); Text: "FATES"; }
+          $C.@SecondaryTextButton #LinkButton4 { Anchor: (Height: 43, Bottom: 5); Text: "MASTERY"; }
+          $C.@SecondaryTextButton #LinkButton5 { Anchor: (Height: 43, Bottom: 5); Text: "GUILD"; }
+          $C.@SecondaryTextButton #LinkButton6 { Anchor: (Height: 43, Bottom: 5); Text: "DUNGEONS"; }
+          $C.@SecondaryTextButton #LinkButton7 { Anchor: (Height: 43, Bottom: 5); Text: "CLAIMS"; }
+          $C.@SecondaryTextButton #LinkButton8 { Anchor: (Height: 43, Bottom: 5); Text: "CUSTOM 1"; }
+          $C.@SecondaryTextButton #LinkButton9 { Anchor: (Height: 43, Bottom: 5); Text: "CUSTOM 2"; }
+          $C.@SecondaryTextButton #LinkButton10 { Anchor: (Height: 43, Bottom: 5); Text: "CUSTOM 3"; }
+          $C.@SecondaryTextButton #LinkButton11 { Anchor: (Height: 43, Bottom: 5); Text: "CUSTOM 4"; }
+          $C.@SecondaryTextButton #LinkButton12 { Anchor: (Height: 43); Text: "CUSTOM 5"; }
+          Group { FlexWeight: 1; }
+          Label { Text: "CONFIGURED LINKS"; Anchor: (Height: 16, Top: 5); Style: (FontSize: 8, TextColor: #968a70, RenderBold: true, LetterSpacing: 1, HorizontalAlignment: Center, VerticalAlignment: Center); }
+        }
+      }
+    }
+  }
+}

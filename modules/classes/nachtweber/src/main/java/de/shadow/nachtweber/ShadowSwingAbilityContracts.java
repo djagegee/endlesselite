@@ -1,0 +1,3 @@
+package de.shadow.nachtweber;
+import com.ziggfreed.mmoskilltree.ability.ParamSpec;
+final class ShadowSwingAbilityContracts{static final String EFFECT_ID="NACHTWEBER_SHADOW_SWING";private static final ParamSpec PARAMS=ParamSpec.of(required("range",18,"Maximum server raystep range in blocks"),required("minimumAnchorDistance",2,"Minimum solid-anchor distance"),required("horizontalImpulse",12,"Server velocity impulse in blocks per second"),required("verticalImpulse",4,"Upward server velocity impulse in blocks per second"));private ShadowSwingAbilityContracts(){}static ParamSpec paramSpec(){return PARAMS;}private static ParamSpec.ParamEntry required(String k,double v,String d){return ParamSpec.ParamEntry.required(k,ParamSpec.ParamType.NUMBER,v,d);}}

@@ -1,0 +1,49 @@
+{
+  "$comment": "Three-stage alpha encounter. EndlessEliteMobs and EndlessLeveling remain the only scaling authorities.",
+  "pull_to_center": false,
+  "spawn_radius": 14,
+  "batch_kill_percent": 70,
+  "batch_fallback_seconds": 15,
+  "wave_clear_immediate_xp_percent": 0,
+  "completion_xp_bonus_percent": 0,
+  "xp_mode": "PER_WAVE",
+  "reward_xp_per_level": 0,
+  "waves": [
+    {
+      "wave": 1,
+      "pools": [
+        {
+          "id": "void_breach",
+          "mobs": [
+            { "mobs": [ { "id": "Eye_Void", "count": 6 }, { "id": "Spectre_Void", "count": 4 } ] }
+          ]
+        }
+      ],
+      "bosses": []
+    },
+    {
+      "wave": 2,
+      "pools": [
+        {
+          "id": "rift_casters",
+          "mobs": [
+            { "mobs": [ { "id": "Outlander_Sorcerer", "count": 4 }, { "id": "Eye_Void", "count": 6 } ] }
+          ]
+        }
+      ],
+      "bosses": []
+    },
+    {
+      "wave": 3,
+      "pools": [
+        {
+          "id": "rift_guard",
+          "mobs": [
+            { "mobs": [ { "id": "Spectre_Void", "count": 4 } ] }
+          ]
+        }
+      ],
+      "bosses": [ { "id": "EndlessElite_RiftMage" } ]
+    }
+  ]
+}

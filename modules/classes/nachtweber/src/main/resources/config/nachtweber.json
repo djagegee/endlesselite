@@ -1,0 +1,98 @@
+{
+  "schemaVersion": 9,
+  "class": {
+    "id": "elite_nightweaver",
+    "title": "Jäger des Schwarzen Netzes"
+  },
+  "runtimeDependencies": {
+    "mmoSkillTree": {
+      "version": "1.5.2-owned-effects",
+      "registerIfAbsent": true,
+      "exactInstanceUnregister": true
+    }
+  },
+  "entanglement": {
+    "durationSeconds": 8.0,
+    "maximumStacksPerOwner": 5,
+    "boundThresholdStacks": 3
+  },
+  "venom": {
+    "durationSeconds": 8.0,
+    "tickIntervalSeconds": 1.0,
+    "maximumStacksPerOwner": 4,
+    "overdueTickPolicy": "single_tick_no_replay",
+    "rejectDotProcRecursion": true,
+    "rejectReflectionRecursion": true
+  },
+  "control": {
+    "bossFactor": 0.35,
+    "eliteFactor": 0.65,
+    "pvpPlayerFactor": 0.50
+  },
+  "abilities": {
+    "blackThread": {
+      "rangeBlocks": 12.0,
+      "cooldownSeconds": 3.0,
+      "stacksPerCast": 2,
+      "boundControlSeconds": 1.2
+    },
+    "shadowSwing": {
+      "rangeBlocks": 18.0,
+      "minimumAnchorDistanceBlocks": 2.0,
+      "cooldownSeconds": 5.0,
+      "horizontalImpulseBlocksPerSecond": 12.0,
+      "verticalImpulseBlocksPerSecond": 4.0,
+      "maximumSessionSeconds": 1.5,
+      "maximumTetherDistanceBlocks": 22.0,
+      "releaseDistanceBlocks": 1.25,
+      "pullSpeedBlocksPerSecond": 14.0,
+      "maximumVelocityCorrectionPerStepBlocksPerSecond": 3.0,
+      "minimumReattachIntervalSeconds": 0.25,
+      "movementSystem": {
+        "serverAuthoritative": true,
+        "instructionType": "Add",
+        "producerRunsBefore": "PlayerVelocityInstructionSystem",
+        "failClosedOutsideStoreThread": true
+      }
+    },
+    "huntingCocoon": {
+      "rangeBlocks": 8.0,
+      "immobilizeSeconds": 2.0,
+      "cooldownSeconds": 7.0,
+      "requiredEntanglementStacks": 3,
+      "venomStacks": 2,
+      "venomDurationSeconds": 8.0
+    }
+  },
+  "venomTick": {
+    "intervalSeconds": 1.0,
+    "baseDamagePerStack": 1.5,
+    "sorceryPointsForDoubleDamage": 100.0,
+    "maximumDamagePerTick": 100.0,
+    "maximumOverdueTicksPerUpdate": 1,
+    "damageCause": "Poison"
+  },
+  "passiveVenom": {
+    "verifiedDirectHitOnly": true,
+    "toxicGlands": {
+      "baseVenomStacks": 1,
+      "venomDurationSeconds": 6.0,
+      "internalCooldownSeconds": 1.0
+    },
+    "huntingInstinct": {
+      "requiresOwnEntanglement": true,
+      "bonusVenomStacks": 1
+    }
+  },
+  "dangerSense": {
+    "radiusBlocks": 16.0,
+    "warningCooldownSeconds": 2.0,
+    "maximumCandidatesPerScan": 64,
+    "requiresVisibleHostile": true
+  },
+  "wallHunter": {
+    "climbSpeedBlocksPerSecond": 4.0,
+    "requiresHorizontalWallContact": true,
+    "requiresUpwardInput": true
+  }
+}

@@ -1,0 +1,3 @@
+package de.shadow.nachtweber;
+
+enum PassiveVenomStatus { APPLIED, INVALID_REQUEST, NOT_AUTHORIZED, NOT_UNLOCKED, RECURSIVE_CAUSE, IMMUNE, COOLDOWN }

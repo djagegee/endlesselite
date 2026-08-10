@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>de.shadow</groupId>
+  <artifactId>rift-mage-dungeon</artifactId>
+  <version>0.1.1-SNAPSHOT</version>
+  <properties>
+    <maven.compiler.release>25</maven.compiler.release>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <junit.version>5.12.2</junit.version>
+  </properties>
+  <dependencies>
+    <dependency>
+      <groupId>com.hypixel.hytale</groupId>
+      <artifactId>hytale-server</artifactId>
+      <version>local</version>
+      <scope>system</scope>
+      <systemPath>C:/Users/agege/Desktop/LOKAL SERVER/HytaleServer.jar</systemPath>
+    </dependency>
+    <dependency>
+      <groupId>com.airijko</groupId>
+      <artifactId>endless-leveling</artifactId>
+      <version>11.6.1</version>
+      <scope>system</scope>
+      <systemPath>C:/Users/agege/Desktop/LOKAL SERVER/mods/EndlessLeveling.jar</systemPath>
+    </dependency>
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter</artifactId>
+      <version>${junit.version}</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>3.5.3</version>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-antrun-plugin</artifactId>
+        <version>3.1.0</version>
+        <executions>
+          <execution>
+            <id>build-contract-zip</id>
+            <phase>package</phase>
+            <goals><goal>run</goal></goals>
+            <configuration>
+              <target>
+                <zip destfile="${project.build.directory}/${project.artifactId}-${project.version}-contract.zip"
+                     basedir="${project.basedir}/src/main/dlc"/>
+              </target>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-failsafe-plugin</artifactId>
+        <version>3.5.3</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>integration-test</goal>
+              <goal>verify</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+</project>

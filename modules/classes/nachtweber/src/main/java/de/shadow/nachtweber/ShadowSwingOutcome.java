@@ -1,0 +1,2 @@
+package de.shadow.nachtweber;
+record ShadowSwingOutcome(ShadowSwingStatus status,double velocityX,double velocityY,double velocityZ,long nextReadyAtMs){static ShadowSwingOutcome rejected(ShadowSwingStatus s){return new ShadowSwingOutcome(s,0,0,0,0);}}

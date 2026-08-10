@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "import_id": "endless-elite-rift-mage",
+  "display_name": "Rift Mage: Shattered Technodistrict",
+  "author": "Endless Elite",
+  "version": "0.1.1",
+  "description": "A scalable Endless Elite dungeon set in a destroyed technology district and culminating in the Rift Mage encounter.",
+  "short_description": "Enter the shattered technodistrict and stop the Rift Mage.",
+  "category_label": "ENDLESS ELITE",
+  "tag": "DUNGEON",
+  "world_pattern": "instance-endless_elite_rift_mage-*",
+  "import_type": "DUNGEON",
+  "always_show": false,
+  "installed_externally": false,
+  "render_with_generic_tile": true,
+  "partner_locked": false,
+  "show_in_import_menu": true,
+  "recommended_players": "1-4",
+  "instance_definition": {
+    "routing_template": "EndlessElite_RiftMage",
+    "portal_block_id": "EndlessElite_RiftMage_Portal",
+    "world_name_token": "endless_elite_rift_mage",
+    "spawn_suffix": "EndlessElite_RiftMage",
+    "legacy_template": "EndlessElite_RiftMage"
+  },
+  "wave_config": "waves/rift_mage_technodistrict_waves.json",
+  "objective_panel": {
+    "mode": "wave",
+    "title": "Rift Mage: Shattered Technodistrict",
+    "category_label": "Endless Elite",
+    "category_color": "#b83bff",
+    "open_on_entry": false
+  },
+  "dungeons_entry": {
+    "instance-endless_elite_rift_mage-*": {
+      "display_name": "Rift Mage: Shattered Technodistrict",
+      "allow_teleport": true,
+      "kick_on_death": true,
+      "instance_duration_seconds": 1200,
+      "suppress_mob_drops": true,
+      "xp_banking": {
+        "enabled": false,
+        "cooldown_enabled": false,
+        "dungeon_close_seconds": 120,
+        "completion_bonus_percent": 0,
+        "reward_commands": []
+      },
+      "matchmaking": {
+        "enabled": false,
+        "max_party_size": 4,
+        "tier_source": "level_bucket",
+        "tier_bucket_size": 10,
+        "per_member_bonus_percent": 20,
+        "boss_kill_bonus_percent": 20
+      },
+      "boss_mob_ids": [
+        "EndlessElite_RiftMage"
+      ],
+      "portal_key_item_id": "EndlessElite_RiftMage_Portal",
+      "floor": {
+        "y_threshold": 20.0,
+        "teleport_to": [
+          0.5,
+          89.0,
+          0.5
+        ],
+        "arena_center": [
+          0.5,
+          89.0,
+          0.5
+        ],
+        "arena_radius": 96.0
+      },
+      "time_lock": {
+        "paused": true,
+        "day_time": 0.5
+      },
+      "recommended_gear": []
+    }
+  }
+}

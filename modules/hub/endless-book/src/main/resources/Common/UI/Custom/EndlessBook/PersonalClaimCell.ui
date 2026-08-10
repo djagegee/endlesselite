@@ -1,0 +1,22 @@
+$C = "../Common.ui";
+@Tile = "../Common/Buttons/Tertiary_Active.png";
+
+@CellButton = TextButtonStyle(
+    Default:  (Background: PatchStyle(TexturePath: @Tile, Border: 12, Color: #ffffff(0.0)), LabelStyle: $C.@DefaultButtonLabelStyle),
+    Hovered:  (Background: PatchStyle(TexturePath: @Tile, Border: 12, Color: #ffffff(0.22)), LabelStyle: $C.@DefaultButtonLabelStyle),
+    Pressed:  (Background: PatchStyle(TexturePath: @Tile, Border: 12, Color: #ffffff(0.34)), LabelStyle: $C.@DefaultButtonLabelStyle),
+    Disabled: (Background: PatchStyle(TexturePath: @Tile, Border: 12, Color: #ffffff(0.0)), LabelStyle: $C.@DefaultButtonDisabledLabelStyle),
+    Sounds: $C.@ButtonSounds,
+);
+
+Group {
+  Anchor: (Width: 60, Height: 60);
+  Background: #283243;
+  Group #StateOwn { Anchor: (Full: 0); Background: #4f86ff(0.72); Visible: false; }
+  Group #StateOther { Anchor: (Full: 0); Background: #e34634(0.78); Visible: false; }
+  Group #StateAvailable { Anchor: (Full: 0); Background: #46d164(0.58); Visible: false; }
+  Group #PlayerHere { Anchor: (Full: 0); Background: (TexturePath: @Tile, Border: 12, Color: #ffe98a(0.78)); Visible: false; }
+  Group #Selected { Anchor: (Full: 0); Background: (TexturePath: @Tile, Border: 12, Color: #ffb01f(0.90)); Visible: false; }
+  Label #CellCoords { Text: "0,0"; Anchor: (Full: 0); Style: (FontSize: 8, RenderBold: true, TextColor: #ffffff, HorizontalAlignment: Center, VerticalAlignment: Center); }
+  $C.@TextButton #CellButton { Text: ""; Anchor: (Full: 0); Style: @CellButton; }
+}

@@ -1,0 +1,78 @@
+{
+  "schemaVersion": 4,
+  "class": {
+    "id": "elite_plagueweaver",
+    "displayNameKey": "server.classes.seuchenweber.name",
+    "descriptionKey": "server.classes.seuchenweber.description",
+    "role": "mage",
+    "permission": "seuchenweber.use",
+    "registrationGate": "damage_type_and_range_type_require_runtime_value_validation"
+  },
+  "necrotoxin": {
+    "durationSeconds": 10.0,
+    "tickIntervalSeconds": 5.0,
+    "maximumStacksPerOwner": 5,
+    "baseDamagePerTick": 6.0,
+    "bossDamageMultiplier": 0.7,
+    "eliteDamageMultiplier": 0.95,
+    "pvpPlayerDamageMultiplier": 0.65,
+    "pvpSummonDamageMultiplier": 0.75,
+    "overdueTickPolicy": "single_tick_no_replay",
+    "rejectDotProcRecursion": true,
+    "rejectReflectionRecursion": true,
+    "allowPvp": false,
+    "allowBosses": true,
+    "maximumOwnerEntries": 256
+  },
+  "abilities": {
+    "seal_of_decay": {
+      "manaCost": 25,
+      "cooldownSeconds": 8.0,
+      "baseDamage": 18.0,
+      "nekrotoxinStacksApplied": 2,
+      "castRangeBlocks": 22.0
+    },
+    "astral_rift": {
+      "manaCost": 35,
+      "cooldownSeconds": 14.0,
+      "teleportRangeBlocks": 12.0,
+      "riftRadiusBlocks": 5.0,
+      "durationSeconds": 5.0,
+      "pulseIntervalSeconds": 1.0,
+      "nekrotoxinStacksPerPulse": 1,
+      "maximumTargetsPerPulse": 8
+    },
+    "chronoblight": {
+      "manaCost": 45,
+      "cooldownSeconds": 18.0,
+      "baseDamage": 12.0,
+      "nekrotoxinStacksApplied": 2,
+      "castRangeBlocks": 20.0,
+      "fullMarkStunSeconds": 0.75
+    }
+  },
+  "passives": {
+    "necrotoxic_mastery": {
+      "tickDamageMultiplier": 1.25,
+      "auraRadiusBlocks": 8.0,
+      "auraPulseIntervalSeconds": 2.0
+    },
+    "astral_echo": {
+      "maximumEchoTargetsPerTick": 2,
+      "echoRadiusBlocks": 5.0,
+      "echoStacksApplied": 1
+    },
+    "soul_diagnosis": {
+      "diagnosisStackThreshold": 3
+    },
+    "relic_attunement": {
+      "manaRefundAmount": 8,
+      "cooldownRefundSeconds": 1.2
+    }
+  },
+  "damageBudget": {
+    "representativeDirectDamage": 30.0,
+    "representativeDotDamage": 120.0,
+    "minimumDotShare": 0.7
+  }
+}

@@ -1,0 +1,2 @@
+package de.shadow.nachtweber;
+record WallHunterRules(double climbSpeed){WallHunterRules{if(!Double.isFinite(climbSpeed)||climbSpeed<=0||climbSpeed>100)throw new IllegalArgumentException("invalid climb speed");}}

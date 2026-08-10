@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "validated_at": "2026-08-07",
+  "scope": "isolated_generated_instance_spawn_validation",
+  "template": "EndlessElite_RiftMage",
+  "world_structure": "EndlessElite_RiftMage_Technodistrict",
+  "environment": {
+    "bind": "127.0.0.1:5534",
+    "auth_mode": "insecure",
+    "fresh_universe": true,
+    "client_joined": false,
+    "production_deployment_performed": false,
+    "temporary_probe_plugin_shipped": false
+  },
+  "source_evidence": {
+    "hytale_server_sha256": "43d9bcff1dd31574577dbfc82147718dbe2ac16c19000071f965b521ba808cdc",
+    "assets_sha256": "1b8802c284c228ae4549dac037716c175bc6b94b0fc9aac2b7039ac6bd2ffd5d",
+    "endless_leveling_sha256": "3eea089f5400bf1d9405b8e736f9ac7639fbc423d6870f3ad1ac093fe14b7087",
+    "endless_elite_mobs_sha256": "4c9cdeb466b70d86bc507655a2000d27802f4c224cd45d81da3a5792bf280021",
+    "runtime_tested_contract_sha256": "750b6d486e27c40f05503a0ba73dfac8ad743267f92283b52c09ddaa14a7c039",
+    "final_canonical_contract_sha256": "c95e634940dc3eb4dee0da2c51ff5896221d544f238f9854589dae28de608069"
+  },
+  "red_evidence": {
+    "missing_seed_generated_heights": [112, 81],
+    "configured_spawn_y": 120.0,
+    "result": "FAIL",
+    "reason": "fixed spawn floated above seed-dependent terrain"
+  },
+  "fix": {
+    "world_seed": 2026080801,
+    "measured_surface_block_y": 88,
+    "spawn_y": 89.0,
+    "portal_override_y": 89.0,
+    "floor_fallback_y": 89.0,
+    "arena_center_y": 89.0
+  },
+  "green_evidence": {
+    "auto_import_installed": 1,
+    "auto_import_failed": 0,
+    "instance_created": true,
+    "instance_world_prefix": "instance-EndlessElite_RiftMage-",
+    "spawn_count": 1,
+    "spawn_provider": "com.hypixel.hytale.server.core.universe.world.spawn.GlobalSpawnProvider",
+    "worldgen_provider": "com.hypixel.hytale.builtin.hytalegenerator.plugin.HandleProvider",
+    "spawn": [0.5, 89.0, 0.5],
+    "height_map_y": 88,
+    "floor_block": "Rock_Stone",
+    "feet_block": "Empty",
+    "head_block": "Empty",
+    "safe": true,
+    "project_specific_errors": 0,
+    "instance_cleanup_requested": true,
+    "marker": "RIFT_SPAWN_PROBE_PASS"
+  },
+  "remaining_gate": "manual/technodistrict-visual-gameplay-acceptance",
+  "not_proven": [
+    "client portal interaction",
+    "visual terrain and arena quality",
+    "three-wave gameplay",
+    "Rift Mage combat behavior",
+    "death and exit flow",
+    "manual player acceptance"
+  ]
+}

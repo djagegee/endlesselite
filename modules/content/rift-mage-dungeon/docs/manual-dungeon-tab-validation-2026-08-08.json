@@ -1,0 +1,55 @@
+{
+  "validation_id": "rift-mage-manual-dungeon-tab-2026-08-08",
+  "date": "2026-08-08",
+  "server": {
+    "address": "127.0.0.1:5520",
+    "mode": "authenticated multiplayer",
+    "profile": "Acehoroth",
+    "log": "C:\\Users\\agege\\Desktop\\LOKAL SERVER\\logs\\2026-08-08_02-10-39_server.log"
+  },
+  "candidate": {
+    "import_id": "endless-elite-rift-mage",
+    "zip_sha256": "5c68518f4c653caf4940b8ef066f7078308f9bed496d3b4c1f5fc9c28a33ca53",
+    "reference_contract": "outlander-warchief-boss (1).zip",
+    "contract_corrections": [
+      "dungeons_entry keyed by instance-endless_elite_rift_mage-*",
+      "dedicated imported-dungeon gear-card UI asset",
+      "wave config installed through plugin/waves"
+    ]
+  },
+  "manual_client_result": {
+    "reported_by": "Agegee",
+    "result": "PASS",
+    "confirmed": [
+      "dungeon visible in EndlessLeveling registers/tabs",
+      "dungeon registered",
+      "native start/portal route created the Rift Mage instance",
+      "spawn point worked",
+      "leave/return worked"
+    ]
+  },
+  "server_log_evidence": {
+    "commands": [
+      "00:20:26 Acehoroth executed: el import install endless-elite-rift-mage",
+      "00:20:56 Acehoroth executed: el reload"
+    ],
+    "runtime": [
+      "00:21:39 copied EndlessElite_RiftMage instance files",
+      "00:21:39 loaded instance world with seed 2026080801",
+      "00:21:39 added Acehoroth at [0.5, 89.0, 0.5]",
+      "00:22:06 removed and stopped the instance world"
+    ]
+  },
+  "closed_blocker": "runtime/endlessleveling-import-reload-dungeon-tab-validation",
+  "remaining_blockers": [
+    "manual/technodistrict-visual-gameplay-acceptance"
+  ],
+  "not_yet_accepted": [
+    "three-wave encounter",
+    "Rift Mage boss combat",
+    "death and floor fallback",
+    "visual quality of terrain and arena"
+  ],
+  "release_ready": false,
+  "deployment_allowed": false
+}

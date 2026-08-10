@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "validated_at": "2026-08-07",
+  "scope": "isolated_non_ingame_import_and_boot",
+  "environment": {
+    "temporary_root": "rift-mage-import-1786137542991885000",
+    "bind": "127.0.0.1:5533",
+    "auth_mode": "INSECURE_LOOPBACK_TEST_ONLY",
+    "client_join_performed": false,
+    "production_deployment_performed": false
+  },
+  "components": {
+    "EndlessLevelingCore": "11.6.1",
+    "EndlessEliteMobs": "3.5.4"
+  },
+  "import_result": {
+    "import_id": "endless-elite-rift-mage",
+    "installed": 1,
+    "updated": 0,
+    "failed": 0,
+    "pack_server_files": 16,
+    "asset_pack_id": "com.airijko.endlessleveling.imports:Import_endless_elite_rift_mage",
+    "routing_template": "EndlessElite_RiftMage",
+    "portal_block_id": "EndlessElite_RiftMage_Portal",
+    "world_pattern": "instance-endless_elite_rift_mage-*"
+  },
+  "repeat_boot_result": {
+    "booted": true,
+    "boot_seconds": 23.023,
+    "pending_imports": 0,
+    "installed_imports": 1,
+    "updates_available": 0,
+    "errored_imports": 0,
+    "import_asset_pack_loaded": true,
+    "endless_elite_mobs_loaded": true,
+    "asset_validation_failed": false,
+    "rift_specific_error": false
+  },
+  "baseline_observation": {
+    "minimal_el_only_boot_missing_item": "EEM_Weapon_Spear_ALPHA01",
+    "classification": "missing EndlessEliteMobs provider in intentionally minimal baseline",
+    "resolved_by_loading_active_provider": true,
+    "present_on_repeat_boot": false
+  },
+  "remaining_blockers": [
+    "runtime/generated-technodistrict-spawn-validation",
+    "manual/technodistrict-visual-gameplay-acceptance"
+  ]
+}
