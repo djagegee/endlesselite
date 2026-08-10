@@ -41,14 +41,16 @@ mvn clean verify
 | Nachtweber | 70 | 0 | 0 | 0 |
 | Seuchenweber | 89 | 0 | 0 | 0 |
 | Rift Mage Dungeon | 17 | 0 | 0 | 0 |
-| Portal Spawn Snapshot | 4 | 0 | 0 | 0 |
-| Mjolnir Safety Patch | 4 | 0 | 0 | 0 |
-| **Total** | **231** | **0** | **0** | **0** |
+| Portal Spawn Snapshot | 5 | 0 | 0 | 0 |
+| Mjolnir Safety Patch | 5 | 0 | 0 | 0 |
+| **Total** | **233** | **0** | **0** | **0** |
 
 Reactor summary: parent and all eight modules `SUCCESS`.
 Marker: `BUILD SUCCESS`.
 
 The Core contracts now also prove exact-instance registry ownership, single-attempt collision rollback, mutate-then-throw registration compensation, reverse cleanup after `Error`, best-effort continuation across all cleanup actions, first-failure preservation, self-suppression safety, and reflective detection of the required MMOSkillTree owned-effects ABI. Hymann, Nachtweber, and Seuchenweber module contracts bind build, manifest disclosure, preflight, rollback, and error propagation to that ABI. Hymann, Nachtweber, and Seuchenweber clear owned fields before each potentially failing cleanup action and continue all remaining cleanup through the shared sequencer. The Seuchenweber configuration contract continues to bind operator documentation and the default profile to the actual schema-4 runtime defaults.
+
+Portal Spawn and Mjolnir snapshot contracts also require portable public provenance labels. The repository verifier rejects both ordinary and JSON-escaped Windows user-home paths in tracked public text.
 
 ## Repository and distribution gates
 

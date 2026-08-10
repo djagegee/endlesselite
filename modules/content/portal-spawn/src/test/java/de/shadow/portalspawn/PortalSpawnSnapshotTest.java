@@ -54,6 +54,15 @@ class PortalSpawnSnapshotTest {
     assertFalse(gate.get("deployment_allowed").getAsBoolean());
   }
 
+  @Test
+  void publicSnapshotMetadataDoesNotExposeALocalWindowsPath() throws Exception {
+    JsonObject inventory = JsonParser.parseString(
+        Files.readString(SNAPSHOT.resolve("SOURCE_SNAPSHOT.json"), StandardCharsets.UTF_8)).getAsJsonObject();
+    String source = inventory.get("source").getAsString();
+    assertFalse(source.matches("(?i)^[a-z]:[\\\\/].*"));
+    assertFalse(source.matches("(?i).*[/\\\\]Users[/\\\\].*"));
+  }
+
   private static String sha256(Path path) throws Exception {
     return HexFormat.of().formatHex(MessageDigest.getInstance("SHA-256").digest(Files.readAllBytes(path)));
   }

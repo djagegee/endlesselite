@@ -41,4 +41,13 @@ class MjolnirSafetyPatchSnapshotTest {
     JsonObject gate = JsonParser.parseString(Files.readString(SNAPSHOT.resolve("release-gate.json"), StandardCharsets.UTF_8)).getAsJsonObject();
     assertFalse(gate.get("deployment_allowed").getAsBoolean());
   }
+
+  @Test
+  void publicSnapshotMetadataDoesNotExposeALocalWindowsPath() throws Exception {
+    JsonObject inventory = JsonParser.parseString(
+        Files.readString(SNAPSHOT.resolve("SOURCE_SNAPSHOT.json"), StandardCharsets.UTF_8)).getAsJsonObject();
+    String source = inventory.get("source").getAsString();
+    assertFalse(source.matches("(?i)^[a-z]:[\\\\/].*"));
+    assertFalse(source.matches("(?i).*[/\\\\]Users[/\\\\].*"));
+  }
 }

@@ -3,7 +3,7 @@
 Shared, modular source repository for the Hytale mods developed by Agegee and Hermes.
 
 [![Java 25](https://img.shields.io/badge/Java-25-blue)](#build-and-tests)
-[![Tests](https://img.shields.io/badge/tests-231%20passing-brightgreen)](#build-and-tests)
+[![Tests](https://img.shields.io/badge/tests-233%20passing-brightgreen)](#build-and-tests)
 
 > [!IMPORTANT]
 > The repository is build-verified, but **not approved for live deployment**. No live server was modified. Nachtweber, the combined MMOSkillTree stack, Rift Mage, Portal Spawn, and the version-bound Mjolnir patch have outstanding in-game/release gates.
@@ -12,14 +12,14 @@ Shared, modular source repository for the Hytale mods developed by Agegee and He
 
 | Path | Version | Purpose | Status |
 |---|---:|---|---|
-| `modules/core` | 0.1.0 | shared lifecycle/ownership catalog and conflict-free global localization | 7 tests GREEN |
+| `modules/core` | 0.1.0 | shared lifecycle/ownership catalog and conflict-free global localization | 13 tests GREEN |
 | `modules/hub/endless-book` | 2.0.0 | shared UI/information hub, personal claims, progression display | 22 tests GREEN |
-| `modules/classes/hymann` | 0.1.9 | Hymann class progression, Armament/Thunder abilities, combat systems | 11 tests GREEN |
-| `modules/classes/nachtweber` | 0.1.0 | Nachtweber with three active and four passive abilities, store-bound state | 69 tests GREEN; in-game gates open |
-| `modules/classes/seuchenweber` | 0.1.0 | Necrotoxin, Astral Rift, Chronoblight, auras, and MMOSkillTree integration | 88 tests GREEN |
+| `modules/classes/hymann` | 0.1.9 | Hymann class progression, Armament/Thunder abilities, combat systems | 12 tests GREEN |
+| `modules/classes/nachtweber` | 0.1.0 | Nachtweber with three active and four passive abilities, store-bound state | 70 tests GREEN; in-game gates open |
+| `modules/classes/seuchenweber` | 0.1.0 | Necrotoxin, Astral Rift, Chronoblight, auras, and MMOSkillTree integration | 89 tests GREEN |
 | `modules/content/rift-mage-dungeon` | 0.1.1 | Rift Mage dungeon import, wave/asset contracts | 17 tests GREEN; deployment gate closed |
-| `modules/content/portal-spawn` | unversioned | byte-exact recovery snapshot of two portal/spawn prefabs | 4 tests GREEN; not deployable |
-| `modules/content/mjolnir-safety-patch` | 1.0.0 | byte-exact Patchly safety contract for Starky's Mjolnir 1.6.1 | 4 tests GREEN; version-bound gate closed |
+| `modules/content/portal-spawn` | unversioned | byte-exact recovery snapshot of two portal/spawn prefabs | 5 tests GREEN; not deployable |
+| `modules/content/mjolnir-safety-patch` | 1.0.0 | byte-exact Patchly safety contract for Starky's Mjolnir 1.6.1 | 5 tests GREEN; version-bound gate closed |
 
 ## Shared structure
 
@@ -94,7 +94,7 @@ python tools/collect_distribution.py
 Currently confirmed:
 
 - Maven reactor: **9/9 SUCCESS**
-- Tests: **231**, 0 Failures, 0 Errors, 0 Skips
+- Tests: **233**, 0 Failures, 0 Errors, 0 Skips
 - local dependency reproduction: PASS
 - repository structure gate: PASS
 - build artifact collection: PASS

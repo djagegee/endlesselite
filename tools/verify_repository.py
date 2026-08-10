@@ -25,7 +25,7 @@ SECRET_PATTERNS = (
     re.compile(r"authorization\s*:\s*(?:bearer|basic)\s+", re.I),
     re.compile(r"password\s*[:=]\s*['\"][^'\"]+", re.I),
 )
-PRIVATE_PUBLIC_PATH = re.compile(r"(?i)[A-Z]:[\\/]Users[\\/][^\\/\s\"']+")
+PRIVATE_PUBLIC_PATH = re.compile(r"(?i)[A-Z]:(?:\\+|/+)Users(?:\\+|/+)[^\\/\s\"']+")
 
 
 def fail(message: str) -> None:
