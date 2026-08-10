@@ -43,12 +43,8 @@ __pycache__/
 surefire-reports/
 failsafe-reports/
 
-# Graphify: keep graph.json and GRAPH_REPORT.md; ignore local cache/UI
-/graphify-out/cache/
-/graphify-out/graph.html
-/graphify-out/manifest.json
-/graphify-out/.graphify*
-/graphify-out/cost.json
+# Generated code graphs and local Graphify state
+/graphify-out/
 
 # Temporary and backup files
 *.tmp

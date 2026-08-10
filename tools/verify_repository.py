@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import json
 import re
+import subprocess
 import sys
 from collections import defaultdict
 from pathlib import Path
@@ -18,6 +19,7 @@ EXPECTED_PLUGIN_IDS = {
     "Shadow:Seuchenweber",
 }
 FORBIDDEN_TRACKED_SUFFIXES = {".class", ".jar", ".log", ".env"}
+FORBIDDEN_TRACKED_ROOTS = {"graphify-out"}
 IGNORED_OUTPUT_PARTS = {".git", ".local", "dist", "target", "build", "out", "__pycache__"}
 SECRET_PATTERNS = (
     re.compile(r"(?:api[_-]?key|access[_-]?token|refresh[_-]?token|client[_-]?secret)\s*[:=]", re.I),
@@ -33,6 +35,16 @@ def fail(message: str) -> None:
 def main() -> int:
     manifests = []
     fqcn_to_paths: dict[str, list[str]] = defaultdict(list)
+
+    tracked_paths = subprocess.check_output(
+        ["git", "ls-files", "-z"], cwd=ROOT
+    ).decode("utf-8").split("\0")
+    forbidden_roots = sorted(
+        path for path in tracked_paths
+        if path and path.split("/", 1)[0] in FORBIDDEN_TRACKED_ROOTS
+    )
+    if forbidden_roots:
+        fail(f"Generated repository outputs must not be tracked: {forbidden_roots}")
 
     for manifest_path in MODULES.rglob("src/main/resources/manifest.json"):
         manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
