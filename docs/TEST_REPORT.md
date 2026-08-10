@@ -37,16 +37,17 @@ mvn clean verify
 | Nachtweber | 69 | 0 | 0 | 0 |
 | Seuchenweber | 87 | 0 | 0 | 0 |
 | Rift Mage Dungeon | 17 | 0 | 0 | 0 |
-| **Gesamt** | **209** | **0** | **0** | **0** |
+| Portal Spawn Snapshot | 4 | 0 | 0 | 0 |
+| **Gesamt** | **213** | **0** | **0** | **0** |
 
-Reactor Summary: Parent und alle sechs Module `SUCCESS`.
+Reactor Summary: Parent und alle sieben Module `SUCCESS`.
 Marker: `BUILD SUCCESS`.
 
 ## Repository- und Distributionsgates
 
 ```text
 ENDLESS_ELITE_REPOSITORY_VERIFY_PASS
-plugins=5 java_fqcns=169 unique_resource_paths=87 rift_deployment_allowed=false
+plugins=5 java_fqcns=169 unique_resource_paths=87 rift_deployment_allowed=false portal_deployment_allowed=false
 ENDLESS_ELITE_DISTRIBUTION_PASS
 ```
 
@@ -54,11 +55,11 @@ Buildverifizierte Artefakte:
 
 | Artefakt | Bytes | SHA-256 |
 |---|---:|---|
-| EndlessEliteCore.jar | 20.433 | `f665aad16b8a476c8852b03ecf8d38a24c44824a47f3550b4e26e008e698c1d6` |
-| EndlessBook.jar | 82.954 | `b0271c9d77c3bcb20b57e28f7324e2b949e994a1fdeebf9ee9b7bb4cbaa757a6` |
-| Hymann.jar | 350.355 | `e9b73f079fecb00b63bded4fd3eac97b3f84f82989e50deb3a2e66c7ce187035` |
+| EndlessEliteCore.jar | 20.514 | `8fa78362e4aa3a6cacdbbf51aa78f5258c2581cd70486bd2c50d2dc95c122c27` |
+| EndlessBook.jar | 82.954 | `761e3ae05e46160e22a7c5ea3d3a81fd96f9fcd74d58df727c194f9ecd348026` |
+| Hymann.jar | 350.355 | `2d100ddaa3c3a34755d558b8a88e687997bb1c4d57ee89d013f8498591f48cdd` |
 | Nachtweber.jar | 165.175 | `f09d3535458d67c104a98d3a953c3b900f7b39c85a2ddaa223d9d273297d02fb` |
-| Seuchenweber.jar | 133.057 | `75a92c9fb199ce0e8d162aa7e9b97c6f3e5cf16d2440ddcd6a54322822d90ea3` |
+| Seuchenweber.jar | 133.057 | `038f0a1f4227d0bc4d5b602b8890bb10ecfa6d765528acedf553f0731be3ac22` |
 
 Das Distributionsmanifest setzt ausdrücklich:
 

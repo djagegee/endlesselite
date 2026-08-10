@@ -3,7 +3,7 @@
 Gemeinsames, modular aufgebautes Quellrepository für die von Agegee und Hermes entwickelten Hytale-Mods.
 
 [![Java 25](https://img.shields.io/badge/Java-25-blue)](#build-und-tests)
-[![Tests](https://img.shields.io/badge/tests-209%20passing-brightgreen)](#build-und-tests)
+[![Tests](https://img.shields.io/badge/tests-213%20passing-brightgreen)](#build-und-tests)
 
 > [!IMPORTANT]
 > Das Repository ist buildverifiziert, aber **nicht live-deploymentfreigegeben**. Es wurde kein Live-Server verändert. Nachtweber, der kombinierte MMOSkillTree-Stack und Rift Mage besitzen offene Ingame-/Release-Gates.
@@ -18,6 +18,7 @@ Gemeinsames, modular aufgebautes Quellrepository für die von Agegee und Hermes 
 | `modules/classes/nachtweber` | 0.1.0 | Nachtweber mit drei aktiven und vier passiven Fähigkeiten, storegebundene Zustände | 69 Tests GREEN; Ingame-Gates offen |
 | `modules/classes/seuchenweber` | 0.1.0 | Nekrotoxin, Astralriss, Chronofäule, Auren und MMOSkillTree-Anbindung | 87 Tests GREEN |
 | `modules/content/rift-mage-dungeon` | 0.1.1 | Rift-Mage-Dungeon-Import, Wellen-/Assetverträge | 17 Tests GREEN; Deployment-Gate geschlossen |
+| `modules/content/portal-spawn` | unversioniert | bytegenauer Recovery-Snapshot zweier Portal-/Spawn-Prefabs | 4 Tests GREEN; nicht deploybar |
 
 ## Gemeinsame Struktur
 
@@ -31,7 +32,7 @@ Endless Elite/
 │   ├── core/                         # gemeinsamer Runtime-/Asset-Owner
 │   ├── hub/endless-book/
 │   ├── classes/{hymann,nachtweber,seuchenweber}/
-│   └── content/rift-mage-dungeon/
+│   └── content/{rift-mage-dungeon,portal-spawn}/
 ├── tools/                            # Verifier, Dependency-Reproduktion, Distribution
 └── pom.xml                           # gemeinsamer Java-25/Maven-Reactor
 ```
@@ -91,8 +92,8 @@ python tools/collect_distribution.py
 
 Aktuell bestätigt:
 
-- Maven-Reactor: **7/7 SUCCESS**
-- Tests: **209**, 0 Failures, 0 Errors, 0 Skips
+- Maven-Reactor: **8/8 SUCCESS**
+- Tests: **213**, 0 Failures, 0 Errors, 0 Skips
 - lokale Dependency-Reproduktion: PASS
 - Repository-Strukturgate: PASS
 - Buildartefaktsammlung: PASS
@@ -111,7 +112,7 @@ Es wurde im Rahmen dieser Zusammenführung **kein Live-Deployment durchgeführt*
 
 ## Inventur und nicht integrierte Binärstände
 
-Vollständige aktuelle Quellen wurden für die fünf historischen Module übernommen und um den neu erstellten Shared Core ergänzt. Nur als Binärbackup gefunden und daher nicht blind dekompiliert oder produktiv integriert:
+Vollständige aktuelle Quellen wurden für die fünf historischen Module übernommen und um den neu erstellten Shared Core ergänzt. Der unversionierte Portal-Spawn-Editorstand ist zusätzlich bytegenau als deploymentgesperrter Recovery-Vertrag erhalten. Nur als Binärbackup gefunden und daher nicht blind dekompiliert oder produktiv integriert:
 
 - HyGunsMMOCompat 1.0.5–1.0.7
 - EndlessGuildsPatches (Manifest 1.0.1, abweichende Dateinamen)
@@ -128,6 +129,7 @@ Alle Originalprojekte und Binärbackups bleiben unverändert als zusätzliche Si
 - Hymann-Profilpersistenz gegen Logout/Profilwechsel/Crash-Recovery,
 - Nachtweber: Clientbinding, Aktivierung, Movement, Damage, Disconnect und Zwei-Spieler-Isolation,
 - Rift Mage: manuelle Gameplay-/Visual-Abnahme und `deployment_allowed=true`,
+- Portal Spawn: Manifestreparatur, Asset-Pack-Vertrag und isolierte Gameplay-/Visual-Abnahme,
 - veraltete Hytale-API-Nutzungen in EndlessBook, Hymann und Seuchenweber.
 
 ## Sicherheit und Git

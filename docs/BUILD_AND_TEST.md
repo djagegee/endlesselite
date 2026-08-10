@@ -62,6 +62,7 @@ Der Reactor enthält:
 5. `nachtweber`
 6. `seuchenweber`
 7. `rift-mage-dungeon`
+8. `portal-spawn`
 
 ## 3. Repository-Gate
 
@@ -102,8 +103,8 @@ Die Ausgabe liegt ignoriert unter `dist/`. Das Manifest bezeichnet die JARs nur 
 
 - Java: 25.0.4
 - Maven: 3.9.16
-- Reactor: 7/7 Projekte SUCCESS
-- Tests: 209
+- Reactor: 8/8 Projekte SUCCESS
+- Tests: 213
 - Failures: 0
 - Errors: 0
 - Skipped: 0

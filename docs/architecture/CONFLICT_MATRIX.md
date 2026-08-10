@@ -15,6 +15,7 @@ Endless Elite ist ein Maven-Monorepo mit getrennten Hytale-Laufzeitartefakten. D
 | Nachtweber | Eliteklasse | `Shadow:Nachtweber` | integriert, gebaut und getestet; `DisabledByDefault` und Ingame-Gates bleiben |
 | Seuchenweber | Eliteklasse | `Shadow:Seuchenweber` | integriert, gebaut und getestet; Writer-/Reload-Gates offen |
 | Rift Mage Dungeon | Content-/Importvertrag | `endless-elite-rift-mage` | Quelle/Tests integriert; Deployment durch eigenes Gate gesperrt |
+| Portal Spawn Snapshot | Recovery-/Prefabvertrag | unvollständiges Quellmanifest | bytegenau integriert und getestet; Deployment gesperrt |
 
 ## Automatisch bestätigte Eindeutigkeit
 
@@ -27,7 +28,7 @@ Endless Elite ist ein Maven-Monorepo mit getrennten Hytale-Laufzeitartefakten. D
 - keine erkannten Secret-Zuweisungen,
 - Rift Mage bleibt `deployment_allowed=false`.
 
-Aktueller Lauf: `ENDLESS_ELITE_REPOSITORY_VERIFY_PASS`, 5 Plugins, 169 Main-FQCNs und 87 eindeutige Ressourcenpfade.
+Aktueller Lauf: `ENDLESS_ELITE_REPOSITORY_VERIFY_PASS`, 5 Plugins, 169 Main-FQCNs und 87 eindeutige Ressourcenpfade; Rift- und Portal-Gates geschlossen.
 
 ## Gemeinsame Systeme und eindeutige Owner
 
@@ -92,6 +93,10 @@ Es gibt keine doppelten Event- oder System-IDs. Hymann besitzt jedoch mehrere Da
 ### 7. Rift Mage Dungeon
 
 Das Maven-JAR ist absichtlich kein Runtimeplugin. Das eigentliche Ergebnis ist der Contract-ZIP aus `src/main/dlc`. `release-gate.json` sperrt Deployment bis zur manuellen Gameplay-/Visual-Abnahme. Der Quellvertrag ist integriert und getestet, wird aber nicht als freigegebene Mod-JAR ausgegeben.
+
+### 8. Portal Spawn Snapshot
+
+Der lokale Hytale-Editor-Export enthält zwei unterschiedliche Prefab-JSONs, aber kein vollständiges Pluginmanifest: `Version` und `Main` fehlen, `IncludesAssetPack` ist trotz Assets `false`. Manifest und beide Prefabs stimmen bytegenau mit der Originalquelle überein; das redundante 7,7-MB-`.bak` wird nur durch Größe und SHA-256 repräsentiert. Der Contract-ZIP wird getestet, aber nicht in die Plugin-Distribution aufgenommen. `deployment_allowed=false` bleibt bis Manifestreparatur sowie isolierter Gameplay-/Visualabnahme.
 
 ## Nicht aus Binärbackups integrierte Module
 
