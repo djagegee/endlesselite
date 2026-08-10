@@ -10,21 +10,21 @@ final class OperatorConfigNumbers {
   static double requiredDouble(String json, String key) {
     int keyIndex = json.indexOf("\"" + key + "\"");
     int colon = keyIndex < 0 ? -1 : json.indexOf(':', keyIndex);
-    if (colon < 0) throw new IllegalArgumentException("Fehlender numerischer Konfigurationspfad: " + key);
+    if (colon < 0) throw new IllegalArgumentException("Missing numeric config path: " + key);
     int start = colon + 1;
     while (start < json.length() && Character.isWhitespace(json.charAt(start))) start++;
     int end = start;
     while (end < json.length() && isNumberCharacter(json.charAt(end))) end++;
     if (end < json.length() && json.charAt(end) == ',' && end + 1 < json.length()
         && Character.isDigit(json.charAt(end + 1))) {
-      throw new IllegalArgumentException("Ungültiger Wert für " + key + ": Dezimalpunkt statt Dezimalkomma verwenden");
+      throw new IllegalArgumentException("Invalid value for " + key + ": use a decimal point instead of a decimal comma");
     }
     String token = json.substring(start, end);
     try {
       double parsed = Double.parseDouble(token);
       if (Double.isFinite(parsed)) return parsed;
     } catch (NumberFormatException ignored) { }
-    throw new IllegalArgumentException("Ungültiger endlicher Dezimalwert für " + key + ": " + token);
+    throw new IllegalArgumentException("Invalid finite decimal value for " + key + ": " + token);
   }
 
   static String formatForStorage(double value) {

@@ -30,30 +30,30 @@ final class SeuchenweberAbilityConfigInstaller {
 
     JsonObject configured = balance.getAsJsonObject("abilities");
     abilities.add("seuchenweber_seal_of_decay", active(
-        "SEUCHENWEBER_SEAL_OF_DECAY", "Siegel der Fäulnis",
-        "Markiert ein feindliches Ziel mit Nekrotoxin.", "Seuchenweber_Skill_Seal_Of_Decay",
+        "SEUCHENWEBER_SEAL_OF_DECAY", "Seal of Decay",
+        "Marks a hostile target with Necrotoxin.", "Seuchenweber_Skill_Seal_Of_Decay",
         configured.getAsJsonObject("seal_of_decay"), "range", "castRangeBlocks", "stacks",
         "nekrotoxinStacksApplied", "directDamage", "baseDamage"));
     abilities.add("seuchenweber_astral_rift", active(
-        "SEUCHENWEBER_ASTRAL_RIFT", "Astralriss",
-        "Teleportiert durch einen Riss und infiziert nahe Feinde.", "Seuchenweber_Skill_Astral_Rift",
+        "SEUCHENWEBER_ASTRAL_RIFT", "Astral Rift",
+        "Teleports through a rift and infects nearby enemies.", "Seuchenweber_Skill_Astral_Rift",
         configured.getAsJsonObject("astral_rift"), "teleportRange", "teleportRangeBlocks",
         "riftDurationMs", "durationSeconds", null, null));
     abilities.add("seuchenweber_chronoblight", active(
-        "SEUCHENWEBER_CHRONOBLIGHT", "Chronofäule",
-        "Vertieft eigene Nekrotoxin-Zeichen.", "Seuchenweber_Skill_Chronoblight",
+        "SEUCHENWEBER_CHRONOBLIGHT", "Chronoblight",
+        "Deepens the caster's own Necrotoxin marks.", "Seuchenweber_Skill_Chronoblight",
         configured.getAsJsonObject("chronoblight"), "range", "castRangeBlocks", "stacks",
         "nekrotoxinStacksApplied", "fullMarkStunMs", "fullMarkStunSeconds"));
 
-    addPassive(abilities, "seuchenweber_passive_necrotoxic_mastery", "Pesthauch",
-        "Alle 2 Sekunden erhalten feindliche Ziele im Umkreis von 8 Blöcken einen Nekrotoxin-Stapel.",
+    addPassive(abilities, "seuchenweber_passive_necrotoxic_mastery", "Blight Breath",
+        "Every 2 seconds, hostile targets within 8 blocks receive one Necrotoxin stack.",
         "Seuchenweber_Skill_Necrotoxic_Mastery");
-    addPassive(abilities, "seuchenweber_passive_astral_echo", "Astrales Echo",
-        "Überträgt begrenzt ein Zeichen auf einen nahen Feind.", "Seuchenweber_Skill_Astral_Echo");
-    addPassive(abilities, "seuchenweber_passive_soul_diagnosis", "Seelendiagnose",
-        "Zeigt stark markierte Ziele nur ihrem Besitzer an.", "Seuchenweber_Skill_Soul_Diagnosis");
-    addPassive(abilities, "seuchenweber_passive_relic_attunement", "Reliktresonanz",
-        "Natürlich ablaufende volle Zeichen erstatten Ressourcen.", "Seuchenweber_Skill_Relic_Attunement");
+    addPassive(abilities, "seuchenweber_passive_astral_echo", "Astral Echo",
+        "Transfers a limited mark to a nearby enemy.", "Seuchenweber_Skill_Astral_Echo");
+    addPassive(abilities, "seuchenweber_passive_soul_diagnosis", "Soul Diagnosis",
+        "Shows heavily marked targets only to their owner.", "Seuchenweber_Skill_Soul_Diagnosis");
+    addPassive(abilities, "seuchenweber_passive_relic_attunement", "Relic Attunement",
+        "Fully marked targets that expire naturally refund resources.", "Seuchenweber_Skill_Relic_Attunement");
 
     Files.createDirectories(abilitiesFile.getParent());
     Path backup = abilitiesFile.resolveSibling(abilitiesFile.getFileName() + ".seuchenweber-before.bak");

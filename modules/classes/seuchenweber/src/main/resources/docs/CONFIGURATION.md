@@ -1,32 +1,32 @@
-# Seuchenweber-Konfiguration – Schema 4
+# Seuchenweber Configuration – Schema 4
 
-Aktive Operator-Datei nach dem ersten Serverstart:
+Active operator file after the first server start:
 
 ```text
 mods/Seuchenweber/seuchenweber.json
 ```
 
-Änderungen werden beim nächsten vollständigen Serverstart aktiv. Ungültige Werte werden nicht still überschrieben: Die Runtime nennt den vollständigen Pfad, den erhaltenen Wert, den gültigen Bereich und verwendet für diesen Start den sicheren Standardwert.
+Changes take effect on the next full server start. Invalid values are not silently overwritten: the runtime reports the full path, the received value, the valid range, and uses the safe default value for that start.
 
-## Pesthauch
+## Blight Breath
 
-| Pfad | Einheit | Standard | Minimum | Maximum | Wirkung | Bereich |
+| Path | Unit | Default | Minimum | Maximum | Effect | Scope |
 |---|---:|---:|---:|---:|---|---|
-| `passives.necrotoxic_mastery.auraRadiusBlocks` | Blöcke | `8.0` | `0.5` | `32.0` | Größer erfasst weiter entfernte feindliche Kampf-NPCs; kleiner begrenzt die Nähe-Aura stärker. | PvE; PvP bleibt durch die bestehende Zielprüfung ausgeschlossen. |
-| `passives.necrotoxic_mastery.auraPulseIntervalSeconds` | Sekunden | `2.0` | `0.25` | `30.0` | Kleiner vergibt Stapel häufiger; größer verlangsamt die Stapelvergabe. | Pro aktivem Seuchenweber und World-Store. |
+| `passives.necrotoxic_mastery.auraRadiusBlocks` | blocks | `8.0` | `0.5` | `32.0` | A larger value reaches more distant hostile combat NPCs; a smaller value restricts the proximity aura more strongly. | PvE; PvP remains excluded by the existing target check. |
+| `passives.necrotoxic_mastery.auraPulseIntervalSeconds` | seconds | `2.0` | `0.25` | `30.0` | A smaller value grants stacks more frequently; a larger value slows stack application. | Per active Seuchenweber and World-Store. |
 
-Pesthauch vergibt pro Impuls weiterhin **genau einen ownergebundenen Nekrotoxinstapel je gültigem Ziel**. Stapelzahl, Schaden und Partikel werden absichtlich nicht hier dupliziert:
+Blight Breath still grants **exactly one owner-bound necrotoxin stack per valid target** for each pulse. Stack count, damage, and particles are intentionally not duplicated here:
 
-- `NekrotoxinDamageSystem` bleibt die einzige Schadensautorität.
-- Die visuelle Klassen-Aura bleibt schadensfrei und unabhängig vom Pesthauch-Takt.
-- Zielpartikel bleiben im vorhandenen Poison-Visual-Pfad.
+- `NekrotoxinDamageSystem` remains the sole damage authority.
+- The visual class aura remains damage-free and independent of the Blight Breath cadence.
+- Target particles remain in the existing poison visual path.
 
-## Migration von Schema 3
+## Migration from Schema 3
 
-Beim ersten Start mit Schema 4:
+On the first start with Schema 4:
 
-1. wird `seuchenweber.json.schema-v3.bak` einmalig und nicht überschreibend angelegt;
-2. bleiben unbekannte Operator-Schlüssel erhalten;
-3. werden nur fehlende Pesthauch-Werte mit `8.0` Blöcken und `2.0` Sekunden ergänzt;
-4. wird die Datei atomar ersetzt;
-5. führt ein weiterer Start keine zweite Migration aus.
+1. `seuchenweber.json.schema-v3.bak` is created once and without overwriting an existing file;
+2. unknown operator keys are retained;
+3. only missing Blight Breath values are added with `8.0` blocks and `2.0` seconds;
+4. the file is replaced atomically;
+5. a subsequent start does not perform a second migration.

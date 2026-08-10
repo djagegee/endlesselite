@@ -21,7 +21,7 @@ class OperatorConfigNumbersTest {
   @Test void rejectsDecimalCommaWithUnderstandableMessage() {
     IllegalArgumentException error = assertThrows(IllegalArgumentException.class,
         () -> OperatorConfigNumbers.requiredDouble("{\"damageMultiplier\":0,9}", "damageMultiplier"));
-    assertTrue(error.getMessage().contains("Dezimalpunkt"));
+    assertTrue(error.getMessage().contains("decimal point"));
   }
 
   @Test void formatsGeneratedDecimalsWithAtMostTwoUsefulPlaces() {

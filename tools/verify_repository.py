@@ -36,6 +36,22 @@ def main() -> int:
     manifests = []
     fqcn_to_paths: dict[str, list[str]] = defaultdict(list)
 
+    language_gate = subprocess.run(
+        [sys.executable, str(ROOT / "tools" / "verify_english_public_content.py")],
+        cwd=ROOT,
+        text=True,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+        check=False,
+    )
+    if language_gate.returncode != 0:
+        details = (language_gate.stderr or language_gate.stdout).strip()
+        fail(
+            "Public repository content must be English. "
+            "Run tools/verify_english_public_content.py for the complete report."
+            + (f"\n{details[:4000]}" if details else "")
+        )
+
     tracked_paths = subprocess.check_output(
         ["git", "ls-files", "-z"], cwd=ROOT
     ).decode("utf-8").split("\0")

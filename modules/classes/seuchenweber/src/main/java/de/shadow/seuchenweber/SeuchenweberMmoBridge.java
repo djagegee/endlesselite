@@ -24,13 +24,13 @@ final class SeuchenweberMmoBridge {
       1, 2, 4, 5, 8, 12, 15, 18, 20, 22, 25, 28, 30, 32, 35, 38, 40, 42, 45,
       48, 50, 52, 55, 58, 60, 62, 65, 68, 70, 72, 75, 78, 80, 85, 90, 92, 95, 100);
   private static final List<TreeUnlock> TREE_UNLOCKS = List.of(
-      new TreeUnlock(2, "seuchenweber_seal_of_decay", "Siegel der Fäulnis", false),
-      new TreeUnlock(1, "seuchenweber_passive_necrotoxic_mastery", "Pesthauch", true),
-      new TreeUnlock(25, "seuchenweber_astral_rift", "Astralriss", false),
-      new TreeUnlock(40, "seuchenweber_passive_astral_echo", "Astrales Echo", true),
-      new TreeUnlock(55, "seuchenweber_chronoblight", "Chronofäule", false),
-      new TreeUnlock(70, "seuchenweber_passive_soul_diagnosis", "Seelendiagnose", true),
-      new TreeUnlock(90, "seuchenweber_passive_relic_attunement", "Reliktresonanz", true));
+      new TreeUnlock(2, "seuchenweber_seal_of_decay", "Seal of Decay", false),
+      new TreeUnlock(1, "seuchenweber_passive_necrotoxic_mastery", "Blight Breath", true),
+      new TreeUnlock(25, "seuchenweber_astral_rift", "Astral Rift", false),
+      new TreeUnlock(40, "seuchenweber_passive_astral_echo", "Astral Echo", true),
+      new TreeUnlock(55, "seuchenweber_chronoblight", "Chronoblight", false),
+      new TreeUnlock(70, "seuchenweber_passive_soul_diagnosis", "Soul Diagnosis", true),
+      new TreeUnlock(90, "seuchenweber_passive_relic_attunement", "Relic Attunement", true));
 
   private final HytaleLogger logger;
 
@@ -41,7 +41,7 @@ final class SeuchenweberMmoBridge {
   void register() {
     CustomSkill skill = new CustomSkill(
         SKILL_ID, "Seuchenweber", "COMBAT",
-        "Meisterschaft des Cosmic Ruin Spellbooks und der seuchengewebten Fähigkeiten.",
+        "Mastery of the Cosmic Ruin Spellbook and plague-woven abilities.",
         EnumSet.of(TriggerType.DEAL_DAMAGE_PHYSICAL), "MAGIC", SKILL_ICON);
     CustomSkillsConfig customSkills = CustomSkillsConfig.getInstance();
     if (customSkills != null) {
@@ -130,42 +130,42 @@ final class SeuchenweberMmoBridge {
 
   private static SkillReward cooldown(double percent, int level) {
     return nativePercent("cooldown", SkillRewardType.COOLDOWN_REDUCTION, percent, level,
-        "Chronische Beschleunigung", "+" + format(percent) + "% Cooldown Reduction");
+        "Chronic Acceleration", "+" + format(percent) + "% cooldown reduction");
   }
 
   private static SkillReward manaRegen(double percent, int level) {
     return nativePercent("mana_regen", SkillRewardType.MANA_REGEN, percent, level,
-        "Astraler Zufluss", "+" + format(percent) + "% Mana-Regeneration");
+        "Astral Influx", "+" + format(percent) + "% mana regeneration");
   }
 
   private static SkillReward criticalChance(double percent, int level) {
     return nativePercent("critical_chance", SkillRewardType.CRITICAL_CHANCE, percent, level,
-        "Virulente Präzision", "+" + format(percent) + "% kritische Trefferchance");
+        "Virulent Precision", "+" + format(percent) + "% critical hit chance");
   }
 
   private static SkillReward defense(double percent, int level) {
     return nativePercent("defense", SkillRewardType.STAT_DEFENSE, percent, level,
-        "Seuchenpanzer", "+" + format(percent) + "% Schadensreduktion");
+        "Plague Armor", "+" + format(percent) + "% damage reduction");
   }
 
   private static SkillReward staminaRegen(double percent, int level) {
-    return customPercent("stamina_regen", percent, level, "Toxische Ausdauer",
-        "+" + format(percent) + "% Ausdauer-Regeneration als aktiver Seuchenweber");
+    return customPercent("stamina_regen", percent, level, "Toxic Endurance",
+        "+" + format(percent) + "% stamina regeneration while playing as Seuchenweber");
   }
 
   private static SkillReward directDamage(double percent, int level) {
-    return customPercent("direct_damage", percent, level, "Kosmischer Einschlag",
-        "+" + format(percent) + "% Direktschaden als aktiver Seuchenweber");
+    return customPercent("direct_damage", percent, level, "Cosmic Impact",
+        "+" + format(percent) + "% direct damage while playing as Seuchenweber");
   }
 
   private static SkillReward dotDamage(double percent, int level) {
-    return customPercent("dot_damage", percent, level, "Nekrotoxische Potenz",
-        "+" + format(percent) + "% Nekrotoxin-DoT-Schaden");
+    return customPercent("dot_damage", percent, level, "Necrotoxic Potency",
+        "+" + format(percent) + "% Necrotoxin damage over time");
   }
 
   private static SkillReward criticalDamage(double percent, int level) {
-    return customPercent("crit_damage", percent, level, "Seuchenexekution",
-        "+" + format(percent) + "% kritischer Schaden als aktiver Seuchenweber");
+    return customPercent("crit_damage", percent, level, "Plague Execution",
+        "+" + format(percent) + "% critical damage while playing as Seuchenweber");
   }
 
   private static SkillReward nativePercent(String kind, SkillRewardType type, double percent,
@@ -190,9 +190,9 @@ final class SeuchenweberMmoBridge {
   }
 
   private static SkillReward abilityReward(TreeUnlock unlock) {
-    String kind = unlock.passive() ? "Passiv" : "Aktiv";
+    String kind = unlock.passive() ? "Passive" : "Active";
     return SkillReward.forAbility(unlock.abilityId(), SkillRewardType.ABILITY_UNLOCK, 0.0,
-        unlock.displayName(), kind + " · Freischaltung auf Seuchenweber-Level " + unlock.level() + ".",
+        unlock.displayName(), kind + " · Unlock at Seuchenweber level " + unlock.level() + ".",
         unlock.abilityId()).withIcon(iconFor(unlock.abilityId())).withDisplayKeys(
             "seuchenweber.tree." + unlock.abilityId() + ".name",
             "seuchenweber.tree." + unlock.abilityId() + ".description");

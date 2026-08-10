@@ -18,6 +18,8 @@ final class NachtweberRuntimeAdapterTest {
     CharacterClassDefinition definition = NachtweberClassDefinition.create();
     assertEquals("elite_nightweaver", definition.getId());
     assertEquals("Nachtweber", definition.getDisplayName());
+    assertEquals("A dark hunter who binds prey with black thread and wears it down with venom.",
+        definition.getDescription());
     assertEquals(List.of("Assassin"), definition.getRoles());
     assertEquals("Physical", definition.getDamageType());
     assertEquals("melee", definition.getRangeType());

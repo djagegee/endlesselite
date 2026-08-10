@@ -46,7 +46,7 @@ final class NachtweberMmoInstaller {
   }
 
   private static JsonObject blackThread() {
-    JsonObject value=common("NACHTWEBER_BLACK_THREAD","Schwarzer Faden","Bindet ein serverseitig gewähltes feindliches Ziel mit schwarzem Faden.");
+    JsonObject value=common("NACHTWEBER_BLACK_THREAD","Black Thread","Binds a server-selected hostile target with black thread.");
     value.addProperty("cooldownMs",3_000);
     JsonObject params=new JsonObject();
     params.addProperty("useCustomCardDescription",true);
@@ -59,7 +59,7 @@ final class NachtweberMmoInstaller {
   }
 
   private static JsonObject shadowSwing() {
-    JsonObject value=common("NACHTWEBER_SHADOW_SWING","Schattenschwung","Zieht den Nachtweber zu einem serverseitig bestätigten festen Anker.");
+    JsonObject value=common("NACHTWEBER_SHADOW_SWING","Shadow Swing","Pulls the Nachtweber toward a server-confirmed fixed anchor.");
     value.addProperty("cooldownMs",5_000);
     JsonObject params=new JsonObject(); params.addProperty("useCustomCardDescription",true);
     params.addProperty("range",18.0); params.addProperty("minimumAnchorDistance",2.0);
@@ -68,7 +68,7 @@ final class NachtweberMmoInstaller {
   }
 
   private static JsonObject huntingCocoon() {
-    JsonObject value=common("NACHTWEBER_HUNTING_COCOON","Jagdkokon","Verbraucht ausschließlich eigene Verstrickung und erzeugt owner-gebundenes Fanggift.");
+    JsonObject value=common("NACHTWEBER_HUNTING_COCOON","Hunting Cocoon","Consumes only the caster's own entanglement and creates owner-bound venom.");
     value.addProperty("cooldownMs",7_000);
     JsonObject params=new JsonObject();
     params.addProperty("useCustomCardDescription",true);
@@ -82,7 +82,7 @@ final class NachtweberMmoInstaller {
 
 
   private static JsonObject dangerSense() {
-    JsonObject value=common("NEXT_HIT_BUFF","Gefahrensinn","Warnt vor dem nächsten sichtbaren feindlichen Kampfziel in begrenzter Serverreichweite.");
+    JsonObject value=common("NEXT_HIT_BUFF","Danger Sense","Warns of the nearest visible hostile combat target within limited server range.");
     value.addProperty("passive",true); value.addProperty("cooldownMs",0);
     JsonObject params=new JsonObject(); params.addProperty("useCustomCardDescription",true);
     params.addProperty("radiusBlocks",16.0); params.addProperty("warningCooldownMs",2_000); params.addProperty("maximumCandidatesPerScan",64);
@@ -90,7 +90,7 @@ final class NachtweberMmoInstaller {
   }
 
   private static JsonObject wallHunter() {
-    JsonObject value=common("NEXT_HIT_BUFF","Wandjäger","Erzeugt nur bei bestätigtem horizontalem Wandkontakt und Sprungeingabe Aufwärtsbewegung.");
+    JsonObject value=common("NEXT_HIT_BUFF","Wall Hunter","Produces upward movement only with confirmed horizontal wall contact and jump input.");
     value.addProperty("passive",true); value.addProperty("cooldownMs",0);
     JsonObject params=new JsonObject(); params.addProperty("useCustomCardDescription",true);
     params.addProperty("climbSpeed",4.0); params.addProperty("requiresHorizontalWallContact",true); params.addProperty("requiresUpwardInput",true);
@@ -98,7 +98,7 @@ final class NachtweberMmoInstaller {
   }
 
   private static JsonObject toxicGlands() {
-    JsonObject value=common("NEXT_HIT_BUFF","Giftige Drüsen","Bestätigte direkte Treffer erzeugen einen owner-isolierten Fanggiftstapel.");
+    JsonObject value=common("NEXT_HIT_BUFF","Toxic Glands","Confirmed direct hits create an owner-isolated venom stack.");
     value.addProperty("passive",true); value.addProperty("cooldownMs",0);
     JsonObject params=new JsonObject(); params.addProperty("useCustomCardDescription",true);
     params.addProperty("baseVenomStacks",1); params.addProperty("venomDurationMs",6_000); params.addProperty("internalCooldownMs",1_000);
@@ -107,7 +107,7 @@ final class NachtweberMmoInstaller {
   }
 
   private static JsonObject huntingInstinct() {
-    JsonObject value=common("NEXT_HIT_BUFF","Jagdinstinkt","Gewährt nur gegen eigene aktive Verstrickung einen zusätzlichen Fanggiftstapel.");
+    JsonObject value=common("NEXT_HIT_BUFF","Hunting Instinct","Grants an additional venom stack only against the caster's own active entanglement.");
     value.addProperty("passive",true); value.addProperty("cooldownMs",0);
     JsonObject params=new JsonObject(); params.addProperty("useCustomCardDescription",true);
     params.addProperty("requiresOwnEntanglement",true); params.addProperty("bonusVenomStacks",1);

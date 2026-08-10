@@ -2,7 +2,7 @@
   "schemaVersion": 9,
   "class": {
     "id": "elite_nightweaver",
-    "title": "Jäger des Schwarzen Netzes"
+    "title": "Hunter of the Black Web"
   },
   "runtimeDependencies": {
     "mmoSkillTree": {

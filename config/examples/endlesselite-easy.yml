@@ -1,7 +1,7 @@
-# Endless Elite – Profil: easy
-# Alle Zeiten sind Sekunden, Entfernungen Blöcke, Anzahlen ganze Zahlen.
-# Multiplikatoren: 1.0 = 100 %, 0.5 = 50 %, 1.25 = 125 %.
-# Vollständige Beschreibungen und Wertebereiche: docs/CONFIGURATION.md
+# Endless Elite – Profile: easy
+# All times are in seconds, distances in blocks, and counts are whole numbers.
+# Multipliers: 1.0 = 100%, 0.5 = 50%, 1.25 = 125%.
+# Full descriptions and value ranges: docs/CONFIGURATION.md
 schemaVersion: 4
 class:
   id: elite_plagueweaver

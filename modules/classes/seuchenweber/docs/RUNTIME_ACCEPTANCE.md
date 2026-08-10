@@ -1,6 +1,6 @@
 # Seuchenweber Runtime Acceptance
 
-Stand: 2026-08-07
+Status: 2026-08-07
 
 ## Evidence classes
 
@@ -35,7 +35,7 @@ Hytale Server Booted! [Multiplayer] took 3min 20sec 516ms 522us 600ns
 - The item is not consumed and access is not revoked when the item is later removed.
 - The class definition uses the Cosmic Ruin Spellbook as its icon/signature item and grants the spellbook weapon category its highest multiplier.
 - `Server/MMOSkillTree/XpMaps/Seuchenweber.json` maps only `ArcanePower_CosmicRuin_Spellbook` to `SEUCHENWEBER_MASTERY` XP (65 XP per qualifying MMOSkillTree weapon event).
-- Tree unlock levels are: active Seal of Decay 2, passive Necrotoxic Mastery 10, active Astral Rift 25, passive Astral Echo 40, active Chronoblight 55, passive Soul Diagnosis 70, passive Relic Attunement 90.
+- Tree unlock levels are: passive Blight Breath 1, active Seal of Decay 2, active Astral Rift 25, passive Astral Echo 40, active Chronoblight 55, passive Soul Diagnosis 70, passive Relic Attunement 90.
 - German and English localization keys exist for all seven tree cards.
 - Shared `custom-skills.json` and `abilities.json` are updated idempotently; unrelated Hymann content is preserved and the first pre-change abilities file is backed up.
 - During boot Hymann performs an earlier validation before Seuchenweber's effect handlers exist and logs three temporary unknown-effect warnings. Seuchenweber then registers all handlers and reloads the same 81 definitions without validation issues. The final active configuration is usable, but eliminating the early load-order noise remains a hygiene task.

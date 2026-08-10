@@ -33,12 +33,12 @@ record SeuchenweberRuntimeConfig(long toxinDurationMs, long tickIntervalMs, int 
       SeuchenweberConfigMigration.Result migration = SeuchenweberConfigMigration.migrate(config);
       if (migration.migrated()) {
         System.getLogger(SeuchenweberRuntimeConfig.class.getName()).log(System.Logger.Level.INFO,
-            "Seuchenweber-Konfiguration auf Schema 4 migriert. Backup: " + migration.backup()
-                + "; Änderungen: " + migration.changes());
+            "Migrated Seuchenweber config to schema 4. Backup: " + migration.backup()
+                + "; changes: " + migration.changes());
       }
       return parse(Files.readString(config, StandardCharsets.UTF_8));
     } catch (IOException error) {
-      throw new IllegalStateException("Seuchenweber-Konfiguration im Plugin-Datenordner konnte nicht geladen werden", error);
+      throw new IllegalStateException("Could not load Seuchenweber config from the plugin data directory", error);
     }
   }
 

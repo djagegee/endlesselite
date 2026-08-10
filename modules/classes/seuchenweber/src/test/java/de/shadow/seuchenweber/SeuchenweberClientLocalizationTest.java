@@ -41,8 +41,18 @@ class SeuchenweberClientLocalizationTest {
       try (InputStream stream = getClass().getResourceAsStream(itemResource)) {
         assertNotNull(stream, itemResource);
         String text = new String(stream.readAllBytes(), StandardCharsets.UTF_8);
-        String expectedName = locale.equals("de-DE") ? "Pesthauch" : "Blight Breath";
+        String expectedName;
+        String expectedTreeDescription;
+        if (locale.equals("de-DE")) {
+          expectedName = "Pesthauch";
+          expectedTreeDescription = "Passiv · Ab Level 1: Alle 2 Sekunden erhalten feindliche Ziele im Umkreis von 8 Blöcken einen Nekrotoxin-Stapel.";
+        } else {
+          expectedName = "Blight Breath";
+          expectedTreeDescription = "Passive · Level 1: Every 2 seconds, hostile targets within 8 blocks gain one Nekrotoxin stack.";
+        }
         assertTrue(text.contains("items.Seuchenweber_Skill_Necrotoxic_Mastery.name=" + expectedName));
+        assertTrue(text.contains("seuchenweber.tree.seuchenweber_passive_necrotoxic_mastery.name=" + expectedName));
+        assertTrue(text.contains("seuchenweber.tree.seuchenweber_passive_necrotoxic_mastery.description=" + expectedTreeDescription));
       }
     }
   }

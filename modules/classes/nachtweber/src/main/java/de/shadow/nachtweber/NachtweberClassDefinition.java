@@ -14,7 +14,7 @@ final class NachtweberClassDefinition {
     return new CharacterClassDefinition(
         ID,
         "Nachtweber",
-        "Ein dunkler Jäger, der Beute mit schwarzem Faden bindet und mit Fanggift zermürbt.",
+        "A dark hunter who binds prey with black thread and wears it down with venom.",
         List.of("Assassin"),
         "Physical",
         "melee",

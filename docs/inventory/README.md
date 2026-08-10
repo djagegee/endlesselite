@@ -1,36 +1,36 @@
-# Mod-Inventur
+# Mod Inventory
 
 Audit: 2026-08-10
 
-## Vollständige Quell- und Contentmodule
+## Complete Source and Content Modules
 
-| Modul | POM-Version | Manifest-/Quellversion | Main-Java | Test-Java | Nicht-Java-Quelldateien | Status |
+| Module | POM Version | Manifest/Source Version | Main Java | Test Java | Non-Java Source Files | Status |
 |---|---:|---:|---:|---:|---:|---|
-| Endless Elite Core | `0.1.0-SNAPSHOT` | `0.1.0` | 7 | 1 | 5 | gemeinsamer Runtime-/Asset-Owner; neu aus Integrationsverträgen erstellt |
-| EndlessBook | `2.0.0-SNAPSHOT` | `2.0.0` | 17 | 9 | 14 | vollständiges Serverplugin-Quellmodul |
-| Hymann | `0.1.9` | `0.1.9` | 34 | 2 | 46 | vollständiges Serverplugin-Quellmodul |
-| Nachtweber | `0.1.0-SNAPSHOT` | `0.1.0` | 74 | 13 | 2 | vollständiges Serverplugin-Quellmodul |
-| Seuchenweber | `0.1.0-SNAPSHOT` | `0.1.0` | 37 | 34 | 25 | vollständiges Serverplugin-Quellmodul; erzeugte Patcher-`.class`-Dateien ausgeschlossen |
-| RiftMageDungeon | `0.1.1-SNAPSHOT` | Contract `0.1.1` | 0 | 6 | 21 | datengetriebenes Content-/Contract-Modul; Gate geschlossen |
-| Portal Spawn | `0.0.0-SNAPSHOT` | unversionierter Originalexport | 0 | 2 | 5 | zwei Prefabs bytegenau erhalten; identische `.bak` nur per SHA dokumentiert; Gate geschlossen |
-| MjolnirSafetyPatch | `1.0.0-SNAPSHOT` | `1.0.0` | 0 | 2 | 5 | vollständiger eigener Patchly-Assetpatch; keine Third-Party-Assets; Gate geschlossen |
+| Endless Elite Core | `0.1.0-SNAPSHOT` | `0.1.0` | 7 | 1 | 5 | shared runtime/asset owner; newly created from integration contracts |
+| EndlessBook | `2.0.0-SNAPSHOT` | `2.0.0` | 17 | 9 | 14 | complete server plugin source module |
+| Hymann | `0.1.9` | `0.1.9` | 34 | 2 | 46 | complete server plugin source module |
+| Nachtweber | `0.1.0-SNAPSHOT` | `0.1.0` | 74 | 13 | 2 | complete server plugin source module |
+| Seuchenweber | `0.1.0-SNAPSHOT` | `0.1.0` | 37 | 34 | 25 | complete server plugin source module; generated patcher `.class` files excluded |
+| RiftMageDungeon | `0.1.1-SNAPSHOT` | Contract `0.1.1` | 0 | 6 | 21 | data-driven content/contract module; gate closed |
+| Portal Spawn | `0.0.0-SNAPSHOT` | unversioned original export | 0 | 2 | 5 | two prefabs preserved byte-for-byte; identical `.bak` documented only by SHA; gate closed |
+| MjolnirSafetyPatch | `1.0.0-SNAPSHOT` | `1.0.0` | 0 | 2 | 5 | complete first-party Patchly asset patch; no third-party assets; gate closed |
 
-Die vier früher zwischen Hymann und Seuchenweber kollidierenden Language-Pfade liegen als konfliktfreie Schlüsselunion ausschließlich im Shared Core. Originalprojekte und Quellbackups wurden nicht verändert.
+The four language paths that previously conflicted between Hymann and Seuchenweber exist exclusively in Shared Core as a conflict-free union of keys. Original projects and source backups were not modified.
 
-## Eigene Binär-/Backupfassungen
+## First-Party Binary/Backup Versions
 
-72 unterschiedliche eigene JAR-Inhalte wurden per SHA-256 dedupliziert. Binärdateien selbst werden nicht in Git übernommen. Details und alle kategorisierten Fundstellen stehen in [`mod-inventory.json`](mod-inventory.json).
+72 distinct first-party JAR contents were deduplicated by SHA-256. The binary files themselves are not added to Git. Details and all categorized locations are listed in [`mod-inventory.json`](mod-inventory.json).
 
-### Nur binär belegt und deshalb nicht als produktive Quelle integriert
+### Documented Only as Binaries and Therefore Not Integrated as Production Source
 
 - `HyGunsMMOCompat` 1.0.5–1.0.7
-- `EndlessGuildsPatches` (Manifest 1.0.1; abweichende Dateinamen)
+- `EndlessGuildsPatches` (manifest 1.0.1; differing filenames)
 - `StarterkitChatter` 1.0.0–1.0.7
 
-### Integrationsregel
+### Integration Rule
 
-- Quellmodule werden aus der neuesten vollständigen Quelle in das Monorepo übernommen.
-- Bytegenaue Content-Snapshots erhalten Quellhashes und bleiben bei unvollständigen Runtime-Verträgen fail-closed.
-- Binär-only-Artefakte werden dokumentiert, aber ohne belegte vollständige Quelle und API-Vertrag nicht blind dekompiliert oder in produktiven Code gemischt.
-- Drittanbieter-JARs und -Assets bleiben lokale Build-/Runtime-Abhängigkeiten und sind durch `.gitignore` ausgeschlossen.
-- Originalprojekte und Backups werden weder verändert noch gelöscht.
+- Source modules are transferred into the monorepo from the latest complete source.
+- Byte-exact content snapshots retain source hashes and remain fail-closed when runtime contracts are incomplete.
+- Binary-only artifacts are documented, but are not blindly decompiled or mixed into production code without verified complete source and an API contract.
+- Third-party JARs and assets remain local build/runtime dependencies and are excluded by `.gitignore`.
+- Original projects and backups are neither modified nor deleted.

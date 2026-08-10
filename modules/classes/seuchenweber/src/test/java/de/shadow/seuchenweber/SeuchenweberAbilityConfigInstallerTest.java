@@ -36,8 +36,8 @@ class SeuchenweberAbilityConfigInstallerTest {
     assertEquals("SEUCHENWEBER_MASTERY",
         installed.getAsJsonObject("seuchenweber_chronoblight").getAsJsonArray("xpSkills").get(0).getAsString());
     JsonObject pesthauch = installed.getAsJsonObject("seuchenweber_passive_necrotoxic_mastery");
-    assertEquals("Pesthauch", pesthauch.get("displayName").getAsString());
-    assertEquals("Alle 2 Sekunden erhalten feindliche Ziele im Umkreis von 8 Blöcken einen Nekrotoxin-Stapel.",
+    assertEquals("Blight Breath", pesthauch.get("displayName").getAsString());
+    assertEquals("Every 2 seconds, hostile targets within 8 blocks receive one Necrotoxin stack.",
         pesthauch.get("description").getAsString());
     assertEquals("Seuchenweber_Skill_Necrotoxic_Mastery", pesthauch.get("icon").getAsString());
     for (String abilityId : SeuchenweberMmoBridge.treeUnlocks().stream()

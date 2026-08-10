@@ -1,59 +1,59 @@
-# Build, Test und lokale Abhängigkeiten
+# Build, Testing, and Local Dependencies
 
-## Voraussetzungen
+## Prerequisites
 
-- JDK 25 (`JAVA_HOME` gesetzt)
+- JDK 25 (`JAVA_HOME` set)
 - Maven 3.9+
-- lokale Hytale-Serverinstallation mit:
+- local Hytale server installation with:
   - `HytaleServer.jar`
   - `mods/EndlessLeveling.jar`
   - `mods/MMOSkillTree-1.5.2.jar`
   - `mods/EndlessGuilds-1.13.0.jar`
   - `mods/Perfect Utils-1.1.0.jar`
-- für Seuchenwebers historische ABI-Baseline zusätzlich:
+- additionally, for Seuchenweber's historical ABI baseline:
   - `disabled-mods/baseline-isolation-2026-08-05/EndlessLeveling.jar`
   - `disabled-mods/baseline-isolation-2026-08-05/MMOSkillTree-1.5.2.jar`
 
-Lokale Abhängigkeiten und Drittanbieter-JARs werden nicht eingecheckt.
+Local dependencies and third-party JARs are not checked in.
 
-## 1. Nachtweber-Abhängigkeit reproduzieren
+## 1. Reproduce the Nachtweber Dependency
 
-Windows-Beispiel:
+Windows example:
 
 ```bash
 python tools/setup_local_dependencies.py \
-  --server-root "C:/Pfad/zum/Hytale-Server" \
-  --maven "C:/Pfad/zu/apache-maven/bin/mvn.cmd"
+  --server-root "C:/Path/to/Hytale-Server" \
+  --maven "C:/Path/to/apache-maven/bin/mvn.cmd"
 ```
 
-Das Skript:
+The script:
 
-1. verlangt den bekannten Stock-MMOSkillTree-1.5.2-Hash,
-2. lädt ASM 9.8 mit gepinntem SHA-256,
-3. kompiliert den mitgesicherten Patcher,
-4. erzeugt das additive Owned-Effects-JAR,
-5. prüft Entryset und Bytecode mit `javap`,
-6. installiert es lokal als `com.ziggfreed:mmo-skill-tree:1.5.2-owned-local`.
+1. requires the known stock MMOSkillTree 1.5.2 hash,
+2. downloads ASM 9.8 with a pinned SHA-256,
+3. compiles the included patcher,
+4. produces the additive Owned-Effects JAR,
+5. verifies the entry set and bytecode with `javap`,
+6. installs it locally as `com.ziggfreed:mmo-skill-tree:1.5.2-owned-local`.
 
-Erwarteter Marker:
+Expected marker:
 
 ```text
 ENDLESS_ELITE_LOCAL_DEPENDENCY_SETUP_PASS
 ```
 
-## 2. Gesamtprojekt bauen
+## 2. Build the Entire Project
 
 ```bash
-mvn -Dhytale.server.root="C:/Pfad/zum/Hytale-Server" clean verify
+mvn -Dhytale.server.root="C:/Path/to/Hytale-Server" clean verify
 ```
 
-Ohne Override verwendet der Parent für Agegees lokale Umgebung:
+Without an override, the parent uses the following path for Agegee's local environment:
 
 ```text
 C:/Users/agege/Desktop/LOKAL SERVER
 ```
 
-Der Reactor enthält:
+The reactor contains:
 
 1. `endless-elite-parent`
 2. `endless-elite-core`
@@ -65,33 +65,33 @@ Der Reactor enthält:
 8. `portal-spawn`
 9. `mjolnir-safety-patch`
 
-## 3. Repository-Gate
+## 3. Repository Gate
 
 ```bash
 python tools/verify_repository.py
 ```
 
-Erwarteter Marker:
+Expected marker:
 
 ```text
 ENDLESS_ELITE_REPOSITORY_VERIFY_PASS
 ```
 
-## 4. Buildartefakte sammeln
+## 4. Collect Build Artifacts
 
-Nach einem grünen Reactor:
+After a green reactor run:
 
 ```bash
 python tools/collect_distribution.py
 ```
 
-Erwarteter Marker:
+Expected marker:
 
 ```text
 ENDLESS_ELITE_DISTRIBUTION_PASS
 ```
 
-Die Ausgabe liegt ignoriert unter `dist/`. Das Manifest bezeichnet die JARs nur als **buildverifiziert**. Es setzt ausdrücklich:
+The output is stored under the ignored `dist/` directory. The manifest labels the JARs only as **build-verified**. It explicitly sets:
 
 ```json
 {
@@ -100,11 +100,11 @@ Die Ausgabe liegt ignoriert unter `dist/`. Das Manifest bezeichnet die JARs nur 
 }
 ```
 
-## Aktueller verifizierter Lauf
+## Current Verified Run
 
 - Java: 25.0.4
 - Maven: 3.9.16
-- Reactor: 9/9 Projekte SUCCESS
+- Reactor: 9/9 projects SUCCESS
 - Tests: 217
 - Failures: 0
 - Errors: 0
@@ -113,4 +113,4 @@ Die Ausgabe liegt ignoriert unter `dist/`. Das Manifest bezeichnet die JARs nur 
 - `ENDLESS_ELITE_DISTRIBUTION_PASS`
 - `ENDLESS_ELITE_LOCAL_DEPENDENCY_SETUP_PASS`
 
-Die Hytale-API erzeugt in EndlessBook, Hymann und Seuchenweber Warnungen zu als veraltet markierten APIs. Diese Warnungen sind dokumentierte technische Schulden, keine im Build ignorierten Testfehler.
+The Hytale API emits warnings about APIs marked as deprecated in EndlessBook, Hymann, and Seuchenweber. These warnings are documented technical debt, not test failures ignored by the build.

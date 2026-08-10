@@ -66,7 +66,7 @@ final class SeuchenweberUnlockSystem extends EntityTickingSystem<EntityStore> {
     permissions.addUserPermission(owner, Set.of(SeuchenweberPlugin.PERMISSION));
     nextCheckAtMs.remove(owner);
     playerRef.sendMessage(Message.raw(
-        "Seuchenweber freigeschaltet: Prestige 30 und das Cosmic Ruin Spellbook wurden bestätigt.")
+        "Seuchenweber unlocked: Prestige 30 and the Cosmic Ruin Spellbook were confirmed.")
         .color("#9f7aea"));
     ((HytaleLogger.Api) logger.atInfo()).log(
         "Granted Seuchenweber access after Prestige 30 + Cosmic Ruin Spellbook validation");

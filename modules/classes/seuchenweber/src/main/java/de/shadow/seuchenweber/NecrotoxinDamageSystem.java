@@ -231,7 +231,7 @@ final class NekrotoxinDamageSystem extends EntityTickingSystem<EntityStore> {
     if (!shouldReportSoulDiagnosis(unlocked, stacks, soulDiagnosisStackThreshold, nowMs, nextAllowedAt)) return;
     PlayerRef player = store.getComponent(caster, PlayerRef.getComponentType());
     if (player == null) return;
-    player.sendMessage(Message.raw("Seelendiagnose · Nekrotoxin " + stacks + " Stapel"));
+    player.sendMessage(Message.raw("Soul Diagnosis · Necrotoxin " + stacks + " stacks"));
     state.nextDiagnosisAtMs.put(key, nowMs + DIAGNOSIS_INTERVAL_MS);
   }
 

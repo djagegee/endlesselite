@@ -17,8 +17,8 @@ class OperatorConfigValidationTest {
     String warning = warnings.getFirst();
     assertTrue(warning.contains("classes.seuchenweber.pvp.damageMultiplier"));
     assertTrue(warning.contains("7.5"));
-    assertTrue(warning.contains("0.0 bis 2.0"));
-    assertTrue(warning.contains("Standardwert 0.7"));
+    assertTrue(warning.contains("0.0 to 2.0"));
+    assertTrue(warning.contains("default value 0.7"));
   }
 
   @Test void acceptsInclusiveBoundsAndRejectsNonFiniteValues() {
