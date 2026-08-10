@@ -19,7 +19,6 @@ Audit: 2026-08-10
 | HyGunsMMOCompat | 1.0.5, 1.0.6, 1.0.7 | nicht produktiv integrieren: keine vollständige Quelle gefunden; JARs bleiben externe Recovery-Evidenz |
 | EndlessGuildsPatches | Manifest 1.0.1 (Dateiname teils 1.0.0) | nicht produktiv integrieren: Versionsabweichung und fehlende Quelle |
 | StarterkitChatter | 1.0.0–1.0.7 | nicht produktiv integrieren: keine vollständige Quelle gefunden |
-| MjolnirSafetyPatch | unversioniertes archiviertes Contentfragment | nicht produktiv integrieren: nur historisches Manifest-/Assetfragment |
 
 ## Buildwerkzeuge
 

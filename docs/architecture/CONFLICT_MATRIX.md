@@ -16,6 +16,7 @@ Endless Elite ist ein Maven-Monorepo mit getrennten Hytale-Laufzeitartefakten. D
 | Seuchenweber | Eliteklasse | `Shadow:Seuchenweber` | integriert, gebaut und getestet; Writer-/Reload-Gates offen |
 | Rift Mage Dungeon | Content-/Importvertrag | `endless-elite-rift-mage` | Quelle/Tests integriert; Deployment durch eigenes Gate gesperrt |
 | Portal Spawn Snapshot | Recovery-/Prefabvertrag | unvollständiges Quellmanifest | bytegenau integriert und getestet; Deployment gesperrt |
+| Mjolnir Safety Patch | Patchly-Sicherheitsvertrag | `Shadow:MjolnirSafetyPatch` 1.0.0 | bytegenau integriert und getestet; versionsgebundenes Deployment-Gate geschlossen |
 
 ## Automatisch bestätigte Eindeutigkeit
 
@@ -28,7 +29,7 @@ Endless Elite ist ein Maven-Monorepo mit getrennten Hytale-Laufzeitartefakten. D
 - keine erkannten Secret-Zuweisungen,
 - Rift Mage bleibt `deployment_allowed=false`.
 
-Aktueller Lauf: `ENDLESS_ELITE_REPOSITORY_VERIFY_PASS`, 5 Plugins, 169 Main-FQCNs und 87 eindeutige Ressourcenpfade; Rift- und Portal-Gates geschlossen.
+Aktueller Lauf: `ENDLESS_ELITE_REPOSITORY_VERIFY_PASS`, 5 Plugins, 169 Main-FQCNs und 87 eindeutige Ressourcenpfade; Rift-, Portal- und Mjolnir-Patch-Gates geschlossen.
 
 ## Gemeinsame Systeme und eindeutige Owner
 
@@ -98,6 +99,10 @@ Das Maven-JAR ist absichtlich kein Runtimeplugin. Das eigentliche Ergebnis ist d
 
 Der lokale Hytale-Editor-Export enthält zwei unterschiedliche Prefab-JSONs, aber kein vollständiges Pluginmanifest: `Version` und `Main` fehlen, `IncludesAssetPack` ist trotz Assets `false`. Manifest und beide Prefabs stimmen bytegenau mit der Originalquelle überein; das redundante 7,7-MB-`.bak` wird nur durch Größe und SHA-256 repräsentiert. Der Contract-ZIP wird getestet, aber nicht in die Plugin-Distribution aufgenommen. `deployment_allowed=false` bleibt bis Manifestreparatur sowie isolierter Gameplay-/Visualabnahme.
 
+### 9. Mjolnir Safety Patch
+
+Der vollständige Patchly-Assetpatch 1.0.0 wurde bytegenau aus dem eigenen Backup gesichert. Er entfernt ausschließlich `Mjolnir_Held_Passive_Pulse` und erhält `Mjolnir_Charging_Spin_Loop`; Starkys Drittanbieterassets oder JARs werden nicht übernommen. Der Vertrag ist explizit an Starky's Mjolnir 1.6.1 gebunden und bleibt bis zum kombinierten Cold-Boot-/Gameplaytest `deployment_allowed=false`.
+
 ## Nicht aus Binärbackups integrierte Module
 
-`HyGunsMMOCompat`, `EndlessGuildsPatches`, `StarterkitChatter` und das unversionierte `MjolnirSafetyPatch`-Fragment besitzen im untersuchten Scope keine vollständigen Quellen. Eine blinde Dekompilierung würde Herkunft, Lizenz, Tests und API-Verträge verschlechtern. Sie bleiben als hashbasierte Recovery-Evidenz dokumentiert; Originalbackups wurden nicht verändert oder gelöscht.
+`HyGunsMMOCompat`, `EndlessGuildsPatches` und `StarterkitChatter` besitzen im untersuchten Scope keine vollständigen Quellen. Eine blinde Dekompilierung würde Herkunft, Lizenz, Tests und API-Verträge verschlechtern. Sie bleiben als hashbasierte Recovery-Evidenz dokumentiert; Originalbackups wurden nicht verändert oder gelöscht.

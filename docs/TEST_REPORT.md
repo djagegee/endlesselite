@@ -1,7 +1,7 @@
 # Endless Elite – Testreport
 
 Datum: 2026-08-10
-Branch zum Testzeitpunkt: `feat/mod-consolidation-20260810`
+Branch zum Testzeitpunkt: `integration/endless-elite-final-20260810`
 
 ## Toolchain
 
@@ -38,16 +38,17 @@ mvn clean verify
 | Seuchenweber | 87 | 0 | 0 | 0 |
 | Rift Mage Dungeon | 17 | 0 | 0 | 0 |
 | Portal Spawn Snapshot | 4 | 0 | 0 | 0 |
-| **Gesamt** | **213** | **0** | **0** | **0** |
+| Mjolnir Safety Patch | 4 | 0 | 0 | 0 |
+| **Gesamt** | **217** | **0** | **0** | **0** |
 
-Reactor Summary: Parent und alle sieben Module `SUCCESS`.
+Reactor Summary: Parent und alle acht Module `SUCCESS`.
 Marker: `BUILD SUCCESS`.
 
 ## Repository- und Distributionsgates
 
 ```text
 ENDLESS_ELITE_REPOSITORY_VERIFY_PASS
-plugins=5 java_fqcns=169 unique_resource_paths=87 rift_deployment_allowed=false portal_deployment_allowed=false
+plugins=5 java_fqcns=169 unique_resource_paths=87 rift_deployment_allowed=false portal_deployment_allowed=false mjolnir_patch_deployment_allowed=false
 ENDLESS_ELITE_DISTRIBUTION_PASS
 ```
 
@@ -55,11 +56,11 @@ Buildverifizierte Artefakte:
 
 | Artefakt | Bytes | SHA-256 |
 |---|---:|---|
-| EndlessEliteCore.jar | 20.514 | `8fa78362e4aa3a6cacdbbf51aa78f5258c2581cd70486bd2c50d2dc95c122c27` |
-| EndlessBook.jar | 82.954 | `761e3ae05e46160e22a7c5ea3d3a81fd96f9fcd74d58df727c194f9ecd348026` |
-| Hymann.jar | 350.355 | `2d100ddaa3c3a34755d558b8a88e687997bb1c4d57ee89d013f8498591f48cdd` |
+| EndlessEliteCore.jar | 20.591 | `6b9b2baebaf3ca957cd0d67a42db2f73a8e7c82966f020417d972cdb566fc7de` |
+| EndlessBook.jar | 82.954 | `5249f9a804de9e506c9b8b502b595754771f2ffd1bd2b46cf0bb11d63fd2e314` |
+| Hymann.jar | 350.355 | `ab39d2b2632391fcb76bd9e36dbc4256ac9a47e842af16c59ae2804e9034ccdf` |
 | Nachtweber.jar | 165.175 | `f09d3535458d67c104a98d3a953c3b900f7b39c85a2ddaa223d9d273297d02fb` |
-| Seuchenweber.jar | 133.057 | `038f0a1f4227d0bc4d5b602b8890bb10ecfa6d765528acedf553f0731be3ac22` |
+| Seuchenweber.jar | 133.057 | `1feace74c11823467d8b89193a0b0eccb110b3a0fac5f905185aa447a0371645` |
 
 Das Distributionsmanifest setzt ausdrücklich:
 

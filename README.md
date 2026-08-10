@@ -3,10 +3,10 @@
 Gemeinsames, modular aufgebautes Quellrepository für die von Agegee und Hermes entwickelten Hytale-Mods.
 
 [![Java 25](https://img.shields.io/badge/Java-25-blue)](#build-und-tests)
-[![Tests](https://img.shields.io/badge/tests-213%20passing-brightgreen)](#build-und-tests)
+[![Tests](https://img.shields.io/badge/tests-217%20passing-brightgreen)](#build-und-tests)
 
 > [!IMPORTANT]
-> Das Repository ist buildverifiziert, aber **nicht live-deploymentfreigegeben**. Es wurde kein Live-Server verändert. Nachtweber, der kombinierte MMOSkillTree-Stack und Rift Mage besitzen offene Ingame-/Release-Gates.
+> Das Repository ist buildverifiziert, aber **nicht live-deploymentfreigegeben**. Es wurde kein Live-Server verändert. Nachtweber, der kombinierte MMOSkillTree-Stack, Rift Mage, Portal Spawn und der versionsgebundene Mjolnir-Patch besitzen offene Ingame-/Release-Gates.
 
 ## Module
 
@@ -19,6 +19,7 @@ Gemeinsames, modular aufgebautes Quellrepository für die von Agegee und Hermes 
 | `modules/classes/seuchenweber` | 0.1.0 | Nekrotoxin, Astralriss, Chronofäule, Auren und MMOSkillTree-Anbindung | 87 Tests GREEN |
 | `modules/content/rift-mage-dungeon` | 0.1.1 | Rift-Mage-Dungeon-Import, Wellen-/Assetverträge | 17 Tests GREEN; Deployment-Gate geschlossen |
 | `modules/content/portal-spawn` | unversioniert | bytegenauer Recovery-Snapshot zweier Portal-/Spawn-Prefabs | 4 Tests GREEN; nicht deploybar |
+| `modules/content/mjolnir-safety-patch` | 1.0.0 | bytegenauer Patchly-Sicherheitsvertrag für Starky's Mjolnir 1.6.1 | 4 Tests GREEN; versionsgebundenes Gate geschlossen |
 
 ## Gemeinsame Struktur
 
@@ -32,7 +33,7 @@ Endless Elite/
 │   ├── core/                         # gemeinsamer Runtime-/Asset-Owner
 │   ├── hub/endless-book/
 │   ├── classes/{hymann,nachtweber,seuchenweber}/
-│   └── content/{rift-mage-dungeon,portal-spawn}/
+│   └── content/{rift-mage-dungeon,portal-spawn,mjolnir-safety-patch}/
 ├── tools/                            # Verifier, Dependency-Reproduktion, Distribution
 └── pom.xml                           # gemeinsamer Java-25/Maven-Reactor
 ```
@@ -92,8 +93,8 @@ python tools/collect_distribution.py
 
 Aktuell bestätigt:
 
-- Maven-Reactor: **8/8 SUCCESS**
-- Tests: **213**, 0 Failures, 0 Errors, 0 Skips
+- Maven-Reactor: **9/9 SUCCESS**
+- Tests: **217**, 0 Failures, 0 Errors, 0 Skips
 - lokale Dependency-Reproduktion: PASS
 - Repository-Strukturgate: PASS
 - Buildartefaktsammlung: PASS
@@ -106,18 +107,17 @@ Ausführliche Anleitung: [`docs/BUILD_AND_TEST.md`](docs/BUILD_AND_TEST.md).
 2. `tools/collect_distribution.py` erzeugt unter `dist/plugins/` fünf eigene Plugin-JARs einschließlich Shared Core und ein Hashmanifest.
 3. Drittanbieterabhängigkeiten werden nicht gebündelt und müssen in kompatiblen Versionen separat vorliegen.
 4. **Nicht direkt auf einen Live-Server kopieren.** Zuerst einen isolierten Cold-Boot und die offenen Ingame-Gates durchführen.
-5. Rift Mage wird nicht als freigegebenes Plugin-JAR ausgegeben; sein Contract-ZIP bleibt bis zur manuellen Abnahme gesperrt.
+5. Rift Mage, Portal Spawn und Mjolnir Safety Patch werden nicht als freigegebene Plugin-JARs ausgegeben; ihre Contract-ZIPs bleiben bis zur jeweiligen manuellen Abnahme gesperrt.
 
 Es wurde im Rahmen dieser Zusammenführung **kein Live-Deployment durchgeführt**.
 
 ## Inventur und nicht integrierte Binärstände
 
-Vollständige aktuelle Quellen wurden für die fünf historischen Module übernommen und um den neu erstellten Shared Core ergänzt. Der unversionierte Portal-Spawn-Editorstand ist zusätzlich bytegenau als deploymentgesperrter Recovery-Vertrag erhalten. Nur als Binärbackup gefunden und daher nicht blind dekompiliert oder produktiv integriert:
+Vollständige aktuelle Quellen wurden für die fünf historischen Module übernommen und um Shared Core sowie die bytegenau erhaltenen Content-Snapshots Portal Spawn und Mjolnir Safety Patch ergänzt. Nur als Binärbackup gefunden und daher nicht blind dekompiliert oder produktiv integriert:
 
 - HyGunsMMOCompat 1.0.5–1.0.7
 - EndlessGuildsPatches (Manifest 1.0.1, abweichende Dateinamen)
 - StarterkitChatter 1.0.0–1.0.7
-- unversioniertes MjolnirSafetyPatch-Fragment
 
 Alle Originalprojekte und Binärbackups bleiben unverändert als zusätzliche Sicherheitskopien erhalten. Details: [`docs/inventory/`](docs/inventory/).
 
@@ -130,6 +130,7 @@ Alle Originalprojekte und Binärbackups bleiben unverändert als zusätzliche Si
 - Nachtweber: Clientbinding, Aktivierung, Movement, Damage, Disconnect und Zwei-Spieler-Isolation,
 - Rift Mage: manuelle Gameplay-/Visual-Abnahme und `deployment_allowed=true`,
 - Portal Spawn: Manifestreparatur, Asset-Pack-Vertrag und isolierte Gameplay-/Visual-Abnahme,
+- Mjolnir Safety Patch: Patchly-/Mjolnir-1.6.1-Nachweis und kombinierte Runtime-Abnahme,
 - veraltete Hytale-API-Nutzungen in EndlessBook, Hymann und Seuchenweber.
 
 ## Sicherheit und Git
