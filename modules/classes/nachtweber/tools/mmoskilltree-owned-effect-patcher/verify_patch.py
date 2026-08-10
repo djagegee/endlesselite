@@ -1,17 +1,31 @@
 from __future__ import annotations
 import hashlib
+import os
+import shutil
 import subprocess
 import sys
 import zipfile
 from pathlib import Path
 
 ENTRY = "com/ziggfreed/mmoskilltree/ability/ActiveAbilityService.class"
-JAVAP = Path(r"C:\Users\agege\AppData\Local\Programs\Java\jdk-25.0.4+7\bin\javap.exe")
+
+
+def javap_executable() -> str:
+    executable = "javap.exe" if os.name == "nt" else "javap"
+    java_home = os.environ.get("JAVA_HOME")
+    if java_home:
+        candidate = Path(java_home) / "bin" / executable
+        if candidate.is_file():
+            return str(candidate)
+    discovered = shutil.which(executable)
+    if discovered:
+        return discovered
+    raise RuntimeError("javap not found; set JAVA_HOME to JDK 25 or add javap to PATH")
 
 
 def javap(jar: Path) -> str:
     result = subprocess.run(
-        [str(JAVAP), "-classpath", str(jar), "-p", "-c",
+        [javap_executable(), "-classpath", str(jar), "-p", "-c",
          "com.ziggfreed.mmoskilltree.ability.ActiveAbilityService"],
         check=True, capture_output=True)
     return result.stdout.decode("utf-8", "replace")

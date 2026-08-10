@@ -1,0 +1,6 @@
+{
+  "Type": "EndlessLevelMenu",
+  "Effects": {
+    "ItemAnimationId": "SwingLeft"
+  }
+}

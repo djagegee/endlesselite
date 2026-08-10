@@ -1,0 +1,44 @@
+# Seuchenweber client-visible MMOSkillTree namespace.
+skill.seuchenweber_mastery = Seuchenweber
+skill.seuchenweber_mastery.desc = Meisterschaft des Cosmic Ruin Spellbooks, Nekrotoxins und astraler Fäulnis.
+
+ability.seuchenweber_seal_of_decay.flavor = Prägt dem Ziel Nekrotoxin-Stapel ein und verursacht direkten Giftschaden.
+ability.seuchenweber_passive_necrotoxic_mastery.flavor = Alle 2 Sekunden erhalten feindliche Ziele im Umkreis von 8 Blöcken einen Nekrotoxin-Stapel.
+ability.seuchenweber_astral_rift.flavor = Öffnet einen Riss und infiziert begrenzt nahe Gegner.
+ability.seuchenweber_passive_astral_echo.flavor = Überträgt Nekrotoxin ownergebunden auf nahe Gegner, ohne Kettenrekursion.
+ability.seuchenweber_chronoblight.flavor = Vertieft eigene Nekrotoxin-Zeichen und kontrolliert voll markierte Ziele kurz.
+ability.seuchenweber_passive_soul_diagnosis.flavor = Zeigt stark markierte Ziele ausschließlich ihrem Besitzer an.
+ability.seuchenweber_passive_relic_attunement.flavor = Natürlich ablaufende volle Zeichen erstatten Mana und Abklingzeit.
+
+seuchenweber.tree.seuchenweber_seal_of_decay.name = Siegel der Fäulnis
+seuchenweber.tree.seuchenweber_seal_of_decay.description = Prägt dem Ziel Nekrotoxin-Stapel ein und verursacht direkten Giftschaden.
+seuchenweber.tree.seuchenweber_passive_necrotoxic_mastery.name = Pesthauch
+seuchenweber.tree.seuchenweber_passive_necrotoxic_mastery.description = Alle 2 Sekunden erhalten feindliche Ziele im Umkreis von 8 Blöcken einen Nekrotoxin-Stapel.
+seuchenweber.tree.seuchenweber_astral_rift.name = Astralriss
+seuchenweber.tree.seuchenweber_astral_rift.description = Öffnet einen Riss und infiziert begrenzt nahe Gegner.
+seuchenweber.tree.seuchenweber_passive_astral_echo.name = Astrales Echo
+seuchenweber.tree.seuchenweber_passive_astral_echo.description = Überträgt Nekrotoxin ownergebunden auf nahe Gegner, ohne Kettenrekursion.
+seuchenweber.tree.seuchenweber_chronoblight.name = Chronofäule
+seuchenweber.tree.seuchenweber_chronoblight.description = Vertieft eigene Nekrotoxin-Zeichen und kontrolliert voll markierte Ziele kurz.
+seuchenweber.tree.seuchenweber_passive_soul_diagnosis.name = Seelendiagnose
+seuchenweber.tree.seuchenweber_passive_soul_diagnosis.description = Zeigt stark markierte Ziele ausschließlich ihrem Besitzer an.
+seuchenweber.tree.seuchenweber_passive_relic_attunement.name = Reliktresonanz
+seuchenweber.tree.seuchenweber_passive_relic_attunement.description = Natürlich ablaufende volle Zeichen erstatten Mana und Abklingzeit.
+
+seuchenweber.tree.cooldown.name = Chronische Beschleunigung
+seuchenweber.tree.cooldown.description = Verkürzt die Abklingzeit der Fähigkeiten.
+seuchenweber.tree.mana_regen.name = Astraler Zufluss
+seuchenweber.tree.mana_regen.description = Erhöht die Mana-Regeneration.
+seuchenweber.tree.critical_chance.name = Virulente Präzision
+seuchenweber.tree.critical_chance.description = Erhöht die kritische Trefferchance.
+seuchenweber.tree.defense.name = Seuchenpanzer
+seuchenweber.tree.defense.description = Reduziert erlittenen Schaden.
+seuchenweber.tree.stamina_regen.name = Toxische Ausdauer
+seuchenweber.tree.stamina_regen.description = Regeneriert als aktiver Seuchenweber zusätzliche Ausdauer pro Sekunde.
+seuchenweber.tree.direct_damage.name = Kosmischer Einschlag
+seuchenweber.tree.direct_damage.description = Erhöht den direkten Schaden eigener Seuchenweber-Fähigkeiten.
+seuchenweber.tree.dot_damage.name = Nekrotoxische Potenz
+seuchenweber.tree.dot_damage.description = Erhöht ausschließlich den autoritativen Nekrotoxin-DoT-Schaden.
+seuchenweber.tree.crit_damage.name = Seuchenexekution
+seuchenweber.tree.crit_damage.description = Erhöht über EndlessLeveling-Ferocity den kritischen Schaden.
+ability.bind_page.passive_tag = PASSIV

@@ -1,0 +1,6 @@
+npcRoles.RiftMage.name = Rissmagier
+items.EndlessElite_RiftMage_Portal.name = Rissmagierportal
+items.EndlessElite_RiftMage_Portal.description = Öffnet vorübergehend einen Weg in den zerstörten Technologiedistrikt. Vor der Freigabe ist eine Laufzeitprüfung erforderlich.
+portals.RiftMage.name = Zerstörter Technologiedistrikt
+portals.RiftMage.description = Ein zerbrochener Technologiedistrikt, von Leerenwesen überrannt und vom Rissmagier beherrscht.
+portals.RiftMage.tip1 = Besiege die Wellen aus dem Leerenriss, bevor du dich dem Rissmagier stellst.

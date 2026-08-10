@@ -1,0 +1,20 @@
+{
+  "$Comment": "Additive Endless Elite world structure using Hytale's native experimental ScifiBlockLandscape biome. No native generator asset is overridden.",
+  "Type": "NoiseRange",
+  "Biomes": [],
+  "DefaultBiome": "ScifiBlockLandscape",
+  "DefaultTransitionDistance": 32,
+  "MaxBiomeEdgeDistance": 32,
+  "Density": { "Type": "Constant", "Value": 0 },
+  "Framework": [
+    {
+      "Type": "DecimalConstants",
+      "Entries": [
+        { "Name": "Base", "Value": 80 },
+        { "Name": "Water", "Value": 0 },
+        { "Name": "Bedrock", "Value": 0 }
+      ]
+    }
+  ],
+  "Tags": { "Template": ["EndlessElite", "RiftMage", "Technodistrict"] }
+}

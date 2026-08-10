@@ -1,0 +1,58 @@
+# Extends MMOSkillTree's localization namespace for the Hymann custom skill.
+skill.hymann = Hymann
+skill.hymann_armament = Hymann
+skill.hymann_critical = Hymann
+
+# Hymann MMOSkillTree cards. Numeric values are rendered by the skill tree;
+# these descriptions explain the effect in English.
+hymann.tree.xp.name = Stormbound Study
+hymann.tree.xp.description = Increases Hymann experience gained from hits with Hymann relics.
+hymann.tree.flat_damage.name = Armament Mastery
+hymann.tree.flat_damage.description = Adds flat damage to hits with Hymann relics.
+hymann.tree.lifesteal.name = Storm Leech
+hymann.tree.lifesteal.description = Restores the shown percentage of damage dealt by Hymann relics.
+hymann.tree.combo_damage.name = Thunder Combo
+hymann.tree.combo_damage.description = Adds combo damage to every third uninterrupted melee hit.
+hymann.tree.cooldown.name = Storm Rhythm
+hymann.tree.cooldown.description = Reduces the cooldown of Hymann abilities.
+hymann.tree.maximum_stamina.name = Aegis Reserve
+hymann.tree.maximum_stamina.description = Increases maximum stamina.
+hymann.tree.fall_damage.name = Skyfall Guard
+hymann.tree.fall_damage.description = Reduces fall damage taken.
+hymann.tree.block.name = Aegis Guard
+hymann.tree.stamina_regen.name = Windrunner
+hymann.tree.stamina_regen.description = Increases stamina regeneration while wielding a Hymann relic.
+hymann.tree.mana_regen.name = Stormwell
+hymann.tree.mana_regen.description = Increases mana regeneration while wielding a Hymann relic.
+hymann.tree.sorcery.name = Lightning Lore
+hymann.tree.sorcery.description = Adds flat magic damage to Hymann lightning abilities.
+hymann.tree.crit_damage.name = Thunderforged Fury
+hymann.tree.crit_damage.description = Increases Hymann critical damage.
+hymann.tree.skill_damage.name = Stormcraft
+hymann.tree.skill_damage.description = Increases damage dealt by Hymann active and passive abilities.
+hymann.tree.passive.hymann_passive_stormbreaker_aura.name = Stormbreaker Aura
+hymann.tree.passive.hymann_passive_tempest_rebirth.name = Tempest Rebirth
+hymann.tree.passive.hymann_passive_stormbreaker_pulse_1.name = Stormbreaker Pulse I
+hymann.tree.passive.hymann_passive_stormbreaker_pulse_2.name = Stormbreaker Pulse II
+hymann.tree.passive.hymann_passive_stormbreaker_pulse_3.name = Stormbreaker Pulse III
+hymann.tree.passive.hymann_passive_thunder_cadence.name = Thunder Cadence
+skill.hymann.desc = Hymann mastery for Mjolnir and Captain shields.
+skill.hymann_armament.desc = Hymann mastery for Mjolnir and Captain shields. Experience is earned only while using these relics.
+skill.hymann_critical.desc = Internal target for Hymann critical strikes.
+
+# Active Hymann abilities are separate mastery milestones.
+hymann.tree.block.description = Grants true damage reduction and appears in the MMOSkillTree stat panel.
+hymann.tree.active.hymann_thunder_step.name = Lightning Step
+hymann.tree.active.hymann_thunder_step.description = Teleport to a visible enemy and unleash a lightning impact.
+hymann.tree.active.hymann_storm_fury.name = Storm Fury
+hymann.tree.active.hymann_storm_fury.description = Greatly improves mana and signature regeneration for a short time and reduces damage taken.
+hymann.tree.active.hymann_thunder_aegis.name = Thunder Aegis
+hymann.tree.active.hymann_thunder_aegis.description = Fully heals nearby allies and calls down a devastating lightning storm.
+
+# Explicit passive unlock levels for the Hymann mastery tree.
+hymann.tree.passive.hymann_passive_stormbreaker_aura.description = Unlocks at Hymann level 4: renews the lightning-charged defense-break aura every 5 seconds during boss fights.
+hymann.tree.passive.hymann_passive_tempest_rebirth.description = Unlocks at Hymann level 11: after a kill, heal yourself and empower your next attack.
+hymann.tree.passive.hymann_passive_stormbreaker_pulse_1.description = Unlocks at Hymann level 37: every 10 seconds, release a shocking lightning pulse around you.
+hymann.tree.passive.hymann_passive_stormbreaker_pulse_2.description = Unlocks at Hymann level 50: every 8 seconds, release a stronger shocking lightning pulse around you.
+hymann.tree.passive.hymann_passive_stormbreaker_pulse_3.description = Unlocks at Hymann level 97: every 5 seconds, release a devastating shocking lightning pulse around you.
+hymann.tree.passive.hymann_passive_thunder_cadence.description = Unlocks at Hymann level 99: every second melee hit unleashes empowered lightning damage.

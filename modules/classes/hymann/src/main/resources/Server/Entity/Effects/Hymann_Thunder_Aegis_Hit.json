@@ -1,0 +1,25 @@
+{
+  "Duration": 1.25,
+  "OverlapBehavior": "Overwrite",
+  "RemovalBehavior": "Duration",
+  "ApplicationEffects": {
+    "Particles": [
+      {
+        "SystemId": "Mjolnir_Lightning_Strike",
+        "Scale": 1.75,
+        "PositionOffset": {
+          "Y": 2.5
+        }
+      },
+      {
+        "SystemId": "Mjolnir_Cast_Lighting",
+        "Scale": 1.15,
+        "Color": "#9cecff",
+        "PositionOffset": {
+          "Y": 1.0
+        }
+      }
+    ],
+    "ModelVFXId": "Mjolnir_Blue2"
+  }
+}

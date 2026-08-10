@@ -1,0 +1,34 @@
+{
+  "Duration": 0.65,
+  "OverlapBehavior": "Overwrite",
+  "RemovalBehavior": "Duration",
+  "ApplicationEffects": {
+    "WorldSoundEventId": "SFX_Mjolnir_Impact_Charged",
+    "LocalSoundEventId": "SFX_Mjolnir_Impact_Charged",
+    "Particles": [
+      {
+        "SystemId": "Mjolnir_Lightning_Strike",
+        "Scale": 0.8,
+        "PositionOffset": {
+          "Y": 0.2
+        }
+      },
+      {
+        "SystemId": "Mjolnir_Overcharged_Guard_Impact",
+        "Scale": 0.9,
+        "Color": "#9cecff",
+        "PositionOffset": {
+          "Y": 0.15
+        }
+      },
+      {
+        "SystemId": "Mjolnir_Ground_Big_Hit",
+        "Scale": 0.55,
+        "Color": "#9cecff",
+        "PositionOffset": {
+          "Y": 0.1
+        }
+      }
+    ]
+  }
+}

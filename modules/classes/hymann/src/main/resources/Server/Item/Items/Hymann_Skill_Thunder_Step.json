@@ -1,0 +1,7 @@
+{
+  "TranslationProperties": {"Name": "server.items.Hymann_Skill_Thunder_Step.name", "Description": "server.items.Hymann_Skill_Thunder_Step.description"},
+  "Icon": "Icons/ItemsGenerated/Hymann_Skill_Thunder_Step.png",
+  "Quality": "Common",
+  "ItemLevel": 1,
+  "MaxStack": 1
+}

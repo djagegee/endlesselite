@@ -1,0 +1,59 @@
+# Ergänzt die MMOSkillTree-Namensgruppe.  MMOSkillTree fragt diese Einträge
+# als mmoskilltree.skill.* ab, daher muss die Datei denselben Namensraum haben.
+skill.hymann = Hymann
+skill.hymann_armament = Hymann
+skill.hymann_critical = Hymann
+
+# Hymanns MMOSkillTree-Karten. Die Zahlen werden separat vom Skillbaum
+# dargestellt; diese Texte erklären die Wirkung in deutscher Sprache.
+hymann.tree.xp.name = Sturmerprobtes Studium
+hymann.tree.xp.description = Erhöht die Hymann-Erfahrung durch Treffer mit Hymann-Relikten.
+hymann.tree.flat_damage.name = Reliktmeisterschaft
+hymann.tree.flat_damage.description = Fügt Treffern mit Hymann-Relikten festen Schaden hinzu.
+hymann.tree.lifesteal.name = Sturmzehrer
+hymann.tree.lifesteal.description = Stellt den angezeigten Prozentsatz des mit Hymann-Relikten verursachten Schadens wieder her.
+hymann.tree.combo_damage.name = Donnerkombo
+hymann.tree.combo_damage.description = Verursacht bei jeder dritten zusammenhängenden Nahkampfattacke zusätzlichen Komboschaden.
+hymann.tree.cooldown.name = Sturmrhythmus
+hymann.tree.cooldown.description = Verringert die Abklingzeit deiner Hymann-Fähigkeiten.
+hymann.tree.maximum_stamina.name = Aegisreserve
+hymann.tree.maximum_stamina.description = Erhöht deine maximale Ausdauer.
+hymann.tree.fall_damage.name = Himmelssturzschutz
+hymann.tree.fall_damage.description = Verringert erlittenen Fallschaden.
+hymann.tree.block.name = Aegiswache
+hymann.tree.stamina_regen.name = Windläufer
+hymann.tree.stamina_regen.description = Erhöht mit einem Hymann-Relikt deine Ausdauerregeneration.
+hymann.tree.mana_regen.name = Sturmquell
+hymann.tree.mana_regen.description = Erhöht mit einem Hymann-Relikt deine Manaregeneration.
+hymann.tree.sorcery.name = Blitzkunde
+hymann.tree.sorcery.description = Erhöht den flachen magischen Schaden von Hymanns Blitzfähigkeiten.
+hymann.tree.crit_damage.name = Donnergeschmiedeter Zorn
+hymann.tree.crit_damage.description = Erhöht Hymanns kritischen Schaden.
+hymann.tree.skill_damage.name = Sturmkraft
+hymann.tree.skill_damage.description = Erhöht den Schaden von Hymanns aktiven und passiven Fähigkeiten.
+hymann.tree.passive.hymann_passive_stormbreaker_aura.name = Sturmbrecher-Aura
+hymann.tree.passive.hymann_passive_tempest_rebirth.name = Sturmwiedergeburt
+hymann.tree.passive.hymann_passive_stormbreaker_pulse_1.name = Sturmbrecherimpuls I
+hymann.tree.passive.hymann_passive_stormbreaker_pulse_2.name = Sturmbrecherimpuls II
+hymann.tree.passive.hymann_passive_stormbreaker_pulse_3.name = Sturmbrecherimpuls III
+hymann.tree.passive.hymann_passive_thunder_cadence.name = Donnerkadenz
+skill.hymann.desc = Hymann-Meisterschaft für Mjölnir und Captain-Schilde.
+skill.hymann_armament.desc = Hymann-Meisterschaft für Mjölnir und Captain-Schilde. Erfahrung gibt es nur beim Einsatz dieser Relikte.
+skill.hymann_critical.desc = Interner Zielwert für Hymanns kritische Treffer.
+
+# Active Hymann abilities are separate mastery milestones.
+hymann.tree.block.description = Gewährt echte Schadensreduktion und wird in der MMOSkillTree-Statistik angezeigt.
+hymann.tree.active.hymann_thunder_step.name = Blitzschritt
+hymann.tree.active.hymann_thunder_step.description = Teleportiert dich zu einem sichtbaren Gegner und entfesselt einen Blitzschlag.
+hymann.tree.active.hymann_storm_fury.name = Sturmzorn
+hymann.tree.active.hymann_storm_fury.description = Verbessert Manaregeneration und Signaturenergie für kurze Zeit stark und senkt erlittenen Schaden.
+hymann.tree.active.hymann_thunder_aegis.name = Donneraegis
+hymann.tree.active.hymann_thunder_aegis.description = Heilt Verbündete vollständig und ruft einen verheerenden Blitzsturm herab.
+
+# Explicit passive unlock levels for the Hymann mastery tree.
+hymann.tree.passive.hymann_passive_stormbreaker_aura.description = Ab Hymann-Stufe 4: Erneuert bei Bossen alle 5 Sekunden die blitzgeladene Verteidigungsschlag-Aura.
+hymann.tree.passive.hymann_passive_tempest_rebirth.description = Ab Hymann-Stufe 11: Nach einem Kill heilst du dich und verstärkst deinen nächsten Angriff.
+hymann.tree.passive.hymann_passive_stormbreaker_pulse_1.description = Ab Hymann-Stufe 37: Entlädt alle 10 Sekunden eine schockende Blitzwelle um dich herum.
+hymann.tree.passive.hymann_passive_stormbreaker_pulse_2.description = Ab Hymann-Stufe 50: Entlädt alle 8 Sekunden eine stärkere schockende Blitzwelle um dich herum.
+hymann.tree.passive.hymann_passive_stormbreaker_pulse_3.description = Ab Hymann-Stufe 97: Entlädt alle 5 Sekunden eine verheerende schockende Blitzwelle um dich herum.
+hymann.tree.passive.hymann_passive_thunder_cadence.description = Ab Hymann-Stufe 99: Jeder zweite Nahkampftreffer entfesselt verstärkten Blitzschaden.

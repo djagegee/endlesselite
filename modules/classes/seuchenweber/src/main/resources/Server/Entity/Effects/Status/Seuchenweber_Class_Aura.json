@@ -1,0 +1,15 @@
+{
+  "ApplicationEffects": {
+    "Particles": [
+      { "SystemId": "Effect_Poison" }
+    ],
+    "FirstPersonParticles": [
+      { "SystemId": "Effect_Poison" }
+    ]
+  },
+  "OverlapBehavior": "Overwrite",
+  "RemovalBehavior": "Complete",
+  "Infinite": true,
+  "Debuff": false,
+  "Duration": 0.0
+}

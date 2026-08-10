@@ -1,0 +1,13 @@
+skill.hymann_armament = Hymann
+skill.hymann = Hymann
+category.hymann = Hymann
+string.hymann = Hymann
+string_hymann = Hymann
+string.hymann_armament = Hymann
+string_hymann_armament = Hymann
+mmoskilltree.skill.hymann = Hymann
+mmoskilltree.skill.hymann_armament = Hymann
+mmoskilltree.skill.hymann_critical = Hymann
+mmoskilltree.skill.hymann.desc = Hymann-Meisterschaft für Mjölnir und Captain-Schilde.
+mmoskilltree.skill.hymann_armament.desc = Hymann-Meisterschaft für Mjölnir und Captain-Schilde. Erfahrung gibt es nur beim Einsatz dieser Relikte.
+mmoskilltree.skill.hymann_critical.desc = Interner Zielwert für Hymanns kritische Treffer.

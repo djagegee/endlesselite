@@ -1,0 +1,10 @@
+{
+  "TranslationProperties": {
+    "Name": "server.items.Seuchenweber_Skill_XP.name",
+    "Description": "server.items.Seuchenweber_Skill_XP.description"
+  },
+  "Icon": "Icons/ItemsGenerated/Seuchenweber_Skill_XP.png",
+  "Quality": "Rare",
+  "ItemLevel": 1,
+  "MaxStack": 1
+}

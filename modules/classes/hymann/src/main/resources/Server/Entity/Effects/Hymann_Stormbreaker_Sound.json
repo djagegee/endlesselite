@@ -1,0 +1,8 @@
+{
+  "Duration": 0.1,
+  "OverlapBehavior": "Overwrite",
+  "RemovalBehavior": "Duration",
+  "ApplicationEffects": {
+    "WorldSoundEventId": "Hymann_Stormbreaker_Hit"
+  }
+}

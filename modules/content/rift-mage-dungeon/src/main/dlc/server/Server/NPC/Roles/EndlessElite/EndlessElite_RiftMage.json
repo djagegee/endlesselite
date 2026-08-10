@@ -1,0 +1,36 @@
+{
+  "Type": "Variant",
+  "Reference": "Template_Trork_Mage",
+  "Modify": {
+    "HearingRange": 4,
+    "ViewSector": 270,
+    "Appearance": "Necromancer_Void",
+    "Weapons": [
+      "Weapon_Spellbook_Demon",
+      "Weapon_Spellbook_Demon"
+    ],
+    "DropList": "Empty",
+    "TargetGroups": ["Void"],
+    "ChestBlockSet": "Trork_Chest",
+    "BedBlockSet": "Trork_Bedroll",
+    "CampfireBlockSet": "Trork_Campfire",
+    "UnderlingGroups": ["Void"],
+    "DisableDamageGroups": ["Self", "Void"],
+    "RangedAttack": "Skeleton_Archmage_Staff_Corruption_Orb",
+    "RangedAttackSequence": "Component_Instruction_Attack_Sequence_Outlander_Sorcerer_Ranged",
+    "SummonKind": "Spawn_Void",
+    "AttitudeGroup": "Void",
+    "IdleMotionComponent": "$Null",
+    "IsMemory": false,
+    "MemoriesCategory": "Voidspawn",
+    "NameTranslationKey": {
+      "Compute": "NameTranslationKey"
+    }
+  },
+  "Parameters": {
+    "NameTranslationKey": {
+      "Value": "endlesselite.npcRoles.RiftMage.name",
+      "Description": "Translation key for the Endless Elite Rift Mage boss name"
+    }
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "TranslationProperties": {"Name": "server.items.Hymann_Skill_Stamina_Regen.name", "Description": "server.items.Hymann_Skill_Stamina_Regen.description"},
+  "Icon": "Icons/ItemsGenerated/Hymann_Skill_Stamina_Regen.png",
+  "Quality": "Common",
+  "ItemLevel": 1,
+  "MaxStack": 1
+}

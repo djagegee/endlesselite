@@ -1,0 +1,20 @@
+{
+  "Name": "Hymann",
+  "Payload": {
+    "HYMANN_ARMAMENT": {
+      "Weapon_Shield_CaptainCarter_Starky": 65.0,
+      "Weapon_ShieldLeft_Vibranium_Starky": 65.0,
+      "Weapon_ShieldLeft_CaptainCarter_Starky": 65.0,
+      "Weapon_ShieldLeft_AntiCaptainAmerica_Starky": 65.0,
+      "Weapon_Mjolnir_Calling_Starky": 65.0,
+      "Weapon_Shield_CaptainAmerica_Starky": 65.0,
+      "Weapon_Shield_Georgio_Starky": 65.0,
+      "Weapon_Shield_Vibranium_Starky": 65.0,
+      "Weapon_ShieldLeft_CaptainAmerica_Starky": 65.0,
+      "Weapon_ShieldLeft_Georgio_Starky": 65.0,
+      "Weapon_Mjolnir_Caller_Starky": 65.0,
+      "Weapon_Shield_AntiCaptainAmerica_Starky": 65.0,
+      "Weapon_Mjolnir_Starky": 65.0
+    }
+  }
+}

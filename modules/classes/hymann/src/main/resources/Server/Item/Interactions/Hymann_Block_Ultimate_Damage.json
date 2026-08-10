@@ -1,0 +1,34 @@
+{
+  "Type": "DamageEntity",
+  "DamageCalculator": {
+    "BaseDamage": {
+      "Physical": 220
+    }
+  },
+  "DamageEffects": {
+    "WorldParticles": [
+      {
+        "SystemId": "Mjolnir_Lightning_Strike",
+        "Scale": 1.6
+      }
+    ],
+    "Knockback": {
+      "Type": "Force",
+      "VelocityConfig": {
+        "AirResistance": 0.99,
+        "AirResistanceMax": 0.98,
+        "GroundResistance": 0.94,
+        "GroundResistanceMax": 0.3,
+        "Threshold": 3.0,
+        "Style": "Linear"
+      },
+      "Direction": {
+        "X": 0.0,
+        "Y": 1.2,
+        "Z": -1.8
+      },
+      "Force": 15,
+      "VelocityType": "Set"
+    }
+  }
+}

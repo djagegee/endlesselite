@@ -1,0 +1,32 @@
+{
+  "Layers": [
+    {
+      "RandomSettings": {
+        "MinPitch": -2,
+        "MaxPitch": 2,
+        "MinVolume": 0
+      },
+      "StartDelay": 0,
+      "Volume": 10,
+      "Files": [
+        "Sounds/StarkyMods/mjolnir_charged_impact.ogg"
+      ]
+    },
+    {
+      "RandomSettings": {
+        "MinPitch": -6,
+        "MinVolume": 0
+      },
+      "StartDelay": 0,
+      "Volume": 10,
+      "Files": [
+        "Sounds/StarkyMods/mjolnir_jump.ogg"
+      ]
+    }
+  ],
+  "PreventSoundInterruption": true,
+  "AudioCategory": "AudioCat_Mace",
+  "Parent": "SFX_Attn_Moderate",
+  "MaxDistance": 256,
+  "Volume": 1.0
+}

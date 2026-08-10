@@ -1,0 +1,16 @@
+{
+  "InstanceId": "EndlessElite_RiftMage",
+  "Description": {
+    "DisplayName": "endlesselite.portals.RiftMage.name",
+    "FlavorText": "endlesselite.portals.RiftMage.description",
+    "ThemeColor": "#b83bffff",
+    "SplashImage": "DefaultArtwork.png",
+    "Tips": ["endlesselite.portals.RiftMage.tip1"]
+  },
+  "Spawn": {
+    "SpawnProviderOverride": {
+      "Id": "Global",
+      "SpawnPoint": { "X": 0.5, "Y": 89.0, "Z": 0.5, "Pitch": 0.0, "Yaw": 180.0, "Roll": 0.0 }
+    }
+  }
+}

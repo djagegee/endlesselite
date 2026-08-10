@@ -1,0 +1,30 @@
+{
+  "Parent": "Weapon_Spellbook_Grimoire_Purple",
+  "TranslationProperties": {
+    "Name": "items.EndlessBook_LevelMenu.name",
+    "Description": "items.EndlessBook_LevelMenu.description"
+  },
+  "Icon": "Icons/ItemsGenerated/EndlessBook_InfinityTerminal_Red.png",
+  "PlayerAnimationsId": "Item",
+  "Model": "Items/HStorage/Models/WirelessCraftingTerminal.blockymodel",
+  "Texture": "Items/EndlessBook/Textures/EndlessBook_InfinityTerminal_Red.png",
+  "IconProperties": {
+    "Scale": 0.7,
+    "Rotation": [
+      22.5,
+      45.0,
+      22.5
+    ],
+    "Translation": [
+      0.0,
+      -10.0
+    ]
+  },
+  "MaxStack": 1,
+  "DropOnDeath": false,
+  "DurabilityLossOnDeath": false,
+  "Interactions": {
+    "Primary": "EndlessLevelMenu",
+    "Secondary": "EndlessLevelMenu"
+  }
+}

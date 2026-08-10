@@ -18,7 +18,8 @@ import java.util.regex.Pattern;
 import org.junit.jupiter.api.Test;
 
 class EndlessEliteConfigArtifactsTest {
-  private static final Path EXAMPLES = Path.of("..", "config", "examples");
+  private static final Path ROOT = Path.of("..", "..", "..").toAbsolutePath().normalize();
+  private static final Path EXAMPLES = ROOT.resolve("config").resolve("examples");
   private static final List<String> NAMES = List.of("default", "balanced", "easy", "hard", "pvp");
 
   @Test void allExamplesUseTheSameReadableSchema() throws Exception {
@@ -51,7 +52,7 @@ class EndlessEliteConfigArtifactsTest {
   }
 
   @Test void everyOperatorSettingIsDocumented() throws Exception {
-    String documentation = Files.readString(Path.of("..", "docs", "CONFIGURATION.md"), StandardCharsets.UTF_8);
+    String documentation = Files.readString(ROOT.resolve("docs").resolve("CONFIGURATION.md"), StandardCharsets.UTF_8);
     for (String path : scalarYamlPaths(readExample("default"))) {
       if (!path.startsWith("class.")) assertTrue(documentation.contains("`" + path + "`"), "Missing docs: " + path);
     }

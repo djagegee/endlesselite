@@ -1,0 +1,31 @@
+{
+  "Duration": 0.6,
+  "OverlapBehavior": "Overwrite",
+  "RemovalBehavior": "Duration",
+  "ApplicationEffects": {
+    "WorldSoundEventId": "SFX_Mjolnir_Impact_Charged",
+    "LocalSoundEventId": "SFX_Mjolnir_Impact_Charged",
+    "Particles": [
+      {
+        "SystemId": "Shield_Bash",
+        "TargetEntityPart": "PrimaryItem",
+        "Color": "#8ff0ff",
+        "Scale": 2.0
+      },
+      {
+        "SystemId": "Shield_Block",
+        "TargetEntityPart": "PrimaryItem",
+        "Color": "#8ff0ff",
+        "Scale": 0.5
+      },
+      {
+        "SystemId": "Mjolnir_Cast_Lighting",
+        "PositionOffset": {
+          "Y": 0.8
+        },
+        "Color": "#8ff0ff",
+        "Scale": 0.85
+      }
+    ]
+  }
+}

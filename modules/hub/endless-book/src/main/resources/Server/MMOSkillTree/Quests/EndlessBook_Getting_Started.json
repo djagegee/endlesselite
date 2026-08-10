@@ -1,0 +1,33 @@
+{
+  "Name": "EndlessBook_Getting_Started",
+  "$Comment": "Overrides MMOSkillTree getting_started so Meet the Adventure Guide awards Endless Book.",
+  "Payload": {
+    "id": "getting_started",
+    "category": "main",
+    "sortOrder": 0,
+    "autoAccept": true,
+    "autoTrack": true,
+    "autoClaimRewards": true,
+    "tags": ["Tutorial"],
+    "objectives": [
+      {
+        "id": "meet_guide",
+        "type": "TALK_TO_NPC",
+        "target": "",
+        "amount": 1,
+        "textKey": "objective.text.quest.meet_guide"
+      }
+    ],
+    "rewards": [
+      {
+        "type": "COMMAND",
+        "command": "/give {player} EndlessBook_LevelMenu --quantity=1",
+        "runAs": "CONSOLE",
+        "delayTicks": 0,
+        "queueIfOffline": false,
+        "displayName": "Endless Book",
+        "description": "Your permanent gateway to Endless progression."
+      }
+    ]
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "Duration": 0.9,
+  "OverlapBehavior": "Overwrite",
+  "RemovalBehavior": "Duration",
+  "ApplicationEffects": {
+    "WorldSoundEventId": "SFX_Mjolnir_Signature",
+    "LocalSoundEventId": "SFX_Mjolnir_Signature",
+    "Particles": [
+      {
+        "SystemId": "Mjolnir_Lightning_Strike",
+        "Scale": 1.4,
+        "PositionOffset": {
+          "Y": 0.2
+        }
+      },
+      {
+        "SystemId": "Mjolnir_Explosion2",
+        "Scale": 2.0,
+        "Color": "#9cecff",
+        "PositionOffset": {
+          "Y": 0.8
+        }
+      },
+      {
+        "SystemId": "Mjolnir_Ground_Big_Hit",
+        "Scale": 1.35,
+        "Color": "#9cecff",
+        "PositionOffset": {
+          "Y": 0.1
+        }
+      },
+      {
+        "SystemId": "Mjolnir_Signature_Groundslam_Explosion",
+        "Scale": 1.8,
+        "Color": "#8ff0ff",
+        "PositionOffset": {
+          "Y": 0.1
+        }
+      },
+      {
+        "SystemId": "Mjolnir_Ground_Explosion",
+        "Scale": 1.9,
+        "Color": "#7bfff8",
+        "PositionOffset": {
+          "Y": 0.1
+        }
+      },
+      {
+        "SystemId": "Shield_Bash",
+        "Scale": 3.5,
+        "Color": "#8ff0ff"
+      },
+      {
+        "SystemId": "Shield_Block",
+        "Scale": 1.2,
+        "Color": "#8ff0ff"
+      }
+    ]
+  }
+}

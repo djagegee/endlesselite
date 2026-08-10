@@ -34,9 +34,9 @@ class HymannProgressionContractTest {
         String pom = Files.readString(Path.of("pom.xml"), StandardCharsets.UTF_8);
 
         assertTrue(pom.contains("<version>11.6.1-local</version>"));
-        assertTrue(pom.contains("<systemPath>${server.root}/mods/EndlessLeveling.jar</systemPath>"));
-        assertTrue(pom.contains("<systemPath>${server.root}/mods/MMOSkillTree-1.5.2.jar</systemPath>"));
-        assertFalse(pom.contains("${mod.stash}"));
+        assertTrue(pom.contains("<systemPath>${hytale.mods.root}/EndlessLeveling.jar</systemPath>"));
+        assertTrue(pom.contains("<systemPath>${hytale.mods.root}/MMOSkillTree-1.5.2.jar</systemPath>"));
+        assertFalse(pom.contains("${hytale.mod.stash}"));
     }
 
     @Test

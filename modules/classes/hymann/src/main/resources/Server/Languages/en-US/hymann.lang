@@ -1,0 +1,13 @@
+skill.hymann_armament = Hymann
+skill.hymann = Hymann
+category.hymann = Hymann
+string.hymann = Hymann
+string_hymann = Hymann
+string.hymann_armament = Hymann
+string_hymann_armament = Hymann
+mmoskilltree.skill.hymann = Hymann
+mmoskilltree.skill.hymann_armament = Hymann
+mmoskilltree.skill.hymann_critical = Hymann
+mmoskilltree.skill.hymann.desc = Hymann mastery for Mjolnir and Captain shields.
+mmoskilltree.skill.hymann_armament.desc = Hymann mastery for Mjolnir and Captain shields. Experience is earned only while using these relics.
+mmoskilltree.skill.hymann_critical.desc = Internal target for Hymann critical strikes.

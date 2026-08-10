@@ -1,16 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>de.shadow.endlesselite</groupId>
+    <artifactId>endless-elite-parent</artifactId>
+    <version>0.1.0-SNAPSHOT</version>
+    <relativePath>../../../pom.xml</relativePath>
+  </parent>
   <groupId>de.shadow</groupId><artifactId>nachtweber</artifactId><version>0.1.0-SNAPSHOT</version>
   <properties>
     <maven.compiler.release>25</maven.compiler.release><project.build.sourceEncoding>UTF-8</project.build.sourceEncoding><project.build.outputTimestamp>2026-08-09T00:00:00Z</project.build.outputTimestamp><junit.version>5.13.4</junit.version>
-    <server.root>C:/Users/agege/Desktop/LOKAL SERVER</server.root>
-    <active.mods>${server.root}/mods</active.mods>
-    <mod.stash>${server.root}/disabled-mods/baseline-isolation-2026-08-05</mod.stash>
   </properties>
   <dependencies>
-    <dependency><groupId>com.hypixel.hytale</groupId><artifactId>hytale-server</artifactId><version>0.5.0-local</version><scope>system</scope><systemPath>${server.root}/HytaleServer.jar</systemPath></dependency>
-    <dependency><groupId>com.airijko</groupId><artifactId>endless-leveling-core</artifactId><version>11.6.1-local</version><scope>system</scope><systemPath>${active.mods}/EndlessLeveling.jar</systemPath></dependency>
+    <dependency><groupId>com.hypixel.hytale</groupId><artifactId>hytale-server</artifactId><version>0.5.0-local</version><scope>system</scope><systemPath>${hytale.server.root}/HytaleServer.jar</systemPath></dependency>
+    <dependency><groupId>com.airijko</groupId><artifactId>endless-leveling-core</artifactId><version>11.6.1-local</version><scope>system</scope><systemPath>${hytale.mods.root}/EndlessLeveling.jar</systemPath></dependency>
     <dependency><groupId>com.ziggfreed</groupId><artifactId>mmo-skill-tree</artifactId><version>1.5.2-owned-local</version></dependency>
     <dependency><groupId>org.junit.jupiter</groupId><artifactId>junit-jupiter</artifactId><version>${junit.version}</version><scope>test</scope></dependency>
   </dependencies>

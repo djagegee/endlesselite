@@ -1,0 +1,11 @@
+{
+  "Name": "Storm Fury",
+  "Duration": 10.0,
+  "OverlapBehavior": "Overwrite",
+  "RemovalBehavior": "Duration",
+  "ApplicationEffects": {
+    "WorldSoundEventId": "SFX_Mjolnir_Charged",
+    "LocalSoundEventId": "SFX_Mjolnir_Charged",
+    "ModelVFXId": "Mjolnir_Overcharged_Glow"
+  }
+}

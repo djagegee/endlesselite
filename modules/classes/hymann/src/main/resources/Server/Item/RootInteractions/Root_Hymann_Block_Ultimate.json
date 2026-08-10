@@ -1,0 +1,25 @@
+{
+  "RequireNewClick": false,
+  "Interactions": [
+    {
+      "Type": "Selector",
+      "RunTime": 0.1,
+      "IgnoreOwner": true,
+      "Selector": {
+        "Id": "AOECylinder",
+        "Range": 9,
+        "Offset": {
+          "X": 0,
+          "Y": 0,
+          "Z": 0
+        },
+        "Height": 6
+      },
+      "HitEntity": {
+        "Interactions": [
+          "Hymann_Block_Ultimate_Damage"
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+npcRoles.RiftMage.name = Rift Mage
+items.EndlessElite_RiftMage_Portal.name = Rift Mage Portal
+items.EndlessElite_RiftMage_Portal.description = Opens a temporary route into the shattered technodistrict. Runtime validation is required before release.
+portals.RiftMage.name = Shattered Technodistrict
+portals.RiftMage.description = A fractured technology district overrun by void creatures and ruled by the Rift Mage.
+portals.RiftMage.tip1 = Defeat the void breach waves before confronting the Rift Mage.

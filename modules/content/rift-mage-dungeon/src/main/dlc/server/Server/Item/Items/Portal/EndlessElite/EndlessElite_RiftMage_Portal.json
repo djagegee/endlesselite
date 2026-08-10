@@ -1,0 +1,31 @@
+{
+  "TranslationProperties": {
+    "Name": "endlesselite.items.EndlessElite_RiftMage_Portal.name",
+    "Description": "endlesselite.items.EndlessElite_RiftMage_Portal.description"
+  },
+  "Icon": "Icons/ItemsGenerated/PortalKey_Howling_Sands.png",
+  "Categories": ["Blocks.Portals"],
+  "PortalKey": {
+    "PortalType": "EndlessElite_RiftMage_Portal",
+    "TimeLimitSeconds": 1200
+  },
+  "BlockType": {
+    "DrawType": "Model",
+    "Material": "Solid",
+    "Opacity": "Transparent",
+    "CustomModel": "Blocks/Miscellaneous/Portal_Shard.blockymodel",
+    "CustomModelTexture": [
+      { "Texture": "Blocks/Miscellaneous/Portal_Shard_Texture.png", "Weight": 1 }
+    ]
+  },
+  "PlayerAnimationsId": "Item",
+  "Tags": { "Type": ["Portal", "Temporary"] },
+  "Quality": "Technical",
+  "MaxStack": 1,
+  "ItemLevel": 50,
+  "IconProperties": {
+    "Scale": 1.4,
+    "Rotation": [22.5, 137.0, 22.5],
+    "Translation": [0.0, 1.0]
+  }
+}

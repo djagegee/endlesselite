@@ -1,0 +1,7 @@
+{
+  "TranslationProperties": {"Name": "server.items.Hymann_Skill_Block.name", "Description": "server.items.Hymann_Skill_Block.description"},
+  "Icon": "Icons/ItemsGenerated/Hymann_Skill_Block.png",
+  "Quality": "Common",
+  "ItemLevel": 1,
+  "MaxStack": 1
+}
