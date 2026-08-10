@@ -12,7 +12,7 @@ class:
   registrationGate: damage_type_and_range_type_require_runtime_value_validation
 necrotoxin:
   durationSeconds: 10.0
-  tickIntervalSeconds: 1.0
+  tickIntervalSeconds: 5.0
   maximumStacksPerOwner: 5
   baseDamagePerTick: 6.0
   bossDamageMultiplier: 0.7
@@ -54,7 +54,7 @@ passives:
     auraRadiusBlocks: 8.0
     auraPulseIntervalSeconds: 2.0
   astral_echo:
-    maximumEchoTargetsPerTick: 1
+    maximumEchoTargetsPerTick: 2
     echoRadiusBlocks: 5.0
     echoStacksApplied: 1
   soul_diagnosis:

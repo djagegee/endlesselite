@@ -27,19 +27,19 @@ public final class ModuleCoordinator {
   }
 
   public synchronized void stopAll() {
-    RuntimeException failure = null;
+    Throwable failure = null;
     List<ManagedModule> reverse = new ArrayList<>(started);
     Collections.reverse(reverse);
     for (ManagedModule module : reverse) {
       try {
         module.stop();
-      } catch (RuntimeException error) {
+      } catch (Throwable error) {
         if (failure == null) failure = error;
-        else failure.addSuppressed(error);
+        else if (error != failure) failure.addSuppressed(error);
       }
     }
     started.clear();
-    if (failure != null) throw failure;
+    if (failure != null) rethrow(failure);
   }
 
   private void rollback(Throwable cause) {
@@ -48,10 +48,16 @@ public final class ModuleCoordinator {
     for (ManagedModule module : reverse) {
       try {
         module.stop();
-      } catch (RuntimeException error) {
-        cause.addSuppressed(error);
+      } catch (Throwable error) {
+        if (error != cause) cause.addSuppressed(error);
       }
     }
     started.clear();
+  }
+
+  private static void rethrow(Throwable failure) {
+    if (failure instanceof RuntimeException runtime) throw runtime;
+    if (failure instanceof Error error) throw error;
+    throw new IllegalStateException("Unexpected checked module failure", failure);
   }
 }

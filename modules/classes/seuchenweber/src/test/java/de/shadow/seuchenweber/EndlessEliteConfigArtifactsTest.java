@@ -18,7 +18,7 @@ import java.util.regex.Pattern;
 import org.junit.jupiter.api.Test;
 
 class EndlessEliteConfigArtifactsTest {
-  private static final Path ROOT = Path.of("..", "..", "..").toAbsolutePath().normalize();
+  private static final Path ROOT = findRepositoryRoot();
   private static final Path EXAMPLES = ROOT.resolve("config").resolve("examples");
   private static final List<String> NAMES = List.of("default", "balanced", "easy", "hard", "pvp");
 
@@ -61,8 +61,41 @@ class EndlessEliteConfigArtifactsTest {
     }
   }
 
+  @Test void defaultProfileAndDocumentationMatchBundledRuntimeDefaults() throws Exception {
+    SeuchenweberRuntimeConfig runtime = SeuchenweberRuntimeConfig.loadBundled();
+    assertEquals(5_000L, runtime.tickIntervalMs());
+    assertEquals(2, runtime.astralEchoMaxTargetsPerTick());
+
+    String defaults = readExample("default");
+    assertTrue(defaults.contains("tickIntervalSeconds: 5.0"));
+    assertTrue(defaults.contains("maximumEchoTargetsPerTick: 2"));
+
+    Path operatorDocumentation = ROOT.resolve("docs").resolve("CONFIGURATION.md");
+    String operatorText = Files.readString(operatorDocumentation, StandardCharsets.UTF_8);
+    assertDocumentedRange(operatorText, "necrotoxin.tickIntervalSeconds", "5.0", "0.05");
+    assertDocumentedRange(operatorText, "passives.astral_echo.maximumEchoTargetsPerTick", "2", "1");
+    assertDocumentedRange(operatorText, "passives.astral_echo.echoRadiusBlocks", "5.0", "0.5");
+    for (Path documentation : List.of(operatorDocumentation,
+        Path.of("src", "main", "resources", "docs", "CONFIGURATION.md"))) {
+      String text = Files.readString(documentation, StandardCharsets.UTF_8);
+      assertTrue(text.contains("mods/Seuchenweber/seuchenweber.json"), documentation.toString());
+    }
+  }
+
   private static String readExample(String name) throws IOException {
     return Files.readString(EXAMPLES.resolve("endlesselite-" + name + ".yml"), StandardCharsets.UTF_8);
+  }
+
+  private static Path findRepositoryRoot() {
+    Path current = Path.of("").toAbsolutePath().normalize();
+    while (current != null) {
+      if (Files.isRegularFile(current.resolve("pom.xml"))
+          && Files.isDirectory(current.resolve("config").resolve("examples"))) {
+        return current;
+      }
+      current = current.getParent();
+    }
+    throw new IllegalStateException("Cannot locate Endless Elite repository root");
   }
 
   private static String readBundledJson() throws IOException {
@@ -104,6 +137,15 @@ class EndlessEliteConfigArtifactsTest {
       else paths.add(path);
     }
     return paths;
+  }
+
+  private static void assertDocumentedRange(String documentation, String path,
+      String expectedDefault, String expectedMinimum) {
+    String row = documentation.lines()
+        .filter(line -> line.contains("`" + path + "`"))
+        .findFirst()
+        .orElseThrow(() -> new AssertionError("Missing docs: " + path));
+    assertTrue(row.contains("| `" + expectedDefault + "` | `" + expectedMinimum + "` |"), row);
   }
 
   private record Node(int indent, String key) { }

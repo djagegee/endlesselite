@@ -2,7 +2,7 @@
 
 Stand: Schema `4`, aktuell implementierter Bereich: **Seuchenweber**.
 
-Die ausgelieferte Runtimekonfiguration liegt derzeit unter `Seuchenweber/src/main/resources/config/seuchenweber.json`. JSON unterstützt keine Kommentare; deshalb ist diese Datei die verbindliche Betreiberreferenz. Die YAML-Dateien unter `config/examples/` sind lesbare Profile für die spätere zentrale Endless-Elite-Konfiguration.
+Die aktive Betreiberkonfiguration liegt im Plugin-Datenordner unter `mods/Seuchenweber/seuchenweber.json`. Die gebündelte Ausgangskonfiguration im Quellbaum liegt unter `modules/classes/seuchenweber/src/main/resources/config/seuchenweber.json`. JSON unterstützt keine Kommentare; die erzeugte Datei im Plugin-Datenordner ist zur Laufzeit verbindlich. Die YAML-Dateien unter `config/examples/` sind lesbare Profile für eine spätere zentrale Endless-Elite-Konfiguration.
 
 ## Zahlen und Einheiten
 
@@ -20,7 +20,7 @@ Die ausgelieferte Runtimekonfiguration liegt derzeit unter `Seuchenweber/src/mai
 |---|---|---:|---:|---:|---:|---|---|---|
 | `schemaVersion` | Version des Konfigurationsschemas; nicht manuell zurücksetzen. | Version | `4` | `4` | `4` | Nicht als Balancewert verwenden. | Neustart | Server |
 | `necrotoxin.durationSeconds` | Dauer eines Nekrotoxin-Auftrags. | Sekunden | `10.0` | `0.05` | `300.0` | Kleiner: kürzere DoTs; größer: längere DoTs. | Neustart | PvE/PvP |
-| `necrotoxin.tickIntervalSeconds` | Abstand zwischen DoT-Ticks. | Sekunden | `1.0` | `0.05` | `60.0` | Kleiner: häufigere Ticks/mehr Last; größer: seltenere Ticks. | Neustart | PvE/PvP |
+| `necrotoxin.tickIntervalSeconds` | Abstand zwischen DoT-Ticks. | Sekunden | `5.0` | `0.05` | `60.0` | Kleiner: häufigere Ticks/mehr Last; größer: seltenere Ticks. | Neustart | PvE/PvP |
 | `necrotoxin.maximumStacksPerOwner` | Maximale Stacks je Ziel und wirkendem Spieler. | Anzahl | `5` | `1` | `16` | Kleiner: weniger Skalierung; größer: mehr DoT-Potenzial. | Neustart | PvE/PvP |
 | `necrotoxin.baseDamagePerTick` | Grundschaden je Stack und Tick. | Schaden | `6.0` | `0.0` | `1000.0` | Kleiner: schwächerer DoT; größer: stärkerer DoT. | Neustart | PvE/PvP |
 | `necrotoxin.bossDamageMultiplier` | Nekrotoxinschaden gegen Bosse. | Faktor | `0.7` | `0.0` | `2.0` | Kleiner reduziert, größer erhöht Bossschaden. | Neustart | PvE |
@@ -65,8 +65,8 @@ Die ausgelieferte Runtimekonfiguration liegt derzeit unter `Seuchenweber/src/mai
 | `passives.necrotoxic_mastery.tickDamageMultiplier` | DoT-Multiplikator der Meisterschaft. | Faktor | `1.25` | `0.0` | `3.0` | `1.0` unverändert; größer verstärkt. | Neustart | PvE/PvP |
 | `passives.necrotoxic_mastery.auraRadiusBlocks` | Pesthauch-Radius um den aktiven Seuchenweber. | Blöcke | `8.0` | `0.5` | `32.0` | Kleiner: engere Aura; größer: mehr mögliche PvE-Ziele und Last. | Neustart | PvE/Performance |
 | `passives.necrotoxic_mastery.auraPulseIntervalSeconds` | Abstand zwischen Pesthauch-Impulsen. | Sekunden | `2.0` | `0.25` | `30.0` | Kleiner: häufigere Stapel/mehr Last; größer: langsamere Stapelvergabe. | Neustart | PvE/Performance |
-| `passives.astral_echo.maximumEchoTargetsPerTick` | Maximale Echoziele pro Tick. | Anzahl | `1` | `0` | `16` | Kleiner reduziert, größer erweitert Echos. | Neustart | PvE/PvP/Performance |
-| `passives.astral_echo.echoRadiusBlocks` | Reichweite des Echos. | Blöcke | `5.0` | `0.0` | `32.0` | Kleiner: enger; größer: mehr Reichweite/Last. | Neustart | PvE/PvP |
+| `passives.astral_echo.maximumEchoTargetsPerTick` | Maximale Echoziele pro Tick. | Anzahl | `2` | `1` | `16` | Kleiner reduziert, größer erweitert Echos. | Neustart | PvE/PvP/Performance |
+| `passives.astral_echo.echoRadiusBlocks` | Reichweite des Echos. | Blöcke | `5.0` | `0.5` | `32.0` | Kleiner: enger; größer: mehr Reichweite/Last. | Neustart | PvE/PvP |
 | `passives.astral_echo.echoStacksApplied` | Nekrotoxinstacks pro Echo. | Anzahl | `1` | `1` | `16` | Kleiner: weniger DoT; größer: mehr DoT. | Neustart | PvE/PvP |
 | `passives.soul_diagnosis.diagnosisStackThreshold` | Stackschwelle für Seelendiagnose. | Anzahl | `3` | `1` | `16` | Kleiner: früher; größer: später. | Neustart | PvE/PvP |
 | `passives.relic_attunement.manaRefundAmount` | Mana-Rückerstattung. | Mana | `8` | `0` | `1000` | Kleiner: weniger; größer: mehr Rückgabe. | Neustart | PvE/PvP |
