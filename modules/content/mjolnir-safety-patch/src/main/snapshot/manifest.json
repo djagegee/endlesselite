@@ -1,0 +1,13 @@
+{
+  "Group": "Shadow",
+  "Name": "MjolnirSafetyPatch",
+  "Version": "1.0.0",
+  "Description": "Disables only Starky Mjolnir's unstable held passive through Patchly; the original mod JAR is unchanged.",
+  "Authors": [
+    {
+      "Name": "Shadow"
+    }
+  ],
+  "ServerVersion": ">=0.5.0 <0.6.0",
+  "IncludesAssetPack": true
+}

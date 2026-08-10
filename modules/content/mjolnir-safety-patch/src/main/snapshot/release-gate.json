@@ -1,0 +1,4 @@
+{
+  "deployment_allowed": false,
+  "reason": "Patch is bound to Starky Mjolnir 1.6.1 and Patchly; combined-stack runtime acceptance is required."
+}

@@ -1,0 +1,21 @@
+{
+  "$Priority": 10000,
+  "Interactions": {
+    "Held": {
+      "Interactions": [
+        {
+          "Type": "Parallel",
+          "Interactions": [
+            {
+              "Interactions": [
+                {
+                  "Type": "Mjolnir_Charging_Spin_Loop"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

@@ -21,6 +21,7 @@ public record ModuleCatalog(List<ModuleDescriptor> modules) {
         new ModuleDescriptor("nachtweber", "Nachtweber", "0.1.0", Set.of("class", "progression", "combat", "movement"), true),
         new ModuleDescriptor("seuchenweber", "Seuchenweber", "0.1.0", Set.of("class", "progression", "combat", "config"), true),
         new ModuleDescriptor("rift-mage-dungeon", "Rift Mage Dungeon", "0.1.1", Set.of("dungeon", "assets", "waves"), false),
-        new ModuleDescriptor("portal-spawn", "Portal Spawn Snapshot", "unversioned", Set.of("prefabs", "recovery", "assets"), false)));
+        new ModuleDescriptor("portal-spawn", "Portal Spawn Snapshot", "unversioned", Set.of("prefabs", "recovery", "assets"), false),
+        new ModuleDescriptor("mjolnir-safety-patch", "Mjolnir Safety Patch", "1.0.0", Set.of("patchly", "safety", "assets"), false)));
   }
 }

@@ -105,7 +105,7 @@ def main() -> int:
         fail("Mjolnir Safety Patch gate must remain fail-closed until version-bound runtime acceptance")
 
     print("ENDLESS_ELITE_REPOSITORY_VERIFY_PASS")
-    print(f"plugins={len(manifests)} java_fqcns={len(fqcn_to_paths)} unique_resource_paths={len(resource_owners)} rift_deployment_allowed=false portal_deployment_allowed=false")
+    print(f"plugins={len(manifests)} java_fqcns={len(fqcn_to_paths)} unique_resource_paths={len(resource_owners)} rift_deployment_allowed=false portal_deployment_allowed=false mjolnir_patch_deployment_allowed=false")
     return 0
 
 

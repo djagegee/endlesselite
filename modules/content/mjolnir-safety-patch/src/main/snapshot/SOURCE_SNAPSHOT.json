@@ -1,0 +1,21 @@
+{
+  "source": "C:\\Users\\agege\\Desktop\\LOKAL SERVER\\archived-own-mod-backups\\_codex_backups\\starterkit-held-item-safety-20260730-001138\\Shadow_MjolnirSafetyPatch",
+  "capturedAt": "2026-08-10",
+  "files": [
+    {
+      "sourceRelativePath": "manifest.json",
+      "bytes": 324,
+      "sha256": "80de041ace1720921720d9eaeef5a0bfb0f8dae74c3c692fa3c327daa4d07fb9"
+    },
+    {
+      "sourceRelativePath": "README.md",
+      "bytes": 485,
+      "sha256": "052c069e3205fe3d6233128eefd93cccb4eb5087cb5044c0bba93efebc6c9752"
+    },
+    {
+      "sourceRelativePath": "Server/Item/Items/Weapon_Mjolnir_Starky.json.patch",
+      "bytes": 359,
+      "sha256": "9860162f7fb77455f5cb29dc67ff27bb175875400dc728678f1505874309f5c1"
+    }
+  ]
+}
