@@ -1,61 +1,61 @@
 # Endless Elite
 
-Gemeinsames, modular aufgebautes Quellrepository für die von Agegee und Hermes entwickelten Hytale-Mods.
+Shared, modular source repository for the Hytale mods developed by Agegee and Hermes.
 
-[![Java 25](https://img.shields.io/badge/Java-25-blue)](#build-und-tests)
-[![Tests](https://img.shields.io/badge/tests-217%20passing-brightgreen)](#build-und-tests)
+[![Java 25](https://img.shields.io/badge/Java-25-blue)](#build-and-tests)
+[![Tests](https://img.shields.io/badge/tests-222%20passing-brightgreen)](#build-and-tests)
 
 > [!IMPORTANT]
-> Das Repository ist buildverifiziert, aber **nicht live-deploymentfreigegeben**. Es wurde kein Live-Server verändert. Nachtweber, der kombinierte MMOSkillTree-Stack, Rift Mage, Portal Spawn und der versionsgebundene Mjolnir-Patch besitzen offene Ingame-/Release-Gates.
+> The repository is build-verified, but **not approved for live deployment**. No live server was modified. Nachtweber, the combined MMOSkillTree stack, Rift Mage, Portal Spawn, and the version-bound Mjolnir patch have outstanding in-game/release gates.
 
-## Module
+## Modules
 
-| Pfad | Version | Funktion | Status |
+| Path | Version | Purpose | Status |
 |---|---:|---|---|
-| `modules/core` | 0.1.0 | gemeinsamer Lifecycle-/Ownership-Katalog und konfliktfreie globale Lokalisierung | 3 Tests GREEN |
-| `modules/hub/endless-book` | 2.0.0 | gemeinsamer UI-/Informationshub, persönliche Claims, Progressionsdarstellung | 22 Tests GREEN |
-| `modules/classes/hymann` | 0.1.9 | Hymann-Klassenprogression, Armament-/Thunder-Fähigkeiten, Combat-Systeme | 11 Tests GREEN |
-| `modules/classes/nachtweber` | 0.1.0 | Nachtweber mit drei aktiven und vier passiven Fähigkeiten, storegebundene Zustände | 69 Tests GREEN; Ingame-Gates offen |
-| `modules/classes/seuchenweber` | 0.1.0 | Nekrotoxin, Astralriss, Chronofäule, Auren und MMOSkillTree-Anbindung | 87 Tests GREEN |
-| `modules/content/rift-mage-dungeon` | 0.1.1 | Rift-Mage-Dungeon-Import, Wellen-/Assetverträge | 17 Tests GREEN; Deployment-Gate geschlossen |
-| `modules/content/portal-spawn` | unversioniert | bytegenauer Recovery-Snapshot zweier Portal-/Spawn-Prefabs | 4 Tests GREEN; nicht deploybar |
-| `modules/content/mjolnir-safety-patch` | 1.0.0 | bytegenauer Patchly-Sicherheitsvertrag für Starky's Mjolnir 1.6.1 | 4 Tests GREEN; versionsgebundenes Gate geschlossen |
+| `modules/core` | 0.1.0 | shared lifecycle/ownership catalog and conflict-free global localization | 7 tests GREEN |
+| `modules/hub/endless-book` | 2.0.0 | shared UI/information hub, personal claims, progression display | 22 tests GREEN |
+| `modules/classes/hymann` | 0.1.9 | Hymann class progression, Armament/Thunder abilities, combat systems | 11 tests GREEN |
+| `modules/classes/nachtweber` | 0.1.0 | Nachtweber with three active and four passive abilities, store-bound state | 69 tests GREEN; in-game gates open |
+| `modules/classes/seuchenweber` | 0.1.0 | Necrotoxin, Astral Rift, Chronoblight, auras, and MMOSkillTree integration | 88 tests GREEN |
+| `modules/content/rift-mage-dungeon` | 0.1.1 | Rift Mage dungeon import, wave/asset contracts | 17 tests GREEN; deployment gate closed |
+| `modules/content/portal-spawn` | unversioned | byte-exact recovery snapshot of two portal/spawn prefabs | 4 tests GREEN; not deployable |
+| `modules/content/mjolnir-safety-patch` | 1.0.0 | byte-exact Patchly safety contract for Starky's Mjolnir 1.6.1 | 4 tests GREEN; version-bound gate closed |
 
-## Gemeinsame Struktur
+## Shared structure
 
 ```text
 Endless Elite/
-├── config/examples/                  # gemeinsame lesbare Betreiberprofile
+├── config/examples/                  # shared readable operator profiles
 ├── docs/
-│   ├── architecture/                 # Konflikt- und Ownershipentscheidungen
-│   └── inventory/                    # Quell-, Versions- und Binärevidenz
+│   ├── architecture/                 # conflict and ownership decisions
+│   └── inventory/                    # source, version, and binary evidence
 ├── modules/
-│   ├── core/                         # gemeinsamer Runtime-/Asset-Owner
+│   ├── core/                         # shared runtime/asset owner
 │   ├── hub/endless-book/
 │   ├── classes/{hymann,nachtweber,seuchenweber}/
 │   └── content/{rift-mage-dungeon,portal-spawn,mjolnir-safety-patch}/
-├── tools/                            # Verifier, Dependency-Reproduktion, Distribution
-└── pom.xml                           # gemeinsamer Java-25/Maven-Reactor
+├── tools/                            # verifier, dependency reproduction, distribution
+└── pom.xml                           # shared Java 25/Maven reactor
 ```
 
-Das Projekt erzeugt bewusst getrennte Hytale-Artefakte statt eines ungeprüften Monolith-JARs. Dadurch bleiben Plugin-IDs, Entry-Points, Ressourcen und Lifecycle-Owner eindeutig.
+The project deliberately produces separate Hytale artifacts rather than an unverified monolith JAR. This keeps plugin IDs, entry points, resources, and lifecycle owners unambiguous.
 
-## Architektur und Ownership
+## Architecture and ownership
 
-- **Endless Elite Core** ist der gemeinsame Lifecycle-, Ownership- und globale Lokalisierungsowner.
-- **EndlessBook** ist der gemeinsame UI-Hub.
-- **EndlessLeveling** bleibt externer Owner für Klasse, Level und Prestige.
-- **MMOSkillTree** bleibt externer Owner für Skills, Unlocks und Bindings.
-- **EndlessEliteMobs** bleibt alleiniger Owner des allgemeinen Mob-Scalings.
-- Klassenmodule besitzen nur ihre store-/ownergebundenen Kampfzustände.
-- Rift Mage besitzt keinen eigenen Spielerprogress-Owner.
-- Buildpfade und Betreiberprofile werden zentral vom Parent beziehungsweise `config/examples` verwaltet.
+- **Endless Elite Core** is the shared lifecycle, ownership, and global-localization owner.
+- **EndlessBook** is the shared UI hub.
+- **EndlessLeveling** remains the external owner for class, level, and prestige.
+- **MMOSkillTree** remains the external owner for skills, unlocks, and bindings.
+- **EndlessEliteMobs** remains the sole owner of general mob scaling.
+- Class modules own only their store-/owner-bound combat state.
+- Rift Mage has no player-progression owner of its own.
+- Local proprietary build artifacts are hash-bootstrapped into Maven; operator profiles remain under `config/examples`.
 
-Details und harte Grenzen: [`docs/architecture/CONFLICT_MATRIX.md`](docs/architecture/CONFLICT_MATRIX.md).
+Details and hard boundaries: [`docs/architecture/CONFLICT_MATRIX.md`](docs/architecture/CONFLICT_MATRIX.md).
 
-## Konfiguration
+## Configuration
 
-Lesbare Beispielprofile:
+Readable example profiles:
 
 - `endlesselite-default.yml`
 - `endlesselite-balanced.yml`
@@ -63,19 +63,19 @@ Lesbare Beispielprofile:
 - `endlesselite-hard.yml`
 - `endlesselite-pvp.yml`
 
-Alle öffentlichen Zeiten stehen in Sekunden, Entfernungen in Blöcken und Faktoren als kurze Dezimalwerte (`1.0 = 100 %`). Vollständige Wertebereiche: [`docs/CONFIGURATION.md`](docs/CONFIGURATION.md).
+All public times are in seconds, distances in blocks, and factors as short decimal values (`1.0 = 100 %`). Full value ranges: [`docs/CONFIGURATION.md`](docs/CONFIGURATION.md).
 
-Die Runtime-Dateien der einzelnen Plugins bleiben modulbezogen, damit keine bestehenden Migrationen oder Datenverträge heimlich gebrochen werden.
+The runtime files for the individual plugins remain module-specific so that existing migrations or data contracts are not silently broken.
 
-## Build und Tests
+## Build and tests
 
-### Voraussetzungen
+### Prerequisites
 
 - JDK 25
 - Maven 3.9+
-- lokale Hytale-Server-/Modabhängigkeiten außerhalb von Git
+- local Hytale server/mod dependencies outside Git
 
-Nachtwebers additive MMOSkillTree-Abhängigkeit reproduzieren:
+Hash-verify and install all proprietary local dependencies, including Nachtweber's additive MMOSkillTree artifact:
 
 ```bash
 python tools/setup_local_dependencies.py \
@@ -83,56 +83,56 @@ python tools/setup_local_dependencies.py \
   --maven "C:/Pfad/zu/apache-maven/bin/mvn.cmd"
 ```
 
-Gesamtbuild:
+Full build:
 
 ```bash
-mvn -Dhytale.server.root="C:/Pfad/zum/Hytale-Server" clean verify
+mvn clean verify
 python tools/verify_repository.py
 python tools/collect_distribution.py
 ```
 
-Aktuell bestätigt:
+Currently confirmed:
 
-- Maven-Reactor: **9/9 SUCCESS**
-- Tests: **217**, 0 Failures, 0 Errors, 0 Skips
-- lokale Dependency-Reproduktion: PASS
-- Repository-Strukturgate: PASS
-- Buildartefaktsammlung: PASS
+- Maven reactor: **9/9 SUCCESS**
+- Tests: **222**, 0 Failures, 0 Errors, 0 Skips
+- local dependency reproduction: PASS
+- repository structure gate: PASS
+- build artifact collection: PASS
 
-Ausführliche Anleitung: [`docs/BUILD_AND_TEST.md`](docs/BUILD_AND_TEST.md).
+Detailed instructions: [`docs/BUILD_AND_TEST.md`](docs/BUILD_AND_TEST.md).
 
 ## Installation
 
-1. Zuerst Build und Repository-Gate ausführen.
-2. `tools/collect_distribution.py` erzeugt unter `dist/plugins/` fünf eigene Plugin-JARs einschließlich Shared Core und ein Hashmanifest.
-3. Drittanbieterabhängigkeiten werden nicht gebündelt und müssen in kompatiblen Versionen separat vorliegen.
-4. **Nicht direkt auf einen Live-Server kopieren.** Zuerst einen isolierten Cold-Boot und die offenen Ingame-Gates durchführen.
-5. Rift Mage, Portal Spawn und Mjolnir Safety Patch werden nicht als freigegebene Plugin-JARs ausgegeben; ihre Contract-ZIPs bleiben bis zur jeweiligen manuellen Abnahme gesperrt.
+1. First run the build and repository gate.
+2. `tools/collect_distribution.py` produces five separate plugin JARs under `dist/plugins/`, including Shared Core, and a hash manifest.
+3. Third-party dependencies are not bundled and must be separately available in compatible versions.
+4. **Do not copy directly to a live server.** First perform an isolated cold boot and the outstanding in-game gates.
+5. Rift Mage, Portal Spawn, and Mjolnir Safety Patch are not produced as approved plugin JARs; their contract ZIPs remain blocked until their respective manual acceptance.
 
-Es wurde im Rahmen dieser Zusammenführung **kein Live-Deployment durchgeführt**.
+**No live deployment was performed** as part of this consolidation.
 
-## Inventur und nicht integrierte Binärstände
+## Inventory and non-integrated binary states
 
-Vollständige aktuelle Quellen wurden für die fünf historischen Module übernommen und um Shared Core sowie die bytegenau erhaltenen Content-Snapshots Portal Spawn und Mjolnir Safety Patch ergänzt. Nur als Binärbackup gefunden und daher nicht blind dekompiliert oder produktiv integriert:
+Complete current sources were adopted for the five historical modules and supplemented with Shared Core and the byte-exact preserved content snapshots Portal Spawn and Mjolnir Safety Patch. Found only as binary backups and therefore not blindly decompiled or integrated into production:
 
 - HyGunsMMOCompat 1.0.5–1.0.7
-- EndlessGuildsPatches (Manifest 1.0.1, abweichende Dateinamen)
+- EndlessGuildsPatches (Manifest 1.0.1, differing file names)
 - StarterkitChatter 1.0.0–1.0.7
 
-Alle Originalprojekte und Binärbackups bleiben unverändert als zusätzliche Sicherheitskopien erhalten. Details: [`docs/inventory/`](docs/inventory/).
+All original projects and binary backups remain unchanged as additional safety copies. Details: [`docs/inventory/`](docs/inventory/).
 
-## Offene Gates
+## Outstanding gates
 
-- kombinierter Cold-Boot mit einem einheitlichen MMOSkillTree-Superset,
-- Transaktions-/Reihenfolgeowner für globale MMOSkillTree-Konfigurationswriter,
-- ownership-sicherer Ability-Shutdown für Hymann und Seuchenweber oder Cold-Boot-only-Nachweis,
-- Hymann-Profilpersistenz gegen Logout/Profilwechsel/Crash-Recovery,
-- Nachtweber: Clientbinding, Aktivierung, Movement, Damage, Disconnect und Zwei-Spieler-Isolation,
-- Rift Mage: manuelle Gameplay-/Visual-Abnahme und `deployment_allowed=true`,
-- Portal Spawn: Manifestreparatur, Asset-Pack-Vertrag und isolierte Gameplay-/Visual-Abnahme,
-- Mjolnir Safety Patch: Patchly-/Mjolnir-1.6.1-Nachweis und kombinierte Runtime-Abnahme,
-- veraltete Hytale-API-Nutzungen in EndlessBook, Hymann und Seuchenweber.
+- combined cold boot with a unified MMOSkillTree superset,
+- transaction/order owner for global MMOSkillTree configuration writers,
+- ownership-safe ability shutdown for Hymann and Seuchenweber, or cold-boot-only evidence,
+- Hymann profile persistence across logout/profile switch/crash recovery,
+- Nachtweber: client binding, activation, movement, damage, disconnect, and two-player isolation,
+- Rift Mage: manual gameplay/visual acceptance and `deployment_allowed=true`,
+- Portal Spawn: manifest repair, asset-pack contract, and isolated gameplay/visual acceptance,
+- Mjolnir Safety Patch: Patchly/Mjolnir-1.6.1 evidence and combined runtime acceptance,
+- outdated Hytale API usage in EndlessBook, Hymann, and Seuchenweber.
 
-## Sicherheit und Git
+## Security and Git
 
-`.gitignore` schließt Secrets, Credentials, lokale Runtime, Caches, Logs und Buildausgaben aus. Fremde oder abgeleitete Drittanbieter-JARs werden nicht committed. Der Ausgangszustand des zuvor leeren GitHub-Repositorys ist mit dem Tag `baseline-before-mod-consolidation-20260810` gesichert.
+`.gitignore` excludes secrets, credentials, local runtime, caches, logs, and build output. External or derived third-party JARs are not committed. The initial state of the previously empty GitHub repository is preserved with the `baseline-before-mod-consolidation-20260810` tag.

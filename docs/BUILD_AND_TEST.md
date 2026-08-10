@@ -1,59 +1,60 @@
-# Build, Test und lokale Abhängigkeiten
+# Build, tests, and local dependencies
 
-## Voraussetzungen
+## Prerequisites
 
-- JDK 25 (`JAVA_HOME` gesetzt)
+- JDK 25 (`JAVA_HOME` set)
 - Maven 3.9+
-- lokale Hytale-Serverinstallation mit:
+- a local Hytale server installation containing:
   - `HytaleServer.jar`
   - `mods/EndlessLeveling.jar`
   - `mods/MMOSkillTree-1.5.2.jar`
   - `mods/EndlessGuilds-1.13.0.jar`
   - `mods/Perfect Utils-1.1.0.jar`
-- für Seuchenwebers historische ABI-Baseline zusätzlich:
-  - `disabled-mods/baseline-isolation-2026-08-05/EndlessLeveling.jar`
-  - `disabled-mods/baseline-isolation-2026-08-05/MMOSkillTree-1.5.2.jar`
 
-Lokale Abhängigkeiten und Drittanbieter-JARs werden nicht eingecheckt.
+Local dependencies and third-party JARs are never committed.
 
-## 1. Nachtweber-Abhängigkeit reproduzieren
+## 1. Bootstrap local Maven dependencies
 
-Windows-Beispiel:
+Windows example:
 
 ```bash
 python tools/setup_local_dependencies.py \
-  --server-root "C:/Pfad/zum/Hytale-Server" \
-  --maven "C:/Pfad/zu/apache-maven/bin/mvn.cmd"
+  --server-root "C:/Path/to/Hytale-Server" \
+  --maven "C:/Path/to/apache-maven/bin/mvn.cmd"
 ```
 
-Das Skript:
+The script:
 
-1. verlangt den bekannten Stock-MMOSkillTree-1.5.2-Hash,
-2. lädt ASM 9.8 mit gepinntem SHA-256,
-3. kompiliert den mitgesicherten Patcher,
-4. erzeugt das additive Owned-Effects-JAR,
-5. prüft Entryset und Bytecode mit `javap`,
-6. installiert es lokal als `com.ziggfreed:mmo-skill-tree:1.5.2-owned-local`.
+1. verifies all five proprietary source JARs against pinned SHA-256 values;
+2. installs them into the local Maven repository under explicit `*-local` coordinates;
+3. downloads ASM 9.8 only after verifying its pinned SHA-256;
+4. compiles the preserved MMOSkillTree owned-effect patcher;
+5. produces and bytecode-verifies the additive owned-effects JAR;
+6. installs the derived JAR as `com.ziggfreed:mmo-skill-tree:1.5.2-owned-local`.
 
-Erwarteter Marker:
+Expected marker:
 
 ```text
 ENDLESS_ELITE_LOCAL_DEPENDENCY_SETUP_PASS
 ```
 
-## 2. Gesamtprojekt bauen
+This bootstrap is fail-closed: a missing file or unexpected hash stops before that artifact is installed. Reactor POMs use normal `provided` dependencies and contain no `systemPath` or user-specific absolute path.
+
+## 2. Build the complete project
+
+After the bootstrap, no local server-path property is required:
 
 ```bash
-mvn -Dhytale.server.root="C:/Pfad/zum/Hytale-Server" clean verify
+mvn clean verify
 ```
 
-Ohne Override verwendet der Parent für Agegees lokale Umgebung:
+The default reactor validates committed SHA-256 evidence for the native Rift Mage references. To additionally compare those references byte-for-byte against a local original asset archive:
 
-```text
-C:/Users/agege/Desktop/LOKAL SERVER
+```bash
+mvn -Dhytale.assets.zip="C:/Path/to/Assets.zip" -pl modules/content/rift-mage-dungeon test
 ```
 
-Der Reactor enthält:
+The reactor contains:
 
 1. `endless-elite-parent`
 2. `endless-elite-core`
@@ -65,33 +66,35 @@ Der Reactor enthält:
 8. `portal-spawn`
 9. `mjolnir-safety-patch`
 
-## 3. Repository-Gate
+## 3. Repository gate
 
 ```bash
 python tools/verify_repository.py
 ```
 
-Erwarteter Marker:
+Expected marker:
 
 ```text
 ENDLESS_ELITE_REPOSITORY_VERIFY_PASS
 ```
 
-## 4. Buildartefakte sammeln
+The gate also rejects Maven `systemPath` dependencies and user-specific Windows paths in POM files.
 
-Nach einem grünen Reactor:
+## 4. Collect build artifacts
+
+After a green reactor:
 
 ```bash
 python tools/collect_distribution.py
 ```
 
-Erwarteter Marker:
+Expected marker:
 
 ```text
 ENDLESS_ELITE_DISTRIBUTION_PASS
 ```
 
-Die Ausgabe liegt ignoriert unter `dist/`. Das Manifest bezeichnet die JARs nur als **buildverifiziert**. Es setzt ausdrücklich:
+Output is ignored under `dist/`. The manifest calls the JARs **build-verified** only and explicitly sets:
 
 ```json
 {
@@ -100,17 +103,18 @@ Die Ausgabe liegt ignoriert unter `dist/`. Das Manifest bezeichnet die JARs nur 
 }
 ```
 
-## Aktueller verifizierter Lauf
+## Current verified run
 
 - Java: 25.0.4
 - Maven: 3.9.16
-- Reactor: 9/9 Projekte SUCCESS
-- Tests: 217
+- Reactor: 9/9 projects SUCCESS
+- Maven tests and integration tests: 222
 - Failures: 0
 - Errors: 0
 - Skipped: 0
+- Python bootstrap contract tests: 3 PASS
 - `ENDLESS_ELITE_REPOSITORY_VERIFY_PASS`
 - `ENDLESS_ELITE_DISTRIBUTION_PASS`
 - `ENDLESS_ELITE_LOCAL_DEPENDENCY_SETUP_PASS`
 
-Die Hytale-API erzeugt in EndlessBook, Hymann und Seuchenweber Warnungen zu als veraltet markierten APIs. Diese Warnungen sind dokumentierte technische Schulden, keine im Build ignorierten Testfehler.
+The Hytale API emits deprecation warnings in EndlessBook, Hymann, and Seuchenweber. These are documented technical debt, not ignored test failures.

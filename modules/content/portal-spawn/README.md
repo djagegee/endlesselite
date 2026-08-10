@@ -1,8 +1,6 @@
 # Portal Spawn.Endless Elite – Source Snapshot
 
-Read-only snapshot of the local Hytale editor export from:
-
-`C:\Users\agege\AppData\Roaming\Hytale\UserData\Mods\Portal Spawn.Endless Elite`
+Read-only snapshot of the locally preserved Hytale editor export named `Portal Spawn.Endless Elite`. The original remains outside this public repository.
 
 The two distinct prefab JSON files and the original manifest are preserved byte-for-byte. The original `.bak` file is byte-identical to `spawn.prefab.json`; its SHA-256 and size are retained in `SOURCE_SNAPSHOT.json` instead of committing duplicate 7.7 MB content.
 
