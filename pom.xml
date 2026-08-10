@@ -12,11 +12,13 @@
   <description>Modular source and build project for the Endless Elite Hytale mod collection.</description>
 
   <modules>
+    <module>modules/core</module>
     <module>modules/hub/endless-book</module>
     <module>modules/classes/hymann</module>
     <module>modules/classes/nachtweber</module>
     <module>modules/classes/seuchenweber</module>
     <module>modules/content/rift-mage-dungeon</module>
+    <module>modules/content/portal-spawn</module>
   </modules>
 
   <properties>
@@ -26,7 +28,18 @@
     <hytale.mods.root>${hytale.server.root}/mods</hytale.mods.root>
     <hytale.mod.stash>${hytale.server.root}/disabled-mods/baseline-isolation-2026-08-05</hytale.mod.stash>
     <junit.version>5.12.2</junit.version>
+    <endlesselite.version>0.1.0-SNAPSHOT</endlesselite.version>
   </properties>
+
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>de.shadow.endlesselite</groupId>
+        <artifactId>endless-elite-core</artifactId>
+        <version>${endlesselite.version}</version>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
 
   <build>
     <pluginManagement>

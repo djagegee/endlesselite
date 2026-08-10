@@ -3,13 +3,20 @@
   "Name": "Seuchenweber",
   "Version": "0.1.0",
   "Description": "Original owner-bound Nekrotoxin control mage for EndlessLeveling and MMOSkillTree.",
-  "Authors": [{"Name": "Shadow"}],
+  "Authors": [
+    {
+      "Name": "Shadow"
+    }
+  ],
   "ServerVersion": ">=0.5.0 <0.6.0",
   "Dependencies": {
+    "Shadow:EndlessElite": "0.1.0",
     "Airijko:EndlessLevelingCore": ">=11.5.0 <12.0.0",
     "Ziggfreed:MMOSkillTree": ">=1.5.2 <1.6.0"
   },
-  "OptionalDependencies": {"narwhals:Perfect Utils": ">=1.1.0 <1.2.0"},
+  "OptionalDependencies": {
+    "narwhals:Perfect Utils": ">=1.1.0 <1.2.0"
+  },
   "DisabledByDefault": false,
   "IncludesAssetPack": true,
   "Main": "de.shadow.seuchenweber.SeuchenweberPlugin"

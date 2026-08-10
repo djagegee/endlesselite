@@ -11,6 +11,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 MODULES = ROOT / "modules"
 EXPECTED_PLUGIN_IDS = {
+    "Shadow:EndlessElite",
     "Shadow:EndlessBook",
     "Shadow:Hymann",
     "Shadow:Nachtweber",
@@ -44,6 +45,20 @@ def main() -> int:
     ids = [entry[0] for entry in manifests]
     if set(ids) != EXPECTED_PLUGIN_IDS or len(ids) != len(set(ids)):
         fail(f"Unexpected or duplicate plugin IDs: {ids}")
+
+    resource_owners: dict[str, list[str]] = defaultdict(list)
+    for plugin_id, _, manifest_path in manifests:
+        manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+        if plugin_id != "Shadow:EndlessElite" and "Shadow:EndlessElite" not in manifest.get("Dependencies", {}):
+            fail(f"Feature plugin does not require Shadow:EndlessElite: {plugin_id}")
+        resource_root = manifest_path.parent
+        for resource in resource_root.rglob("*"):
+            if resource.is_file() and resource.name != "manifest.json":
+                relative = resource.relative_to(resource_root).as_posix()
+                resource_owners[relative].append(plugin_id)
+    duplicate_resources = {path: owners for path, owners in resource_owners.items() if len(owners) > 1}
+    if duplicate_resources:
+        fail(f"Competing plugin resource paths: {duplicate_resources}")
 
     for source in MODULES.rglob("src/main/java/**/*.java"):
         text = source.read_text(encoding="utf-8", errors="strict")
@@ -81,9 +96,12 @@ def main() -> int:
     rift_gate = json.loads((MODULES / "content/rift-mage-dungeon/src/main/dlc/release-gate.json").read_text(encoding="utf-8"))
     if rift_gate.get("deployment_allowed") is not False:
         fail("Rift Mage release gate must remain fail-closed until manual acceptance")
+    portal_gate = json.loads((MODULES / "content/portal-spawn/src/main/snapshot/release-gate.json").read_text(encoding="utf-8"))
+    if portal_gate.get("deployment_allowed") is not False:
+        fail("Portal Spawn release gate must remain fail-closed until manifest repair and manual acceptance")
 
     print("ENDLESS_ELITE_REPOSITORY_VERIFY_PASS")
-    print(f"plugins={len(manifests)} java_fqcns={len(fqcn_to_paths)} rift_deployment_allowed=false")
+    print(f"plugins={len(manifests)} java_fqcns={len(fqcn_to_paths)} unique_resource_paths={len(resource_owners)} rift_deployment_allowed=false portal_deployment_allowed=false")
     return 0
 
 

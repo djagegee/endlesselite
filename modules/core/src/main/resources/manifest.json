@@ -1,0 +1,16 @@
+{
+  "Group": "Shadow",
+  "Name": "EndlessElite",
+  "Version": "0.1.0",
+  "Description": "Shared lifecycle, ownership and localization core for the Endless Elite mod collection.",
+  "Authors": [
+    {
+      "Name": "Shadow"
+    }
+  ],
+  "ServerVersion": ">=0.5.0 <0.6.0",
+  "Dependencies": {},
+  "DisabledByDefault": false,
+  "IncludesAssetPack": true,
+  "Main": "de.shadow.endlesselite.core.EndlessEliteCorePlugin"
+}

@@ -23,6 +23,11 @@
 
     <dependencies>
         <dependency>
+            <groupId>de.shadow.endlesselite</groupId>
+            <artifactId>endless-elite-core</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
             <groupId>com.hypixel.hytale</groupId>
             <artifactId>hytale-server</artifactId>
             <version>0.5.0-local</version>

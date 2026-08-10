@@ -3,9 +3,14 @@
   "Name": "Nachtweber",
   "Version": "0.1.0",
   "Description": "Fail-closed runtime adapter and server-authoritative core for the original Nachtweber elite class.",
-  "Authors": [{"Name": "Shadow"}],
+  "Authors": [
+    {
+      "Name": "Shadow"
+    }
+  ],
   "ServerVersion": ">=0.5.0 <0.6.0",
   "Dependencies": {
+    "Shadow:EndlessElite": "0.1.0",
     "Airijko:EndlessLevelingCore": ">=11.5.0 <12.0.0",
     "Ziggfreed:MMOSkillTree": ">=1.5.2 <1.6.0"
   },

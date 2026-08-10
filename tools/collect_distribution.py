@@ -11,6 +11,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 DIST = ROOT / "dist"
 ARTIFACTS = {
+    "EndlessEliteCore.jar": ROOT / "modules/core/target/EndlessEliteCore.jar",
     "EndlessBook.jar": ROOT / "modules/hub/endless-book/target/EndlessBook.jar",
     "Hymann.jar": ROOT / "modules/classes/hymann/target/Hymann.jar",
     "Nachtweber.jar": ROOT / "modules/classes/nachtweber/target/Nachtweber.jar",
@@ -58,6 +59,10 @@ def main() -> int:
             {
                 "module": "rift-mage-dungeon",
                 "reason": "release-gate.json keeps deployment_allowed=false until manual gameplay and visual acceptance",
+            },
+            {
+                "module": "portal-spawn",
+                "reason": "source manifest is unversioned, has no Main and declares IncludesAssetPack=false; contract snapshot is not deployable",
             },
             {
                 "module": "nachtweber",

@@ -1,3 +1,7 @@
+# Endless Elite shared MMOSkillTree localization.
+# Single asset owner; feature sections retained from Hymann and Seuchenweber.
+
+# --- Hymann ---
 # Extends MMOSkillTree's localization namespace for the Hymann custom skill.
 skill.hymann = Hymann
 skill.hymann_armament = Hymann
@@ -56,3 +60,49 @@ hymann.tree.passive.hymann_passive_stormbreaker_pulse_1.description = Unlocks at
 hymann.tree.passive.hymann_passive_stormbreaker_pulse_2.description = Unlocks at Hymann level 50: every 8 seconds, release a stronger shocking lightning pulse around you.
 hymann.tree.passive.hymann_passive_stormbreaker_pulse_3.description = Unlocks at Hymann level 97: every 5 seconds, release a devastating shocking lightning pulse around you.
 hymann.tree.passive.hymann_passive_thunder_cadence.description = Unlocks at Hymann level 99: every second melee hit unleashes empowered lightning damage.
+
+# --- Seuchenweber ---
+# Seuchenweber client-visible MMOSkillTree namespace.
+skill.seuchenweber_mastery = Seuchenweber
+skill.seuchenweber_mastery.desc = Mastery of the Cosmic Ruin Spellbook, Nekrotoxin, and astral decay.
+
+ability.seuchenweber_seal_of_decay.flavor = Imprints Nekrotoxin stacks and deals direct poison damage.
+ability.seuchenweber_passive_necrotoxic_mastery.flavor = Every 2 seconds, hostile targets within 8 blocks gain one Nekrotoxin stack.
+ability.seuchenweber_astral_rift.flavor = Opens a rift and infects a bounded number of nearby enemies.
+ability.seuchenweber_passive_astral_echo.flavor = Spreads owner-attributed Nekrotoxin to nearby enemies without recursive chains.
+ability.seuchenweber_chronoblight.flavor = Deepens owned Nekrotoxin marks and briefly controls fully marked targets.
+ability.seuchenweber_passive_soul_diagnosis.flavor = Shows heavily marked targets only to their owner.
+ability.seuchenweber_passive_relic_attunement.flavor = Naturally expiring full marks refund mana and cooldown time.
+
+seuchenweber.tree.seuchenweber_seal_of_decay.name = Seal of Decay
+seuchenweber.tree.seuchenweber_seal_of_decay.description = Imprints Nekrotoxin stacks and deals direct poison damage.
+seuchenweber.tree.seuchenweber_passive_necrotoxic_mastery.name = Blight Breath
+seuchenweber.tree.seuchenweber_passive_necrotoxic_mastery.description = Every 2 seconds, hostile targets within 8 blocks gain one Nekrotoxin stack.
+seuchenweber.tree.seuchenweber_astral_rift.name = Astral Rift
+seuchenweber.tree.seuchenweber_astral_rift.description = Opens a rift and infects a bounded number of nearby enemies.
+seuchenweber.tree.seuchenweber_passive_astral_echo.name = Astral Echo
+seuchenweber.tree.seuchenweber_passive_astral_echo.description = Spreads owner-attributed Nekrotoxin to nearby enemies without recursive chains.
+seuchenweber.tree.seuchenweber_chronoblight.name = Chronoblight
+seuchenweber.tree.seuchenweber_chronoblight.description = Deepens owned Nekrotoxin marks and briefly controls fully marked targets.
+seuchenweber.tree.seuchenweber_passive_soul_diagnosis.name = Soul Diagnosis
+seuchenweber.tree.seuchenweber_passive_soul_diagnosis.description = Shows heavily marked targets only to their owner.
+seuchenweber.tree.seuchenweber_passive_relic_attunement.name = Relic Attunement
+seuchenweber.tree.seuchenweber_passive_relic_attunement.description = Naturally expiring full marks refund mana and cooldown time.
+
+seuchenweber.tree.cooldown.name = Chronic Acceleration
+seuchenweber.tree.cooldown.description = Reduces ability cooldowns.
+seuchenweber.tree.mana_regen.name = Astral Influx
+seuchenweber.tree.mana_regen.description = Increases mana regeneration.
+seuchenweber.tree.critical_chance.name = Virulent Precision
+seuchenweber.tree.critical_chance.description = Increases critical hit chance.
+seuchenweber.tree.defense.name = Plague Armor
+seuchenweber.tree.defense.description = Reduces incoming damage.
+seuchenweber.tree.stamina_regen.name = Toxic Endurance
+seuchenweber.tree.stamina_regen.description = Restores additional stamina each second while Plagueweaver is active.
+seuchenweber.tree.direct_damage.name = Cosmic Impact
+seuchenweber.tree.direct_damage.description = Increases direct damage from Plagueweaver abilities.
+seuchenweber.tree.dot_damage.name = Necrotoxic Potency
+seuchenweber.tree.dot_damage.description = Increases only authoritative Nekrotoxin damage over time.
+seuchenweber.tree.crit_damage.name = Plague Execution
+seuchenweber.tree.crit_damage.description = Increases critical damage through EndlessLeveling Ferocity.
+ability.bind_page.passive_tag = PASSIVE

@@ -3,9 +3,14 @@
   "Name": "EndlessBook",
   "Version": "2.0.0",
   "Description": "Quest-earned permanent Endless hub with central configuration and localized mod links.",
-  "Authors": [{"Name": "Agegee & Hermes"}],
+  "Authors": [
+    {
+      "Name": "Agegee & Hermes"
+    }
+  ],
   "ServerVersion": ">=0.5.0 <0.6.0",
   "Dependencies": {
+    "Shadow:EndlessElite": "0.1.0",
     "Ziggfreed:MMOSkillTree": ">=1.5.2 <1.6.0",
     "Airijko:EndlessGuilds": ">=1.13.0 <2.0.0"
   },
