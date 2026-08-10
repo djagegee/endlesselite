@@ -1,0 +1,50 @@
+# Build outputs
+**/target/
+**/build/
+**/out/
+*.class
+
+# IDE and OS
+.idea/
+*.iml
+.vscode/
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Local Hytale runtime and dependencies
+.local/
+runtime/
+server/
+HytaleServer.jar
+Assets.zip
+*.jar
+!tools/**/*.jar
+
+# Secrets and credentials
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+*.p12
+*.jks
+credentials*.json
+secrets*.json
+config.local.json
+
+# Logs, caches and generated evidence
+*.log
+.cache/
+.hermes/
+__pycache__/
+*.pyc
+surefire-reports/
+failsafe-reports/
+
+# Temporary and backup files
+*.tmp
+*.bak
+*.orig
+*~
+backups/
