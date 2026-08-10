@@ -1,0 +1,45 @@
+# Java / Maven / IDE
+**/target/
+**/build/
+**/.gradle/
+**/.idea/
+*.iml
+*.class
+*.jar
+*.war
+*.zip
+
+# Local Hytale/runtime state
+.hermes/
+runtime/
+server/
+mods/
+backups/
+logs/
+*.log
+crash-reports/
+
+# Credentials and local configuration
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.jks
+secrets.*
+credentials.*
+config/local/
+
+# OS/editor/cache
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.cache/
+.tmp/
+tmp/
+
+# Generated reports
+coverage/
+*.exec
