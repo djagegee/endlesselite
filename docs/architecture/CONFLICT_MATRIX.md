@@ -9,6 +9,7 @@ Endless Elite ist ein Maven-Monorepo mit getrennten Hytale-Laufzeitartefakten. D
 
 | Modul | Rolle | Runtime-ID | Ergebnis |
 |---|---|---|---|
+| Endless Elite Core | gemeinsamer Lifecycle-/Ownership-Katalog und globale Lokalisierung | `Shadow:EndlessElite` | integriert, gebaut und getestet |
 | EndlessBook | gemeinsamer UI-/Hub-Zugang | `Shadow:EndlessBook` | integriert, gebaut und getestet |
 | Hymann | Klasse/Progression | `Shadow:Hymann` | integriert, gebaut und getestet; Persistenz-/Reload-Gates offen |
 | Nachtweber | Eliteklasse | `Shadow:Nachtweber` | integriert, gebaut und getestet; `DisabledByDefault` und Ingame-Gates bleiben |
@@ -19,20 +20,22 @@ Endless Elite ist ein Maven-Monorepo mit getrennten Hytale-Laufzeitartefakten. D
 
 `tools/verify_repository.py` prüft fail-closed:
 
-- exakt vier unterschiedliche Plugin-IDs,
+- exakt fünf unterschiedliche Plugin-IDs,
 - vorhandene Java-Quelle für jeden `Main`-Entrypoint,
 - keine doppelten Java-FQCNs,
 - keine eingecheckten JARs, Klassen, Logs oder `.env`-Dateien außerhalb ignorierter Outputs,
 - keine erkannten Secret-Zuweisungen,
 - Rift Mage bleibt `deployment_allowed=false`.
 
-Aktueller Lauf: `ENDLESS_ELITE_REPOSITORY_VERIFY_PASS`, 4 Plugins, 162 Main-FQCNs.
+Aktueller Lauf: `ENDLESS_ELITE_REPOSITORY_VERIFY_PASS`, 5 Plugins, 169 Main-FQCNs und 87 eindeutige Ressourcenpfade.
 
 ## Gemeinsame Systeme und eindeutige Owner
 
 | System | kanonischer Owner | Integrationsentscheidung |
 |---|---|---|
 | Build/Toolchain | Root-`pom.xml` | Java 25, gemeinsamer Reactor und zentrale lokale Hytale-Pfade |
+| Lifecycle-/Ownership-Katalog | Endless Elite Core | fail-closed Ownerregistrierung und geordneter Rollbackvertrag; Featureplugins verlangen den Core im Manifest |
+| globale Lokalisierung | Endless Elite Core | exakte konfliktfreie Union der früheren Hymann-/Seuchenweber-Sprachschlüssel |
 | Operator-Konfiguration | Root `config/examples/` + `docs/CONFIGURATION.md` | gemeinsame lesbare Profile; Runtime-Schemas bleiben modulbezogen und getestet |
 | UI-Hub | EndlessBook | zentraler Zugang und Darstellung; Klassenmodule registrieren keine konkurrierende Hub-UI |
 | Spielerlevel, Klasse, Prestige | EndlessLeveling (extern) | kein eigener Monorepo-Ersatzowner |

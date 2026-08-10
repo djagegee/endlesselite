@@ -56,11 +56,12 @@ C:/Users/agege/Desktop/LOKAL SERVER
 Der Reactor enthält:
 
 1. `endless-elite-parent`
-2. `endless-book`
-3. `hymann`
-4. `nachtweber`
-5. `seuchenweber`
-6. `rift-mage-dungeon`
+2. `endless-elite-core`
+3. `endless-book`
+4. `hymann`
+5. `nachtweber`
+6. `seuchenweber`
+7. `rift-mage-dungeon`
 
 ## 3. Repository-Gate
 
@@ -101,8 +102,8 @@ Die Ausgabe liegt ignoriert unter `dist/`. Das Manifest bezeichnet die JARs nur 
 
 - Java: 25.0.4
 - Maven: 3.9.16
-- Reactor: 6/6 Projekte SUCCESS
-- Tests: 206
+- Reactor: 7/7 Projekte SUCCESS
+- Tests: 209
 - Failures: 0
 - Errors: 0
 - Skipped: 0
