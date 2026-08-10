@@ -12,9 +12,9 @@ class EndlessEliteCoreTest {
   @Test
   void catalogContainsEveryIntegratedModuleExactlyOnce() {
     ModuleCatalog catalog = ModuleCatalog.integrated();
-    assertEquals(List.of("endless-elite", "endless-book", "hymann", "nachtweber", "seuchenweber", "rift-mage-dungeon"),
+    assertEquals(List.of("endless-elite", "endless-book", "hymann", "nachtweber", "seuchenweber", "rift-mage-dungeon", "portal-spawn"),
         catalog.modules().stream().map(ModuleDescriptor::id).toList());
-    assertEquals(6, catalog.modules().stream().map(ModuleDescriptor::id).distinct().count());
+    assertEquals(7, catalog.modules().stream().map(ModuleDescriptor::id).distinct().count());
   }
 
   @Test

@@ -1,0 +1,11 @@
+{
+  "Group": "Portal Spawn",
+  "Name": "Endless Elite",
+  "Authors": [],
+  "Dependencies": {},
+  "OptionalDependencies": {},
+  "LoadBefore": {},
+  "DisabledByDefault": false,
+  "IncludesAssetPack": false,
+  "SubPlugins": []
+}

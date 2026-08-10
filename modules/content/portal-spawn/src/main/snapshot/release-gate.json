@@ -1,0 +1,4 @@
+{
+  "deployment_allowed": false,
+  "reason": "Source manifest has no Version or Main and declares IncludesAssetPack=false; isolated asset validation required."
+}

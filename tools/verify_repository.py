@@ -96,9 +96,13 @@ def main() -> int:
     rift_gate = json.loads((MODULES / "content/rift-mage-dungeon/src/main/dlc/release-gate.json").read_text(encoding="utf-8"))
     if rift_gate.get("deployment_allowed") is not False:
         fail("Rift Mage release gate must remain fail-closed until manual acceptance")
+
     portal_gate = json.loads((MODULES / "content/portal-spawn/src/main/snapshot/release-gate.json").read_text(encoding="utf-8"))
     if portal_gate.get("deployment_allowed") is not False:
         fail("Portal Spawn release gate must remain fail-closed until manifest repair and manual acceptance")
+    mjolnir_gate = json.loads((MODULES / "content/mjolnir-safety-patch/src/main/snapshot/release-gate.json").read_text(encoding="utf-8"))
+    if mjolnir_gate.get("deployment_allowed") is not False:
+        fail("Mjolnir Safety Patch gate must remain fail-closed until version-bound runtime acceptance")
 
     print("ENDLESS_ELITE_REPOSITORY_VERIFY_PASS")
     print(f"plugins={len(manifests)} java_fqcns={len(fqcn_to_paths)} unique_resource_paths={len(resource_owners)} rift_deployment_allowed=false portal_deployment_allowed=false")

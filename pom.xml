@@ -19,6 +19,7 @@
     <module>modules/classes/seuchenweber</module>
     <module>modules/content/rift-mage-dungeon</module>
     <module>modules/content/portal-spawn</module>
+    <module>modules/content/mjolnir-safety-patch</module>
   </modules>
 
   <properties>

@@ -65,6 +65,10 @@ def main() -> int:
                 "reason": "source manifest is unversioned, has no Main and declares IncludesAssetPack=false; contract snapshot is not deployable",
             },
             {
+                "module": "mjolnir-safety-patch",
+                "reason": "Patchly asset patch is bound to Starky Mjolnir 1.6.1 and awaits combined-stack runtime acceptance",
+            },
+            {
                 "module": "nachtweber",
                 "reason": "client binding, movement, damage, disconnect and two-player acceptance remain open",
             },

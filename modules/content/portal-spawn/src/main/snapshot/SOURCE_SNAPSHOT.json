@@ -1,0 +1,34 @@
+{
+  "source": "C:\\Users\\agege\\AppData\\Roaming\\Hytale\\UserData\\Mods\\Portal Spawn.Endless Elite",
+  "capturedAt": "2026-08-10",
+  "files": [
+    {
+      "sourceRelativePath": "manifest.json",
+      "bytes": 225,
+      "sha256": "5fe9f6f1323c6a7d5ca255c93d4ac41c32a7d39c48ebe54fdc11814f69e529c9",
+      "committed": true,
+      "reason": null
+    },
+    {
+      "sourceRelativePath": "Server/Prefabs/Portal Spawn.prefab.json",
+      "bytes": 3920145,
+      "sha256": "5c36ec3c99da499931b94a415343bc20927cfdc8352f36f49fdeeebe4c092038",
+      "committed": true,
+      "reason": null
+    },
+    {
+      "sourceRelativePath": "Server/Prefabs/spawn.prefab.json",
+      "bytes": 7712870,
+      "sha256": "32573eb519f6f8e249e0780cadf76530396530e1fb5da9d5e29ffd145b7f493d",
+      "committed": true,
+      "reason": null
+    },
+    {
+      "sourceRelativePath": "Server/Prefabs/spawn.prefab.json.bak",
+      "bytes": 7712870,
+      "sha256": "32573eb519f6f8e249e0780cadf76530396530e1fb5da9d5e29ffd145b7f493d",
+      "committed": false,
+      "reason": "Byte-identical backup duplicate of spawn.prefab.json; hash retained, duplicate bytes omitted."
+    }
+  ]
+}
