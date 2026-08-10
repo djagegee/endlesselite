@@ -1,0 +1,2661 @@
+{
+  "generatedAtUtc": "2026-08-10T06:39:55.130700+00:00",
+  "sourceModules": [
+    {
+      "module": "EndlessBook",
+      "artifactId": "endless-book",
+      "pomVersion": "2.0.0-SNAPSHOT",
+      "manifest": {
+        "Group": "Shadow",
+        "Name": "EndlessBook",
+        "Version": "2.0.0",
+        "Description": "Quest-earned permanent Endless hub with central configuration and localized mod links.",
+        "Authors": [
+          {
+            "Name": "Agegee & Hermes"
+          }
+        ],
+        "ServerVersion": ">=0.5.0 <0.6.0",
+        "Dependencies": {
+          "Ziggfreed:MMOSkillTree": ">=1.5.2 <1.6.0",
+          "Airijko:EndlessGuilds": ">=1.13.0 <2.0.0"
+        },
+        "OptionalDependencies": {
+          "Airijko:EndlessLevelingCore": ">=11.5.0 <12.0.0",
+          "Airijko:EndlessFates": ">=1.10.0 <2.0.0"
+        },
+        "DisabledByDefault": false,
+        "IncludesAssetPack": true,
+        "Main": "de.shadow.endlessbook.EndlessBookPlugin"
+      },
+      "mainJava": 17,
+      "testJava": 9,
+      "resources": 14,
+      "sourceFiles": 41,
+      "latestMtimeUtc": "2026-08-07T15:13:15.038734+00:00"
+    },
+    {
+      "module": "Hymann",
+      "artifactId": "hymann",
+      "pomVersion": "0.1.9",
+      "manifest": {
+        "Group": "Shadow",
+        "Name": "Hymann",
+        "Version": "0.1.9",
+        "Description": "Ultimate Mjolnir and shield ascension class for Endless Leveling.",
+        "Authors": [
+          {
+            "Name": "Shadow"
+          }
+        ],
+        "ServerVersion": ">=0.5.0 <0.6.0",
+        "Dependencies": {
+          "Airijko:EndlessLevelingCore": ">=11.2.0 <12.0.0",
+          "Ziggfreed:MMOSkillTree": ">=1.5.2 <1.6.0",
+          "narwhals:Perfect Utils": ">=1.1.0 <1.2.0"
+        },
+        "OptionalDependencies": {
+          "StarkyMods:Starky's Mjolnir": ">=1.6.0",
+          "StarkyMods:Starky's Shield Captain America": ">=1.3.5"
+        },
+        "DisabledByDefault": false,
+        "IncludesAssetPack": true,
+        "Main": "de.shadow.hymann.HymannPlugin"
+      },
+      "mainJava": 34,
+      "testJava": 2,
+      "resources": 50,
+      "sourceFiles": 88,
+      "latestMtimeUtc": "2026-08-07T18:34:06.577581+00:00"
+    },
+    {
+      "module": "Nachtweber",
+      "artifactId": "nachtweber",
+      "pomVersion": "0.1.0-SNAPSHOT",
+      "manifest": {
+        "Group": "Shadow",
+        "Name": "Nachtweber",
+        "Version": "0.1.0",
+        "Description": "Fail-closed runtime adapter and server-authoritative core for the original Nachtweber elite class.",
+        "Authors": [
+          {
+            "Name": "Shadow"
+          }
+        ],
+        "ServerVersion": ">=0.5.0 <0.6.0",
+        "Dependencies": {
+          "Airijko:EndlessLevelingCore": ">=11.5.0 <12.0.0",
+          "Ziggfreed:MMOSkillTree": ">=1.5.2 <1.6.0"
+        },
+        "DisabledByDefault": true,
+        "IncludesAssetPack": false,
+        "Main": "de.shadow.nachtweber.NachtweberPlugin"
+      },
+      "mainJava": 74,
+      "testJava": 13,
+      "resources": 2,
+      "sourceFiles": 94,
+      "latestMtimeUtc": "2026-08-10T05:31:46.218449+00:00"
+    },
+    {
+      "module": "Seuchenweber",
+      "artifactId": "seuchenweber",
+      "pomVersion": "0.1.0-SNAPSHOT",
+      "manifest": {
+        "Group": "Shadow",
+        "Name": "Seuchenweber",
+        "Version": "0.1.0",
+        "Description": "Original owner-bound Nekrotoxin control mage for EndlessLeveling and MMOSkillTree.",
+        "Authors": [
+          {
+            "Name": "Shadow"
+          }
+        ],
+        "ServerVersion": ">=0.5.0 <0.6.0",
+        "Dependencies": {
+          "Airijko:EndlessLevelingCore": ">=11.5.0 <12.0.0",
+          "Ziggfreed:MMOSkillTree": ">=1.5.2 <1.6.0"
+        },
+        "OptionalDependencies": {
+          "narwhals:Perfect Utils": ">=1.1.0 <1.2.0"
+        },
+        "DisabledByDefault": false,
+        "IncludesAssetPack": true,
+        "Main": "de.shadow.seuchenweber.SeuchenweberPlugin"
+      },
+      "mainJava": 37,
+      "testJava": 34,
+      "resources": 29,
+      "sourceFiles": 110,
+      "latestMtimeUtc": "2026-08-09T10:50:13.797754+00:00"
+    },
+    {
+      "module": "RiftMageDungeon",
+      "artifactId": "rift-mage-dungeon",
+      "pomVersion": "0.1.1-SNAPSHOT",
+      "manifest": null,
+      "mainJava": 0,
+      "testJava": 6,
+      "resources": 9,
+      "sourceFiles": 33,
+      "latestMtimeUtc": "2026-08-09T08:18:18.934009+00:00"
+    }
+  ],
+  "ownBinaryArtifacts": [
+    {
+      "sha256": "548c641322e343e094d937a3c251f26c77bbc6f71faf5562041c1778b092eff9",
+      "filename": "EndlessBook-before-clean-starter-guide-removal.jar",
+      "size": 944914,
+      "manifest": {
+        "Group": "Shadow",
+        "Name": "EndlessBook",
+        "Version": "1.7.0",
+        "Description": "Permanent hotbar character book with Endless Leveling, MMO skills, claims access, and a starter adventure.",
+        "Authors": [
+          {
+            "Name": "Shadow"
+          }
+        ],
+        "ServerVersion": ">=0.5.0 <0.6.0",
+        "Dependencies": {
+          "Hexvane:Aetherhaven": ">=2.5.0 <2.6.0",
+          "Airijko:EndlessLevelingCore": ">=11.1.2 <11.2.0",
+          "Ziggfreed:ZiggfreedCommon": ">=1.3.0 <1.4.0",
+          "Ziggfreed:MMOSkillTree": ">=1.5.2 <1.6.0"
+        },
+        "DisabledByDefault": false,
+        "IncludesAssetPack": true,
+        "Main": "de.shadow.endlessbook.EndlessBookPlugin"
+      },
+      "locations": [
+        {
+          "category": "archived-own-backups",
+          "relativePath": "_codex_backups/starter-guide-removal-20260729-165534/EndlessBook-before-clean-starter-guide-removal.jar",
+          "mtimeUtc": "2026-08-05T12:37:46.752130+00:00"
+        }
+      ]
+    },
+    {
+      "sha256": "b8dc6424c759046973cbd7b29bebe6c841989f90ad3575f103ce2079c28cfe3e",
+      "filename": "EndlessBook-before-fresh-slot-fix.jar",
+      "size": 948037,
+      "manifest": {
+        "Group": "Shadow",
+        "Name": "EndlessBook",
+        "Version": "1.7.0",
+        "Description": "Permanent hotbar character book with Endless Leveling, MMO skills, claims access, and a starter adventure.",
+        "Authors": [
+          {
+            "Name": "Shadow"
+          }
+        ],
+        "ServerVersion": ">=0.5.0 <0.6.0",
+        "Dependencies": {
+          "Hexvane:Aetherhaven": ">=2.5.0 <2.6.0",
+          "Airijko:EndlessLevelingCore": ">=11.1.2 <11.2.0",
+          "Ziggfreed:ZiggfreedCommon": ">=1.3.0 <1.4.0",
+          "Ziggfreed:MMOSkillTree": ">=1.5.2 <1.6.0"
+        },
+        "DisabledByDefault": false,
+        "IncludesAssetPack": true,
+        "Main": "de.shadow.endlessbook.EndlessBookPlugin"
+      },
+      "locations": [
+        {
+          "category": "archived-own-backups",
+          "relativePath": "_codex_backups/hymann-profile-fresh-slot-fix-20260729-1851/EndlessBook-before-fresh-slot-fix.jar",
+          "mtimeUtc": "2026-08-05T12:37:44.448412+00:00"
+        }
+      ]
+    },
+    {
+      "sha256": "76579a9b700fd7bd671e0aa511bab598683751e9f33a3fe5d1862b886f2d8d6d",
+      "filename": "EndlessBook-before-hymann-only-reset.jar",
+      "size": 945573,
+      "manifest": {
+        "Group": "Shadow",
+        "Name": "EndlessBook",
+        "Version": "1.7.0",
+        "Description": "Permanent hotbar character book with Endless Leveling, MMO skills, claims access, and a starter adventure.",
+        "Authors": [
+          {
+            "Name": "Shadow"
+          }
+        ],
+        "ServerVersion": ">=0.5.0 <0.6.0",
+        "Dependencies": {
+          "Hexvane:Aetherhaven": ">=2.5.0 <2.6.0",
+          "Airijko:EndlessLevelingCore": ">=11.1.2 <11.2.0",
+          "Ziggfreed:ZiggfreedCommon": ">=1.3.0 <1.4.0",
+          "Ziggfreed:MMOSkillTree": ">=1.5.2 <1.6.0"
+        },
+        "DisabledByDefault": false,
+        "IncludesAssetPack": true,
+        "Main": "de.shadow.endlessbook.EndlessBookPlugin"
+      },
+      "locations": [
+        {
+          "category": "archived-own-backups",
+          "relativePath": "_codex_backups/hymann-profile-reset-20260729-1840/EndlessBook-before-hymann-only-reset.jar",
+          "mtimeUtc": "2026-08-05T12:37:47.671932+00:00"
+        }
+      ]
+    },
+    {
+      "sha256": "70234201379ed7a9d163dd34d57dc4fa9b18d4d7d113227b75cb655c4a1187d1",
+      "filename": "EndlessBook-before-profile-reset-fix.jar",
+      "size": 944914,
+      "manifest": {
+        "Group": "Shadow",
+        "Name": "EndlessBook",
+        "Version": "1.7.0",
+        "Description": "Permanent hotbar character book with Endless Leveling, MMO skills, claims access, and a starter adventure.",
+        "Authors": [
+          {
+            "Name": "Shadow"
+          }
+        ],
+        "ServerVersion": ">=0.5.0 <0.6.0",
+        "Dependencies": {
+          "Hexvane:Aetherhaven": ">=2.5.0 <2.6.0",
+          "Airijko:EndlessLevelingCore": ">=11.1.2 <11.2.0",
+          "Ziggfreed:ZiggfreedCommon": ">=1.3.0 <1.4.0",
+          "Ziggfreed:MMOSkillTree": ">=1.5.2 <1.6.0"
+        },
+        "DisabledByDefault": false,
+        "IncludesAssetPack": true,
+        "Main": "de.shadow.endlessbook.EndlessBookPlugin"
+      },
+      "locations": [
+        {
+          "category": "archived-own-backups",
+          "relativePath": "_codex_backups/profile-reset-fix-20260729-181713/EndlessBook-before-profile-reset-fix.jar",
+          "mtimeUtc": "2026-08-05T12:37:45.074101+00:00"
+        }
+      ]
+    },
+    {
+      "sha256": "64e09d14ba7bcb3d32441c08282ed97f675cd465e1aef340fb031bdb0d717f03",
+      "filename": "EndlessBook-before-starter-guide-removal.jar",
+      "size": 956607,
+      "manifest": {
+        "Group": "Shadow",
+        "Name": "EndlessBook",
+        "Version": "1.7.0",
+        "Description": "Permanent hotbar character book with Endless Leveling, MMO skills, claims access, and a starter adventure.",
+        "Authors": [
+          {
+            "Name": "Shadow"
+          }
+        ],
+        "ServerVersion": ">=0.5.0 <0.6.0",
+        "Dependencies": {
+          "Hexvane:Aetherhaven": ">=2.5.0 <2.6.0",
+          "Airijko:EndlessLevelingCore": ">=11.1.2 <11.2.0",
+          "Ziggfreed:ZiggfreedCommon": ">=1.3.0 <1.4.0",
+          "Ziggfreed:MMOSkillTree": ">=1.5.2 <1.6.0"
+        },
+        "DisabledByDefault": false,
+        "IncludesAssetPack": true,
+        "Main": "de.shadow.endlessbook.EndlessBookPlugin"
+      },
+      "locations": [
+        {
+          "category": "archived-own-backups",
+          "relativePath": "_codex_backups/starter-guide-removal-20260729-165534/EndlessBook-before-starter-guide-removal.jar",
+          "mtimeUtc": "2026-08-05T12:37:46.710606+00:00"
+        }
+      ]
+    },
+    {
+      "sha256": "1dbd3ce3d79872e6ac5b74ae0d6ba9dc14263557c46d4c8ce4b05cd119ccebf0",
+      "filename": "EndlessBook.jar",
+      "size": 948168,
+      "manifest": {
+        "Group": "Shadow",
+        "Name": "EndlessBook",
+        "Version": "1.7.3",
+        "Description": "Permanent hotbar character book with Endless Leveling, MMO skills, claims access, and a starter adventure.",
+        "Authors": [
+          {
+            "Name": "Shadow"
+          }
+        ],
+        "ServerVersion": ">=0.5.0 <0.6.0",
+        "Dependencies": {
+          "Hexvane:Aetherhaven": ">=2.6.0 <2.7.0",
+          "Airijko:EndlessLevelingCore": ">=11.2.0 <12.0.0",
+          "Ziggfreed:ZiggfreedCommon": ">=1.3.0 <1.4.0",
+          "Ziggfreed:MMOSkillTree": ">=1.5.2 <1.6.0"
+        },
+        "DisabledByDefault": false,
+        "IncludesAssetPack": true,
+        "Main": "de.shadow.endlessbook.EndlessBookPlugin"
+      },
+      "locations": [
+        {
+          "category": "archived-own-backups",
+          "relativePath": "_hermes_backups/forge-jars-20260804-214605/EndlessBook.jar",
+          "mtimeUtc": "2026-08-05T12:38:50.068206+00:00"
+        }
+      ]
+    },
+    {
+      "sha256": "26ac102ffdc7efa653010dced1318876d5b51f48e687c0bbabc28f1ca1bbf726",
+      "filename": "EndlessBook-validation-failed.jar",
+      "size": 31058,
+      "manifest": {
+        "Group": "Shadow",
+        "Name": "EndlessBook",
+        "Version": "2.0.0",
+        "Description": "Quest-earned permanent Endless hub with central configuration and localized mod links.",
+        "Authors": [
+          {
+            "Name": "Agegee & Hermes"
+          }
+        ],
+        "ServerVersion": ">=0.5.0 <0.6.0",
+        "Dependencies": {
+          "Ziggfreed:MMOSkillTree": ">=1.5.2 <1.6.0"
+        },
+        "DisabledByDefault": false,
+        "IncludesAssetPack": true,
+        "Main": "de.shadow.endlessbook.EndlessBookPlugin"
+      },
+      "locations": [
+        {
+          "category": "archived-own-backups",
+          "relativePath": "_hermes_backups/endlessbook-install-20260806-140033/EndlessBook-validation-failed.jar",
+          "mtimeUtc": "2026-08-06T12:00:08.853766+00:00"
+        }
+      ]
+    },
+    {
+      "sha256": "d9087e5b804e5ed9c856a5e47932f0a6cb978c475aeb75fc53b5a45de1945c6b",
+      "filename": "EndlessBook.before-guilds-1.13.jar",
+      "size": 82871,
+      "manifest": {
+        "Group": "Shadow",
+        "Name": "EndlessBook",
+        "Version": "2.0.0",
+        "Description": "Quest-earned permanent Endless hub with central configuration and localized mod links.",
+        "Authors": [
+          {
+            "Name": "Agegee & Hermes"
+          }
+        ],
+        "ServerVersion": ">=0.5.0 <0.6.0",
+        "Dependencies": {
+          "Ziggfreed:MMOSkillTree": ">=1.5.2 <1.6.0",
+          "Airijko:EndlessGuilds": ">=1.5.0 <1.6.0"
+        },
+        "OptionalDependencies": {
+          "Airijko:EndlessLevelingCore": ">=11.5.0 <12.0.0",
+          "Airijko:EndlessFates": ">=1.10.0 <2.0.0"
+        },
+        "DisabledByDefault": false,
+        "IncludesAssetPack": true,
+        "Main": "de.shadow.endlessbook.EndlessBookPlugin"
+      },
+      "locations": [
+        {
+          "category": "server-backups",
+          "relativePath": "core-update-20260807-170052/EndlessBook.before-guilds-1.13.jar",
+          "mtimeUtc": "2026-08-06T14:28:12.854424+00:00"
+        }
+      ]
+    },
+    {
+      "sha256": "131a9c396ead49a06927531bc1a617689722fd03f89bc13b449706ea7cd8ff65",
+      "filename": "EndlessBook.jar",
+      "size": 31792,
+      "manifest": {
+        "Group": "Shadow",
+        "Name": "EndlessBook",
+        "Version": "2.0.0",
+        "Description": "Quest-earned permanent Endless hub with central configuration and localized mod links.",
+        "Authors": [
+          {
+            "Name": "Agegee & Hermes"
+          }
+        ],
+        "ServerVersion": ">=0.5.0 <0.6.0",
+        "Dependencies": {
+          "Ziggfreed:MMOSkillTree": ">=1.5.2 <1.6.0"
+        },
+        "DisabledByDefault": false,
+        "IncludesAssetPack": true,
+        "Main": "de.shadow.endlessbook.EndlessBookPlugin"
+      },
+      "locations": [
+        {
+          "category": "archived-own-backups",
+          "relativePath": "_hermes_backups/endlessbook-details-20260806-143945/mods/EndlessBook.jar",
+          "mtimeUtc": "2026-08-06T12:08:00.941905+00:00"
+        }
+      ]
+    },
+    {
+      "sha256": "60aa9c8fd4b2b6481cb078e868c1e8c3fe3587b92614c96567750786474f11a4",
+      "filename": "EndlessBook.jar",
+      "size": 82873,
+      "manifest": {
+        "Group": "Shadow",
+        "Name": "EndlessBook",
+        "Version": "2.0.0",
+        "Description": "Quest-earned permanent Endless hub with central configuration and localized mod links.",
+        "Authors": [
+          {
+            "Name": "Agegee & Hermes"
+          }
+        ],
+        "ServerVersion": ">=0.5.0 <0.6.0",
+        "Dependencies": {
+          "Ziggfreed:MMOSkillTree": ">=1.5.2 <1.6.0",
+          "Airijko:EndlessGuilds": ">=1.13.0 <2.0.0"
+        },
+        "OptionalDependencies": {
+          "Airijko:EndlessLevelingCore": ">=11.5.0 <12.0.0",
+          "Airijko:EndlessFates": ">=1.10.0 <2.0.0"
+        },
+        "DisabledByDefault": false,
+        "IncludesAssetPack": true,
+        "Main": "de.shadow.endlessbook.EndlessBookPlugin"
+      },
+      "locations": [
+        {
+          "category": "active-server",
+          "relativePath": "EndlessBook.jar",
+          "mtimeUtc": "2026-08-07T15:14:24.974221+00:00"
+        }
+      ]
+    },
+    {
+      "sha256": "67a03e5650419b883dfb74a6d04407db8720c947d776287654fbb2a7491108eb",
+      "filename": "EndlessBook.jar",
+      "size": 82873,
+      "manifest": {
+        "Group": "Shadow",
+        "Name": "EndlessBook",
+        "Version": "2.0.0",
+        "Description": "Quest-earned permanent Endless hub with central configuration and localized mod links.",
+        "Authors": [
+          {
+            "Name": "Agegee & Hermes"
+          }
+        ],
+        "ServerVersion": ">=0.5.0 <0.6.0",
+        "Dependencies": {
+          "Ziggfreed:MMOSkillTree": ">=1.5.2 <1.6.0",
+          "Airijko:EndlessGuilds": ">=1.13.0 <2.0.0"
+        },
+        "OptionalDependencies": {
+          "Airijko:EndlessLevelingCore": ">=11.5.0 <12.0.0",
+          "Airijko:EndlessFates": ">=1.10.0 <2.0.0"
+        },
+        "DisabledByDefault": false,
+        "IncludesAssetPack": true,
+        "Main": "de.shadow.endlessbook.EndlessBookPlugin"
+      },
+      "locations": [
+        {
+          "category": "project-target",
+          "relativePath": "EndlessBook/target/EndlessBook.jar",
+          "mtimeUtc": "2026-08-07T15:25:24.263439+00:00"
+        }
+      ]
+    },
+    {
+      "sha256": "b39cb208fb20577ba1219b1b75718ac3d2035104a65e5b014d1786b50081df2c",
+      "filename": "EndlessBook.jar",
+      "size": 79122,
+      "manifest": {
+        "Group": "Shadow",
+        "Name": "EndlessBook",
+        "Version": "2.0.0",
+        "Description": "Quest-earned permanent Endless hub with central configuration and localized mod links.",
+        "Authors": [
+          {
+            "Name": "Agegee & Hermes"
+          }
+        ],
+        "ServerVersion": ">=0.5.0 <0.6.0",
+        "Dependencies": {
+          "Ziggfreed:MMOSkillTree": ">=1.5.2 <1.6.0",
+          "Airijko:EndlessGuilds": ">=1.5.0 <1.6.0"
+        },
+        "OptionalDependencies": {
+          "Airijko:EndlessLevelingCore": ">=11.5.0 <12.0.0",
+          "Airijko:EndlessFates": ">=1.10.0 <2.0.0"
+        },
+        "DisabledByDefault": false,
+        "IncludesAssetPack": true,
+        "Main": "de.shadow.endlessbook.EndlessBookPlugin"
+      },
+      "locations": [
+        {
+          "category": "archived-own-backups",
+          "relativePath": "_hermes_backups/endlessbook-claim-guard-20260806-154330/mods/EndlessBook.jar",
+          "mtimeUtc": "2026-08-06T13:19:21.805237+00:00"
+        },
+        {
+          "category": "archived-own-backups",
+          "relativePath": "_hermes_backups/endlessbook-ui-cell-fix-20260806-155127/mods/EndlessBook.jar",
+          "mtimeUtc": "2026-08-06T13:19:21.805237+00:00"
+        }
+      ]
+    },
+    {
+      "sha256": "bacd5e19eea7ac81b70a9c644c6af2455bbcb5f0d8278852f69292e9f3cda3a9",
+      "filename": "EndlessBook.jar",
+      "size": 80559,
+      "manifest": {
+        "Group": "Shadow",
+        "Name": "EndlessBook",
+        "Version": "2.0.0",
+        "Description": "Quest-earned permanent Endless hub with central configuration and localized mod links.",
+        "Authors": [
+          {
+            "Name": "Agegee & Hermes"
+          }
+        ],
+        "ServerVersion": ">=0.5.0 <0.6.0",
+        "Dependencies": {
+          "Ziggfreed:MMOSkillTree": ">=1.5.2 <1.6.0",
+          "Airijko:EndlessGuilds": ">=1.5.0 <1.6.0"
+        },
+        "OptionalDependencies": {
+          "Airijko:EndlessLevelingCore": ">=11.5.0 <12.0.0",
+          "Airijko:EndlessFates": ">=1.10.0 <2.0.0"
+        },
+        "DisabledByDefault": false,
+        "IncludesAssetPack": true,
+        "Main": "de.shadow.endlessbook.EndlessBookPlugin"
+      },
+      "locations": [
+        {
+          "category": "archived-own-backups",
+          "relativePath": "_hermes_backups/endlessbook-character-sheet-20260806-162849/mods/EndlessBook.jar",
+          "mtimeUtc": "2026-08-06T13:59:27.123528+00:00"
+        }
+      ]
+    },
+    {
+      "sha256": "e7db9390de65d2d7e130feec0628db728d0c35ec3416d427caa493475fec8da7",
+      "filename": "EndlessBook.jar",
+      "size": 80560,
+      "manifest": {
+        "Group": "Shadow",
+        "Name": "EndlessBook",
+        "Version": "2.0.0",
+        "Description": "Quest-earned permanent Endless hub with central configuration and localized mod links.",
+        "Authors": [
+          {
+            "Name": "Agegee & Hermes"
+          }
+        ],
+        "ServerVersion": ">=0.5.0 <0.6.0",
+        "Dependencies": {
+          "Ziggfreed:MMOSkillTree": ">=1.5.2 <1.6.0",
+          "Airijko:EndlessGuilds": ">=1.5.0 <1.6.0"
+        },
+        "OptionalDependencies": {
+          "Airijko:EndlessLevelingCore": ">=11.5.0 <12.0.0",
+          "Airijko:EndlessFates": ">=1.10.0 <2.0.0"
+        },
+        "DisabledByDefault": false,
+        "IncludesAssetPack": true,
+        "Main": "de.shadow.endlessbook.EndlessBookPlugin"
+      },
+      "locations": [
+        {
+          "category": "archived-own-backups",
+          "relativePath": "_hermes_backups/endlessbook-claims-button-ui-20260806-155940/mods/EndlessBook.jar",
+          "mtimeUtc": "2026-08-06T13:51:02.546572+00:00"
+        }
+      ]
+    },
+    {
+      "sha256": "8d68b071cba8703374c518d59478bdc93fb662ac750e59d7fe0038e2de48795c",
+      "filename": "EndlessGuildsPatches-1.0.0.jar",
+      "size": 21691,
+      "manifest": {
+        "Group": "Shadow",
+        "Name": "EndlessGuildsPatches",
+        "Version": "1.0.1",
+        "Description": "Personal claim map and quality-of-life additions for Endless Guilds.",
+        "Authors": [
+          {
+            "Name": "Shadow"
+          }
+        ],
+        "ServerVersion": ">=0.5.0 <0.6.0",
+        "Dependencies": {
+          "Airijko:EndlessGuilds": ">=1.5.0 <1.6.0"
+        },
+        "DisabledByDefault": false,
+        "IncludesAssetPack": true,
+        "Main": "de.shadow.endlessguildspatches.EndlessGuildsPatchesPlugin"
+      },
+      "locations": [
+        {
+          "category": "archived-own-backups",
+          "relativePath": "_hermes_backups/forge-jars-20260804-214605/EndlessGuildsPatches-1.0.0.jar",
+          "mtimeUtc": "2026-08-05T12:38:49.917679+00:00"
+        }
+      ]
+    },
+    {
+      "sha256": "b33d504d249b0a095c04615feaf90eb3aa127d6eeb4e583de5a3aae2437df61a",
+      "filename": "EndlessGuildsPatches-1.0.0.jar",
+      "size": 21691,
+      "manifest": {
+        "Group": "Shadow",
+        "Name": "EndlessGuildsPatches",
+        "Version": "1.0.1",
+        "Description": "Personal claim map and quality-of-life additions for Endless Guilds.",
+        "Authors": [
+          {
+            "Name": "Shadow"
+          }
+        ],
+        "ServerVersion": ">=0.5.0 <0.6.0",
+        "Dependencies": {
+          "Airijko:EndlessGuilds": ">=1.5.0 <1.6.0"
+        },
+        "DisabledByDefault": false,
+        "IncludesAssetPack": true,
+        "Main": "de.shadow.endlessguildspatches.EndlessGuildsPatchesPlugin"
+      },
+      "locations": [
+        {
+          "category": "archived-own-backups",
+          "relativePath": "_hermes_backups/endlessbook-details-20260806-143945/incoming/EndlessGuildsPatches-1.0.0.jar",
+          "mtimeUtc": "2026-08-06T12:31:51.745297+00:00"
+        }
+      ]
+    },
+    {
+      "sha256": "bd52d18413f249826187bb7afdfb89dad611e494aa4248b2b7030a50a5a9a960",
+      "filename": "HyGunsMMOCompat-before-64px-icons-20260804-1158.jar",
+      "size": 630970,
+      "manifest": {
+        "Group": "Shadow",
+        "Name": "HyGunsMMOCompat",
+        "Version": "1.0.5",
+        "Description": "Automatic HyGuns weapon skills, progression and armor piercing for MMOSkillTree.",
+        "Authors": [
+          {
+            "Name": "Shadow"
+          }
+        ],
+        "ServerVersion": ">=0.5.2 <0.6.0",
+        "Dependencies": {
+          "Ziggfreed:MMOSkillTree": ">=1.5.2 <1.6.0"
+        },
+        "OptionalDependencies": {
+          "thescar:HygunsPlugin": ">=5.1.0 <5.2.0",
+          "TheScar:HyGuns": ">=5.1.0 <5.2.0",
+          "Airijko:EndlessLevelingCore": ">=11.2.0 <12.0.0"
+        },
+        "DisabledByDefault": false,
+        "IncludesAssetPack": true,
+        "Main": "de.shadow.hygunsmmo.HyGunsMmoCompatPlugin"
+      },
+      "locations": [
+        {
+          "category": "codex-backups",
+          "relativePath": "HyGunsMMOCompat-before-64px-icons-20260804-1158.jar",
+          "mtimeUtc": "2026-08-05T12:36:41.146075+00:00"
+        }
+      ]
+    },
+    {
+      "sha256": "08fd6a8b20a8dfe99c30537f7f46443219d72eee6b5560ae6be6031007023b39",
+      "filename": "HyGunsMMOCompat-before-headshot-crits-20260804-134429.jar",
+      "size": 226237,
+      "manifest": {
+        "Group": "Shadow",
+        "Name": "HyGunsMMOCompat",
+        "Version": "1.0.6",
+        "Description": "Automatic HyGuns weapon skills, progression and armor piercing for MMOSkillTree.",
+        "Authors": [
+          {
+            "Name": "Shadow"
+          }
+        ],
+        "ServerVersion": ">=0.5.2 <0.6.0",
+        "Dependencies": {
+          "Ziggfreed:MMOSkillTree": ">=1.5.2 <1.6.0"
+        },
+        "OptionalDependencies": {
+          "thescar:HygunsPlugin": ">=5.1.0 <5.2.0",
+          "TheScar:HyGuns": ">=5.1.0 <5.2.0",
+          "Airijko:EndlessLevelingCore": ">=11.2.0 <12.0.0"
+        },
+        "DisabledByDefault": false,
+        "IncludesAssetPack": true,
+        "Main": "de.shadow.hygunsmmo.HyGunsMmoCompatPlugin"
+      },
+      "locations": [
+        {
+          "category": "codex-backups",
+          "relativePath": "HyGunsMMOCompat-before-headshot-crits-20260804-134429.jar",
+          "mtimeUtc": "2026-08-05T12:36:41.108554+00:00"
+        }
+      ]
+    },
+    {
+      "sha256": "1ccf8383c6c634733638d181cd89fb9af62537f1cf764333a6ca2579f6f377c1",
+      "filename": "HyGunsMMOCompat.jar",
+      "size": 236472,
+      "manifest": {
+        "Group": "Shadow",
+        "Name": "HyGunsMMOCompat",
+        "Version": "1.0.7",
+        "Description": "Automatic HyGuns weapon skills, progression and armor piercing for MMOSkillTree.",
+        "Authors": [
+          {
+            "Name": "Shadow"
+          }
+        ],
+        "ServerVersion": ">=0.5.2 <0.6.0",
+        "Dependencies": {
+          "Ziggfreed:MMOSkillTree": ">=1.5.2 <1.6.0"
+        },
+        "OptionalDependencies": {
+          "thescar:HygunsPlugin": ">=5.1.0 <5.2.0",
+          "TheScar:HyGuns": ">=5.1.0 <5.2.0",
+          "Airijko:EndlessLevelingCore": ">=11.2.0 <12.0.0"
+        },
+        "DisabledByDefault": false,
+        "IncludesAssetPack": true,
+        "Main": "de.shadow.hygunsmmo.HyGunsMmoCompatPlugin"
+      },
+      "locations": [
+        {
+          "category": "archived-own-backups",
+          "relativePath": "_hermes_backups/hyguns-headshot-fix-refresh-20260804-223447/HyGunsMMOCompat.jar",
+          "mtimeUtc": "2026-08-05T12:38:50.172745+00:00"
+        }
+      ]
+    },
+    {
+      "sha256": "d2195b768d23450852a4db2c441fc80957fdb488c6fcf5ab70042ac05e1d5b97",
+      "filename": "HyGunsMMOCompat.jar",
+      "size": 237061,
+      "manifest": {
+        "Group": "Shadow",
+        "Name": "HyGunsMMOCompat",
+        "Version": "1.0.7",
+        "Description": "Automatic HyGuns weapon skills, progression and armor piercing for MMOSkillTree.",
+        "Authors": [
+          {
+            "Name": "Shadow"
+          }
+        ],
+        "ServerVersion": ">=0.5.2 <0.6.0",
+        "Dependencies": {
+          "Ziggfreed:MMOSkillTree": ">=1.5.2 <1.6.0"
+        },
+        "OptionalDependencies": {
+          "thescar:HygunsPlugin": ">=5.1.0 <5.2.0",
+          "TheScar:HyGuns": ">=5.1.0 <5.2.0",
+          "Airijko:EndlessLevelingCore": ">=11.2.0 <12.0.0"
+        },
+        "DisabledByDefault": false,
+        "IncludesAssetPack": true,
+        "Main": "de.shadow.hygunsmmo.HyGunsMmoCompatPlugin"
+      },
+      "locations": [
+        {
+          "category": "archived-own-backups",
+          "relativePath": "_hermes_backups/forge-jars-20260804-214605/HyGunsMMOCompat.jar",
+          "mtimeUtc": "2026-08-05T12:38:49.988199+00:00"
+        }
+      ]
+    },
+    {
+      "sha256": "ec5b3a002fadaf56db2afa26ae45f887a98195aeb3a0ac65ed3174969eedc8fb",
+      "filename": "HyGunsMMOCompat.jar",
+      "size": 237010,
+      "manifest": {
+        "Group": "Shadow",
+        "Name": "HyGunsMMOCompat",
+        "Version": "1.0.7",
+        "Description": "Automatic HyGuns weapon skills, progression and armor piercing for MMOSkillTree.",
+        "Authors": [
+          {
+            "Name": "Shadow"
+          }
+        ],
+        "ServerVersion": ">=0.5.2 <0.6.0",
+        "Dependencies": {
+          "Ziggfreed:MMOSkillTree": ">=1.5.2 <1.6.0"
+        },
+        "OptionalDependencies": {
+          "thescar:HygunsPlugin": ">=5.1.0 <5.2.0",
+          "TheScar:HyGuns": ">=5.1.0 <5.2.0",
+          "Airijko:EndlessLevelingCore": ">=11.2.0 <12.0.0"
+        },
+        "DisabledByDefault": false,
+        "IncludesAssetPack": true,
+        "Main": "de.shadow.hygunsmmo.HyGunsMmoCompatPlugin"
+      },
+      "locations": [
+        {
+          "category": "archived-own-backups",
+          "relativePath": "_hermes_backups/hyguns-headshot-fix-20260804-223151/HyGunsMMOCompat.jar",
+          "mtimeUtc": "2026-08-05T12:38:49.792145+00:00"
+        }
+      ]
+    },
+    {
+      "sha256": "5a9c777a12481477b9fcfe8b5ca64e59974a20733a5e6bf77da3661f702233f7",
+      "filename": "Hymann-before-armament-mastery-plus30.jar",
+      "size": 121516,
+      "manifest": {
+        "Group": "Shadow",
+        "Name": "Hymann",
+        "Version": "0.1.0",
+        "Description": "Ultimate Mjolnir and shield ascension class for Endless Leveling.",
+        "Authors": [
+          {
+            "Name": "Shadow"
+          }
+        ],
+        "ServerVersion": ">=0.5.0 <0.6.0",
+        "Dependencies": {
+          "Airijko:EndlessLevelingCore": ">=11.1.2 <11.2.0",
+          "Ziggfreed:MMOSkillTree": ">=1.5.2 <1.6.0",
+          "narwhals:Perfect Utils": ">=1.1.0 <1.2.0"
+        },
+        "OptionalDependencies": {
+          "StarkyMods:Starky's Mjolnir": ">=1.6.0",
+          "StarkyMods:Starky's Shield Captain America": ">=1.3.5"
+        },
+        "DisabledByDefault": false,
+        "IncludesAssetPack": true,
+        "Main": "de.shadow.hymann.HymannPlugin"
+      },
+      "locations": [
+        {
+          "category": "archived-own-backups",
+          "relativePath": "_codex_backups/Hymann-before-armament-mastery-plus30.jar",
+          "mtimeUtc": "2026-08-05T12:37:44.063816+00:00"
+        }
+      ]
+    },
+    {
+      "sha256": "b49415dea7a32ba017858a86cad66d0174e8ad60837bb5e3a7eea854eeb0bbe1",
+      "filename": "Hymann-before-aura-sorcery-active-skill-fix.jar",
+      "size": 147259,
+      "manifest": {
+        "Group": "Shadow",
+        "Name": "Hymann",
+        "Version": "0.1.0",
+        "Description": "Ultimate Mjolnir and shield ascension class for Endless Leveling.",
+        "Authors": [
+          {
+            "Name": "Shadow"
+          }
+        ],
+        "ServerVersion": ">=0.5.0 <0.6.0",
+        "Dependencies": {
+          "Airijko:EndlessLevelingCore": ">=11.1.2 <11.2.0",
+          "Ziggfreed:MMOSkillTree": ">=1.5.2 <1.6.0",
+          "narwhals:Perfect Utils": ">=1.1.0 <1.2.0"
+        },
+        "OptionalDependencies": {
+          "StarkyMods:Starky's Mjolnir": ">=1.6.0",
+          "StarkyMods:Starky's Shield Captain America": ">=1.3.5"
+        },
+        "DisabledByDefault": false,
+        "IncludesAssetPack": true,
+        "Main": "de.shadow.hymann.HymannPlugin"
+      },
+      "locations": [
+        {
+          "category": "archived-own-backups",
+          "relativePath": "_codex_backups/Hymann-before-aura-sorcery-active-skill-fix.jar",
+          "mtimeUtc": "2026-08-05T12:37:43.961296+00:00"
+        }
+      ]
+    },
+    {
+      "sha256": "ddb1311a65e5b3ff287897e2f896eae3a42dccf62de68092ee6158be40c26f8a",
+      "filename": "Hymann-before-critical-expiry-fix.jar",
+      "size": 107735,
+      "manifest": {
+        "Group": "Shadow",
+        "Name": "Hymann",
+        "Version": "0.1.0",
+        "Description": "Ultimate Mjolnir and shield ascension class for Endless Leveling.",
+        "Authors": [
+          {
+            "Name": "Shadow"
+          }
+        ],
+        "ServerVersion": ">=0.5.0 <0.6.0",
+        "Dependencies": {
+          "Airijko:EndlessLevelingCore": ">=11.1.2 <11.2.0",
+          "Ziggfreed:MMOSkillTree": ">=1.5.2 <1.6.0",
+          "narwhals:Perfect Utils": ">=1.1.0 <1.2.0"
+        },
+        "OptionalDependencies": {
+          "StarkyMods:Starky's Mjolnir": ">=1.6.0",
+          "StarkyMods:Starky's Shield Captain America": ">=1.3.5"
+        },
+        "DisabledByDefault": false,
+        "IncludesAssetPack": true,
+        "Main": "de.shadow.hymann.HymannPlugin"
+      },
+      "locations": [
+        {
+          "category": "archived-own-backups",
+          "relativePath": "_codex_backups/Hymann-before-critical-expiry-fix.jar",
+          "mtimeUtc": "2026-08-05T12:37:44.316888+00:00"
+        }
+      ]
+    },
+    {
+      "sha256": "944d89843cc455621dbbe97b9ef97d0bf161fba345009822a8e692ab5b906a85",
+      "filename": "Hymann-before-dedicated-passive-milestones.jar",
+      "size": 147880,
+      "manifest": {
+        "Group": "Shadow",
+        "Name": "Hymann",
+        "Version": "0.1.0",
+        "Description": "Ultimate Mjolnir and shield ascension class for Endless Leveling.",
+        "Authors": [
+          {
+            "Name": "Shadow"
+          }
+        ],
+        "ServerVersion": ">=0.5.0 <0.6.0",
+        "Dependencies": {
+          "Airijko:EndlessLevelingCore": ">=11.1.2 <11.2.0",
+          "Ziggfreed:MMOSkillTree": ">=1.5.2 <1.6.0",
+          "narwhals:Perfect Utils": ">=1.1.0 <1.2.0"
+        },
+        "OptionalDependencies": {
+          "StarkyMods:Starky's Mjolnir": ">=1.6.0",
+          "StarkyMods:Starky's Shield Captain America": ">=1.3.5"
+        },
+        "DisabledByDefault": false,
+        "IncludesAssetPack": true,
+        "Main": "de.shadow.hymann.HymannPlugin"
+      },
+      "locations": [
+        {
+          "category": "archived-own-backups",
+          "relativePath": "_codex_backups/Hymann-before-dedicated-passive-milestones.jar",
+          "mtimeUtc": "2026-08-05T12:37:44.180853+00:00"
+        }
+      ]
+    },
+    {
+      "sha256": "0ca688934280ceda9c224657d746414864fbdbbc796c98a201d6db14bc3afd67",
+      "filename": "Hymann-before-endless-attribute-bridge-20260729-1359.jar",
+      "size": 148477,
+      "manifest": {
+        "Group": "Shadow",
+        "Name": "Hymann",
+        "Version": "0.1.0",
+        "Description": "Ultimate Mjolnir and shield ascension class for Endless Leveling.",
+        "Authors": [
+          {
+            "Name": "Shadow"
+          }
+        ],
+        "ServerVersion": ">=0.5.0 <0.6.0",
+        "Dependencies": {
+          "Airijko:EndlessLevelingCore": ">=11.1.2 <11.2.0",
+          "Ziggfreed:MMOSkillTree": ">=1.5.2 <1.6.0",
+          "narwhals:Perfect Utils": ">=1.1.0 <1.2.0"
+        },
+        "OptionalDependencies": {
+          "StarkyMods:Starky's Mjolnir": ">=1.6.0",
+          "StarkyMods:Starky's Shield Captain America": ">=1.3.5"
+        },
+        "DisabledByDefault": false,
+        "IncludesAssetPack": true,
+        "Main": "de.shadow.hymann.HymannPlugin"
+      },
+      "locations": [
+        {
+          "category": "archived-own-backups",
+          "relativePath": "_codex_backups/Hymann-before-endless-attribute-bridge-20260729-1359.jar",
+          "mtimeUtc": "2026-08-05T12:37:43.722208+00:00"
+        }
+      ]
+    },
+    {
+      "sha256": "cc9d4a88734147e463712de9bee6ac6ef38ffd1064129dbdcfb35d2ecade9222",
+      "filename": "Hymann-before-first-reward-level-2.jar",
+      "size": 153720,
+      "manifest": {
+        "Group": "Shadow",
+        "Name": "Hymann",
+        "Version": "0.1.0",
+        "Description": "Ultimate Mjolnir and shield ascension class for Endless Leveling.",
+        "Authors": [
+          {
+            "Name": "Shadow"
+          }
+        ],
+        "ServerVersion": ">=0.5.0 <0.6.0",
+        "Dependencies": {
+          "Airijko:EndlessLevelingCore": ">=11.1.2 <11.2.0",
+          "Ziggfreed:MMOSkillTree": ">=1.5.2 <1.6.0",
+          "narwhals:Perfect Utils": ">=1.1.0 <1.2.0"
+        },
+        "OptionalDependencies": {
+          "StarkyMods:Starky's Mjolnir": ">=1.6.0",
+          "StarkyMods:Starky's Shield Captain America": ">=1.3.5"
+        },
+        "DisabledByDefault": false,
+        "IncludesAssetPack": true,
+        "Main": "de.shadow.hymann.HymannPlugin"
+      },
+      "locations": [
+        {
+          "category": "archived-own-backups",
+          "relativePath": "_codex_backups/hymann-first-reward-level-2-20260729-1914/Hymann-before-first-reward-level-2.jar",
+          "mtimeUtc": "2026-08-05T12:37:45.245651+00:00"
+        }
+      ]
+    },
+    {
+      "sha256": "9417e47645ee7db1bb84829788b307a0c0913608258e6c120690cfae8b82ccf8",
+      "filename": "Hymann-before-global-npc-skill-filter-20260729-1740.jar",
+      "size": 153857,
+      "manifest": {
+        "Group": "Shadow",
+        "Name": "Hymann",
+        "Version": "0.1.0",
+        "Description": "Ultimate Mjolnir and shield ascension class for Endless Leveling.",
+        "Authors": [
+          {
+            "Name": "Shadow"
+          }
+        ],
+        "ServerVersion": ">=0.5.0 <0.6.0",
+        "Dependencies": {
+          "Airijko:EndlessLevelingCore": ">=11.1.2 <11.2.0",
+          "Ziggfreed:MMOSkillTree": ">=1.5.2 <1.6.0",
+          "narwhals:Perfect Utils": ">=1.1.0 <1.2.0"
+        },
+        "OptionalDependencies": {
+          "StarkyMods:Starky's Mjolnir": ">=1.6.0",
+          "StarkyMods:Starky's Shield Captain America": ">=1.3.5"
+        },
+        "DisabledByDefault": false,
+        "IncludesAssetPack": true,
+        "Main": "de.shadow.hymann.HymannPlugin"
+      },
+      "locations": [
+        {
+          "category": "archived-own-backups",
+          "relativePath": "_codex_backups/Hymann-before-global-npc-skill-filter-20260729-1740.jar",
+          "mtimeUtc": "2026-08-05T12:37:44.353894+00:00"
+        }
+      ]
+    },
+    {
+      "sha256": "31263e0701cfac24712f71cc6289b2b80ca5863c6cb978bbdb67aaf6fe6b1e55",
+      "filename": "Hymann-before-hostile-aura-filter-20260729-1553.jar",
+      "size": 152150,
+      "manifest": {
+        "Group": "Shadow",
+        "Name": "Hymann",
+        "Version": "0.1.0",
+        "Description": "Ultimate Mjolnir and shield ascension class for Endless Leveling.",
+        "Authors": [
+          {
+            "Name": "Shadow"
+          }
+        ],
+        "ServerVersion": ">=0.5.0 <0.6.0",
+        "Dependencies": {
+          "Airijko:EndlessLevelingCore": ">=11.1.2 <11.2.0",
+          "Ziggfreed:MMOSkillTree": ">=1.5.2 <1.6.0",
+          "narwhals:Perfect Utils": ">=1.1.0 <1.2.0"
+        },
+        "OptionalDependencies": {
+          "StarkyMods:Starky's Mjolnir": ">=1.6.0",
+          "StarkyMods:Starky's Shield Captain America": ">=1.3.5"
+        },
+        "DisabledByDefault": false,
+        "IncludesAssetPack": true,
+        "Main": "de.shadow.hymann.HymannPlugin"
+      },
+      "locations": [
+        {
+          "category": "archived-own-backups",
+          "relativePath": "_codex_backups/Hymann-before-hostile-aura-filter-20260729-1553.jar",
+          "mtimeUtc": "2026-08-05T12:37:43.996298+00:00"
+        }
+      ]
+    },
+    {
+      "sha256": "23da68cba177cedb3f6bee6ef06e2009968967969ab398cee7775c7866335c1b",
+      "filename": "Hymann-before-legacy-shield-cleanup-20260729-1402.jar",
+      "size": 149489,
+      "manifest": {
+        "Group": "Shadow",
+        "Name": "Hymann",
+        "Version": "0.1.0",
+        "Description": "Ultimate Mjolnir and shield ascension class for Endless Leveling.",
+        "Authors": [
+          {
+            "Name": "Shadow"
+          }
+        ],
+        "ServerVersion": ">=0.5.0 <0.6.0",
+        "Dependencies": {
+          "Airijko:EndlessLevelingCore": ">=11.1.2 <11.2.0",
+          "Ziggfreed:MMOSkillTree": ">=1.5.2 <1.6.0",
+          "narwhals:Perfect Utils": ">=1.1.0 <1.2.0"
+        },
+        "OptionalDependencies": {
+          "StarkyMods:Starky's Mjolnir": ">=1.6.0",
+          "StarkyMods:Starky's Shield Captain America": ">=1.3.5"
+        },
+        "DisabledByDefault": false,
+        "IncludesAssetPack": true,
+        "Main": "de.shadow.hymann.HymannPlugin"
+      },
+      "locations": [
+        {
+          "category": "archived-own-backups",
+          "relativePath": "_codex_backups/Hymann-before-legacy-shield-cleanup-20260729-1402.jar",
+          "mtimeUtc": "2026-08-05T12:37:43.893766+00:00"
+        }
+      ]
+    },
+    {
+      "sha256": "047044ae50e96af1e5efb29774339432a70eefc57781d660623e04edb7934985",
+      "filename": "Hymann-before-lightning-step-level-2.jar",
+      "size": 153698,
+      "manifest": {
+        "Group": "Shadow",
+        "Name": "Hymann",
+        "Version": "0.1.0",
+        "Description": "Ultimate Mjolnir and shield ascension class for Endless Leveling.",
+        "Authors": [
+          {
+            "Name": "Shadow"
+          }
+        ],
+        "ServerVersion": ">=0.5.0 <0.6.0",
+        "Dependencies": {
+          "Airijko:EndlessLevelingCore": ">=11.1.2 <11.2.0",
+          "Ziggfreed:MMOSkillTree": ">=1.5.2 <1.6.0",
+          "narwhals:Perfect Utils": ">=1.1.0 <1.2.0"
+        },
+        "OptionalDependencies": {
+          "StarkyMods:Starky's Mjolnir": ">=1.6.0",
+          "StarkyMods:Starky's Shield Captain America": ">=1.3.5"
+        },
+        "DisabledByDefault": false,
+        "IncludesAssetPack": true,
+        "Main": "de.shadow.hymann.HymannPlugin"
+      },
+      "locations": [
+        {
+          "category": "archived-own-backups",
+          "relativePath": "_codex_backups/hymann-lightning-step-level-2-20260729-1902/Hymann-before-lightning-step-level-2.jar",
+          "mtimeUtc": "2026-08-05T12:37:44.792022+00:00"
+        }
+      ]
+    },
+    {
+      "sha256": "494c2ecc6e298589a7e09475704e5dfc25cbf3b05b1d37e4cf34c432e037c3fe",
+      "filename": "Hymann-before-percent-lifesteal-20260729-1406.jar",
+      "size": 150002,
+      "manifest": {
+        "Group": "Shadow",
+        "Name": "Hymann",
+        "Version": "0.1.0",
+        "Description": "Ultimate Mjolnir and shield ascension class for Endless Leveling.",
+        "Authors": [
+          {
+            "Name": "Shadow"
+          }
+        ],
+        "ServerVersion": ">=0.5.0 <0.6.0",
+        "Dependencies": {
+          "Airijko:EndlessLevelingCore": ">=11.1.2 <11.2.0",
+          "Ziggfreed:MMOSkillTree": ">=1.5.2 <1.6.0",
+          "narwhals:Perfect Utils": ">=1.1.0 <1.2.0"
+        },
+        "OptionalDependencies": {
+          "StarkyMods:Starky's Mjolnir": ">=1.6.0",
+          "StarkyMods:Starky's Shield Captain America": ">=1.3.5"
+        },
+        "DisabledByDefault": false,
+        "IncludesAssetPack": true,
+        "Main": "de.shadow.hymann.HymannPlugin"
+      },
+      "locations": [
+        {
+          "category": "archived-own-backups",
+          "relativePath": "_codex_backups/Hymann-before-percent-lifesteal-20260729-1406.jar",
+          "mtimeUtc": "2026-08-05T12:37:44.138828+00:00"
+        }
+      ]
+    },
+    {
+      "sha256": "beee38aa094d2083944c80f6944c8294f25f4eef58f701cc5121202ddf3042b2",
+      "filename": "Hymann-before-profile-reset-fix.jar",
+      "size": 153814,
+      "manifest": {
+        "Group": "Shadow",
+        "Name": "Hymann",
+        "Version": "0.1.0",
+        "Description": "Ultimate Mjolnir and shield ascension class for Endless Leveling.",
+        "Authors": [
+          {
+            "Name": "Shadow"
+          }
+        ],
+        "ServerVersion": ">=0.5.0 <0.6.0",
+        "Dependencies": {
+          "Airijko:EndlessLevelingCore": ">=11.1.2 <11.2.0",
+          "Ziggfreed:MMOSkillTree": ">=1.5.2 <1.6.0",
+          "narwhals:Perfect Utils": ">=1.1.0 <1.2.0"
+        },
+        "OptionalDependencies": {
+          "StarkyMods:Starky's Mjolnir": ">=1.6.0",
+          "StarkyMods:Starky's Shield Captain America": ">=1.3.5"
+        },
+        "DisabledByDefault": false,
+        "IncludesAssetPack": true,
+        "Main": "de.shadow.hymann.HymannPlugin"
+      },
+      "locations": [
+        {
+          "category": "archived-own-backups",
+          "relativePath": "_codex_backups/profile-reset-fix-20260729-181713/Hymann-before-profile-reset-fix.jar",
+          "mtimeUtc": "2026-08-05T12:37:45.035062+00:00"
+        }
+      ]
+    },
+    {
+      "sha256": "f7db404b05798bff6b8cdd818b633eb021653169220cf1566b7a55b66a295658",
+      "filename": "Hymann-before-quest-npc-protection-20260729-1648.jar",
+      "size": 152271,
+      "manifest": {
+        "Group": "Shadow",
+        "Name": "Hymann",
+        "Version": "0.1.0",
+        "Description": "Ultimate Mjolnir and shield ascension class for Endless Leveling.",
+        "Authors": [
+          {
+            "Name": "Shadow"
+          }
+        ],
+        "ServerVersion": ">=0.5.0 <0.6.0",
+        "Dependencies": {
+          "Airijko:EndlessLevelingCore": ">=11.1.2 <11.2.0",
+          "Ziggfreed:MMOSkillTree": ">=1.5.2 <1.6.0",
+          "narwhals:Perfect Utils": ">=1.1.0 <1.2.0"
+        },
+        "OptionalDependencies": {
+          "StarkyMods:Starky's Mjolnir": ">=1.6.0",
+          "StarkyMods:Starky's Shield Captain America": ">=1.3.5"
+        },
+        "DisabledByDefault": false,
+        "IncludesAssetPack": true,
+        "Main": "de.shadow.hymann.HymannPlugin"
+      },
+      "locations": [
+        {
+          "category": "archived-own-backups",
+          "relativePath": "_codex_backups/Hymann-before-quest-npc-protection-20260729-1648.jar",
+          "mtimeUtc": "2026-08-05T12:37:44.029299+00:00"
+        }
+      ]
+    },
+    {
+      "sha256": "6d0f971a2f3c950c59ca1a6fdc8d1b9cf847528bf6dc3076f04597261872e361",
+      "filename": "Hymann-before-roadmap-skill-tree.jar",
+      "size": 124893,
+      "manifest": {
+        "Group": "Shadow",
+        "Name": "Hymann",
+        "Version": "0.1.0",
+        "Description": "Ultimate Mjolnir and shield ascension class for Endless Leveling.",
+        "Authors": [
+          {
+            "Name": "Shadow"
+          }
+        ],
+        "ServerVersion": ">=0.5.0 <0.6.0",
+        "Dependencies": {
+          "Airijko:EndlessLevelingCore": ">=11.1.2 <11.2.0",
+          "Ziggfreed:MMOSkillTree": ">=1.5.2 <1.6.0",
+          "narwhals:Perfect Utils": ">=1.1.0 <1.2.0"
+        },
+        "OptionalDependencies": {
+          "StarkyMods:Starky's Mjolnir": ">=1.6.0",
+          "StarkyMods:Starky's Shield Captain America": ">=1.3.5"
+        },
+        "DisabledByDefault": false,
+        "IncludesAssetPack": true,
+        "Main": "de.shadow.hymann.HymannPlugin"
+      },
+      "locations": [
+        {
+          "category": "archived-own-backups",
+          "relativePath": "_codex_backups/Hymann-before-roadmap-skill-tree.jar",
+          "mtimeUtc": "2026-08-05T12:37:43.859766+00:00"
+        }
+      ]
+    },
+    {
+      "sha256": "be9cf69cbb6030c72192c02ada63a053aa46faed4c50c9ffc1e16263e877c4fd",
+      "filename": "Hymann-before-stormbreaker-aoe-20260729-1521.jar",
+      "size": 151365,
+      "manifest": {
+        "Group": "Shadow",
+        "Name": "Hymann",
+        "Version": "0.1.0",
+        "Description": "Ultimate Mjolnir and shield ascension class for Endless Leveling.",
+        "Authors": [
+          {
+            "Name": "Shadow"
+          }
+        ],
+        "ServerVersion": ">=0.5.0 <0.6.0",
+        "Dependencies": {
+          "Airijko:EndlessLevelingCore": ">=11.1.2 <11.2.0",
+          "Ziggfreed:MMOSkillTree": ">=1.5.2 <1.6.0",
+          "narwhals:Perfect Utils": ">=1.1.0 <1.2.0"
+        },
+        "OptionalDependencies": {
+          "StarkyMods:Starky's Mjolnir": ">=1.6.0",
+          "StarkyMods:Starky's Shield Captain America": ">=1.3.5"
+        },
+        "DisabledByDefault": false,
+        "IncludesAssetPack": true,
+        "Main": "de.shadow.hymann.HymannPlugin"
+      },
+      "locations": [
+        {
+          "category": "archived-own-backups",
+          "relativePath": "_codex_backups/Hymann-before-stormbreaker-aoe-20260729-1521.jar",
+          "mtimeUtc": "2026-08-05T12:37:43.927277+00:00"
+        }
+      ]
+    },
+    {
+      "sha256": "5fa4f2573c37f63f10b7ca0b1b6a23f6efdacb319f8688b4d13061b3c47d64aa",
+      "filename": "Hymann-before-strict-npc-aura-filter-20260729-1704.jar",
+      "size": 152452,
+      "manifest": {
+        "Group": "Shadow",
+        "Name": "Hymann",
+        "Version": "0.1.0",
+        "Description": "Ultimate Mjolnir and shield ascension class for Endless Leveling.",
+        "Authors": [
+          {
+            "Name": "Shadow"
+          }
+        ],
+        "ServerVersion": ">=0.5.0 <0.6.0",
+        "Dependencies": {
+          "Airijko:EndlessLevelingCore": ">=11.1.2 <11.2.0",
+          "Ziggfreed:MMOSkillTree": ">=1.5.2 <1.6.0",
+          "narwhals:Perfect Utils": ">=1.1.0 <1.2.0"
+        },
+        "OptionalDependencies": {
+          "StarkyMods:Starky's Mjolnir": ">=1.6.0",
+          "StarkyMods:Starky's Shield Captain America": ">=1.3.5"
+        },
+        "DisabledByDefault": false,
+        "IncludesAssetPack": true,
+        "Main": "de.shadow.hymann.HymannPlugin"
+      },
+      "locations": [
+        {
+          "category": "archived-own-backups",
+          "relativePath": "_codex_backups/Hymann-before-strict-npc-aura-filter-20260729-1704.jar",
+          "mtimeUtc": "2026-08-05T12:37:44.105827+00:00"
+        }
+      ]
+    },
+    {
+      "sha256": "2cd56ee4a17c862bab636fc976cc3842dc69b2f187a77cd4e882f9804e0356b4",
+      "filename": "Hymann-before-targeted-stormbreaker-20260729-1509.jar",
+      "size": 150284,
+      "manifest": {
+        "Group": "Shadow",
+        "Name": "Hymann",
+        "Version": "0.1.0",
+        "Description": "Ultimate Mjolnir and shield ascension class for Endless Leveling.",
+        "Authors": [
+          {
+            "Name": "Shadow"
+          }
+        ],
+        "ServerVersion": ">=0.5.0 <0.6.0",
+        "Dependencies": {
+          "Airijko:EndlessLevelingCore": ">=11.1.2 <11.2.0",
+          "Ziggfreed:MMOSkillTree": ">=1.5.2 <1.6.0",
+          "narwhals:Perfect Utils": ">=1.1.0 <1.2.0"
+        },
+        "OptionalDependencies": {
+          "StarkyMods:Starky's Mjolnir": ">=1.6.0",
+          "StarkyMods:Starky's Shield Captain America": ">=1.3.5"
+        },
+        "DisabledByDefault": false,
+        "IncludesAssetPack": true,
+        "Main": "de.shadow.hymann.HymannPlugin"
+      },
+      "locations": [
+        {
+          "category": "archived-own-backups",
+          "relativePath": "_codex_backups/Hymann-before-targeted-stormbreaker-20260729-1509.jar",
+          "mtimeUtc": "2026-08-05T12:37:43.793238+00:00"
+        }
+      ]
+    },
+    {
+      "sha256": "eaccb6092390c065b4a3f5491d38a14366793194178f39df0db3bb92b4fdf1c1",
+      "filename": "Hymann-before-tree-reward-parser-20260729-1448.jar",
+      "size": 150112,
+      "manifest": {
+        "Group": "Shadow",
+        "Name": "Hymann",
+        "Version": "0.1.0",
+        "Description": "Ultimate Mjolnir and shield ascension class for Endless Leveling.",
+        "Authors": [
+          {
+            "Name": "Shadow"
+          }
+        ],
+        "ServerVersion": ">=0.5.0 <0.6.0",
+        "Dependencies": {
+          "Airijko:EndlessLevelingCore": ">=11.1.2 <11.2.0",
+          "Ziggfreed:MMOSkillTree": ">=1.5.2 <1.6.0",
+          "narwhals:Perfect Utils": ">=1.1.0 <1.2.0"
+        },
+        "OptionalDependencies": {
+          "StarkyMods:Starky's Mjolnir": ">=1.6.0",
+          "StarkyMods:Starky's Shield Captain America": ">=1.3.5"
+        },
+        "DisabledByDefault": false,
+        "IncludesAssetPack": true,
+        "Main": "de.shadow.hymann.HymannPlugin"
+      },
+      "locations": [
+        {
+          "category": "archived-own-backups",
+          "relativePath": "_codex_backups/Hymann-before-tree-reward-parser-20260729-1448.jar",
+          "mtimeUtc": "2026-08-05T12:37:43.827241+00:00"
+        }
+      ]
+    },
+    {
+      "sha256": "1a810ddfcbf5731af6219fd0ddb5a63cdfef0c95714a646c0789695982016dfa",
+      "filename": "Hymann-before-visible-quiet-stormbreaker-20260729-1533.jar",
+      "size": 152162,
+      "manifest": {
+        "Group": "Shadow",
+        "Name": "Hymann",
+        "Version": "0.1.0",
+        "Description": "Ultimate Mjolnir and shield ascension class for Endless Leveling.",
+        "Authors": [
+          {
+            "Name": "Shadow"
+          }
+        ],
+        "ServerVersion": ">=0.5.0 <0.6.0",
+        "Dependencies": {
+          "Airijko:EndlessLevelingCore": ">=11.1.2 <11.2.0",
+          "Ziggfreed:MMOSkillTree": ">=1.5.2 <1.6.0",
+          "narwhals:Perfect Utils": ">=1.1.0 <1.2.0"
+        },
+        "OptionalDependencies": {
+          "StarkyMods:Starky's Mjolnir": ">=1.6.0",
+          "StarkyMods:Starky's Shield Captain America": ">=1.3.5"
+        },
+        "DisabledByDefault": false,
+        "IncludesAssetPack": true,
+        "Main": "de.shadow.hymann.HymannPlugin"
+      },
+      "locations": [
+        {
+          "category": "archived-own-backups",
+          "relativePath": "_codex_backups/Hymann-before-visible-quiet-stormbreaker-20260729-1533.jar",
+          "mtimeUtc": "2026-08-05T12:37:43.757739+00:00"
+        }
+      ]
+    },
+    {
+      "sha256": "c977272fe211c446ad62d2955d31219cb3cdc0c51874a948ef5b284480c22f25",
+      "filename": "Hymann-before-0.1.2.jar",
+      "size": 153703,
+      "manifest": {
+        "Group": "Shadow",
+        "Name": "Hymann",
+        "Version": "0.1.1",
+        "Description": "Ultimate Mjolnir and shield ascension class for Endless Leveling.",
+        "Authors": [
+          {
+            "Name": "Shadow"
+          }
+        ],
+        "ServerVersion": ">=0.5.0 <0.6.0",
+        "Dependencies": {
+          "Airijko:EndlessLevelingCore": ">=11.2.0 <11.3.0",
+          "Ziggfreed:MMOSkillTree": ">=1.5.2 <1.6.0",
+          "narwhals:Perfect Utils": ">=1.1.0 <1.2.0"
+        },
+        "OptionalDependencies": {
+          "StarkyMods:Starky's Mjolnir": ">=1.6.0",
+          "StarkyMods:Starky's Shield Captain America": ">=1.3.5"
+        },
+        "DisabledByDefault": false,
+        "IncludesAssetPack": true,
+        "Main": "de.shadow.hymann.HymannPlugin"
+      },
+      "locations": [
+        {
+          "category": "codex-backups",
+          "relativePath": "hymann-xp-65-20260731-0940/Hymann-before-0.1.2.jar",
+          "mtimeUtc": "2026-08-05T12:36:41.218573+00:00"
+        }
+      ]
+    },
+    {
+      "sha256": "987193906cbdf83e0af31d5e77e586d849a4fe9c8f1f7533f3b3a9ac6ba82d67",
+      "filename": "Hymann-before-mmo-crit-feedback-0.1.3.jar",
+      "size": 153262,
+      "manifest": {
+        "Group": "Shadow",
+        "Name": "Hymann",
+        "Version": "0.1.3",
+        "Description": "Ultimate Mjolnir and shield ascension class for Endless Leveling.",
+        "Authors": [
+          {
+            "Name": "Shadow"
+          }
+        ],
+        "ServerVersion": ">=0.5.0 <0.6.0",
+        "Dependencies": {
+          "Airijko:EndlessLevelingCore": ">=11.2.0 <11.3.0",
+          "Ziggfreed:MMOSkillTree": ">=1.5.2 <1.6.0",
+          "narwhals:Perfect Utils": ">=1.1.0 <1.2.0"
+        },
+        "OptionalDependencies": {
+          "StarkyMods:Starky's Mjolnir": ">=1.6.0",
+          "StarkyMods:Starky's Shield Captain America": ">=1.3.5"
+        },
+        "DisabledByDefault": false,
+        "IncludesAssetPack": true,
+        "Main": "de.shadow.hymann.HymannPlugin"
+      },
+      "locations": [
+        {
+          "category": "archived-own-backups",
+          "relativePath": "_codex_backups/hymann-mmo-crit-feedback-20260801-2315/Hymann-before-mmo-crit-feedback-0.1.3.jar",
+          "mtimeUtc": "2026-08-05T12:37:44.831523+00:00"
+        }
+      ]
+    },
+    {
+      "sha256": "7a0c216d885b1296aa41a2fc9e0fd55aeba80a8101976d3f5c53e6aa2b84b2e7",
+      "filename": "Hymann-0.1.4-before-mmo-crit-feedback.jar",
+      "size": 153262,
+      "manifest": {
+        "Group": "Shadow",
+        "Name": "Hymann",
+        "Version": "0.1.4",
+        "Description": "Ultimate Mjolnir and shield ascension class for Endless Leveling.",
+        "Authors": [
+          {
+            "Name": "Shadow"
+          }
+        ],
+        "ServerVersion": ">=0.5.0 <0.6.0",
+        "Dependencies": {
+          "Airijko:EndlessLevelingCore": ">=11.2.0 <12.0.0",
+          "Ziggfreed:MMOSkillTree": ">=1.5.2 <1.6.0",
+          "narwhals:Perfect Utils": ">=1.1.0 <1.2.0"
+        },
+        "OptionalDependencies": {
+          "StarkyMods:Starky's Mjolnir": ">=1.6.0",
+          "StarkyMods:Starky's Shield Captain America": ">=1.3.5"
+        },
+        "DisabledByDefault": false,
+        "IncludesAssetPack": true,
+        "Main": "de.shadow.hymann.HymannPlugin"
+      },
+      "locations": [
+        {
+          "category": "archived-own-backups",
+          "relativePath": "_codex_backups/hymann-014-mmo-crit-feedback-20260802-123142/Hymann-0.1.4-before-mmo-crit-feedback.jar",
+          "mtimeUtc": "2026-08-05T12:37:47.785024+00:00"
+        }
+      ]
+    },
+    {
+      "sha256": "34af019b421fdcc04cda77fd1cb408eb8d0f482a87af5284f350ba94bada46ba",
+      "filename": "Hymann-before-64px-icons-20260804-1158.jar",
+      "size": 819166,
+      "manifest": {
+        "Group": "Shadow",
+        "Name": "Hymann",
+        "Version": "0.1.6",
+        "Description": "Ultimate Mjolnir and shield ascension class for Endless Leveling.",
+        "Authors": [
+          {
+            "Name": "Shadow"
+          }
+        ],
+        "ServerVersion": ">=0.5.0 <0.6.0",
+        "Dependencies": {
+          "Airijko:EndlessLevelingCore": ">=11.2.0 <12.0.0",
+          "Ziggfreed:MMOSkillTree": ">=1.5.2 <1.6.0",
+          "narwhals:Perfect Utils": ">=1.1.0 <1.2.0"
+        },
+        "OptionalDependencies": {
+          "StarkyMods:Starky's Mjolnir": ">=1.6.0",
+          "StarkyMods:Starky's Shield Captain America": ">=1.3.5"
+        },
+        "DisabledByDefault": false,
+        "IncludesAssetPack": true,
+        "Main": "de.shadow.hymann.HymannPlugin"
+      },
+      "locations": [
+        {
+          "category": "codex-backups",
+          "relativePath": "Hymann-before-64px-icons-20260804-1158.jar",
+          "mtimeUtc": "2026-08-05T12:36:41.072054+00:00"
+        }
+      ]
+    },
+    {
+      "sha256": "a8ceb572c0db14577653d0c9e1b8df385011c9f8ab17ce82955722c1817b4395",
+      "filename": "Hymann-before-perfect-utils-stun-unification-20260804-130708.jar",
+      "size": 352445,
+      "manifest": {
+        "Group": "Shadow",
+        "Name": "Hymann",
+        "Version": "0.1.7",
+        "Description": "Ultimate Mjolnir and shield ascension class for Endless Leveling.",
+        "Authors": [
+          {
+            "Name": "Shadow"
+          }
+        ],
+        "ServerVersion": ">=0.5.0 <0.6.0",
+        "Dependencies": {
+          "Airijko:EndlessLevelingCore": ">=11.2.0 <12.0.0",
+          "Ziggfreed:MMOSkillTree": ">=1.5.2 <1.6.0",
+          "narwhals:Perfect Utils": ">=1.1.0 <1.2.0"
+        },
+        "OptionalDependencies": {
+          "StarkyMods:Starky's Mjolnir": ">=1.6.0",
+          "StarkyMods:Starky's Shield Captain America": ">=1.3.5"
+        },
+        "DisabledByDefault": false,
+        "IncludesAssetPack": true,
+        "Main": "de.shadow.hymann.HymannPlugin"
+      },
+      "locations": [
+        {
+          "category": "codex-backups",
+          "relativePath": "Hymann-before-perfect-utils-stun-unification-20260804-130708.jar",
+          "mtimeUtc": "2026-08-05T12:36:41.182572+00:00"
+        }
+      ]
+    },
+    {
+      "sha256": "96126295659817c79b60f1aa8b908fbef31786e032494d02950b6bf89356c69c",
+      "filename": "Hymann-before.jar",
+      "size": 354595,
+      "manifest": {
+        "Group": "Shadow",
+        "Name": "Hymann",
+        "Version": "0.1.8",
+        "Description": "Ultimate Mjolnir and shield ascension class for Endless Leveling.",
+        "Authors": [
+          {
+            "Name": "Shadow"
+          }
+        ],
+        "ServerVersion": ">=0.5.0 <0.6.0",
+        "Dependencies": {
+          "Airijko:EndlessLevelingCore": ">=11.2.0 <12.0.0",
+          "Ziggfreed:MMOSkillTree": ">=1.5.2 <1.6.0",
+          "narwhals:Perfect Utils": ">=1.1.0 <1.2.0"
+        },
+        "OptionalDependencies": {
+          "StarkyMods:Starky's Mjolnir": ">=1.6.0",
+          "StarkyMods:Starky's Shield Captain America": ">=1.3.5"
+        },
+        "DisabledByDefault": false,
+        "IncludesAssetPack": true,
+        "Main": "de.shadow.hymann.HymannPlugin"
+      },
+      "locations": [
+        {
+          "category": "server-backups",
+          "relativePath": "full-local-stack-before-2026-08-05-1956/Hymann-before.jar",
+          "mtimeUtc": "2026-08-05T19:32:59.351624+00:00"
+        }
+      ]
+    },
+    {
+      "sha256": "be3f83c6307f633d5f41d9668dcefed85e62939bc4c033b84fec16dd81182af8",
+      "filename": "Hymann-before.jar",
+      "size": 353297,
+      "manifest": {
+        "Group": "Shadow",
+        "Name": "Hymann",
+        "Version": "0.1.8",
+        "Description": "Ultimate Mjolnir and shield ascension class for Endless Leveling.",
+        "Authors": [
+          {
+            "Name": "Shadow"
+          }
+        ],
+        "ServerVersion": ">=0.5.0 <0.6.0",
+        "Dependencies": {
+          "Airijko:EndlessLevelingCore": ">=11.2.0 <12.0.0",
+          "Ziggfreed:MMOSkillTree": ">=1.5.2 <1.6.0",
+          "narwhals:Perfect Utils": ">=1.1.0 <1.2.0"
+        },
+        "OptionalDependencies": {
+          "StarkyMods:Starky's Mjolnir": ">=1.6.0",
+          "StarkyMods:Starky's Shield Captain America": ">=1.3.5"
+        },
+        "DisabledByDefault": false,
+        "IncludesAssetPack": true,
+        "Main": "de.shadow.hymann.HymannPlugin"
+      },
+      "locations": [
+        {
+          "category": "server-backups",
+          "relativePath": "hymann-melee-descriptions-2026-08-05/Hymann-before.jar",
+          "mtimeUtc": "2026-08-05T18:19:17.502974+00:00"
+        }
+      ]
+    },
+    {
+      "sha256": "5c9b7d06fa249bcf353dec5eb36407f09ca795002ba69f189632828fa44e71f0",
+      "filename": "Hymann.jar",
+      "size": 352956,
+      "manifest": {
+        "Group": "Shadow",
+        "Name": "Hymann",
+        "Version": "0.1.8",
+        "Description": "Ultimate Mjolnir and shield ascension class for Endless Leveling.",
+        "Authors": [
+          {
+            "Name": "Shadow"
+          }
+        ],
+        "ServerVersion": ">=0.5.0 <0.6.0",
+        "Dependencies": {
+          "Airijko:EndlessLevelingCore": ">=11.2.0 <12.0.0",
+          "Ziggfreed:MMOSkillTree": ">=1.5.2 <1.6.0",
+          "narwhals:Perfect Utils": ">=1.1.0 <1.2.0"
+        },
+        "OptionalDependencies": {
+          "StarkyMods:Starky's Mjolnir": ">=1.6.0",
+          "StarkyMods:Starky's Shield Captain America": ">=1.3.5"
+        },
+        "DisabledByDefault": false,
+        "IncludesAssetPack": true,
+        "Main": "de.shadow.hymann.HymannPlugin"
+      },
+      "locations": [
+        {
+          "category": "archived-own-backups",
+          "relativePath": "_hermes_backups/forge-jars-20260804-214605/Hymann.jar",
+          "mtimeUtc": "2026-08-05T12:38:50.025203+00:00"
+        }
+      ]
+    },
+    {
+      "sha256": "91194705b249c1af291a56e2c4833cf7866a9da07972854d6c6b43603f4e61f1",
+      "filename": "Hymann.jar",
+      "size": 355068,
+      "manifest": {
+        "Group": "Shadow",
+        "Name": "Hymann",
+        "Version": "0.1.8",
+        "Description": "Ultimate Mjolnir and shield ascension class for Endless Leveling.",
+        "Authors": [
+          {
+            "Name": "Shadow"
+          }
+        ],
+        "ServerVersion": ">=0.5.0 <0.6.0",
+        "Dependencies": {
+          "Airijko:EndlessLevelingCore": ">=11.2.0 <12.0.0",
+          "Ziggfreed:MMOSkillTree": ">=1.5.2 <1.6.0",
+          "narwhals:Perfect Utils": ">=1.1.0 <1.2.0"
+        },
+        "OptionalDependencies": {
+          "StarkyMods:Starky's Mjolnir": ">=1.6.0",
+          "StarkyMods:Starky's Shield Captain America": ">=1.3.5"
+        },
+        "DisabledByDefault": false,
+        "IncludesAssetPack": true,
+        "Main": "de.shadow.hymann.HymannPlugin"
+      },
+      "locations": [
+        {
+          "category": "server-backups",
+          "relativePath": "hymann-profile-progression-20260807-203447/Hymann.jar",
+          "mtimeUtc": "2026-08-05T19:53:29.194325+00:00"
+        }
+      ]
+    },
+    {
+      "sha256": "df0667b6e22cffd05db1d674eeb1f61fdcb738994ae953225ecc5f7625926f9e",
+      "filename": "Hymann.jar",
+      "size": 354571,
+      "manifest": {
+        "Group": "Shadow",
+        "Name": "Hymann",
+        "Version": "0.1.8",
+        "Description": "Ultimate Mjolnir and shield ascension class for Endless Leveling.",
+        "Authors": [
+          {
+            "Name": "Shadow"
+          }
+        ],
+        "ServerVersion": ">=0.5.0 <0.6.0",
+        "Dependencies": {
+          "Airijko:EndlessLevelingCore": ">=11.2.0 <12.0.0",
+          "Ziggfreed:MMOSkillTree": ">=1.5.2 <1.6.0",
+          "narwhals:Perfect Utils": ">=1.1.0 <1.2.0"
+        },
+        "OptionalDependencies": {
+          "StarkyMods:Starky's Mjolnir": ">=1.6.0",
+          "StarkyMods:Starky's Shield Captain America": ">=1.3.5"
+        },
+        "DisabledByDefault": false,
+        "IncludesAssetPack": true,
+        "Main": "de.shadow.hymann.HymannPlugin"
+      },
+      "locations": [
+        {
+          "category": "server-backups",
+          "relativePath": "dungeon-stack-before-2026-08-05-1904/Hymann.jar",
+          "mtimeUtc": "2026-08-05T18:35:17.276477+00:00"
+        },
+        {
+          "category": "server-backups",
+          "relativePath": "hymann-explicit-ability-levels-2026-08-05/Hymann-before.jar",
+          "mtimeUtc": "2026-08-05T18:35:17.276477+00:00"
+        }
+      ]
+    },
+    {
+      "sha256": "53014a0bcc1588f4c020f4ed232e296fc57dfbcc042c5fbb36d3df57032d011c",
+      "filename": "Hymann.jar",
+      "size": 355455,
+      "manifest": {
+        "Group": "Shadow",
+        "Name": "Hymann",
+        "Version": "0.1.9",
+        "Description": "Ultimate Mjolnir and shield ascension class for Endless Leveling.",
+        "Authors": [
+          {
+            "Name": "Shadow"
+          }
+        ],
+        "ServerVersion": ">=0.5.0 <0.6.0",
+        "Dependencies": {
+          "Airijko:EndlessLevelingCore": ">=11.2.0 <12.0.0",
+          "Ziggfreed:MMOSkillTree": ">=1.5.2 <1.6.0",
+          "narwhals:Perfect Utils": ">=1.1.0 <1.2.0"
+        },
+        "OptionalDependencies": {
+          "StarkyMods:Starky's Mjolnir": ">=1.6.0",
+          "StarkyMods:Starky's Shield Captain America": ">=1.3.5"
+        },
+        "DisabledByDefault": false,
+        "IncludesAssetPack": true,
+        "Main": "de.shadow.hymann.HymannPlugin"
+      },
+      "locations": [
+        {
+          "category": "project-target",
+          "relativePath": "Hymann/target/Hymann.jar",
+          "mtimeUtc": "2026-08-07T18:34:24.932822+00:00"
+        },
+        {
+          "category": "active-server",
+          "relativePath": "Hymann.jar",
+          "mtimeUtc": "2026-08-07T18:34:24.932822+00:00"
+        }
+      ]
+    },
+    {
+      "sha256": "9d15eb57f016f595b40001cff510497a18f358caa4198d7d163835d3ca300eb6",
+      "filename": "MMOSkillTree-1.5.2-seuchenweber.jar",
+      "size": 4027053,
+      "manifest": {
+        "Group": "Ziggfreed",
+        "Name": "MMOSkillTree",
+        "Version": "1.5.2",
+        "Description": "A fully customizable RPG skill progression system for Hytale inspired by mcMMO and RuneScape - with hotbar abilities, triggered passives, quests, achievements, and a deep skill tree.",
+        "Authors": [
+          {
+            "Name": "ZiggFreed"
+          }
+        ],
+        "Website": "https://mmo-skill-tree-docs.ziggfreed.com/",
+        "ServerVersion": ">=0.5.0-pre.0 <0.6.0",
+        "Dependencies": {
+          "Ziggfreed:ZiggfreedCommon": "*"
+        },
+        "OptionalDependencies": {
+          "ziggfreed:MMO Skill Tree Branding": "*",
+          "TheRedlotus:HyFishing": "*",
+          "Ziggfreed:Dungeons": "^0.2"
+        },
+        "DisabledByDefault": false,
+        "Main": "com.ziggfreed.mmoskilltree.MMOSkillTreePlugin",
+        "IncludesAssetPack": true
+      },
+      "locations": [
+        {
+          "category": "project-target",
+          "relativePath": "Seuchenweber/tools/mmoskilltree-card-description-patcher/target/out/MMOSkillTree-1.5.2-seuchenweber.jar",
+          "mtimeUtc": "2026-08-07T17:38:38.961112+00:00"
+        }
+      ]
+    },
+    {
+      "sha256": "53257e2d9b4de121ef3ea95e841d1bcd8b9a43f0372eb2d11b43eaf2da0c7683",
+      "filename": "Nachtweber.jar",
+      "size": 165173,
+      "manifest": {
+        "Group": "Shadow",
+        "Name": "Nachtweber",
+        "Version": "0.1.0",
+        "Description": "Fail-closed runtime adapter and server-authoritative core for the original Nachtweber elite class.",
+        "Authors": [
+          {
+            "Name": "Shadow"
+          }
+        ],
+        "ServerVersion": ">=0.5.0 <0.6.0",
+        "Dependencies": {
+          "Airijko:EndlessLevelingCore": ">=11.5.0 <12.0.0",
+          "Ziggfreed:MMOSkillTree": ">=1.5.2 <1.6.0"
+        },
+        "DisabledByDefault": true,
+        "IncludesAssetPack": false,
+        "Main": "de.shadow.nachtweber.NachtweberPlugin"
+      },
+      "locations": [
+        {
+          "category": "project-target",
+          "relativePath": ".hermes/runtime/nightweaver-user-ingame-acceptance-20260810/mods/Nachtweber.jar",
+          "mtimeUtc": "2026-08-10T05:40:37.664434+00:00"
+        },
+        {
+          "category": "project-target",
+          "relativePath": ".hermes/runtime/nightweber-user-ingame-acceptance-20260810/mods/Nachtweber.jar",
+          "mtimeUtc": "2026-08-10T05:21:27.194542+00:00"
+        },
+        {
+          "category": "project-target",
+          "relativePath": "Nachtweber/target/Nachtweber.jar",
+          "mtimeUtc": "2026-08-10T05:53:29.636659+00:00"
+        }
+      ]
+    },
+    {
+      "sha256": "30dd1b8398488d006e0f7bd4e10e64b66f492ed3efe4206cf02c554310b7ab3b",
+      "filename": "Seuchenweber-before-adhoc-redeploy-20260807-160736.jar",
+      "size": 129970,
+      "manifest": {
+        "Group": "Shadow",
+        "Name": "Seuchenweber",
+        "Version": "0.1.0",
+        "Description": "Original owner-bound Nekrotoxin control mage for EndlessLeveling and MMOSkillTree.",
+        "Authors": [
+          {
+            "Name": "Shadow"
+          }
+        ],
+        "ServerVersion": ">=0.5.0 <0.6.0",
+        "Dependencies": {
+          "Airijko:EndlessLevelingCore": ">=11.5.0 <12.0.0",
+          "Ziggfreed:MMOSkillTree": ">=1.5.2 <1.6.0"
+        },
+        "OptionalDependencies": {
+          "narwhals:Perfect Utils": ">=1.1.0 <1.2.0"
+        },
+        "DisabledByDefault": false,
+        "IncludesAssetPack": true,
+        "Main": "de.shadow.seuchenweber.SeuchenweberPlugin"
+      },
+      "locations": [
+        {
+          "category": "server-backups",
+          "relativePath": "Seuchenweber-before-adhoc-redeploy-20260807-160736.jar",
+          "mtimeUtc": "2026-08-07T14:07:36.752000+00:00"
+        }
+      ]
+    },
+    {
+      "sha256": "ef61da377d33cbe0e1aaf49ea1baf3ecea66a6b7afbad8d02026409d87c22d29",
+      "filename": "Seuchenweber-before-tree-touch-20260807-155136.jar",
+      "size": 113710,
+      "manifest": {
+        "Group": "Shadow",
+        "Name": "Seuchenweber",
+        "Version": "0.1.0",
+        "Description": "Original owner-bound Nekrotoxin control mage for EndlessLeveling and MMOSkillTree.",
+        "Authors": [
+          {
+            "Name": "Shadow"
+          }
+        ],
+        "ServerVersion": ">=0.5.0 <0.6.0",
+        "Dependencies": {
+          "Airijko:EndlessLevelingCore": ">=11.5.0 <12.0.0",
+          "Ziggfreed:MMOSkillTree": ">=1.5.2 <1.6.0"
+        },
+        "OptionalDependencies": {
+          "narwhals:Perfect Utils": ">=1.1.0 <1.2.0"
+        },
+        "DisabledByDefault": false,
+        "IncludesAssetPack": true,
+        "Main": "de.shadow.seuchenweber.SeuchenweberPlugin"
+      },
+      "locations": [
+        {
+          "category": "server-backups",
+          "relativePath": "Seuchenweber-before-tree-touch-20260807-155136.jar",
+          "mtimeUtc": "2026-08-07T13:51:36.103238+00:00"
+        }
+      ]
+    },
+    {
+      "sha256": "c2bd9ec0394706efeb701ca42a6a87ff43b1f5ac1890fad681796f2f679dbc4a",
+      "filename": "Seuchenweber-before-ui-poison-20260807-144330.jar",
+      "size": 103537,
+      "manifest": {
+        "Group": "Shadow",
+        "Name": "Seuchenweber",
+        "Version": "0.1.0",
+        "Description": "Original owner-bound Nekrotoxin control mage for EndlessLeveling and MMOSkillTree.",
+        "Authors": [
+          {
+            "Name": "Shadow"
+          }
+        ],
+        "ServerVersion": ">=0.5.0 <0.6.0",
+        "Dependencies": {
+          "Airijko:EndlessLevelingCore": ">=11.5.0 <12.0.0",
+          "Ziggfreed:MMOSkillTree": ">=1.5.2 <1.6.0"
+        },
+        "OptionalDependencies": {
+          "narwhals:Perfect Utils": ">=1.1.0 <1.2.0"
+        },
+        "DisabledByDefault": false,
+        "IncludesAssetPack": true,
+        "Main": "de.shadow.seuchenweber.SeuchenweberPlugin"
+      },
+      "locations": [
+        {
+          "category": "server-backups",
+          "relativePath": "Seuchenweber-before-ui-poison-20260807-144330.jar",
+          "mtimeUtc": "2026-08-07T12:43:30.818741+00:00"
+        }
+      ]
+    },
+    {
+      "sha256": "7cf8f4cfedfa6c7fd35065b076bdcb6243053bcb0b89f0edfd72eb8609f0ba90",
+      "filename": "Seuchenweber-before.jar",
+      "size": 88751,
+      "manifest": {
+        "Group": "Shadow",
+        "Name": "Seuchenweber",
+        "Version": "0.1.0",
+        "Description": "Original owner-bound Nekrotoxin control mage for EndlessLeveling and MMOSkillTree.",
+        "Authors": [
+          {
+            "Name": "Shadow"
+          }
+        ],
+        "ServerVersion": ">=0.5.0 <0.6.0",
+        "Dependencies": {
+          "Airijko:EndlessLevelingCore": ">=11.5.0 <12.0.0",
+          "Ziggfreed:MMOSkillTree": ">=1.5.2 <1.6.0"
+        },
+        "OptionalDependencies": {
+          "narwhals:Perfect Utils": ">=1.1.0 <1.2.0"
+        },
+        "DisabledByDefault": false,
+        "IncludesAssetPack": true,
+        "Main": "de.shadow.seuchenweber.SeuchenweberPlugin"
+      },
+      "locations": [
+        {
+          "category": "server-backups",
+          "relativePath": "seuchenweber-cosmic-unlock-20260807-134826/Seuchenweber-before.jar",
+          "mtimeUtc": "2026-08-07T11:48:26.377398+00:00"
+        }
+      ]
+    },
+    {
+      "sha256": "0709f31df6f47c41fd6d17197622d9136b93620f64c8e3326bded9a4e570bfe4",
+      "filename": "Seuchenweber.jar",
+      "size": 133198,
+      "manifest": {
+        "Group": "Shadow",
+        "Name": "Seuchenweber",
+        "Version": "0.1.0",
+        "Description": "Original owner-bound Nekrotoxin control mage for EndlessLeveling and MMOSkillTree.",
+        "Authors": [
+          {
+            "Name": "Shadow"
+          }
+        ],
+        "ServerVersion": ">=0.5.0 <0.6.0",
+        "Dependencies": {
+          "Airijko:EndlessLevelingCore": ">=11.5.0 <12.0.0",
+          "Ziggfreed:MMOSkillTree": ">=1.5.2 <1.6.0"
+        },
+        "OptionalDependencies": {
+          "narwhals:Perfect Utils": ">=1.1.0 <1.2.0"
+        },
+        "DisabledByDefault": false,
+        "IncludesAssetPack": true,
+        "Main": "de.shadow.seuchenweber.SeuchenweberPlugin"
+      },
+      "locations": [
+        {
+          "category": "server-backups",
+          "relativePath": "seuchenweber-passive-aura-20260807-193926/Seuchenweber.jar",
+          "mtimeUtc": "2026-08-07T17:05:09.836078+00:00"
+        }
+      ]
+    },
+    {
+      "sha256": "194ad9bd99acf1f81c5f3e8c9dd06aaed50fbfc4299a055d29f0f5d2d7e0da9a",
+      "filename": "Seuchenweber.jar",
+      "size": 131128,
+      "manifest": {
+        "Group": "Shadow",
+        "Name": "Seuchenweber",
+        "Version": "0.1.0",
+        "Description": "Original owner-bound Nekrotoxin control mage for EndlessLeveling and MMOSkillTree.",
+        "Authors": [
+          {
+            "Name": "Shadow"
+          }
+        ],
+        "ServerVersion": ">=0.5.0 <0.6.0",
+        "Dependencies": {
+          "Airijko:EndlessLevelingCore": ">=11.5.0 <12.0.0",
+          "Ziggfreed:MMOSkillTree": ">=1.5.2 <1.6.0"
+        },
+        "OptionalDependencies": {
+          "narwhals:Perfect Utils": ">=1.1.0 <1.2.0"
+        },
+        "DisabledByDefault": false,
+        "IncludesAssetPack": true,
+        "Main": "de.shadow.seuchenweber.SeuchenweberPlugin"
+      },
+      "locations": [
+        {
+          "category": "server-backups",
+          "relativePath": "seuchenweber-presentation-20260807-174305/Seuchenweber.jar",
+          "mtimeUtc": "2026-08-07T15:43:06.008501+00:00"
+        }
+      ]
+    },
+    {
+      "sha256": "2c58defde28b8d37cb7c1a3c6f8c2dd4a87fc7c230acdbe1038898776e7f0f2b",
+      "filename": "Seuchenweber.jar",
+      "size": 129970,
+      "manifest": {
+        "Group": "Shadow",
+        "Name": "Seuchenweber",
+        "Version": "0.1.0",
+        "Description": "Original owner-bound Nekrotoxin control mage for EndlessLeveling and MMOSkillTree.",
+        "Authors": [
+          {
+            "Name": "Shadow"
+          }
+        ],
+        "ServerVersion": ">=0.5.0 <0.6.0",
+        "Dependencies": {
+          "Airijko:EndlessLevelingCore": ">=11.5.0 <12.0.0",
+          "Ziggfreed:MMOSkillTree": ">=1.5.2 <1.6.0"
+        },
+        "OptionalDependencies": {
+          "narwhals:Perfect Utils": ">=1.1.0 <1.2.0"
+        },
+        "DisabledByDefault": false,
+        "IncludesAssetPack": true,
+        "Main": "de.shadow.seuchenweber.SeuchenweberPlugin"
+      },
+      "locations": [
+        {
+          "category": "server-backups",
+          "relativePath": "core-update-20260807-170052/Seuchenweber.jar",
+          "mtimeUtc": "2026-08-07T14:07:36.785153+00:00"
+        }
+      ]
+    },
+    {
+      "sha256": "47228c27402a13e862584f745affb5d20eb62b06319c369191d23f749f8cde1c",
+      "filename": "Seuchenweber.jar",
+      "size": 132463,
+      "manifest": {
+        "Group": "Shadow",
+        "Name": "Seuchenweber",
+        "Version": "0.1.0",
+        "Description": "Original owner-bound Nekrotoxin control mage for EndlessLeveling and MMOSkillTree.",
+        "Authors": [
+          {
+            "Name": "Shadow"
+          }
+        ],
+        "ServerVersion": ">=0.5.0 <0.6.0",
+        "Dependencies": {
+          "Airijko:EndlessLevelingCore": ">=11.5.0 <12.0.0",
+          "Ziggfreed:MMOSkillTree": ">=1.5.2 <1.6.0"
+        },
+        "OptionalDependencies": {
+          "narwhals:Perfect Utils": ">=1.1.0 <1.2.0"
+        },
+        "DisabledByDefault": false,
+        "IncludesAssetPack": true,
+        "Main": "de.shadow.seuchenweber.SeuchenweberPlugin"
+      },
+      "locations": [
+        {
+          "category": "server-backups",
+          "relativePath": "seuchenweber-pesthauch-20260807-190541/Seuchenweber.jar",
+          "mtimeUtc": "2026-08-07T17:05:41.288352+00:00"
+        }
+      ]
+    },
+    {
+      "sha256": "6d0ead3d1740d6a37a3c31765a1f5d601e1b3ebcd60181c53ed2cfaf282c7f77",
+      "filename": "Seuchenweber.jar",
+      "size": 137827,
+      "manifest": {
+        "Group": "Shadow",
+        "Name": "Seuchenweber",
+        "Version": "0.1.0",
+        "Description": "Original owner-bound Nekrotoxin control mage for EndlessLeveling and MMOSkillTree.",
+        "Authors": [
+          {
+            "Name": "Shadow"
+          }
+        ],
+        "ServerVersion": ">=0.5.0 <0.6.0",
+        "Dependencies": {
+          "Airijko:EndlessLevelingCore": ">=11.5.0 <12.0.0",
+          "Ziggfreed:MMOSkillTree": ">=1.5.2 <1.6.0"
+        },
+        "OptionalDependencies": {
+          "narwhals:Perfect Utils": ">=1.1.0 <1.2.0"
+        },
+        "DisabledByDefault": false,
+        "IncludesAssetPack": true,
+        "Main": "de.shadow.seuchenweber.SeuchenweberPlugin"
+      },
+      "locations": [
+        {
+          "category": "server-backups",
+          "relativePath": "seuchenweber-client-gate-20260809-122154/Seuchenweber.jar",
+          "mtimeUtc": "2026-08-09T10:21:54.488222+00:00"
+        }
+      ]
+    },
+    {
+      "sha256": "b755aec41775253b88b46584c47ea616433ec8f81a3ed6ba5c3d4ce910a5a284",
+      "filename": "Seuchenweber.jar",
+      "size": 134777,
+      "manifest": {
+        "Group": "Shadow",
+        "Name": "Seuchenweber",
+        "Version": "0.1.0",
+        "Description": "Original owner-bound Nekrotoxin control mage for EndlessLeveling and MMOSkillTree.",
+        "Authors": [
+          {
+            "Name": "Shadow"
+          }
+        ],
+        "ServerVersion": ">=0.5.0 <0.6.0",
+        "Dependencies": {
+          "Airijko:EndlessLevelingCore": ">=11.5.0 <12.0.0",
+          "Ziggfreed:MMOSkillTree": ">=1.5.2 <1.6.0"
+        },
+        "OptionalDependencies": {
+          "narwhals:Perfect Utils": ">=1.1.0 <1.2.0"
+        },
+        "DisabledByDefault": false,
+        "IncludesAssetPack": true,
+        "Main": "de.shadow.seuchenweber.SeuchenweberPlugin"
+      },
+      "locations": [
+        {
+          "category": "server-backups",
+          "relativePath": "seuchenweber-schema4-20260807-201108/Seuchenweber.jar",
+          "mtimeUtc": "2026-08-07T17:39:01.455752+00:00"
+        }
+      ]
+    },
+    {
+      "sha256": "f8281b5d3376adb33117f5fec14d9c8138cdd92951b1ce845009afe003c67e7b",
+      "filename": "Seuchenweber.jar",
+      "size": 137827,
+      "manifest": {
+        "Group": "Shadow",
+        "Name": "Seuchenweber",
+        "Version": "0.1.0",
+        "Description": "Original owner-bound Nekrotoxin control mage for EndlessLeveling and MMOSkillTree.",
+        "Authors": [
+          {
+            "Name": "Shadow"
+          }
+        ],
+        "ServerVersion": ">=0.5.0 <0.6.0",
+        "Dependencies": {
+          "Airijko:EndlessLevelingCore": ">=11.5.0 <12.0.0",
+          "Ziggfreed:MMOSkillTree": ">=1.5.2 <1.6.0"
+        },
+        "OptionalDependencies": {
+          "narwhals:Perfect Utils": ">=1.1.0 <1.2.0"
+        },
+        "DisabledByDefault": false,
+        "IncludesAssetPack": true,
+        "Main": "de.shadow.seuchenweber.SeuchenweberPlugin"
+      },
+      "locations": [
+        {
+          "category": "project-target",
+          "relativePath": "Seuchenweber/target/Seuchenweber.jar",
+          "mtimeUtc": "2026-08-09T10:19:04.910638+00:00"
+        },
+        {
+          "category": "active-server",
+          "relativePath": "Seuchenweber.jar",
+          "mtimeUtc": "2026-08-09T10:21:54.544263+00:00"
+        }
+      ]
+    },
+    {
+      "sha256": "24679acfaa3988c645add4f3445fcf66c468a8a90e66c94901c42d36b5f2b351",
+      "filename": "StarterkitChatter-before.jar",
+      "size": 7134,
+      "manifest": {
+        "Group": "Shadow",
+        "Name": "StarterkitChatter",
+        "Version": "1.0.0",
+        "Description": "Pairs the Starterkit NPC's ambient messages with fitting emotes.",
+        "Authors": [
+          {
+            "Name": "Shadow"
+          }
+        ],
+        "ServerVersion": ">=0.5.0 <0.6.0",
+        "Dependencies": {
+          "com.electro:HyCitizens": ">=1.7.3 <1.8.0"
+        },
+        "DisabledByDefault": false,
+        "IncludesAssetPack": true,
+        "Main": "de.shadow.starterkitchatter.StarterkitChatterPlugin"
+      },
+      "locations": [
+        {
+          "category": "archived-own-backups",
+          "relativePath": "_codex_backups/starterkit-npc-20260729-221209/StarterkitChatter-before.jar",
+          "mtimeUtc": "2026-08-05T12:37:46.140438+00:00"
+        },
+        {
+          "category": "archived-own-backups",
+          "relativePath": "_codex_backups/starterkit-npc-20260729-221229/StarterkitChatter-before.jar",
+          "mtimeUtc": "2026-08-05T12:37:45.142608+00:00"
+        },
+        {
+          "category": "archived-own-backups",
+          "relativePath": "_codex_backups/starterkit-npc-20260729-221259/StarterkitChatter-before.jar",
+          "mtimeUtc": "2026-08-05T12:37:44.686993+00:00"
+        }
+      ]
+    },
+    {
+      "sha256": "a1c95ad1d75bd3c4f8a4d7c9943ec0eeb5aa9f3236e02483e9cdee4d2a5996ef",
+      "filename": "StarterkitChatter-before.jar",
+      "size": 8836,
+      "manifest": {
+        "Group": "Shadow",
+        "Name": "StarterkitChatter",
+        "Version": "1.0.1",
+        "Description": "Pairs the Starterkit NPC's ambient messages with fitting emotes.",
+        "Authors": [
+          {
+            "Name": "Shadow"
+          }
+        ],
+        "ServerVersion": ">=0.5.0 <0.6.0",
+        "Dependencies": {
+          "com.electro:HyCitizens": ">=1.7.3 <1.8.0"
+        },
+        "DisabledByDefault": false,
+        "IncludesAssetPack": true,
+        "Main": "de.shadow.starterkitchatter.StarterkitChatterPlugin"
+      },
+      "locations": [
+        {
+          "category": "archived-own-backups",
+          "relativePath": "_codex_backups/starterkit-chatter-20260729-223128/StarterkitChatter-before.jar",
+          "mtimeUtc": "2026-08-05T12:37:47.520359+00:00"
+        }
+      ]
+    },
+    {
+      "sha256": "d88e9deef520663a9e06a88a92f6c3d46bb9bc1023a2eb6758d75b1b22fec06b",
+      "filename": "StarterkitChatter-1.0.2.jar",
+      "size": 8704,
+      "manifest": {
+        "Group": "Shadow",
+        "Name": "StarterkitChatter",
+        "Version": "1.0.2",
+        "Description": "Pairs the Starterkit NPC's ambient messages with fitting emotes.",
+        "Authors": [
+          {
+            "Name": "Shadow"
+          }
+        ],
+        "ServerVersion": ">=0.5.0 <0.6.0",
+        "Dependencies": {
+          "com.electro:HyCitizens": ">=1.7.3 <1.8.0"
+        },
+        "DisabledByDefault": false,
+        "IncludesAssetPack": true,
+        "Main": "de.shadow.starterkitchatter.StarterkitChatterPlugin"
+      },
+      "locations": [
+        {
+          "category": "archived-own-backups",
+          "relativePath": "_codex_backups/starterkit-chatter-20260729-234000/StarterkitChatter-1.0.2.jar",
+          "mtimeUtc": "2026-08-05T12:37:47.245265+00:00"
+        }
+      ]
+    },
+    {
+      "sha256": "fcde11313264c156abc48b81f758743ac58216945a823e639e029dcd0cfe84f2",
+      "filename": "StarterkitChatter-1.0.3.jar",
+      "size": 11269,
+      "manifest": {
+        "Group": "Shadow",
+        "Name": "StarterkitChatter",
+        "Version": "1.0.3",
+        "Description": "Pairs the Starterkit NPC's ambient messages with fitting emotes.",
+        "Authors": [
+          {
+            "Name": "Shadow"
+          }
+        ],
+        "ServerVersion": ">=0.5.0 <0.6.0",
+        "Dependencies": {
+          "com.electro:HyCitizens": ">=1.7.3 <1.8.0"
+        },
+        "DisabledByDefault": false,
+        "IncludesAssetPack": true,
+        "Main": "de.shadow.starterkitchatter.StarterkitChatterPlugin"
+      },
+      "locations": [
+        {
+          "category": "archived-own-backups",
+          "relativePath": "_codex_backups/starterkit-chatter-20260729-234700/StarterkitChatter-1.0.3.jar",
+          "mtimeUtc": "2026-08-05T12:37:47.625400+00:00"
+        }
+      ]
+    },
+    {
+      "sha256": "3c3119457e8a3a55a6a7424f89062eb64e90da9d5a31cb09bb271cfec2394b60",
+      "filename": "StarterkitChatter-1.0.4.jar",
+      "size": 13683,
+      "manifest": {
+        "Group": "Shadow",
+        "Name": "StarterkitChatter",
+        "Version": "1.0.4",
+        "Description": "Pairs the Starterkit NPC's ambient messages with fitting emotes.",
+        "Authors": [
+          {
+            "Name": "Shadow"
+          }
+        ],
+        "ServerVersion": ">=0.5.0 <0.6.0",
+        "Dependencies": {
+          "com.electro:HyCitizens": ">=1.7.3 <1.8.0"
+        },
+        "DisabledByDefault": false,
+        "IncludesAssetPack": true,
+        "Main": "de.shadow.starterkitchatter.StarterkitChatterPlugin"
+      },
+      "locations": [
+        {
+          "category": "archived-own-backups",
+          "relativePath": "_codex_backups/starterkit-held-item-safety-20260730-001138/StarterkitChatter-1.0.4.jar",
+          "mtimeUtc": "2026-08-05T12:37:47.947052+00:00"
+        }
+      ]
+    },
+    {
+      "sha256": "6499ae894752ccf7b787201618d9161e87171425bed332f4625b58d88d4de00d",
+      "filename": "StarterkitChatter-1.0.5.jar",
+      "size": 13055,
+      "manifest": {
+        "Group": "Shadow",
+        "Name": "StarterkitChatter",
+        "Version": "1.0.5",
+        "Description": "Pairs the Starterkit NPC's ambient messages with fitting emotes.",
+        "Authors": [
+          {
+            "Name": "Shadow"
+          }
+        ],
+        "ServerVersion": ">=0.5.0 <0.6.0",
+        "Dependencies": {
+          "com.electro:HyCitizens": ">=1.7.3 <1.8.0"
+        },
+        "DisabledByDefault": false,
+        "IncludesAssetPack": true,
+        "Main": "de.shadow.starterkitchatter.StarterkitChatterPlugin"
+      },
+      "locations": [
+        {
+          "category": "archived-own-backups",
+          "relativePath": "_codex_backups/starterkit-emote-paths-20260730-005815/StarterkitChatter-1.0.5.jar",
+          "mtimeUtc": "2026-08-05T12:37:44.557439+00:00"
+        },
+        {
+          "category": "archived-own-backups",
+          "relativePath": "_codex_backups/starterkit-held-item-safety-complete-20260730-001211/StarterkitChatter-before-1.0.5.jar",
+          "mtimeUtc": "2026-08-05T12:37:46.030887+00:00"
+        }
+      ]
+    },
+    {
+      "sha256": "aedb3089cb2a1b40c4ab262aebe5d00c0ff162738156d7a533159c700b2f3bee",
+      "filename": "StarterkitChatter.jar",
+      "size": 13127,
+      "manifest": {
+        "Group": "Shadow",
+        "Name": "StarterkitChatter",
+        "Version": "1.0.6",
+        "Description": "Pairs the Starterkit NPC's ambient messages with fitting emotes.",
+        "Authors": [
+          {
+            "Name": "Shadow"
+          }
+        ],
+        "ServerVersion": ">=0.5.0 <0.6.0",
+        "Dependencies": {
+          "com.electro:HyCitizens": ">=1.7.3 <1.8.0"
+        },
+        "DisabledByDefault": false,
+        "IncludesAssetPack": true,
+        "Main": "de.shadow.starterkitchatter.StarterkitChatterPlugin"
+      },
+      "locations": [
+        {
+          "category": "archived-own-backups",
+          "relativePath": "_codex_backups/starterkit-emote-utf8-1.0.7-20260730-011548/StarterkitChatter.jar",
+          "mtimeUtc": "2026-08-05T12:37:46.536538+00:00"
+        }
+      ]
+    },
+    {
+      "sha256": "b2b6dbaaa94af31d619ec9a01b70f898c9053a6d2eabfbcff3e1319d2624b7b4",
+      "filename": "StarterkitChatter.jar",
+      "size": 13134,
+      "manifest": {
+        "Group": "Shadow",
+        "Name": "StarterkitChatter",
+        "Version": "1.0.7",
+        "Description": "Pairs the Starterkit NPC's ambient messages with fitting emotes.",
+        "Authors": [
+          {
+            "Name": "Shadow"
+          }
+        ],
+        "ServerVersion": ">=0.5.0 <0.6.0",
+        "Dependencies": {
+          "com.electro:HyCitizens": ">=1.7.3 <1.8.0"
+        },
+        "DisabledByDefault": false,
+        "IncludesAssetPack": true,
+        "Main": "de.shadow.starterkitchatter.StarterkitChatterPlugin"
+      },
+      "locations": [
+        {
+          "category": "archived-own-backups",
+          "relativePath": "_codex_backups/starterkit-nameplate-emotes-1.0.8-20260730-013721/StarterkitChatter.jar",
+          "mtimeUtc": "2026-08-05T12:37:45.825350+00:00"
+        }
+      ]
+    }
+  ],
+  "rules": {
+    "originalsModified": false,
+    "binaryCommitted": false,
+    "thirdPartyJarsExcluded": true,
+    "hashDeduplication": "SHA-256"
+  }
+}
