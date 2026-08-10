@@ -41,7 +41,7 @@ class PesthauchAuraContractTest {
     assertTrue(plugin.contains("config.pesthauchPulseIntervalMs()"));
     assertTrue(plugin.contains("pesthauchAuraSystem.register("));
     assertTrue(plugin.contains("pesthauchAuraSystem.release(entityStore)"));
-    assertTrue(plugin.contains("pesthauchAuraSystem.clear()"));
+    assertTrue(plugin.contains("pesthauchAuraSystem = null; if (value != null) value.clear();"));
     assertFalse(plugin.contains("InnatePlagueTouch"));
   }
 }

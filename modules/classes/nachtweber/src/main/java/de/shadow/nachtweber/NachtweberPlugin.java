@@ -15,6 +15,9 @@ import com.hypixel.hytale.server.core.plugin.JavaPluginInit;
 import com.hypixel.hytale.server.core.universe.world.events.RemoveWorldEvent;
 import com.hypixel.hytale.server.core.universe.world.events.StartWorldEvent;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
+import de.shadow.endlesselite.core.BestEffortCleanup;
+import de.shadow.endlesselite.core.MmoOwnedEffectAbi;
+import de.shadow.endlesselite.core.OwnedRegistryLifecycle;
 import java.util.function.Consumer;
 import java.util.function.BiConsumer;
 import java.util.UUID;
@@ -23,12 +26,13 @@ import java.util.UUID;
 public final class NachtweberPlugin extends JavaPlugin {
   private NachtweberLifecycle lifecycle;
   private NachtweberRuntimeWiring runtimeWiring;
-  private NachtweberOwnedEffectLifecycle effectLifecycle;
+  private OwnedRegistryLifecycle<AbilityEffect> effectLifecycle;
 
   public NachtweberPlugin(JavaPluginInit init) { super(init); }
 
   @Override
   protected void setup() {
+    MmoOwnedEffectAbi.requireAvailable(NachtweberPlugin.class.getClassLoader());
     RuntimePort port = new RuntimePort();
     NachtweberLifecycle candidateLifecycle =
         new NachtweberLifecycle(port, NachtweberClassDefinition.create());
@@ -41,50 +45,61 @@ public final class NachtweberPlugin extends JavaPlugin {
         readiness -> ((HytaleLogger.Api) getLogger().atInfo()).log(
             "Shadow:Nachtweber DamageCause AssetStore ready: cause=%s index=%d; positive damage requires exact-store real owner/target refs",
             readiness.causeId(), readiness.assetIndex()));
-    NachtweberOwnedEffectLifecycle candidateEffects = null;
+    OwnedRegistryLifecycle<AbilityEffect> candidateEffects = null;
     try {
       candidateLifecycle.start();
       candidateWiring.start(port);
-      candidateEffects = new NachtweberOwnedEffectLifecycle(
+      candidateEffects = new OwnedRegistryLifecycle<>(
           new MmoEffectRegistry(),
           candidateWiring.createStoreBoundEffects(VenomImmunityResolver.none()));
       if (!candidateEffects.start()) {
         throw new IllegalStateException("Nachtweber effect discriminator collision");
       }
-      lifecycle = candidateLifecycle;
-      runtimeWiring = candidateWiring;
-      effectLifecycle = candidateEffects;
       ((HytaleLogger.Api) getLogger().atInfo()).log(
           "Shadow:Nachtweber adapter initialized: class elite_nightweaver; "
               + "store lifecycle ECS wired; 3 owned gameplay effects registered");
-    } catch (RuntimeException | Error error) {
-      if (candidateEffects != null) candidateEffects.shutdown();
-      candidateWiring.shutdown();
-      candidateLifecycle.shutdown();
-      ((HytaleLogger.Api) ((HytaleLogger.Api) getLogger().atSevere()).withCause(error))
-          .log("Shadow:Nachtweber runtime registration failed; plugin setup rejected");
-      throw error;
+      lifecycle = candidateLifecycle;
+      runtimeWiring = candidateWiring;
+      effectLifecycle = candidateEffects;
+    } catch (Throwable error) {
+      rollbackSetup(error, candidateEffects, candidateWiring, candidateLifecycle);
+      throw propagateSetupFailure(error);
     }
   }
 
   @Override
   protected void shutdown() {
-    if (effectLifecycle != null) {
-      effectLifecycle.shutdown();
-      effectLifecycle = null;
-    }
-    if (runtimeWiring != null) {
-      runtimeWiring.shutdown();
-      runtimeWiring = null;
-    }
-    if (lifecycle != null) {
-      lifecycle.shutdown();
-      lifecycle = null;
-    }
-    ((HytaleLogger.Api) getLogger().atInfo()).log("Shadow:Nachtweber adapter shut down");
+    BestEffortCleanup.run(
+        () -> { var value = effectLifecycle; effectLifecycle = null; if (value != null) value.shutdown(); },
+        () -> { var value = runtimeWiring; runtimeWiring = null; if (value != null) value.shutdown(); },
+        () -> { var value = lifecycle; lifecycle = null; if (value != null) value.shutdown(); },
+        () -> ((HytaleLogger.Api) getLogger().atInfo()).log("Shadow:Nachtweber adapter shut down"));
   }
 
-  private static final class MmoEffectRegistry implements NachtweberOwnedEffectLifecycle.Registry {
+  private void rollbackSetup(
+      Throwable error,
+      OwnedRegistryLifecycle<AbilityEffect> failedEffects,
+      NachtweberRuntimeWiring failedWiring,
+      NachtweberLifecycle failedLifecycle) {
+    try {
+      BestEffortCleanup.run(
+          () -> { if (failedEffects != null) failedEffects.shutdown(); },
+          failedWiring::shutdown,
+          failedLifecycle::shutdown,
+          () -> ((HytaleLogger.Api) ((HytaleLogger.Api) getLogger().atSevere()).withCause(error))
+              .log("Shadow:Nachtweber runtime registration failed; plugin setup rejected"));
+    } catch (Throwable cleanupFailure) {
+      if (cleanupFailure != error) error.addSuppressed(cleanupFailure);
+    }
+  }
+
+  private static RuntimeException propagateSetupFailure(Throwable error) {
+    if (error instanceof RuntimeException runtime) return runtime;
+    if (error instanceof Error fatal) throw fatal;
+    return new IllegalStateException("Nachtweber setup failed", error);
+  }
+
+  private static final class MmoEffectRegistry implements OwnedRegistryLifecycle.Registry<AbilityEffect> {
     private final ActiveAbilityService service = ActiveAbilityService.getInstance();
     @Override public boolean registerIfAbsent(String discriminator, AbilityEffect effect) {
       return service.registerIfAbsent(discriminator, effect);

@@ -1,12 +1,15 @@
 package de.shadow.endlesselite.core;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 import org.junit.jupiter.api.Test;
 
 class EndlessEliteCoreTest {
@@ -134,6 +137,157 @@ class EndlessEliteCoreTest {
     assertEquals(List.of(
         "start:tail", "start:first", "start:second",
         "stop:second", "stop:first", "stop:tail"), calls);
+  }
+
+  @Test
+  void ownedRegistryLifecycleRollsBackCollisionsAndStopsExactInstancesInReverseOrder() {
+    Map<String, Object> registryValues = new LinkedHashMap<>();
+    List<String> unregisterCalls = new ArrayList<>();
+    Object foreign = new Object();
+    registryValues.put("collision", foreign);
+    var registry = new OwnedRegistryLifecycle.Registry<Object>() {
+      @Override public boolean registerIfAbsent(String id, Object value) {
+        return registryValues.putIfAbsent(id, value) == null;
+      }
+      @Override public boolean unregister(String id, Object expected) {
+        unregisterCalls.add(id);
+        return registryValues.remove(id, expected);
+      }
+    };
+    Map<String, Object> requested = new LinkedHashMap<>();
+    requested.put("first", new Object());
+    requested.put("collision", new Object());
+    requested.put("last", new Object());
+
+    var rejected = new OwnedRegistryLifecycle<>(registry, requested);
+    assertFalse(rejected.start());
+    assertEquals(Map.of("collision", foreign), registryValues);
+    assertEquals(List.of("collision", "first"), unregisterCalls);
+
+    unregisterCalls.clear();
+    registryValues.clear();
+    var accepted = new OwnedRegistryLifecycle<>(registry, requested);
+    assertTrue(accepted.start());
+    assertEquals(3, accepted.ownedCount());
+    accepted.shutdown();
+    assertEquals(List.of("last", "collision", "first"), unregisterCalls);
+    assertTrue(registryValues.isEmpty());
+  }
+
+  @Test
+  void ownedRegistryLifecycleContinuesCleanupAndAvoidsSelfSuppression() {
+    Error shared = new AssertionError("shared cleanup failure");
+    List<String> attempted = new ArrayList<>();
+    OwnedRegistryLifecycle.Registry<Object> registry = new OwnedRegistryLifecycle.Registry<>() {
+      @Override public boolean registerIfAbsent(String id, Object value) { return true; }
+      @Override public boolean unregister(String id, Object expectedValue) {
+        attempted.add(id);
+        if (!id.equals("first")) throw shared;
+        return true;
+      }
+    };
+    Map<String, Object> requested = new LinkedHashMap<>();
+    requested.put("first", new Object());
+    requested.put("second", new Object());
+    requested.put("third", new Object());
+    OwnedRegistryLifecycle<Object> lifecycle = new OwnedRegistryLifecycle<>(registry, requested);
+
+    assertTrue(lifecycle.start());
+    Error thrown = assertThrows(Error.class, lifecycle::shutdown);
+    assertSame(shared, thrown);
+    assertEquals(List.of("third", "second", "first"), attempted);
+    assertEquals(0, thrown.getSuppressed().length);
+    assertEquals(0, lifecycle.ownedCount());
+  }
+
+  @Test
+  void registrationFailureAfterMutationIsCompensatedAndRemainsPrimary() {
+    Error registrationFailure = new AssertionError("registration");
+    Error cleanupFailure = new AssertionError("cleanup");
+    Map<String, Object> values = new LinkedHashMap<>();
+    List<String> unregisterOrder = new ArrayList<>();
+    OwnedRegistryLifecycle.Registry<Object> registry = new OwnedRegistryLifecycle.Registry<>() {
+      @Override public boolean registerIfAbsent(String id, Object value) {
+        if (values.putIfAbsent(id, value) != null) return false;
+        if (id.equals("failure")) throw registrationFailure;
+        return true;
+      }
+      @Override public boolean unregister(String id, Object expectedValue) {
+        unregisterOrder.add(id);
+        boolean removed = values.remove(id, expectedValue);
+        if (id.equals("failure")) throw cleanupFailure;
+        return removed;
+      }
+    };
+    Map<String, Object> requested = new LinkedHashMap<>();
+    requested.put("owned", new Object());
+    requested.put("failure", new Object());
+    OwnedRegistryLifecycle<Object> lifecycle = new OwnedRegistryLifecycle<>(registry, requested);
+
+    assertSame(registrationFailure, assertThrows(Error.class, lifecycle::start));
+    assertEquals(List.of("failure", "owned"), unregisterOrder);
+    assertTrue(values.isEmpty());
+    assertEquals(0, lifecycle.ownedCount());
+    assertEquals(1, registrationFailure.getSuppressed().length);
+    assertSame(cleanupFailure, registrationFailure.getSuppressed()[0]);
+  }
+
+  @Test
+  void collisionRollbackAttemptsEachOwnedEntryOnlyOnceWhenCleanupFails() {
+    Error cleanupFailure = new AssertionError("collision cleanup");
+    int[] unregisterCount = {0};
+    OwnedRegistryLifecycle.Registry<Object> registry = new OwnedRegistryLifecycle.Registry<>() {
+      @Override public boolean registerIfAbsent(String id, Object value) {
+        return !id.equals("collision");
+      }
+      @Override public boolean unregister(String id, Object expectedValue) {
+        unregisterCount[0]++;
+        throw cleanupFailure;
+      }
+    };
+    Map<String, Object> requested = new LinkedHashMap<>();
+    requested.put("owned", new Object());
+    requested.put("collision", new Object());
+    OwnedRegistryLifecycle<Object> lifecycle = new OwnedRegistryLifecycle<>(registry, requested);
+
+    assertSame(cleanupFailure, assertThrows(Error.class, lifecycle::start));
+    assertEquals(2, unregisterCount[0]);
+    assertEquals(0, lifecycle.ownedCount());
+  }
+
+  @Test
+  void bestEffortCleanupRunsEveryActionAndPreservesFirstFailure() {
+    Error shared = new AssertionError("first");
+    RuntimeException later = new IllegalStateException("later");
+    List<String> calls = new ArrayList<>();
+
+    Error thrown = assertThrows(Error.class, () -> BestEffortCleanup.run(
+        () -> { calls.add("first"); throw shared; },
+        () -> { calls.add("same"); throw shared; },
+        () -> { calls.add("later"); throw later; },
+        () -> calls.add("tail")));
+
+    assertSame(shared, thrown);
+    assertEquals(List.of("first", "same", "later", "tail"), calls);
+    assertEquals(1, thrown.getSuppressed().length);
+    assertSame(later, thrown.getSuppressed()[0]);
+  }
+
+  @Test
+  void ownedEffectAbiRequiresBothAdditiveMethodsBeforePluginMutation() {
+    assertTrue(MmoOwnedEffectAbi.hasRequiredMethods(CompleteRegistry.class, Object.class));
+    assertFalse(MmoOwnedEffectAbi.hasRequiredMethods(LegacyRegistry.class, Object.class));
+    assertThrows(IllegalStateException.class,
+        () -> MmoOwnedEffectAbi.requireMethods(LegacyRegistry.class, Object.class));
+  }
+
+  static final class CompleteRegistry {
+    public boolean registerIfAbsent(String id, Object effect) { return true; }
+    public boolean unregister(String id, Object effect) { return true; }
+  }
+
+  static final class LegacyRegistry {
+    public void register(String id, Object effect) { }
   }
 
   private static ManagedModule module(String id, List<String> calls, boolean fail, Throwable stopFailure) {

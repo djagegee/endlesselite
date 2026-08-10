@@ -20,7 +20,12 @@ import com.hypixel.hytale.server.core.permissions.PermissionsModule;
 import com.hypixel.hytale.server.core.plugin.JavaPlugin;
 import com.hypixel.hytale.server.core.plugin.JavaPluginInit;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
+import com.ziggfreed.mmoskilltree.ability.AbilityEffect;
+import com.ziggfreed.mmoskilltree.ability.ActiveAbilityService;
 import com.ziggfreed.mmoskilltree.config.ActiveAbilitiesConfig;
+import de.shadow.endlesselite.core.BestEffortCleanup;
+import de.shadow.endlesselite.core.MmoOwnedEffectAbi;
+import de.shadow.endlesselite.core.OwnedRegistryLifecycle;
 import de.shadow.hymann.HymannArmamentMasterySystem;
 import de.shadow.hymann.HymannBossBreakerDamageSystem;
 import de.shadow.hymann.HymannBossBreakerSystem;
@@ -43,6 +48,8 @@ import de.shadow.hymann.HymannThunderStepAbility;
 import de.shadow.hymann.HymannThunderStepArrivalSystem;
 import de.shadow.hymann.HymannTreeManaRegenSystem;
 import java.nio.file.Path;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 public final class HymannPlugin
 extends JavaPlugin {
@@ -61,12 +68,14 @@ extends JavaPlugin {
     private HymannBossBreakerDamageSystem bossBreakerDamageSystem;
     private HymannThunderStepArrivalSystem thunderStepArrivalSystem;
     private HymannGuardWaveSystem guardWaveSystem;
+    private OwnedRegistryLifecycle<AbilityEffect> effectLifecycle;
 
     public HymannPlugin(JavaPluginInit init) {
         super(init);
     }
 
     protected void setup() {
+        MmoOwnedEffectAbi.requireAvailable(HymannPlugin.class.getClassLoader());
         PermissionsModule.registerPermission((String)"shadow.hymann.worthy");
         this.getCommandRegistry().registerCommand((AbstractCommand)new HymannClaimCommand());
         try {
@@ -77,9 +86,10 @@ extends JavaPlugin {
             ((HytaleLogger.Api)this.getLogger().atInfo()).log("Registered %s Hymann ascension stages with Endless Leveling", registered);
             this.mmoBridge = new HymannMmoBridge(this.getLogger());
             this.mmoBridge.register();
-            HymannThunderAegisAbility.register(this.getLogger());
-            HymannThunderStepAbility.register(this.getLogger());
-            HymannStormFuryAbility.register(this.getLogger());
+            this.effectLifecycle = new OwnedRegistryLifecycle<>(new MmoEffectRegistry(), createEffects());
+            if (!this.effectLifecycle.start()) {
+                throw new IllegalStateException("Hymann effect discriminator collision");
+            }
             ActiveAbilitiesConfig.getInstance().load();
             Path hymannDataDirectory = modsDirectory.resolve("Hymann").resolve("data");
             this.profileProgressSystem = new HymannProfileProgressSystem(this.getLogger(),
@@ -113,52 +123,64 @@ extends JavaPlugin {
             this.guardWaveSystem.register((ComponentRegistryProxy<EntityStore>)this.getEntityStoreRegistry());
         }
         catch (Throwable error) {
+            rollbackSetup(error);
             ((HytaleLogger.Api)((HytaleLogger.Api)this.getLogger().atSevere()).withCause(error)).log("Could not register Hymann with Endless Leveling");
+            throw propagateSetupFailure(error);
         }
     }
 
     protected void shutdown() {
-        if (this.profileProgressSystem != null) {
-            this.profileProgressSystem.clear();
-            this.profileProgressSystem = null;
+        BestEffortCleanup.run(
+            () -> { var value = this.effectLifecycle; this.effectLifecycle = null; if (value != null) value.shutdown(); },
+            () -> { var value = this.profileProgressSystem; this.profileProgressSystem = null; if (value != null) value.clear(); },
+            () -> { var value = this.skillLifecycleSystem; this.skillLifecycleSystem = null; if (value != null) value.clear(); },
+            () -> { var value = this.mmoBridge; this.mmoBridge = null; if (value != null) value.unregister(); },
+            () -> { var value = this.criticalAttributeSystem; this.criticalAttributeSystem = null; if (value != null) value.clear(); },
+            () -> this.armamentMasterySystem = null,
+            () -> this.treeManaRegenSystem = null,
+            () -> { var value = this.combatPassiveSystem; this.combatPassiveSystem = null; if (value != null) value.clear(); },
+            () -> { var value = this.passiveAuraSystem; this.passiveAuraSystem = null; if (value != null) value.clear(); },
+            () -> this.staminaSystem = null,
+            () -> this.stormFurySystem = null,
+            () -> this.stormFuryDamageSystem = null,
+            () -> { var value = this.bossBreakerSystem; this.bossBreakerSystem = null; if (value != null) value.clear(); },
+            () -> this.bossBreakerDamageSystem = null,
+            () -> this.thunderStepArrivalSystem = null,
+            () -> { var value = this.guardWaveSystem; this.guardWaveSystem = null; if (value != null) value.clear(); },
+            HymannStormFurySystem::clear,
+            HymannThunderStepArrivalSystem::clear,
+            HymannRegistrar::unregisterAll);
+    }
+
+    private void rollbackSetup(Throwable error) {
+        try {
+            shutdown();
+        } catch (Throwable cleanupFailure) {
+            if (cleanupFailure != error) error.addSuppressed(cleanupFailure);
         }
-        if (this.skillLifecycleSystem != null) {
-            this.skillLifecycleSystem.clear();
-            this.skillLifecycleSystem = null;
+    }
+
+    private static RuntimeException propagateSetupFailure(Throwable error) {
+        if (error instanceof RuntimeException runtime) return runtime;
+        if (error instanceof Error fatal) throw fatal;
+        return new IllegalStateException("Hymann setup failed", error);
+    }
+
+    private static Map<String, AbilityEffect> createEffects() {
+        Map<String, AbilityEffect> effects = new LinkedHashMap<>();
+        effects.put(HymannThunderAegisAbility.EFFECT_ID, HymannThunderAegisAbility.create());
+        effects.put(HymannThunderStepAbility.EFFECT_ID, HymannThunderStepAbility.create());
+        effects.put(HymannStormFuryAbility.EFFECT_ID, HymannStormFuryAbility.create());
+        return effects;
+    }
+
+    private static final class MmoEffectRegistry implements OwnedRegistryLifecycle.Registry<AbilityEffect> {
+        private final ActiveAbilityService service = ActiveAbilityService.getInstance();
+        @Override public boolean registerIfAbsent(String id, AbilityEffect effect) {
+            return service.registerIfAbsent(id, effect);
         }
-        if (this.mmoBridge != null) {
-            this.mmoBridge.unregister();
-            this.mmoBridge = null;
+        @Override public boolean unregister(String id, AbilityEffect expectedEffect) {
+            return service.unregister(id, expectedEffect);
         }
-        if (this.criticalAttributeSystem != null) {
-            this.criticalAttributeSystem.clear();
-            this.criticalAttributeSystem = null;
-        }
-        this.armamentMasterySystem = null;
-        this.treeManaRegenSystem = null;
-        if (this.combatPassiveSystem != null) {
-            this.combatPassiveSystem.clear();
-            this.combatPassiveSystem = null;
-        }
-        if (this.passiveAuraSystem != null) {
-            this.passiveAuraSystem.clear();
-            this.passiveAuraSystem = null;
-        }
-        this.staminaSystem = null;
-        this.stormFurySystem = null;
-        this.stormFuryDamageSystem = null;
-        if (this.bossBreakerSystem != null) {
-            this.bossBreakerSystem.clear();
-            this.bossBreakerSystem = null;
-        }
-        this.bossBreakerDamageSystem = null;
-        this.thunderStepArrivalSystem = null;
-        if (this.guardWaveSystem != null) {
-            this.guardWaveSystem.clear();
-            this.guardWaveSystem = null;
-        }
-        HymannStormFurySystem.clear();
-        HymannThunderStepArrivalSystem.clear();
-        HymannRegistrar.unregisterAll();
     }
 }

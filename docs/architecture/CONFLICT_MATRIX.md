@@ -29,7 +29,7 @@ Endless Elite ist ein Maven-Monorepo mit getrennten Hytale-Laufzeitartefakten. D
 - keine erkannten Secret-Zuweisungen,
 - Rift Mage bleibt `deployment_allowed=false`.
 
-Aktueller Lauf: `ENDLESS_ELITE_REPOSITORY_VERIFY_PASS`, 5 Plugins, 169 Main-FQCNs und 87 eindeutige Ressourcenpfade; Rift-, Portal- und Mjolnir-Patch-Gates geschlossen.
+Aktueller Lauf: `ENDLESS_ELITE_REPOSITORY_VERIFY_PASS`, 5 Plugins, 171 Main-FQCNs und 87 eindeutige Ressourcenpfade; Rift-, Portal- und Mjolnir-Patch-Gates geschlossen.
 
 ## Gemeinsame Systeme und eindeutige Owner
 
@@ -51,13 +51,14 @@ Aktueller Lauf: `ENDLESS_ELITE_REPOSITORY_VERIFY_PASS`, 5 Plugins, 169 Main-FQCN
 
 ### 1. MMOSkillTree-Binärvertrag — kontrollierter Superset-Kandidat
 
-- Hymann und Seuchenweber kompilieren gegen Stock-MMOSkillTree 1.5.2.
-- Nachtweber benötigt `1.5.2-owned-local` mit additivem `registerIfAbsent` und exakt-instanzgebundenem `unregister`.
+- Hymann, Nachtweber und Seuchenweber kompilieren einheitlich gegen `1.5.2-owned-local`.
+- Alle drei Plugin-Entrypoints führen vor der ersten Mutation einen reflektiven ABI-Preflight für additives `registerIfAbsent` und exakt-instanzgebundenes `unregister` aus.
+- Ihre Manifeste nennen den erforderlichen hashverifizierten owned-effects-Patch ausdrücklich; die Runtime-Plugin-ID und Upstream-Version bleiben zwangsläufig `Ziggfreed:MMOSkillTree` `1.5.2`, weil das additive Patchartefakt diese Hytale-Identität beibehält.
 - Der reproduzierbare Patcher verändert nach Verifikation genau eine Klasse und fügt nur diese Methoden hinzu.
 - Input-SHA-256: `9d15eb57f016f595b40001cff510497a18f358caa4198d7d163835d3ca300eb6`.
 - Reproduzierter Output-SHA-256: `076108affe785c66e4a470c6a77779a349e83e3e2c532f661e18769b37a4e371`.
 
-**Entscheidung:** Der Patch ist der vorgesehene additive gemeinsame Runtime-Kandidat. Eine kombinierte Cold-Boot-/Ingame-Abnahme mit allen Klassen steht dennoch aus; daher kein Deployment-PASS.
+**Entscheidung:** Der Patch ist der vorgesehene additive gemeinsame Runtime-Kandidat. Fehlt die ABI, starten die Klassenmodule fail-closed. Eine kombinierte Cold-Boot-/Ingame-Abnahme mit allen Klassen steht dennoch aus; daher kein Deployment-PASS.
 
 ### 2. Globale MMOSkillTree-Konfigurationswriter — konfliktträchtig
 
@@ -67,12 +68,14 @@ Aktueller Lauf: `ENDLESS_ELITE_REPOSITORY_VERIFY_PASS`, 5 Plugins, 169 Main-FQCN
 
 IDs sind getrennt, aber es gibt noch keinen gemeinsamen Transaktions-/Lockowner. Die aktuelle Integration bewahrt alle Quellen, aktiviert aber **keinen** neuen parallelen Writer. Bis zu einem kontrollierten Writer-Koordinator gilt Cold-Boot-only und kombinierte Runtime-Abnahme als offen.
 
-### 3. Ability-Registrierung und Reload — konfliktträchtig
+### 3. Ability-Registrierung und Reload — ownership-sicher, Runtime-Abnahme offen
 
-- Nachtweber besitzt ownership-sicheren, instanzgenauen Shutdown.
-- Seuchenweber und Hymann registrieren globale Ability-Effekte ohne belegten äquivalenten Unregisterpfad.
+- Hymann, Nachtweber und Seuchenweber registrieren Ability-Effekte additiv über `registerIfAbsent`.
+- Jedes Modul hält die tatsächlich installierten Effect-Instanzen und entfernt beim Shutdown ausschließlich diese exakten Instanzen in umgekehrter Reihenfolge.
+- Bei Kollision oder späterem Setupfehler werden bereits installierte Effects rückgerollt; der ursprüngliche Fehler wird erneut geworfen, damit Hytale die plugin-eigene ComponentRegistry verwirft.
+- Cleanup behandelt `Throwable`, setzt nach Fehlern fort und verhindert Self-Suppression.
 
-**Entscheidung:** Quell- und Buildintegration ja; Hot-Reload-Freigabe nein. Produktiver Betrieb benötigt Cold-Boot oder einen separaten ownership-sicheren Lifecycle-Slice.
+**Entscheidung:** Der vorherige Effect-Ownership-/Hot-Reload-Codeblocker ist behoben und durch Core- sowie Modulverträge gesichert. Das gibt noch keinen produktiven Hot-Reload-PASS: Die persistenten MMOSkillTree-Konfigurationswriter besitzen weiterhin keinen gemeinsamen Transaktions-/Lockowner und benötigen Cold-Boot- sowie kombinierte Runtime-Abnahme.
 
 ### 4. Spielerfortschritt — Hymann als zusätzlicher Owner
 

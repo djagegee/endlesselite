@@ -11,6 +11,7 @@ import java.util.function.BiConsumer;
 import com.hypixel.hytale.component.Store;
 import com.hypixel.hytale.component.system.tick.TickingSystem;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
+import de.shadow.endlesselite.core.OwnedRegistryLifecycle;
 import org.junit.jupiter.api.Test;
 
 final class NachtweberRuntimeWiringTest {
@@ -138,7 +139,7 @@ final class NachtweberRuntimeWiringTest {
   @Test void pluginEntrypointOwnsTheRuntimeWiringAndRegistrationPort() throws Exception {
     assertEquals(NachtweberRuntimeWiring.class,
         NachtweberPlugin.class.getDeclaredField("runtimeWiring").getType());
-    assertEquals(NachtweberOwnedEffectLifecycle.class,
+    assertEquals(OwnedRegistryLifecycle.class,
         NachtweberPlugin.class.getDeclaredField("effectLifecycle").getType());
     Class<?> runtimePort = Class.forName("de.shadow.nachtweber.NachtweberPlugin$RuntimePort");
     assertTrue(NachtweberLifecycle.RuntimePort.class.isAssignableFrom(runtimePort));

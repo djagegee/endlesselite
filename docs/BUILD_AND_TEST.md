@@ -108,7 +108,7 @@ Output is ignored under `dist/`. The manifest calls the JARs **build-verified** 
 - Java: 25.0.4
 - Maven: 3.9.16
 - Reactor: 9/9 projects SUCCESS
-- Maven tests and integration tests: 222
+- Maven tests and integration tests: 231
 - Failures: 0
 - Errors: 0
 - Skipped: 0

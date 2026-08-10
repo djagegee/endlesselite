@@ -3,7 +3,7 @@
 Shared, modular source repository for the Hytale mods developed by Agegee and Hermes.
 
 [![Java 25](https://img.shields.io/badge/Java-25-blue)](#build-and-tests)
-[![Tests](https://img.shields.io/badge/tests-222%20passing-brightgreen)](#build-and-tests)
+[![Tests](https://img.shields.io/badge/tests-231%20passing-brightgreen)](#build-and-tests)
 
 > [!IMPORTANT]
 > The repository is build-verified, but **not approved for live deployment**. No live server was modified. Nachtweber, the combined MMOSkillTree stack, Rift Mage, Portal Spawn, and the version-bound Mjolnir patch have outstanding in-game/release gates.
@@ -94,7 +94,7 @@ python tools/collect_distribution.py
 Currently confirmed:
 
 - Maven reactor: **9/9 SUCCESS**
-- Tests: **222**, 0 Failures, 0 Errors, 0 Skips
+- Tests: **231**, 0 Failures, 0 Errors, 0 Skips
 - local dependency reproduction: PASS
 - repository structure gate: PASS
 - build artifact collection: PASS
@@ -125,7 +125,7 @@ All original projects and binary backups remain unchanged as additional safety c
 
 - combined cold boot with a unified MMOSkillTree superset,
 - transaction/order owner for global MMOSkillTree configuration writers,
-- ownership-safe ability shutdown for Hymann and Seuchenweber, or cold-boot-only evidence,
+- combined runtime acceptance of the hash-verified MMOSkillTree owned-effects ABI,
 - Hymann profile persistence across logout/profile switch/crash recovery,
 - Nachtweber: client binding, activation, movement, damage, disconnect, and two-player isolation,
 - Rift Mage: manual gameplay/visual acceptance and `deployment_allowed=true`,

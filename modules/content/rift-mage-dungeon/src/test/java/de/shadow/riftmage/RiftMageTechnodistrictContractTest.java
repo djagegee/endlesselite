@@ -140,8 +140,9 @@ final class RiftMageTechnodistrictContractTest {
         JsonArray bosses = finale.getAsJsonArray("bosses");
         assertEquals(1, bosses.size());
         assertEquals("EndlessElite_RiftMage", bosses.get(0).getAsJsonObject().get("id").getAsString());
-        assertFalse(root.has("health_multiplier"), "EndlessEliteMobs/EndlessLeveling remain scaling authorities");
-        assertFalse(root.has("damage_multiplier"), "EndlessEliteMobs/EndlessLeveling remain scaling authorities");
+        assertEquals("EndlessEliteMobs", root.get("mob_scaling_owner").getAsString());
+        assertFalse(root.has("health_multiplier"), "EndlessEliteMobs remains the sole scaling authority");
+        assertFalse(root.has("damage_multiplier"), "EndlessEliteMobs remains the sole scaling authority");
 
         NativeAssetEvidence.assertEntries(List.of(
                 "Server/NPC/Roles/Void/Eye_Void.json",

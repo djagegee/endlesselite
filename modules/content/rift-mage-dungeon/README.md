@@ -30,7 +30,7 @@ All authored assets use their own `EndlessElite_*` IDs. Native Hytale assets are
 - public `Template_Trork_Mage`, `Necromancer_Void`, `Weapon_Spellbook_Demon` and the proven Outlander ranged sequence underpin the Rift Mage role;
 - native portal-key icon, shard model and texture underpin portal activation.
 
-The wave contract intentionally defines no health or damage multiplier. EndlessEliteMobs and EndlessLeveling remain the scaling authorities.
+The wave contract intentionally defines no health or damage multiplier. `mob_scaling_owner` is fixed to `EndlessEliteMobs`, the sole owner of general mob scaling; EndlessLeveling supplies progression/import behavior only.
 
 ## Fail-closed alpha gate
 

@@ -44,7 +44,7 @@
         <dependency>
             <groupId>com.ziggfreed</groupId>
             <artifactId>mmo-skill-tree</artifactId>
-            <version>1.5.2-local</version>
+            <version>1.5.2-owned-local</version>
             <scope>provided</scope>
 
         </dependency>

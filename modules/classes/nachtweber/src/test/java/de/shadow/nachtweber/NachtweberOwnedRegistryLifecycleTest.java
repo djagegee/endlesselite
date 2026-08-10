@@ -3,15 +3,16 @@ package de.shadow.nachtweber;
 import static org.junit.jupiter.api.Assertions.*;
 
 import com.ziggfreed.mmoskilltree.ability.AbilityEffect;
+import de.shadow.endlesselite.core.OwnedRegistryLifecycle;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import org.junit.jupiter.api.Test;
 
-final class NachtweberOwnedEffectLifecycleTest {
+final class NachtweberOwnedRegistryLifecycleTest {
   @Test void registersAllEffectsAndUnregistersOnlyExactOwnedInstances() {
     var registry = new FakeRegistry();
     Map<String, AbilityEffect> effects = effects();
-    var lifecycle = new NachtweberOwnedEffectLifecycle(registry, effects);
+    var lifecycle = new OwnedRegistryLifecycle<>(registry, effects);
 
     assertTrue(lifecycle.start());
     assertEquals(effects, registry.values);
@@ -24,17 +25,17 @@ final class NachtweberOwnedEffectLifecycleTest {
     assertEquals(3, registry.exactUnregisterCalls);
   }
 
-  @Test void collisionRollsBackOnlyEntriesRegisteredByThisAttempt() {
+  @Test void collisionCompensatesEveryAttemptWithoutRemovingForeignOwner() {
     var registry = new FakeRegistry();
     AbilityEffect foreign = effects().get(BlackThreadAbilityContracts.EFFECT_ID);
     registry.values.put(ShadowSwingAbilityContracts.EFFECT_ID, foreign);
     Map<String, AbilityEffect> requested = effects();
-    var lifecycle = new NachtweberOwnedEffectLifecycle(registry, requested);
+    var lifecycle = new OwnedRegistryLifecycle<>(registry, requested);
 
     assertFalse(lifecycle.start());
     assertEquals(Map.of(ShadowSwingAbilityContracts.EFFECT_ID, foreign), registry.values);
     assertSame(foreign, registry.values.get(ShadowSwingAbilityContracts.EFFECT_ID));
-    assertEquals(registry.registerCalls - 1, registry.exactUnregisterCalls);
+    assertEquals(registry.registerCalls, registry.exactUnregisterCalls);
   }
 
   private static Map<String, AbilityEffect> effects() {
@@ -47,7 +48,7 @@ final class NachtweberOwnedEffectLifecycleTest {
         black, swing, cocoon, VenomImmunityResolver.none()));
   }
 
-  private static final class FakeRegistry implements NachtweberOwnedEffectLifecycle.Registry {
+  private static final class FakeRegistry implements OwnedRegistryLifecycle.Registry<AbilityEffect> {
     final Map<String, AbilityEffect> values = new LinkedHashMap<>();
     int registerCalls;
     int exactUnregisterCalls;

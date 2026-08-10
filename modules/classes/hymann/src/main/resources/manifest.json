@@ -2,7 +2,7 @@
   "Group": "Shadow",
   "Name": "Hymann",
   "Version": "0.1.9",
-  "Description": "Ultimate Mjolnir and shield ascension class for Endless Leveling.",
+  "Description": "Ultimate Mjolnir and shield ascension class for Endless Leveling. Requires the hash-verified MMOSkillTree owned-effects ABI patch.",
   "Authors": [
     {
       "Name": "Shadow"

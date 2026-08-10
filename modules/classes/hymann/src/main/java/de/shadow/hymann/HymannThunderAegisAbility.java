@@ -72,9 +72,8 @@ implements AbilityEffect {
     private HymannThunderAegisAbility() {
     }
 
-    static void register(HytaleLogger logger) {
-        ActiveAbilityService.getInstance().register(EFFECT_ID, (AbilityEffect)new HymannThunderAegisAbility());
-        ((HytaleLogger.Api)logger.atInfo()).log("Registered Hymann MMO active ability: Thunder Aegis");
+    static AbilityEffect create() {
+        return new HymannThunderAegisAbility();
     }
 
     public AbilityResult execute(CasterContext context, AbilityDefinition ability) {

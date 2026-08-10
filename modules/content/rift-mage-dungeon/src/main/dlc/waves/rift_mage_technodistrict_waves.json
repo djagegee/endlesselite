@@ -1,5 +1,6 @@
 {
-  "$comment": "Three-stage alpha encounter. EndlessEliteMobs and EndlessLeveling remain the only scaling authorities.",
+  "$comment": "Three-stage alpha encounter. EndlessEliteMobs remains the sole general mob-scaling authority.",
+  "mob_scaling_owner": "EndlessEliteMobs",
   "pull_to_center": false,
   "spawn_radius": 14,
   "batch_kill_percent": 70,

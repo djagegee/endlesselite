@@ -37,7 +37,7 @@ final class RiftMageBossAssetTest {
         assertEquals("Skeleton_Archmage_Staff_Corruption_Orb", modify.get("RangedAttack").getAsString());
         assertEquals("Component_Instruction_Attack_Sequence_Outlander_Sorcerer_Ranged",
                 modify.get("RangedAttackSequence").getAsString());
-        assertFalse(modify.has("MaxHealth"), "EndlessEliteMobs/EndlessLeveling retain scaling ownership");
+        assertFalse(modify.has("MaxHealth"), "EndlessEliteMobs retains sole scaling ownership");
 
         JsonObject nameParameter = root.getAsJsonObject("Parameters").getAsJsonObject("NameTranslationKey");
         assertEquals("endlesselite.npcRoles.RiftMage.name", nameParameter.get("Value").getAsString());

@@ -13,6 +13,9 @@ import com.ziggfreed.mmoskilltree.ability.AbilityEffect;
 import com.ziggfreed.mmoskilltree.ability.ActiveAbilityService;
 import com.ziggfreed.mmoskilltree.config.ActiveAbilitiesConfig;
 import com.ziggfreed.mmoskilltree.i18n.LocalizationConfig;
+import de.shadow.endlesselite.core.BestEffortCleanup;
+import de.shadow.endlesselite.core.MmoOwnedEffectAbi;
+import de.shadow.endlesselite.core.OwnedRegistryLifecycle;
 import java.nio.file.Path;
 import java.util.Map;
 
@@ -27,6 +30,7 @@ public final class SeuchenweberPlugin extends JavaPlugin {
   private SeuchenweberClassAuraSystem classAuraSystem;
   private SeuchenweberMmoBridge mmoBridge;
   private CharacterClassDefinition classDefinition;
+  private OwnedRegistryLifecycle<AbilityEffect> effectLifecycle;
 
   public SeuchenweberPlugin(JavaPluginInit init) {
     super(init);
@@ -34,8 +38,9 @@ public final class SeuchenweberPlugin extends JavaPlugin {
 
   @Override
   protected void setup() {
-    PermissionsModule.registerPermission(PERMISSION);
+    MmoOwnedEffectAbi.requireAvailable(SeuchenweberPlugin.class.getClassLoader());
     try {
+      PermissionsModule.registerPermission(PERMISSION);
       SeuchenweberRuntimeConfig config = SeuchenweberRuntimeConfig.load(getDataDirectory());
       Path modsDirectory = getFile().getParent();
       int installedAbilities = SeuchenweberAbilityConfigInstaller.install(
@@ -74,49 +79,61 @@ public final class SeuchenweberPlugin extends JavaPlugin {
         astralRiftPulseSystem.release(entityStore);
         nekrotoxinDamageSystem.release(entityStore);
       });
-      for (Map.Entry<String, AbilityEffect> entry : SeuchenweberAbilityRegistry
-          .createRuntimeEffects(nekrotoxinDamageSystem, config.toxinDurationMs(), astralRiftPulseSystem,
-              config.riftDurationMs()).entrySet()) {
-        ActiveAbilityService.getInstance().register(entry.getKey(), entry.getValue());
+      Map<String, AbilityEffect> effects = SeuchenweberAbilityRegistry.createRuntimeEffects(
+          nekrotoxinDamageSystem, config.toxinDurationMs(), astralRiftPulseSystem,
+          config.riftDurationMs());
+      effectLifecycle = new OwnedRegistryLifecycle<>(new MmoEffectRegistry(), effects);
+      if (!effectLifecycle.start()) {
+        throw new IllegalStateException("Seuchenweber effect discriminator collision");
       }
       ActiveAbilitiesConfig.getInstance().load();
       ((HytaleLogger.Api) getLogger().atInfo()).log(
           "Shadow:Seuchenweber runtime initialized: class elite_plagueweaver, Cosmic Ruin unlock at Prestige 30, %s MMO ability definitions, %s presentation keys per locale, 3 active abilities, 4 passive hooks",
           installedAbilities, installedPresentationKeys);
     } catch (Throwable error) {
+      rollbackSetup(error);
       ((HytaleLogger.Api) ((HytaleLogger.Api) getLogger().atSevere()).withCause(error))
           .log("Shadow:Seuchenweber runtime registration failed; no deployment acceptance granted");
+      throw propagateSetupFailure(error);
     }
   }
 
   @Override
   protected void shutdown() {
-    if (pesthauchAuraSystem != null) {
-      pesthauchAuraSystem.clear();
-      pesthauchAuraSystem = null;
+    BestEffortCleanup.run(
+        () -> { var value = effectLifecycle; effectLifecycle = null; if (value != null) value.shutdown(); },
+        () -> { var value = pesthauchAuraSystem; pesthauchAuraSystem = null; if (value != null) value.clear(); },
+        () -> { var value = classAuraSystem; classAuraSystem = null; if (value != null) value.clear(); },
+        () -> { var value = unlockSystem; unlockSystem = null; if (value != null) value.clear(); },
+        () -> mmoBridge = null,
+        () -> { var value = classDefinition; classDefinition = null; if (value != null) EndlessLevelingAPI.get().unregisterClass(value.getId()); },
+        () -> { var value = astralRiftPulseSystem; astralRiftPulseSystem = null; if (value != null) value.clear(); },
+        () -> maintenanceSystem = null,
+        () -> { var value = nekrotoxinDamageSystem; nekrotoxinDamageSystem = null; if (value != null) value.clear(); },
+        () -> ((HytaleLogger.Api) getLogger().atInfo()).log("Shadow:Seuchenweber runtime shut down and ephemeral state cleared"));
+  }
+
+  private void rollbackSetup(Throwable error) {
+    try {
+      shutdown();
+    } catch (Throwable cleanupFailure) {
+      if (cleanupFailure != error) error.addSuppressed(cleanupFailure);
     }
-    if (classAuraSystem != null) {
-      classAuraSystem.clear();
-      classAuraSystem = null;
+  }
+
+  private static RuntimeException propagateSetupFailure(Throwable error) {
+    if (error instanceof RuntimeException runtime) return runtime;
+    if (error instanceof Error fatal) throw fatal;
+    return new IllegalStateException("Seuchenweber setup failed", error);
+  }
+
+  private static final class MmoEffectRegistry implements OwnedRegistryLifecycle.Registry<AbilityEffect> {
+    private final ActiveAbilityService service = ActiveAbilityService.getInstance();
+    @Override public boolean registerIfAbsent(String id, AbilityEffect effect) {
+      return service.registerIfAbsent(id, effect);
     }
-    if (unlockSystem != null) {
-      unlockSystem.clear();
-      unlockSystem = null;
+    @Override public boolean unregister(String id, AbilityEffect expectedEffect) {
+      return service.unregister(id, expectedEffect);
     }
-    mmoBridge = null;
-    if (classDefinition != null) {
-      EndlessLevelingAPI.get().unregisterClass(classDefinition.getId());
-      classDefinition = null;
-    }
-    if (astralRiftPulseSystem != null) {
-      astralRiftPulseSystem.clear();
-      astralRiftPulseSystem = null;
-    }
-    maintenanceSystem = null;
-    if (nekrotoxinDamageSystem != null) {
-      nekrotoxinDamageSystem.clear();
-      nekrotoxinDamageSystem = null;
-    }
-    ((HytaleLogger.Api) getLogger().atInfo()).log("Shadow:Seuchenweber runtime shut down and ephemeral state cleared");
   }
 }

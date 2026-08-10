@@ -51,6 +51,42 @@ def main() -> int:
     if user_paths:
         fail(f"User-specific absolute paths in Maven configuration: {user_paths}")
 
+    class_modules = ("hymann", "nachtweber", "seuchenweber")
+    for module in class_modules:
+        module_root = MODULES / f"classes/{module}"
+        pom_document = ET.parse(module_root / "pom.xml")
+        mmo_versions = []
+        for dependency in pom_document.findall(".//m:dependency", maven_namespace):
+            if dependency.findtext("m:groupId", namespaces=maven_namespace) == "com.ziggfreed" and dependency.findtext("m:artifactId", namespaces=maven_namespace) == "mmo-skill-tree":
+                mmo_versions.append(dependency.findtext("m:version", namespaces=maven_namespace))
+        if mmo_versions != ["1.5.2-owned-local"]:
+            fail(f"{module} must compile against exactly one hash-verified MMOSkillTree owned-effects ABI dependency: {mmo_versions}")
+        manifest = json.loads((module_root / "src/main/resources/manifest.json").read_text(encoding="utf-8"))
+        if "owned-effects ABI patch" not in manifest.get("Description", ""):
+            fail(f"{module} manifest must disclose the required MMOSkillTree owned-effects ABI patch")
+        plugin_source = next((module_root / "src/main/java").rglob("*Plugin.java"))
+        plugin_text = plugin_source.read_text(encoding="utf-8")
+        preflight = f"MmoOwnedEffectAbi.requireAvailable({module.capitalize()}Plugin.class.getClassLoader());"
+        preflight_position = plugin_text.find(preflight)
+        mutation_markers = ("PermissionsModule.registerPermission", "RuntimePort port = new RuntimePort()")
+        mutation_positions = [plugin_text.find(marker) for marker in mutation_markers if plugin_text.find(marker) >= 0]
+        if preflight_position < 0 or not mutation_positions or preflight_position > min(mutation_positions):
+            fail(f"{module} must fail closed before its first plugin mutation when the owned-effects ABI is absent")
+    for module in class_modules:
+        plugin_text = next((MODULES / f"classes/{module}/src/main/java").rglob("*Plugin.java")).read_text(encoding="utf-8")
+        if ".registerIfAbsent(" not in plugin_text or ".unregister(" not in plugin_text:
+            fail(f"{module} must own and symmetrically unregister exact MMOSkillTree effect instances")
+        if "ActiveAbilityService.getInstance().register(" in plugin_text:
+            fail(f"{module} must not overwrite MMOSkillTree effects with direct register()")
+        if "rollbackSetup(error" not in plugin_text or "throw propagateSetupFailure(error);" not in plugin_text:
+            fail(f"{module} must roll back and rethrow setup failures")
+        if "BestEffortCleanup.run(" not in plugin_text:
+            fail(f"{module} must continue all cleanup actions after Throwable/Error")
+
+    rift_waves = json.loads((MODULES / "content/rift-mage-dungeon/src/main/dlc/waves/rift_mage_technodistrict_waves.json").read_text(encoding="utf-8"))
+    if rift_waves.get("mob_scaling_owner") != "EndlessEliteMobs":
+        fail("Rift Mage must name EndlessEliteMobs as the sole general mob-scaling owner")
+
     for manifest_path in MODULES.rglob("src/main/resources/manifest.json"):
         manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
         plugin_id = f"{manifest.get('Group')}:{manifest.get('Name')}"

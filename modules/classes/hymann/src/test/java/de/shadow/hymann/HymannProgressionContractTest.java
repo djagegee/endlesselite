@@ -36,7 +36,7 @@ class HymannProgressionContractTest {
         assertTrue(pom.contains("<artifactId>endless-leveling-core</artifactId>"));
         assertTrue(pom.contains("<version>11.6.1-local</version>"));
         assertTrue(pom.contains("<artifactId>mmo-skill-tree</artifactId>"));
-        assertTrue(pom.contains("<version>1.5.2-local</version>"));
+        assertTrue(pom.contains("<version>1.5.2-owned-local</version>"));
         assertTrue(pom.contains("<scope>provided</scope>"));
         assertFalse(pom.contains("<systemPath>"));
         assertFalse(pom.contains("${hytale."));
@@ -86,9 +86,28 @@ class HymannProgressionContractTest {
         assertTrue(plugin.contains("profileProgressSystem.register("));
         assertTrue(plugin.contains("new HymannSkillLifecycleSystem("));
         assertTrue(plugin.contains("skillLifecycleSystem.register("));
-        assertTrue(plugin.contains("profileProgressSystem.clear()"));
-        assertTrue(plugin.contains("skillLifecycleSystem.clear()"));
+        assertTrue(plugin.contains("this.profileProgressSystem = null; if (value != null) value.clear();"));
+        assertTrue(plugin.contains("this.skillLifecycleSystem = null; if (value != null) value.clear();"));
         assertFalse(plugin.contains("new HymannAbilityBindingPersistenceSystem("));
+    }
+
+    @Test
+    void pluginUsesFailClosedOwnedEffectLifecycleAndRethrowsSetupFailures() throws Exception {
+        String plugin = Files.readString(
+                Path.of("src", "main", "java", "de", "shadow", "hymann", "HymannPlugin.java"),
+                StandardCharsets.UTF_8);
+        String manifest = Files.readString(
+                Path.of("src", "main", "resources", "manifest.json"), StandardCharsets.UTF_8);
+
+        assertTrue(plugin.contains("MmoOwnedEffectAbi.requireAvailable(HymannPlugin.class.getClassLoader());"));
+        assertTrue(plugin.contains("new OwnedRegistryLifecycle<>(new MmoEffectRegistry(), createEffects())"));
+        assertTrue(plugin.contains("service.registerIfAbsent(id, effect)"));
+        assertTrue(plugin.contains("service.unregister(id, expectedEffect)"));
+        assertTrue(plugin.contains("rollbackSetup(error);"));
+        assertTrue(plugin.contains("throw propagateSetupFailure(error);"));
+        assertTrue(plugin.contains("BestEffortCleanup.run("));
+        assertTrue(plugin.contains("this.effectLifecycle = null; if (value != null) value.shutdown();"));
+        assertTrue(manifest.contains("Requires the hash-verified MMOSkillTree owned-effects ABI patch"));
     }
 
     @Test

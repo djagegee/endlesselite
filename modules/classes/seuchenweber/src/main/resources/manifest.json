@@ -2,7 +2,7 @@
   "Group": "Shadow",
   "Name": "Seuchenweber",
   "Version": "0.1.0",
-  "Description": "Original owner-bound Nekrotoxin control mage for EndlessLeveling and MMOSkillTree.",
+  "Description": "Original owner-bound Nekrotoxin control mage for EndlessLeveling. Requires the hash-verified MMOSkillTree owned-effects ABI patch.",
   "Authors": [
     {
       "Name": "Shadow"

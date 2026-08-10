@@ -2,7 +2,7 @@
   "Group": "Shadow",
   "Name": "Nachtweber",
   "Version": "0.1.0",
-  "Description": "Fail-closed runtime adapter and server-authoritative core for the original Nachtweber elite class.",
+  "Description": "Fail-closed runtime adapter for the original Nachtweber elite class. Requires the hash-verified MMOSkillTree owned-effects ABI patch.",
   "Authors": [
     {
       "Name": "Shadow"

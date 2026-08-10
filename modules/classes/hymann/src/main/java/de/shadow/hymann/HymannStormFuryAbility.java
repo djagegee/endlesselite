@@ -39,9 +39,8 @@ implements AbilityEffect {
     private HymannStormFuryAbility() {
     }
 
-    static void register(HytaleLogger logger) {
-        ActiveAbilityService.getInstance().register(EFFECT_ID, (AbilityEffect)new HymannStormFuryAbility());
-        ((HytaleLogger.Api)logger.atInfo()).log("Registered Hymann MMO active ability: Storm Fury");
+    static AbilityEffect create() {
+        return new HymannStormFuryAbility();
     }
 
     public AbilityResult execute(CasterContext context, AbilityDefinition ability) {

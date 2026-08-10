@@ -1,7 +1,7 @@
 # Endless Elite test report
 
 Date: 2026-08-10
-Tested branch: `fix/late-review-remediation-20260810` (based on `integration/endless-elite-final-20260810`)
+Tested branch: `fix/late-architecture-remediation-20260810` (based on `integration/endless-elite-final-20260810`)
 
 ## Toolchain
 
@@ -35,26 +35,26 @@ mvn clean verify
 
 | Module | Tests | Failures | Errors | Skipped |
 |---|---:|---:|---:|---:|
-| Endless Elite Core | 7 | 0 | 0 | 0 |
+| Endless Elite Core | 13 | 0 | 0 | 0 |
 | EndlessBook | 22 | 0 | 0 | 0 |
-| Hymann | 11 | 0 | 0 | 0 |
-| Nachtweber | 69 | 0 | 0 | 0 |
-| Seuchenweber | 88 | 0 | 0 | 0 |
+| Hymann | 12 | 0 | 0 | 0 |
+| Nachtweber | 70 | 0 | 0 | 0 |
+| Seuchenweber | 89 | 0 | 0 | 0 |
 | Rift Mage Dungeon | 17 | 0 | 0 | 0 |
 | Portal Spawn Snapshot | 4 | 0 | 0 | 0 |
 | Mjolnir Safety Patch | 4 | 0 | 0 | 0 |
-| **Total** | **222** | **0** | **0** | **0** |
+| **Total** | **231** | **0** | **0** | **0** |
 
 Reactor summary: parent and all eight modules `SUCCESS`.
 Marker: `BUILD SUCCESS`.
 
-The three added Core tests prove best-effort reverse cleanup after `Error` during normal stop and rollback, including first-failure preservation and suppressed exceptions. The added Seuchenweber contract test binds the operator documentation and default profile to the actual schema-4 runtime defaults.
+The Core contracts now also prove exact-instance registry ownership, single-attempt collision rollback, mutate-then-throw registration compensation, reverse cleanup after `Error`, best-effort continuation across all cleanup actions, first-failure preservation, self-suppression safety, and reflective detection of the required MMOSkillTree owned-effects ABI. Hymann, Nachtweber, and Seuchenweber module contracts bind build, manifest disclosure, preflight, rollback, and error propagation to that ABI. Hymann, Nachtweber, and Seuchenweber clear owned fields before each potentially failing cleanup action and continue all remaining cleanup through the shared sequencer. The Seuchenweber configuration contract continues to bind operator documentation and the default profile to the actual schema-4 runtime defaults.
 
 ## Repository and distribution gates
 
 ```text
 ENDLESS_ELITE_REPOSITORY_VERIFY_PASS
-plugins=5 java_fqcns=169 unique_resource_paths=87 rift_deployment_allowed=false portal_deployment_allowed=false mjolnir_patch_deployment_allowed=false
+plugins=5 java_fqcns=171 unique_resource_paths=87 rift_deployment_allowed=false portal_deployment_allowed=false mjolnir_patch_deployment_allowed=false
 ENDLESS_ELITE_DISTRIBUTION_PASS
 ```
 
@@ -62,11 +62,11 @@ Build-verified artifacts:
 
 | Artifact | Bytes | SHA-256 |
 |---|---:|---|
-| EndlessEliteCore.jar | 20,735 | `121166f0e7d4e38ce90aae0d0f3ee4c4b608a7760d1d3fedc32e97a7c95301e1` |
-| EndlessBook.jar | 82,940 | `4f44fac6eccfb0ad636e7931b0adcab8d7c73ee12a75749e90469433e2c54de8` |
-| Hymann.jar | 350,401 | `08dfeabfdd4707078bed84eba616c99c9206195acf789056ae17601a4608ac66` |
-| Nachtweber.jar | 165,137 | `6b2400b357849ba0d7d3cba9429bfbe0f989938423775d90a7ed8ac675615faf` |
-| Seuchenweber.jar | 132,983 | `5f019d0f24d93e406e27157795f0846bb100a0652f86ff70be587cbc361148a3` |
+| EndlessEliteCore.jar | 26,847 | `709da974328f95ef9dd361ab2b10939fe0190768a20546e77f29fff0637c320c` |
+| EndlessBook.jar | 82,940 | `51b61377859108b9e951d38e38840595557d03bdfe2e26ae9ee6bdba17ebb4e1` |
+| Hymann.jar | 352,397 | `622fbe5f88224836062a66e683881f82d0b288bbd69f4eaad13fad44527a1d8a` |
+| Nachtweber.jar | 163,682 | `b609a9f37f7f35fc1d0f4535dbba82ce8bc3f593c6ee6e2b2dc7c9d448cc22b8` |
+| Seuchenweber.jar | 134,826 | `293aae7d041fb7dbd68aafd99921f059a63dc32e93762b80307112a2f8335fe4` |
 
 The distribution manifest explicitly sets:
 

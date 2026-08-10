@@ -69,9 +69,8 @@ implements AbilityEffect {
     private HymannThunderStepAbility() {
     }
 
-    static void register(HytaleLogger logger) {
-        ActiveAbilityService.getInstance().register(EFFECT_ID, (AbilityEffect)new HymannThunderStepAbility());
-        ((HytaleLogger.Api)logger.atInfo()).log("Registered Hymann MMO active ability: Lightning Step");
+    static AbilityEffect create() {
+        return new HymannThunderStepAbility();
     }
 
     public ParamSpec getParamSpec() {
