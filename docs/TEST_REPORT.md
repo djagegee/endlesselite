@@ -1,6 +1,6 @@
 # Endless Elite – Testreport
 
-Datum: 2026-08-10  
+Datum: 2026-08-10
 Branch zum Testzeitpunkt: `feat/mod-consolidation-20260810`
 
 ## Toolchain
@@ -38,7 +38,7 @@ mvn clean verify
 | Rift Mage Dungeon | 17 | 0 | 0 | 0 |
 | **Gesamt** | **206** | **0** | **0** | **0** |
 
-Reactor Summary: Parent und alle fünf Module `SUCCESS`.  
+Reactor Summary: Parent und alle fünf Module `SUCCESS`.
 Marker: `BUILD SUCCESS`.
 
 ## Repository- und Distributionsgates

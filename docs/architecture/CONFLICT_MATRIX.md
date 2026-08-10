@@ -1,6 +1,6 @@
 # Architektur- und Konfliktmatrix
 
-Stand: 2026-08-10  
+Stand: 2026-08-10
 Scope: Quellintegration und gemeinsamer Java-25/Maven-Reactor. Dies ist **keine** Live-Deploymentfreigabe.
 
 ## Integrationsmodell
