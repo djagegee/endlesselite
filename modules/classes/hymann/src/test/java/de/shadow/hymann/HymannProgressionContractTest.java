@@ -30,13 +30,16 @@ class HymannProgressionContractTest {
     }
 
     @Test
-    void buildUsesTheCurrentlyDeployedCoreModArtifacts() throws Exception {
+    void buildUsesHashBootstrappedProvidedCoreModArtifacts() throws Exception {
         String pom = Files.readString(Path.of("pom.xml"), StandardCharsets.UTF_8);
 
+        assertTrue(pom.contains("<artifactId>endless-leveling-core</artifactId>"));
         assertTrue(pom.contains("<version>11.6.1-local</version>"));
-        assertTrue(pom.contains("<systemPath>${hytale.mods.root}/EndlessLeveling.jar</systemPath>"));
-        assertTrue(pom.contains("<systemPath>${hytale.mods.root}/MMOSkillTree-1.5.2.jar</systemPath>"));
-        assertFalse(pom.contains("${hytale.mod.stash}"));
+        assertTrue(pom.contains("<artifactId>mmo-skill-tree</artifactId>"));
+        assertTrue(pom.contains("<version>1.5.2-local</version>"));
+        assertTrue(pom.contains("<scope>provided</scope>"));
+        assertFalse(pom.contains("<systemPath>"));
+        assertFalse(pom.contains("${hytale."));
     }
 
     @Test

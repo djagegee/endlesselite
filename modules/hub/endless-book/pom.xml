@@ -11,9 +11,9 @@
   <properties><maven.compiler.release>25</maven.compiler.release><project.build.sourceEncoding>UTF-8</project.build.sourceEncoding></properties>
   <dependencies>
     <dependency><groupId>de.shadow.endlesselite</groupId><artifactId>endless-elite-core</artifactId><scope>provided</scope></dependency>
-    <dependency><groupId>com.hypixel.hytale</groupId><artifactId>server</artifactId><version>local</version><scope>system</scope><systemPath>${hytale.server.root}/HytaleServer.jar</systemPath></dependency>
-    <dependency><groupId>com.ziggfreed</groupId><artifactId>mmoskilltree</artifactId><version>1.5.2</version><scope>system</scope><systemPath>${hytale.server.root}/mods/MMOSkillTree-1.5.2.jar</systemPath></dependency>
-    <dependency><groupId>com.airijko</groupId><artifactId>endless-guilds</artifactId><version>1.13.0</version><scope>system</scope><systemPath>${hytale.server.root}/mods/EndlessGuilds-1.13.0.jar</systemPath></dependency>
+    <dependency><groupId>com.hypixel.hytale</groupId><artifactId>hytale-server</artifactId><version>0.5.0-local</version><scope>provided</scope></dependency>
+    <dependency><groupId>com.ziggfreed</groupId><artifactId>mmo-skill-tree</artifactId><version>1.5.2-local</version><scope>provided</scope></dependency>
+    <dependency><groupId>com.airijko</groupId><artifactId>endless-guilds</artifactId><version>1.13.0-local</version><scope>provided</scope></dependency>
     <dependency><groupId>com.google.code.gson</groupId><artifactId>gson</artifactId><version>2.13.1</version><scope>provided</scope></dependency>
     <dependency><groupId>org.junit.jupiter</groupId><artifactId>junit-jupiter</artifactId><version>5.13.4</version><scope>test</scope></dependency>
   </dependencies>

@@ -13,7 +13,7 @@ import java.nio.file.Path;
 import java.util.Base64;
 import java.util.List;
 import java.util.Set;
-import java.util.zip.ZipFile;
+
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -25,7 +25,7 @@ final class RiftMageTechnodistrictContractTest {
     private static final Path PORTAL_ITEM = SERVER.resolve("Item/Items/Portal/EndlessElite/EndlessElite_RiftMage_Portal.json");
     private static final Path PORTAL_TYPE = SERVER.resolve("PortalTypes/EndlessElite_RiftMage_Portal.json");
     private static final Path WAVES = DLC.resolve("waves/rift_mage_technodistrict_waves.json");
-    private static final Path ASSETS = Path.of("C:/Users/agege/Desktop/LOKAL SERVER/Assets.zip");
+
 
     @Test
     void installedParserReceivesCompleteInstanceRoutingAndWaveContract() throws Exception {
@@ -66,9 +66,8 @@ final class RiftMageTechnodistrictContractTest {
         assertEquals("ScifiBlockLandscape", structure.get("DefaultBiome").getAsString());
         assertEquals(0, structure.getAsJsonArray("Biomes").size());
 
-        try (ZipFile assets = new ZipFile(ASSETS.toFile())) {
-            assertNotNull(assets.getEntry("Server/HytaleGenerator/Biomes/Experimental/ScifiBlockLandscape.json"));
-        }
+        NativeAssetEvidence.assertEntries(List.of(
+                "Server/HytaleGenerator/Biomes/Experimental/ScifiBlockLandscape.json"));
     }
 
     @Test
@@ -144,14 +143,10 @@ final class RiftMageTechnodistrictContractTest {
         assertFalse(root.has("health_multiplier"), "EndlessEliteMobs/EndlessLeveling remain scaling authorities");
         assertFalse(root.has("damage_multiplier"), "EndlessEliteMobs/EndlessLeveling remain scaling authorities");
 
-        try (ZipFile assets = new ZipFile(ASSETS.toFile())) {
-            for (String role : List.of(
-                    "Server/NPC/Roles/Void/Eye_Void.json",
-                    "Server/NPC/Roles/Void/Spectre_Void.json",
-                    "Server/NPC/Roles/Intelligent/Aggressive/Outlander/Outlander_Sorcerer.json")) {
-                assertNotNull(assets.getEntry(role), role);
-            }
-        }
+        NativeAssetEvidence.assertEntries(List.of(
+                "Server/NPC/Roles/Void/Eye_Void.json",
+                "Server/NPC/Roles/Void/Spectre_Void.json",
+                "Server/NPC/Roles/Intelligent/Aggressive/Outlander/Outlander_Sorcerer.json"));
     }
 
     @Test

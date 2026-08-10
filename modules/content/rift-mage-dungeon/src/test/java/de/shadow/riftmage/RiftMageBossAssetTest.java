@@ -9,13 +9,13 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
-import java.util.zip.ZipFile;
+
 
 import static org.junit.jupiter.api.Assertions.*;
 
 final class RiftMageBossAssetTest {
     private static final Path ROLE = Path.of("src", "main", "dlc", "server", "Server", "NPC", "Roles", "EndlessElite", "EndlessElite_RiftMage.json");
-    private static final Path ASSETS = Path.of("C:/Users/agege/Desktop/LOKAL SERVER/Assets.zip");
+
 
     @Test
     void roleUsesOnlyProvenNativeCombatAndVisualReferences() throws Exception {
@@ -42,19 +42,14 @@ final class RiftMageBossAssetTest {
         JsonObject nameParameter = root.getAsJsonObject("Parameters").getAsJsonObject("NameTranslationKey");
         assertEquals("endlesselite.npcRoles.RiftMage.name", nameParameter.get("Value").getAsString());
 
-        try (ZipFile assets = new ZipFile(ASSETS.toFile())) {
-            for (String entry : List.of(
-                    "Server/NPC/Roles/Intelligent/Aggressive/Trork/Templates/Template_Trork_Mage.json",
-                    "Server/NPC/Roles/Intelligent/Aggressive/Outlander/Outlander_Sorcerer.json",
-                    "Server/NPC/Roles/Intelligent/Aggressive/Outlander/Components/Component_Instruction_Attack_Sequence_Outlander_Sorcerer_Ranged.json",
-                    "Server/Models/Void/Necromancer_Void.json",
-                    "Server/Item/Items/Weapon/Spellbook/Weapon_Spellbook_Demon.json",
-                    "Server/NPC/Roles/Void/Spawn_Void.json",
-                    "Server/Item/Interactions/NPCs/Undead/Skeleton_Archmage/Skeleton_Archmage_Staff_Corruption_Orb.json"
-            )) {
-                assertNotNull(assets.getEntry(entry), entry);
-            }
-        }
+        NativeAssetEvidence.assertEntries(List.of(
+                "Server/NPC/Roles/Intelligent/Aggressive/Trork/Templates/Template_Trork_Mage.json",
+                "Server/NPC/Roles/Intelligent/Aggressive/Outlander/Outlander_Sorcerer.json",
+                "Server/NPC/Roles/Intelligent/Aggressive/Outlander/Components/Component_Instruction_Attack_Sequence_Outlander_Sorcerer_Ranged.json",
+                "Server/Models/Void/Necromancer_Void.json",
+                "Server/Item/Items/Weapon/Spellbook/Weapon_Spellbook_Demon.json",
+                "Server/NPC/Roles/Void/Spawn_Void.json",
+                "Server/Item/Interactions/NPCs/Undead/Skeleton_Archmage/Skeleton_Archmage_Staff_Corruption_Orb.json"));
     }
 
     @Test

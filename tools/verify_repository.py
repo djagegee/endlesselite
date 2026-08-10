@@ -5,6 +5,7 @@ from __future__ import annotations
 import json
 import re
 import sys
+import xml.etree.ElementTree as ET
 from collections import defaultdict
 from pathlib import Path
 
@@ -24,6 +25,7 @@ SECRET_PATTERNS = (
     re.compile(r"authorization\s*:\s*(?:bearer|basic)\s+", re.I),
     re.compile(r"password\s*[:=]\s*['\"][^'\"]+", re.I),
 )
+PRIVATE_PUBLIC_PATH = re.compile(r"(?i)[A-Z]:[\\/]Users[\\/][^\\/\s\"']+")
 
 
 def fail(message: str) -> None:
@@ -33,6 +35,21 @@ def fail(message: str) -> None:
 def main() -> int:
     manifests = []
     fqcn_to_paths: dict[str, list[str]] = defaultdict(list)
+
+    maven_namespace = {"m": "http://maven.apache.org/POM/4.0.0"}
+    system_paths = []
+    user_paths = []
+    for pom in ROOT.rglob("pom.xml"):
+        document = ET.parse(pom)
+        for node in document.findall(".//m:systemPath", maven_namespace):
+            system_paths.append(f"{pom.relative_to(ROOT)}:{node.text}")
+        text = pom.read_text(encoding="utf-8")
+        if re.search(r"[A-Za-z]:[/\\]Users[/\\]", text, re.I):
+            user_paths.append(str(pom.relative_to(ROOT)))
+    if system_paths:
+        fail(f"Non-portable Maven systemPath dependencies: {system_paths}")
+    if user_paths:
+        fail(f"User-specific absolute paths in Maven configuration: {user_paths}")
 
     for manifest_path in MODULES.rglob("src/main/resources/manifest.json"):
         manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
@@ -83,6 +100,7 @@ def main() -> int:
         fail(f"Forbidden generated/binary files outside ignored outputs: {forbidden}")
 
     secret_hits = []
+    private_path_hits = []
     for path in tracked_candidates:
         if path.suffix.lower() in {".png", ".zip"}:
             continue
@@ -90,8 +108,12 @@ def main() -> int:
         for line_number, line in enumerate(text.splitlines(), 1):
             if any(pattern.search(line) for pattern in SECRET_PATTERNS):
                 secret_hits.append(f"{path.relative_to(ROOT)}:{line_number}")
+            if PRIVATE_PUBLIC_PATH.search(line):
+                private_path_hits.append(f"{path.relative_to(ROOT)}:{line_number}")
     if secret_hits:
         fail(f"Potential secrets: {secret_hits}")
+    if private_path_hits:
+        fail(f"User-specific paths in public text: {private_path_hits}")
 
     rift_gate = json.loads((MODULES / "content/rift-mage-dungeon/src/main/dlc/release-gate.json").read_text(encoding="utf-8"))
     if rift_gate.get("deployment_allowed") is not False:

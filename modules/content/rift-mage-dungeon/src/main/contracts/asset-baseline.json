@@ -1,13 +1,16 @@
 {
-  "source_archive": "C:/Users/agege/Desktop/LOKAL SERVER/Assets.zip",
+  "source_archive": "$HYTALE_ASSETS_ZIP",
   "ownership_rule": "copy_or_extend_never_override_native_assets",
   "world": {
     "prototype_prefab_family": "Server/Prefabs/Dungeon/Magic_Ruins/",
+    "prototype_prefab_count": 100,
     "boss_room_reference": "Server/Prefabs/Dungeon/Magic_Ruins/Structured_Cave/Boss/Magic_Ruins_Structured_Cave_Boss_001.prefab.json",
     "custom_template_target": "server/worldgen/EndlessElite_Technodistrict"
   },
   "boss": {
     "behavior_reference": "Server/NPC/Roles/Intelligent/Aggressive/Outlander/Outlander_Sorcerer.json",
+    "behavior_template": "Template_Trork_Mage",
+    "behavior_ranged_attack": "Skeleton_Archmage_Staff_Corruption_Orb",
     "visual_model_reference": "Server/Models/Void/Necromancer_Void.json",
     "spellbook_animation_reference": "Server/Item/Animations/NPC/Void/Necromancer_Void/Necromancer_Void_Spellbook.json",
     "custom_role_target": "Server/NPC/Roles/EndlessElite/EndlessElite_RiftMage.json",
@@ -15,7 +18,27 @@
   },
   "portal": {
     "item_reference": "Server/Item/Items/Portal/Portal_Device.json",
+    "native_has_portal_component": true,
+    "native_active_collision_enter_type": "Portal",
     "custom_item_target": "Server/Item/Items/Portal/EndlessElite_RiftMage_Portal.json",
     "custom_item_id": "EndlessElite_RiftMage_Portal"
+  },
+  "required_native_entries": {
+    "Server/Prefabs/Dungeon/Magic_Ruins/Structured_Cave/Boss/Magic_Ruins_Structured_Cave_Boss_001.prefab.json": "eeaa6bca5ae4e9d90bff13cb6f386bd03c27fee7d9f7d24d5d3a8a61a5f0bf9d",
+    "Server/NPC/Roles/Intelligent/Aggressive/Trork/Templates/Template_Trork_Mage.json": "7e88003e6c9ef21004e2e8b638bcb3e9ae9b8baa1d3a072b1621c198051ef1ea",
+    "Server/NPC/Roles/Intelligent/Aggressive/Outlander/Outlander_Sorcerer.json": "7ca7edcfc5ac9e0ca0a4af596ffab4ef0f5cdb58ef209e19e77009e865e5c52b",
+    "Server/NPC/Roles/Intelligent/Aggressive/Outlander/Components/Component_Instruction_Attack_Sequence_Outlander_Sorcerer_Ranged.json": "b396005f541c863cd6ae381ae3c32ea2c093de4f16e338fce3f0155905bf6a24",
+    "Server/Models/Void/Necromancer_Void.json": "b6bafb4b19852f36832f8bd0a9260c8e108fc2725236758d8b2443ecb1d89a4f",
+    "Server/Item/Items/Weapon/Spellbook/Weapon_Spellbook_Demon.json": "13394ba8484c6f0c82a835c36d3d3bf4cfba27380c34ba44ae8623db8f9190ba",
+    "Server/NPC/Roles/Void/Spawn_Void.json": "f2dfddf90780ab2c6129393b6ad4391df1c430168562fca8a9cb7d152f4015b7",
+    "Server/Item/Interactions/NPCs/Undead/Skeleton_Archmage/Skeleton_Archmage_Staff_Corruption_Orb.json": "f7ef5fd9074e91fe52137d4921271b4a9e8600f3d2b0fa7a55a77d37bf9b510b",
+    "Server/Item/Animations/NPC/Void/Necromancer_Void/Necromancer_Void_Spellbook.json": "66b5d53b3e22fce73efc8525f3a44ff4bc6e30b586fc70f73254e4f9164d8e64",
+    "Server/Item/Items/Portal/Portal_Device.json": "47f54e2677071171efecb42bf70e16a3c398e8abd15a70c7a3e7cf1466281a15",
+    "Common/Icons/ItemsGenerated/PortalKey_Howling_Sands.png": "c8f98eac562342fb1ada6d7d7779d7a3b1a95e1559dfea10515d4f18fbb5e2c1",
+    "Common/Blocks/Miscellaneous/Portal_Shard.blockymodel": "b4ec8b1b8f2644cb4e87b88ea0b963c5c9fd17e468edca546adad966eebb0c53",
+    "Common/Blocks/Miscellaneous/Portal_Shard_Texture.png": "0d8f583c60e67371e01d28355dcc94f17c121632daa502d1f121ca2f8d89e962",
+    "Server/HytaleGenerator/Biomes/Experimental/ScifiBlockLandscape.json": "2fecc552edf7c74ad0afe94b4d331dcb07988f5310de4ef006a2780cd1198457",
+    "Server/NPC/Roles/Void/Eye_Void.json": "79c7bd3e094d708b7c33675ca2fda293ff8356294846f6faeb4d43de81bfd43e",
+    "Server/NPC/Roles/Void/Spectre_Void.json": "71c57f93b51b8f635c9901ed310430995e71bf7343984881365da7090330d35a"
   }
 }

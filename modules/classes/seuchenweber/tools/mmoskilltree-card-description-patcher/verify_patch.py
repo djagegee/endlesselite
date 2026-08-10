@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+import os
+import shutil
 import subprocess
 import sys
 import zipfile
@@ -8,12 +10,24 @@ from pathlib import Path
 RENDERER = "com/ziggfreed/mmoskilltree/ability/AbilityDescriptionRenderer.class"
 BIND_PAGE = "com/ziggfreed/mmoskilltree/pages/skill/AbilityBindPage.class"
 EXPECTED = {RENDERER, BIND_PAGE}
-JAVAP = Path(r"C:\Users\agege\AppData\Local\Programs\Java\jdk-25.0.4+7\bin\javap.exe")
+
+
+def javap_tool() -> Path:
+    executable = "javap.exe" if os.name == "nt" else "javap"
+    java_home = os.environ.get("JAVA_HOME")
+    if java_home:
+        candidate = Path(java_home) / "bin" / executable
+        if candidate.is_file():
+            return candidate
+    discovered = shutil.which(executable)
+    if discovered:
+        return Path(discovered)
+    raise RuntimeError("javap not found; set JAVA_HOME to JDK 25")
 
 
 def javap(jar: Path, class_name: str) -> str:
     result = subprocess.run(
-        [str(JAVAP), "-classpath", str(jar), "-p", "-c", class_name],
+        [str(javap_tool()), "-classpath", str(jar), "-p", "-c", class_name],
         check=True, capture_output=True)
     return result.stdout.decode("utf-8", "replace")
 

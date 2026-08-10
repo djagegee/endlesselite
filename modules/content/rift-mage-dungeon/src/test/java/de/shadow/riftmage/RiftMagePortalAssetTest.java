@@ -9,14 +9,14 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
 import java.util.Set;
-import java.util.zip.ZipFile;
+
 
 import static org.junit.jupiter.api.Assertions.*;
 
 final class RiftMagePortalAssetTest {
     private static final Path PORTAL = Path.of("src", "main", "dlc", "server", "Server", "Item", "Items", "Portal", "EndlessElite", "EndlessElite_RiftMage_Portal.json");
     private static final Path LANGUAGES = Path.of("src", "main", "dlc", "server", "Server", "Languages");
-    private static final Path ASSETS = Path.of("C:/Users/agege/Desktop/LOKAL SERVER/Assets.zip");
+
 
     @Test
     void portalKeyUsesCanonicalNativeContractWithoutCustomInteractionCode() throws Exception {
@@ -44,14 +44,10 @@ final class RiftMagePortalAssetTest {
                 root.getAsJsonObject("Tags").getAsJsonArray("Type").spliterator(), false)
                 .map(value -> value.getAsString()).toList());
 
-        try (ZipFile assets = new ZipFile(ASSETS.toFile())) {
-            for (String entry : List.of(
-                    "Common/Icons/ItemsGenerated/PortalKey_Howling_Sands.png",
-                    "Common/Blocks/Miscellaneous/Portal_Shard.blockymodel",
-                    "Common/Blocks/Miscellaneous/Portal_Shard_Texture.png")) {
-                assertNotNull(assets.getEntry(entry), entry);
-            }
-        }
+        NativeAssetEvidence.assertEntries(List.of(
+                "Common/Icons/ItemsGenerated/PortalKey_Howling_Sands.png",
+                "Common/Blocks/Miscellaneous/Portal_Shard.blockymodel",
+                "Common/Blocks/Miscellaneous/Portal_Shard_Texture.png"));
     }
 
     @Test

@@ -25,9 +25,7 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.release>25</maven.compiler.release>
-    <hytale.server.root>C:/Users/agege/Desktop/LOKAL SERVER</hytale.server.root>
-    <hytale.mods.root>${hytale.server.root}/mods</hytale.mods.root>
-    <hytale.mod.stash>${hytale.server.root}/disabled-mods/baseline-isolation-2026-08-05</hytale.mod.stash>
+
     <junit.version>5.12.2</junit.version>
     <endlesselite.version>0.1.0-SNAPSHOT</endlesselite.version>
   </properties>

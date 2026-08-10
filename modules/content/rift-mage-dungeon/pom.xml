@@ -21,16 +21,16 @@
     <dependency>
       <groupId>com.hypixel.hytale</groupId>
       <artifactId>hytale-server</artifactId>
-      <version>local</version>
-      <scope>system</scope>
-      <systemPath>${hytale.server.root}/HytaleServer.jar</systemPath>
+      <version>0.5.0-local</version>
+      <scope>provided</scope>
+
     </dependency>
     <dependency>
       <groupId>com.airijko</groupId>
-      <artifactId>endless-leveling</artifactId>
-      <version>11.6.1</version>
-      <scope>system</scope>
-      <systemPath>${hytale.server.root}/mods/EndlessLeveling.jar</systemPath>
+      <artifactId>endless-leveling-core</artifactId>
+      <version>11.6.1-local</version>
+      <scope>provided</scope>
+
     </dependency>
     <dependency>
       <groupId>org.junit.jupiter</groupId>

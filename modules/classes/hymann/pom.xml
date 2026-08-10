@@ -31,29 +31,29 @@
             <groupId>com.hypixel.hytale</groupId>
             <artifactId>hytale-server</artifactId>
             <version>0.5.0-local</version>
-            <scope>system</scope>
-            <systemPath>${hytale.server.root}/HytaleServer.jar</systemPath>
+            <scope>provided</scope>
+
         </dependency>
         <dependency>
             <groupId>com.airijko</groupId>
             <artifactId>endless-leveling-core</artifactId>
             <version>11.6.1-local</version>
-            <scope>system</scope>
-            <systemPath>${hytale.mods.root}/EndlessLeveling.jar</systemPath>
+            <scope>provided</scope>
+
         </dependency>
         <dependency>
             <groupId>com.ziggfreed</groupId>
             <artifactId>mmo-skill-tree</artifactId>
             <version>1.5.2-local</version>
-            <scope>system</scope>
-            <systemPath>${hytale.mods.root}/MMOSkillTree-1.5.2.jar</systemPath>
+            <scope>provided</scope>
+
         </dependency>
         <dependency>
             <groupId>com.narwhals</groupId>
             <artifactId>perfect-utils</artifactId>
             <version>1.1.0-local</version>
-            <scope>system</scope>
-            <systemPath>${hytale.mods.root}/Perfect Utils-1.1.0.jar</systemPath>
+            <scope>provided</scope>
+
         </dependency>
         <dependency>
             <groupId>org.junit.jupiter</groupId>
