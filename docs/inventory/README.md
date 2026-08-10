@@ -9,7 +9,7 @@ Audit: 2026-08-10
 | EndlessBook | `2.0.0-SNAPSHOT` | `2.0.0` | 17 | 9 | 14 | vollständiges Serverplugin-Quellmodul |
 | Hymann | `0.1.9` | `0.1.9` | 34 | 2 | 50 | vollständiges Serverplugin-Quellmodul |
 | Nachtweber | `0.1.0-SNAPSHOT` | `0.1.0` | 74 | 13 | 2 | vollständiges Serverplugin-Quellmodul |
-| Seuchenweber | `0.1.0-SNAPSHOT` | `0.1.0` | 37 | 34 | 29 | vollständiges Serverplugin-Quellmodul |
+| Seuchenweber | `0.1.0-SNAPSHOT` | `0.1.0` | 37 | 34 | 29 | vollständiges Serverplugin-Quellmodul; 4 erzeugte Patcher-`.class`-Dateien ausgeschlossen |
 | RiftMageDungeon | `0.1.1-SNAPSHOT` | `—` | 0 | 6 | 9 | datengetriebenes Content-/Contract-Modul |
 
 ## Eigene Binär-/Backupfassungen
