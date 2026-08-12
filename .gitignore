@@ -14,8 +14,8 @@ desktop.ini
 
 # Local Hytale runtime and dependencies
 /.local/
-/runtime/
-/server/
+runtime/
+server/
 /HytaleServer.jar
 /Assets.zip
 /dist/
@@ -43,12 +43,8 @@ __pycache__/
 surefire-reports/
 failsafe-reports/
 
-# Graphify: keep graph.json and GRAPH_REPORT.md; ignore local cache/UI
-/graphify-out/cache/
-/graphify-out/graph.html
-/graphify-out/manifest.json
-/graphify-out/.graphify*
-/graphify-out/cost.json
+# Graphify generated output
+/graphify-out/
 
 # Temporary and backup files
 *.tmp
